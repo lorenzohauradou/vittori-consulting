@@ -136,14 +136,30 @@ export default function About() {
                     </motion.p>
                 </motion.div>
 
-                <div className="relative min-h-[900px] lg:min-h-[1000px] mb-24">
+                {/* Desktop: Orbital Animation */}
+                <div className="hidden lg:block relative min-h-[1000px] mb-24">
                     {teamMembers.map((member) => (
                         <TeamCard
                             key={member.name}
                             member={member}
                             scrollYProgress={scrollYProgress}
+                            isMobile={false}
                         />
                     ))}
+                </div>
+
+                {/* Mobile: Grid Layout */}
+                <div className="lg:hidden mb-24">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                        {teamMembers.map((member) => (
+                            <TeamCard
+                                key={member.name}
+                                member={member}
+                                scrollYProgress={scrollYProgress}
+                                isMobile={true}
+                            />
+                        ))}
+                    </div>
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
@@ -352,9 +368,10 @@ export default function About() {
     )
 }
 
-function TeamCard({ member, scrollYProgress }: {
+function TeamCard({ member, scrollYProgress, isMobile }: {
     member: TeamMember,
-    scrollYProgress?: MotionValue<number>
+    scrollYProgress?: MotionValue<number>,
+    isMobile: boolean
 }) {
     const getAnimationValues = (position: string) => {
         switch (position) {
@@ -454,6 +471,49 @@ function TeamCard({ member, scrollYProgress }: {
         ? 'w-54 h-60 md:w-70 md:h-66'
         : 'w-54 h-60 md:w-70 md:h-66'
 
+    if (isMobile) {
+        // Mobile: Simple grid layout
+        return (
+            <motion.div
+                initial={{
+                    opacity: 0,
+                    y: 30
+                }}
+                whileInView={{
+                    opacity: 1,
+                    y: 0
+                }}
+                transition={{
+                    duration: 0.6,
+                    delay: member.delay * 0.2,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 15
+                }}
+                viewport={{ once: false }}
+                className={member.position === 'center' ? 'sm:col-span-2 mx-auto' : ''}
+            >
+                <div className={`${member.position === 'center' ? 'w-72 h-80' : 'w-64 h-72'} bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center mx-auto`}>
+                    <div className={`${member.position === 'center' ? 'w-20 h-20' : 'w-16 h-16'} bg-gradient-to-br ${getGradientColor(member.name)} rounded-full mb-4 flex items-center justify-center shadow-lg`}>
+                        <span className={`${member.position === 'center' ? 'text-2xl' : 'text-lg'} font-bold text-white`}>
+                            {member.name.charAt(0)}
+                        </span>
+                    </div>
+                    <h3 className={`font-bold text-gray-900 mb-2 ${member.position === 'center' ? 'text-xl' : 'text-lg'}`}>
+                        {member.name}
+                    </h3>
+                    <p className={`text-blue-600 font-semibold mb-3 ${member.position === 'center' ? 'text-base' : 'text-sm'}`}>
+                        {member.role}
+                    </p>
+                    <blockquote className={`text-gray-600 italic leading-relaxed ${member.position === 'center' ? 'text-sm' : 'text-xs'}`}>
+                        &ldquo;{member.quote}&rdquo;
+                    </blockquote>
+                </div>
+            </motion.div>
+        )
+    }
+
+    // Desktop: Orbital animation
     return (
         <motion.div
             className={`absolute ${getPositionClasses(member.position)}`}
