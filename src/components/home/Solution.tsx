@@ -55,14 +55,6 @@ export default function Solution() {
                                 Guarda il video: ti mostriamo, passo dopo passo, come far crescere la tua azienda.
                             </p>
 
-                            <div className="bg-green-500/25 rounded-xl p-4 mb-6 border border-green-400/40 shadow-lg">
-                                <p className="text-green-200 font-semibold mb-1">
-                                    Ma c&apos;è di più: siamo talmente sicuri dei risultati che se non sei soddisfatto, ti rimborsiamo.
-                                </p>
-                                <p className="text-white font-bold">
-                                    Zero rischi, solo fatti.
-                                </p>
-                            </div>
 
                             <p className="text-white/90 mb-6">
                                 Riprenditi i clienti che oggi stanno scegliendo i tuoi competitor.
@@ -77,7 +69,7 @@ export default function Solution() {
                             </motion.button>
 
                             <p className="text-sm text-white/70 italic text-center">
-                                Il tuo tempo è prezioso: smetti di inseguire promesse vuote.
+                                Il tuo tempo è prezioso: smetti di inseguire promesse vuote, soddisfatto o rimborsato.
                             </p>
                         </div>
                     </motion.div>
