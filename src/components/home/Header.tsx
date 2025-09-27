@@ -18,15 +18,15 @@ export default function Header() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center h-16 lg:h-20">
                     <div className="flex-shrink-0">
-                        <div className="w-72 lg:w-100 flex items-center justify-center">
+                        <a href="#" className="w-72 lg:w-100 flex items-center justify-center">
                             <Image
                                 src="/images/logo/logo-extend.png"
                                 alt="Vittori Consulting"
                                 width={300}
                                 height={300}
-                                className="lg:w-[500px] lg:h-[500px]"
+                                className="lg:w-[500px] lg:h-[500px] hover:opacity-90 transition-opacity duration-100"
                             />
-                        </div>
+                        </a>
                     </div>
                     <nav className="hidden lg:flex items-center space-x-2">
                         {menuItems.map((item, index) => (

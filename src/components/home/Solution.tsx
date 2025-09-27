@@ -93,8 +93,6 @@ export default function Solution() {
                                         <stop offset="100%" stopColor="rgba(59,130,246,0.6)" />
                                     </linearGradient>
                                 </defs>
-
-                                {/* Linee di connessione statiche - senza animazioni */}
                                 {methodSteps.map((step, index) => {
                                     const nextStep = methodSteps[(index + 1) % methodSteps.length]
                                     return (
@@ -111,8 +109,6 @@ export default function Solution() {
                                         />
                                     )
                                 })}
-
-                                {/* Punti statici - senza animazioni Framer Motion */}
                                 {methodSteps.map((step, index) => (
                                     <g key={step.name}>
                                         <circle
