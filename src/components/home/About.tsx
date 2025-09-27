@@ -132,7 +132,7 @@ export default function About() {
                             whileInView={{ color: "#ffffff" }}
                             transition={{ duration: 2, ease: "easeInOut", delay: 0.7 }}
                             viewport={{ once: true, amount: 0.3 }}
-                        >180 imprenditori e PMI</motion.span>.
+                        >180 imprenditori e PMI</motion.span>
                     </motion.p>
                 </motion.div>
 
@@ -162,7 +162,7 @@ export default function About() {
                     </div>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+                <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-16 items-center mb-24">
                     <div className="relative z-10 flex justify-center lg:justify-start">
                         <IPhoneCanvas
                             title="Il Nostro Team"
@@ -279,7 +279,7 @@ export default function About() {
                                             transition={{ duration: 2, ease: "easeInOut", delay: 0.8 }}
                                             viewport={{ once: true, amount: 0.3 }}
                                         >
-                                            Devoti al risultato • Ossessivi con il cliente (nel senso buono) • Invasivi ma efficaci
+                                            • Devoti al risultato<br /> • Ossessivi con il cliente (nel senso buono)<br /> • Invasivi ma efficaci
                                         </motion.p>
                                     </div>
                                 </motion.div>
@@ -313,7 +313,7 @@ export default function About() {
                                             transition={{ duration: 2, ease: "easeInOut", delay: 0.9 }}
                                             viewport={{ once: true, amount: 0.3 }}
                                         >
-                                            consulenti, creativi, operatori e cani da guardia della performance
+                                            Consulenti, creativi, operatori e cani da guardia della performance
                                         </motion.p>
                                     </div>
                                 </motion.div>

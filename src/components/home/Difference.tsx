@@ -89,7 +89,7 @@ export default function Difference() {
                                 La Differenza la senti Subito:
                                 <br />
                                 <span className="text-[#2e54a1] relative">
-                                    Chiarezza e Risultati Veri
+                                    Chiarezza e <span className="font-extrabold text-gray-900">Risultati Veri</span>
                                     <motion.div
                                         initial={{ scaleX: 0 }}
                                         whileInView={{ scaleX: 1 }}
@@ -163,7 +163,7 @@ export default function Difference() {
                                 viewport={{ once: true, margin: "-50px" }}
                                 className="text-center"
                             >
-                                <p className="text-xl font-bold text-gray-900 bg-gradient-to-r from-gray-50 to-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                                <p className="text-xl font-bold text-gray-900 bg-transparent backdrop-blur-sm rounded-2xl p-6 border border-gray-100 shadow-sm">
                                     Viralità strategica che si trasforma in contratti reali, non solo promesse
                                 </p>
                             </motion.div>

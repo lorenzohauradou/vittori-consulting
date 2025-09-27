@@ -98,12 +98,12 @@ export default function Testimonials() {
                     viewport={{ once: true, margin: "-50px" }}
                     className="mb-16"
                 >
-                    <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 shadow-2xl overflow-hidden">
-                        <h4 className="text-2xl font-bold text-[#2e54a1] mb-8 text-center">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 lg:p-8 border border-white/50 shadow-2xl overflow-hidden">
+                        <h4 className="text-xl lg:text-2xl font-bold text-[#2e54a1] mb-6 lg:mb-8 text-center">
                             Video Testimonianze dei Nostri Clienti
                         </h4>
 
-                        <div className="overflow-x-auto">
+                        <div className="hidden lg:block overflow-x-auto">
                             <table className="w-full">
                                 <thead>
                                     <tr className="border-b-2 border-[#2e54a1]/20">
@@ -147,6 +147,38 @@ export default function Testimonials() {
                                     ))}
                                 </tbody>
                             </table>
+                        </div>
+
+                        <div className="lg:hidden space-y-4">
+                            {testimonials.map((testimonial) => (
+                                <motion.div
+                                    key={testimonial.company}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: testimonial.delay }}
+                                    viewport={{ once: true, margin: "-30px" }}
+                                    className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-white/30 shadow-lg"
+                                >
+                                    <div className="flex items-center justify-between mb-3">
+                                        <div className="flex-1">
+                                            <h5 className="font-bold text-gray-900 text-lg mb-1">{testimonial.company}</h5>
+                                            <p className="text-gray-600 text-sm">{testimonial.industry}</p>
+                                        </div>
+                                        <motion.button
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            className="inline-flex items-center justify-center w-12 h-12 bg-[#2e54a1] text-white rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg hover:shadow-xl flex-shrink-0"
+                                        >
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </motion.button>
+                                    </div>
+                                    <div className="bg-green-50 rounded-lg p-3">
+                                        <p className="font-bold text-green-600 text-center">{testimonial.result}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
                         </div>
                     </div>
                 </motion.div>
