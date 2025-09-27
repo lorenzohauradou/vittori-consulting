@@ -129,7 +129,7 @@ export default function Problem() {
                                     <div className="flex flex-col items-center text-center">
                                         <div className="w-16 h-16 mb-4 bg-white/30 rounded-xl flex items-center justify-center">
                                         </div>
-                                        <h4 className="text-lg font-bold text-white mb-2">Risultati Garantiti</h4>
+                                        <h4 className="text-lg font-bold text-white mb-2">Risultati Generati</h4>
                                         <p className="text-sm text-blue-100">ROI misurabili e crescita sostenibile</p>
                                     </div>
                                 </motion.div>
