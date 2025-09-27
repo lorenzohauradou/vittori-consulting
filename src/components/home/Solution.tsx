@@ -33,7 +33,7 @@ export default function Solution() {
                         </h2>
                         <div className="relative inline-block mb-8">
                             <h3 className="text-3xl lg:text-5xl font-bold text-white mb-4">
-                                Metodo Vittori 360
+                                Metodo Vittori 360°
                             </h3>
                             <div className="absolute -bottom-1 left-0 right-0 h-1 bg-white rounded-full"></div>
                         </div>
@@ -49,7 +49,7 @@ export default function Solution() {
 
                         <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 mb-8 border border-white/30 shadow-xl">
                             <h4 className="text-xl font-bold text-white mb-4">
-                                Vuoi scoprire come funziona davvero il Metodo Vittori 360?
+                                Vuoi scoprire come funziona davvero il Metodo Vittori 360°?
                             </h4>
                             <p className="text-white/90 mb-4">
                                 Guarda il video: ti mostriamo, passo dopo passo, come far crescere la tua azienda.
@@ -83,7 +83,7 @@ export default function Solution() {
                     >
                         <div className="relative w-full h-[500px] bg-white/95 backdrop-blur-sm rounded-3xl border-2 border-white shadow-2xl p-8">
                             <h3 className="text-2xl font-bold text-[#2e54a1] mb-8 text-center">
-                                Metodo Vittori 360
+                                Metodo Vittori 360°
                             </h3>
 
                             <svg className="w-full h-full" viewBox="0 0 400 400">
