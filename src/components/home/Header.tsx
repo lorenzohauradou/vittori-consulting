@@ -8,46 +8,42 @@ export default function Header() {
 
     const menuItems = [
         { label: 'Servizi', href: '#servizi' },
-        { label: 'Soluzioni', href: '#soluzioni' },
-        { label: 'Chi Siamo', href: '#chi-siamo' },
-        { label: 'Lavori', href: '#lavori' },
-        { label: 'About', href: '#about' }
+        { label: 'Casi Studio', href: '#testimonials' },
+        { label: 'Chi Siamo', href: '#about' },
+        { label: 'Contatti', href: '#footer' }
     ]
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16 lg:h-20">
-                    <div className="flex-1 lg:flex-shrink-0 lg:flex-1-0">
-                        <div className="flex items-center justify-start">
-                            <div className="w-72 lg:w-100 flex items-center justify-center">
-                                <Image
-                                    src="/images/logo/logo-extend.png"
-                                    alt="Vittori Consulting"
-                                    width={300}
-                                    height={300}
-                                    className="lg:w-[500px] lg:h-[500px]"
-                                />
-                            </div>
+                <div className="flex items-center h-16 lg:h-20">
+                    <div className="flex-shrink-0">
+                        <div className="w-72 lg:w-100 flex items-center justify-center">
+                            <Image
+                                src="/images/logo/logo-extend.png"
+                                alt="Vittori Consulting"
+                                width={300}
+                                height={300}
+                                className="lg:w-[500px] lg:h-[500px]"
+                            />
                         </div>
                     </div>
-
-                    <nav className="hidden lg:flex space-x-8">
-                        {menuItems.map((item) => (
-                            <a
-                                key={item.label}
-                                href={item.href}
-                                className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
-                            >
-                                {item.label}
-                                <svg className="w-4 h-4 ml-1 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </a>
+                    <nav className="hidden lg:flex items-center space-x-2">
+                        {menuItems.map((item, index) => (
+                            <div key={item.label} className="flex items-center">
+                                <a
+                                    href={item.href}
+                                    className="text-gray-500 hover:text-gray-900 px-4 py-2 text-sm font-medium transition-colors duration-200"
+                                >
+                                    {item.label}
+                                </a>
+                                {index < menuItems.length - 1 && (
+                                    <span className="text-gray-300 mx-2">/</span>
+                                )}
+                            </div>
                         ))}
                     </nav>
-
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-4 ml-auto">
                         <button className="hidden lg:block bg-gradient-to-r from-[#2e54a1] to-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300">
                             INIZIA QUI
                         </button>

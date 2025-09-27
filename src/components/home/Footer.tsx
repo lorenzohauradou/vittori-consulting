@@ -65,21 +65,21 @@ export default function Footer() {
     ]
 
     return (
-        <footer className="bg-gray-900 text-white">
-            {/* Main Footer Content */}
+        <footer id="footer" className="bg-gray-900 text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid lg:grid-cols-2 gap-16">
-                    {/* Left Column - Company Info & Links */}
                     <div>
                         <div className="mb-8">
                             <div className="flex items-center gap-4 mb-6">
-                                <Image
-                                    src="/images/logo/logo-extend.png"
-                                    alt="VittoriConsulting Logo"
-                                    width={200}
-                                    height={60}
-                                    className="h-12 w-auto"
-                                />
+                                <div className="w-40 lg:w-60">
+                                    <Image
+                                        src="/images/logo/logo.png"
+                                        alt="VittoriConsulting Logo"
+                                        width={300}
+                                        height={300}
+                                        className="w-full h-auto"
+                                    />
+                                </div>
                             </div>
                             <p className="text-gray-300 text-lg leading-relaxed mb-6">
                                 L&apos;unica agenzia di Roma che integra marketing, operativo e commerciale.
@@ -87,7 +87,6 @@ export default function Footer() {
                             </p>
                         </div>
 
-                        {/* Navigation Links */}
                         <div className="mb-8">
                             <h4 className="text-xl font-bold text-white mb-4">Link Utili</h4>
                             <div className="flex flex-wrap gap-6">
@@ -103,7 +102,6 @@ export default function Footer() {
                             </div>
                         </div>
 
-                        {/* Social Links */}
                         <div>
                             <h4 className="text-xl font-bold text-white mb-4">Seguici</h4>
                             <div className="flex gap-4">
@@ -227,7 +225,6 @@ export default function Footer() {
                 </div>
             </div>
 
-            {/* Bottom Bar */}
             <div className="border-t border-gray-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">

@@ -4,12 +4,14 @@ interface CustomBackgroundProps {
     children: React.ReactNode
     variant?: 'hero' | 'section' | 'gradient'
     className?: string
+    id?: string
 }
 
 export function CustomBackground({
     children,
     variant = 'hero',
-    className = ''
+    className = '',
+    id
 }: CustomBackgroundProps) {
     const getBackgroundClasses = () => {
         switch (variant) {
@@ -63,7 +65,7 @@ export function CustomBackground({
     }
 
     return (
-        <div className={`${getBackgroundClasses()} ${className}`}>
+        <div id={id} className={`${getBackgroundClasses()} ${className}`}>
             {getDecorations()}
             <div className="relative z-10">
                 {children}

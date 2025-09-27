@@ -67,6 +67,7 @@ export default function About() {
 
     return (
         <motion.section
+            id="about"
             ref={containerRef}
             className="py-32 lg:py-48 relative overflow-hidden"
             initial={{ backgroundColor: "#ffffff" }}
