@@ -41,8 +41,8 @@ export default function About() {
         },
         {
             name: 'Lorenzo',
-            role: 'Web Developer',
-            quote: 'Lo sviluppatore dei sogni digitali',
+            role: 'SaaS Developer',
+            quote: 'Learn slow, fail fast, Ship faster',
             photo: '/images/team/lorenzo.jpg',
             position: 'top-right',
             delay: 0.4
