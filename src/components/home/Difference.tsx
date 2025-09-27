@@ -110,7 +110,7 @@ export default function Difference() {
                         >
                             <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-white/40 shadow-lg">
                                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                    Le altre agenzie ti promettono milioni di visualizzazioni e followers.
+                                    Le altre agenzie ti promettono milioni di visualizzazioni e followers
                                 </p>
                                 <p className="text-2xl font-bold text-gray-900">
                                     Noi trasformiamo la visibilità in <span className="bg-gradient-to-r from-[#2e54a1] to-blue-600 bg-clip-text text-transparent font-extrabold">FATTURATO</span>

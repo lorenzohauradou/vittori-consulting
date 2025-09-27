@@ -238,7 +238,7 @@ export default function About() {
                                         transition={{ duration: 2, ease: "easeInOut", delay: 0.7 }}
                                         viewport={{ once: true, amount: 0.3 }}
                                         className="font-extrabold"
-                                    >RIGORE, TRASPARENZA E RESPONSABILITÀ</motion.span>
+                                    >RIGORE, TRASPARENZA E RESPONSABILITÀ!</motion.span>
                                 </motion.p>
                             </div>
                         </motion.div>
