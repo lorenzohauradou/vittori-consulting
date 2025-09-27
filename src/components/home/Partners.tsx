@@ -15,6 +15,8 @@ export default function Partners() {
         { name: 'Passito SpA', logo: '/images/partners/passito-spa.jpg' },
         { name: 'Scavolini Store Fiumicino', logo: '/images/partners/scavolini-store-fiumicino.jpg' },
         { name: 'Il Capriccio Pizzeria', logo: '/images/partners/il-capriccio-pizzeria.png' },
+        { name: 'Summer Fest', logo: '/images/partners/summer.png' },
+        { name: 'Voce', logo: '/images/partners/voce.png' },
         // Duplico per effetto continuo
         { name: 'Magic Box Roma', logo: '/images/partners/logo-magic-box-roma.png' },
         { name: 'Broker Associati', logo: '/images/partners/broker-associati.svg' },
@@ -25,6 +27,8 @@ export default function Partners() {
         { name: 'Passito SpA', logo: '/images/partners/passito-spa.jpg' },
         { name: 'Scavolini Store Fiumicino', logo: '/images/partners/scavolini-store-fiumicino.jpg' },
         { name: 'Il Capriccio Pizzeria', logo: '/images/partners/il-capriccio-pizzeria.png' },
+        { name: 'Summer Fest', logo: '/images/partners/summer.png' },
+        { name: 'Voce', logo: '/images/partners/voce.png' },
     ]
 
     return (
