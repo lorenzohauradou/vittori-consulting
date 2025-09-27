@@ -23,26 +23,26 @@ export default function About() {
 
     const teamMembers: TeamMember[] = [
         {
-            name: 'Valerio Vittori',
-            role: 'Founder',
-            quote: 'Ogni strategia non è teoria: è progettata per funzionare davvero',
-            photo: '/images/team/valerio.jpg',
-            position: 'center',
-            delay: 0
-        },
-        {
             name: 'Camilla',
             role: 'Social Media Manager',
             quote: 'La creatività è un\'arma e lei sa come usarla',
             photo: '/images/team/camilla.jpg',
             position: 'top-left',
-            delay: 0.2
+            delay: 0
         },
         {
             name: 'Lorenzo',
             role: 'SaaS Developer',
             quote: 'Learn slow, fail fast, Ship faster',
             photo: '/images/team/lorenzo.jpg',
+            position: 'center',
+            delay: 0.2
+        },
+        {
+            name: 'Valerio Vittori',
+            role: 'Founder',
+            quote: 'Ogni strategia non è teoria: è progettata per funzionare davvero',
+            photo: '/images/team/valerio.jpg',
             position: 'top-right',
             delay: 0.4
         },
@@ -390,7 +390,6 @@ function TeamCard({ member, index, isMobile }: {
         }
     }
 
-    const isFounder = member.position === 'center'
 
     if (isMobile) {
         // Mobile: Cards più grandi per scroll orizzontale
@@ -443,13 +442,6 @@ function TeamCard({ member, index, isMobile }: {
                         &ldquo;{member.quote}&rdquo;
                     </blockquote>
 
-                    {isFounder && (
-                        <div className="mt-4 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                            <span className="text-xs font-bold text-white uppercase tracking-wide">
-                                Founder
-                            </span>
-                        </div>
-                    )}
                 </div>
             </motion.div>
         )
@@ -505,13 +497,6 @@ function TeamCard({ member, index, isMobile }: {
                     &ldquo;{member.quote}&rdquo;
                 </blockquote>
 
-                {isFounder && (
-                    <div className="mt-3 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                        <span className="text-xs font-bold text-white uppercase tracking-wide">
-                            Founder
-                        </span>
-                    </div>
-                )}
             </div>
         </motion.div>
     )
