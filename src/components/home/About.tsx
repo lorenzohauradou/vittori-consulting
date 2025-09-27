@@ -65,7 +65,14 @@ export default function About() {
     ]
 
     return (
-        <section ref={containerRef} className="bg-gradient-to-b from-white to-blue-50 py-32 lg:py-48">
+        <motion.section
+            ref={containerRef}
+            className="py-32 lg:py-48 relative overflow-hidden"
+            initial={{ backgroundColor: "#ffffff" }}
+            whileInView={{ backgroundColor: "#2e54a1" }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+        >
             <div className="container mx-auto px-4 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -74,12 +81,42 @@ export default function About() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-8">
+                    <motion.h2
+                        className="text-4xl lg:text-6xl font-bold mb-8"
+                        initial={{ color: "#111827" }}
+                        whileInView={{ color: "#ffffff" }}
+                        transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
                         Ma chi siamo?
-                    </h2>
-                    <p className="text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-                        Siamo <span className="font-bold text-blue-600">VittoriConsulting</span> l&apos;unica agenzia di Roma che integra marketing, operativo e commerciale: dalla strategia al branding alla vendita, grazie al <span className="font-bold text-blue-600">METODO VITTORI 360</span> che ha già cambiato il business a oltre <span className="font-bold">180 imprenditori e PMI</span>.
-                    </p>
+                    </motion.h2>
+                    <motion.p
+                        className="text-lg lg:text-xl max-w-4xl mx-auto leading-relaxed"
+                        initial={{ color: "#374151" }}
+                        whileInView={{ color: "#ffffff" }}
+                        transition={{ duration: 2, ease: "easeInOut", delay: 0.7 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
+                        Siamo <motion.span
+                            className="font-bold"
+                            initial={{ color: "#2563eb" }}
+                            whileInView={{ color: "#93c5fd" }}
+                            transition={{ duration: 2, ease: "easeInOut", delay: 0.7 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                        >VittoriConsulting</motion.span> l&apos;unica agenzia di Roma che integra marketing, operativo e commerciale: dalla strategia al branding alla vendita, grazie al <motion.span
+                            className="font-bold"
+                            initial={{ color: "#2563eb" }}
+                            whileInView={{ color: "#93c5fd" }}
+                            transition={{ duration: 2, ease: "easeInOut", delay: 0.7 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                        >METODO VITTORI 360</motion.span> che ha già cambiato il business a oltre <motion.span
+                            className="font-bold"
+                            initial={{ color: "#111827" }}
+                            whileInView={{ color: "#ffffff" }}
+                            transition={{ duration: 2, ease: "easeInOut", delay: 0.7 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                        >180 imprenditori e PMI</motion.span>.
+                    </motion.p>
                 </motion.div>
 
                 <div className="relative min-h-[900px] lg:min-h-[1000px] mb-24">
@@ -99,43 +136,119 @@ export default function About() {
                     viewport={{ once: true }}
                     className="bg-transparent backdrop-blur-md rounded-3xl shadow-xl p-8 lg:p-12"
                 >
-                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 text-center">
+                    <motion.h3
+                        className="text-2xl lg:text-3xl font-bold mb-6 text-center"
+                        initial={{ color: "#111827" }}
+                        whileInView={{ color: "#ffffff" }}
+                        transition={{ duration: 2, ease: "easeInOut", delay: 0.6 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
                         Dietro La Strategia
-                    </h3>
-                    <p className="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto leading-relaxed">
+                    </motion.h3>
+                    <motion.p
+                        className="text-lg mb-8 text-center max-w-3xl mx-auto leading-relaxed"
+                        initial={{ color: "#374151" }}
+                        whileInView={{ color: "#ffffff" }}
+                        transition={{ duration: 2, ease: "easeInOut", delay: 0.7 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
                         Siamo un team giovane e intraprendente, conosciamo il linguaggio dei Social e ci occupiamo di marketing a 360 gradi. Non lasciamo nulla al caso e né al cliente: seguiamo ogni fase con rigore, trasparenza e responsabilità.
-                    </p>
+                    </motion.p>
 
                     <div className="grid md:grid-cols-2 gap-8 mb-8">
                         <div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-4">Ci definiamo:</h4>
-                            <ul className="space-y-2 text-gray-700">
-                                <li className="flex items-center">
-                                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                            <motion.h4
+                                className="text-xl font-bold mb-4"
+                                initial={{ color: "#111827" }}
+                                whileInView={{ color: "#ffffff" }}
+                                transition={{ duration: 2, ease: "easeInOut", delay: 0.8 }}
+                                viewport={{ once: true, amount: 0.3 }}
+                            >
+                                Ci definiamo:
+                            </motion.h4>
+                            <ul className="space-y-2">
+                                <motion.li
+                                    className="flex items-center"
+                                    initial={{ color: "#374151" }}
+                                    whileInView={{ color: "#ffffff" }}
+                                    transition={{ duration: 2, ease: "easeInOut", delay: 0.9 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                >
+                                    <motion.span
+                                        className="w-2 h-2 rounded-full mr-3"
+                                        initial={{ backgroundColor: "#2563eb" }}
+                                        whileInView={{ backgroundColor: "#93c5fd" }}
+                                        transition={{ duration: 2, ease: "easeInOut", delay: 0.9 }}
+                                        viewport={{ once: true, amount: 0.3 }}
+                                    ></motion.span>
                                     Devoti al risultato
-                                </li>
-                                <li className="flex items-center">
-                                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                </motion.li>
+                                <motion.li
+                                    className="flex items-center"
+                                    initial={{ color: "#374151" }}
+                                    whileInView={{ color: "#ffffff" }}
+                                    transition={{ duration: 2, ease: "easeInOut", delay: 1 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                >
+                                    <motion.span
+                                        className="w-2 h-2 rounded-full mr-3"
+                                        initial={{ backgroundColor: "#2563eb" }}
+                                        whileInView={{ backgroundColor: "#93c5fd" }}
+                                        transition={{ duration: 2, ease: "easeInOut", delay: 1 }}
+                                        viewport={{ once: true, amount: 0.3 }}
+                                    ></motion.span>
                                     Ossessivi con il cliente (nel senso buono)
-                                </li>
-                                <li className="flex items-center">
-                                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                </motion.li>
+                                <motion.li
+                                    className="flex items-center"
+                                    initial={{ color: "#374151" }}
+                                    whileInView={{ color: "#ffffff" }}
+                                    transition={{ duration: 2, ease: "easeInOut", delay: 1.1 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                >
+                                    <motion.span
+                                        className="w-2 h-2 rounded-full mr-3"
+                                        initial={{ backgroundColor: "#2563eb" }}
+                                        whileInView={{ backgroundColor: "#93c5fd" }}
+                                        transition={{ duration: 2, ease: "easeInOut", delay: 1.1 }}
+                                        viewport={{ once: true, amount: 0.3 }}
+                                    ></motion.span>
                                     Invasivi ma efficaci
-                                </li>
+                                </motion.li>
                             </ul>
                         </div>
                         <div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-4">Un mix tra:</h4>
-                            <p className="text-gray-700 leading-relaxed">
+                            <motion.h4
+                                className="text-xl font-bold mb-4"
+                                initial={{ color: "#111827" }}
+                                whileInView={{ color: "#ffffff" }}
+                                transition={{ duration: 2, ease: "easeInOut", delay: 0.8 }}
+                                viewport={{ once: true, amount: 0.3 }}
+                            >
+                                Un mix tra:
+                            </motion.h4>
+                            <motion.p
+                                className="leading-relaxed"
+                                initial={{ color: "#374151" }}
+                                whileInView={{ color: "#ffffff" }}
+                                transition={{ duration: 2, ease: "easeInOut", delay: 0.9 }}
+                                viewport={{ once: true, amount: 0.3 }}
+                            >
                                 consulenti, creativi, operatori e cani da guardia della performance
-                            </p>
+                            </motion.p>
                         </div>
                     </div>
 
                     <div className="text-center">
-                        <h4 className="text-2xl font-bold text-gray-900 mb-4">
+                        <motion.h4
+                            className="text-2xl font-bold mb-4"
+                            initial={{ color: "#111827" }}
+                            whileInView={{ color: "#ffffff" }}
+                            transition={{ duration: 2, ease: "easeInOut", delay: 0.8 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                        >
                             NOI CI METTIAMO LA FACCIA … E TU?
-                        </h4>
+                        </motion.h4>
                     </div>
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -144,15 +257,34 @@ export default function About() {
                         viewport={{ once: true }}
                         className="text-center"
                     >
-                        <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
+                        <motion.button
+                            className="font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                            initial={{
+                                backgroundColor: "#2563eb",
+                                color: "#ffffff",
+                                borderColor: "#2563eb"
+                            }}
+                            whileInView={{
+                                backgroundColor: "#ffffff",
+                                color: "#2e54a1",
+                                borderColor: "#ffffff"
+                            }}
+                            whileHover={{
+                                scale: 1.05,
+                                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                            }}
+                            transition={{ duration: 2, ease: "easeInOut", delay: 1 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            style={{ border: "2px solid" }}
+                        >
                             INIZIA QUI
-                        </button>
+                        </motion.button>
                     </motion.div>
                 </motion.div>
 
 
             </div>
-        </section>
+        </motion.section>
     )
 }
 
