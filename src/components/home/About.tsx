@@ -32,7 +32,7 @@ export default function About() {
         },
         {
             name: 'Lorenzo',
-            role: 'SaaS Developer',
+            role: 'Developer',
             quote: 'Learn slow, fail fast, Ship faster',
             photo: '/images/team/lorenzo.jpg',
             position: 'center',
