@@ -54,9 +54,9 @@ export default function Partners() {
                         {partners.map((partner, index) => (
                             <div
                                 key={`${partner.name}-${index}`}
-                                className="flex-shrink-0 h-16 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+                                className="flex-shrink-0 h-16 flex items-center justify-center"
                             >
-                                <div className="text-xl font-semibold text-gray-400 hover:text-gray-600 transition-colors duration-300 whitespace-nowrap px-6 py-2 rounded-lg bg-white/50 backdrop-blur-sm border border-gray-200/50">
+                                <div className="whitespace-nowrap px-6 py-2 rounded-lg bg-white/50 backdrop-blur-sm border border-gray-200/50">
                                     <Image src={partner.logo || ''} alt={partner.name} width={100} height={100} />
                                 </div>
                             </div>
