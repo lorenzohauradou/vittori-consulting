@@ -94,41 +94,27 @@ export default function Solution() {
                                     </linearGradient>
                                 </defs>
 
+                                {/* Linee di connessione statiche - senza animazioni */}
                                 {methodSteps.map((step, index) => {
                                     const nextStep = methodSteps[(index + 1) % methodSteps.length]
                                     return (
-                                        <g key={`connection-${index}`}>
-                                            <motion.line
-                                                x1={`${step.position.x}%`}
-                                                y1={`${step.position.y}%`}
-                                                x2={`${nextStep.position.x}%`}
-                                                y2={`${nextStep.position.y}%`}
-                                                stroke="#2e54a1"
-                                                strokeWidth="2"
-                                                strokeDasharray="4,4"
-                                                strokeOpacity="0.6"
-                                                initial={{ pathLength: 0 }}
-                                                whileInView={{ pathLength: 1 }}
-                                                transition={{ duration: 0.8, delay: index * 0.1 }}
-                                                viewport={{ once: true }}
-                                            />
-                                        </g>
+                                        <line
+                                            key={`connection-${index}`}
+                                            x1={`${step.position.x}%`}
+                                            y1={`${step.position.y}%`}
+                                            x2={`${nextStep.position.x}%`}
+                                            y2={`${nextStep.position.y}%`}
+                                            stroke="#2e54a1"
+                                            strokeWidth="2"
+                                            strokeDasharray="4,4"
+                                            strokeOpacity="0.6"
+                                        />
                                     )
                                 })}
 
+                                {/* Punti statici - senza animazioni Framer Motion */}
                                 {methodSteps.map((step, index) => (
-                                    <motion.g
-                                        key={step.name}
-                                        initial={{ opacity: 0, scale: 0 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
-                                        transition={{
-                                            duration: 0.5,
-                                            delay: index * 0.1,
-                                            type: "spring",
-                                            stiffness: 200
-                                        }}
-                                        viewport={{ once: true }}
-                                    >
+                                    <g key={step.name}>
                                         <circle
                                             cx={`${step.position.x}%`}
                                             cy={`${step.position.y}%`}
@@ -155,7 +141,7 @@ export default function Solution() {
                                         >
                                             {step.name}
                                         </text>
-                                    </motion.g>
+                                    </g>
                                 ))}
                             </svg>
                         </div>
