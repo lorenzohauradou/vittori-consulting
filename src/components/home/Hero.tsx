@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CustomBackground } from '@/components/ui/custom-background'
-import StickyContact from '@/components/ui/sticky-contact'
 
 export default function Hero() {
     const [currentPhase, setCurrentPhase] = useState(0)
@@ -253,7 +252,6 @@ export default function Hero() {
                 </div>
             </div>
 
-            <StickyContact />
         </CustomBackground>
     )
 }
