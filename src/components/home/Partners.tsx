@@ -5,26 +5,25 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 export default function Partners() {
-    // Lista dei partner adattata per VittoriConsulting
     const partners = [
-        { name: 'Magic Box Roma', logo: '/images/partners/magic-box-roma.png' },
-        { name: 'Broker Associati', logo: '/images/partners/broker-associati.png' },
+        { name: 'Magic Box Roma', logo: '/images/partners/logo-magic-box-roma.png' },
+        { name: 'Broker Associati', logo: '/images/partners/broker-associati.svg' },
         { name: 'Gelotti', logo: '/images/partners/gelotti.png' },
         { name: 'Ami School', logo: '/images/partners/ami-school.png' },
-        { name: 'Alberto\'s Pizza', logo: '/images/partners/alberto-pizza.jpg' },
-        { name: 'St. Peter Photo', logo: '/images/partners/st-peter-photo.png' },
-        { name: 'Passito SpA', logo: '/images/partners/passito-spa.png' },
-        { name: 'Scavolini Store Fiumicino', logo: '/images/partners/scavolini-store-fiumicino.png' },
+        { name: 'Alberto\'s Pizza', logo: '/images/partners/albertos-pizza.jpg' },
+        { name: 'St. Peter Photo', logo: '/images/partners/st-peter-photo.webp' },
+        { name: 'Passito SpA', logo: '/images/partners/passito-spa.jpg' },
+        { name: 'Scavolini Store Fiumicino', logo: '/images/partners/scavolini-store-fiumicino.jpg' },
         { name: 'Il Capriccio Pizzeria', logo: '/images/partners/il-capriccio-pizzeria.png' },
         // Duplico per effetto continuo
-        { name: 'Magic Box Roma', logo: '/images/partners/magic-box-roma.png' },
-        { name: 'Broker Associati', logo: '/images/partners/broker-associati.png' },
+        { name: 'Magic Box Roma', logo: '/images/partners/logo-magic-box-roma.png' },
+        { name: 'Broker Associati', logo: '/images/partners/broker-associati.svg' },
         { name: 'Gelotti', logo: '/images/partners/gelotti.png' },
         { name: 'Ami School', logo: '/images/partners/ami-school.png' },
-        { name: 'Alberto\'s Pizza', logo: '/images/partners/alberto-pizza.jpg' },
-        { name: 'St. Peter Photo', logo: '/images/partners/st-peter-photo.png' },
-        { name: 'Passito SpA', logo: '/images/partners/passito-spa.png' },
-        { name: 'Scavolini Store Fiumicino', logo: '/images/partners/scavolini-store-fiumicino.png' },
+        { name: 'Alberto\'s Pizza', logo: '/images/partners/albertos-pizza.jpg' },
+        { name: 'St. Peter Photo', logo: '/images/partners/st-peter-photo.webp' },
+        { name: 'Passito SpA', logo: '/images/partners/passito-spa.jpg' },
+        { name: 'Scavolini Store Fiumicino', logo: '/images/partners/scavolini-store-fiumicino.jpg' },
         { name: 'Il Capriccio Pizzeria', logo: '/images/partners/il-capriccio-pizzeria.png' },
     ]
 

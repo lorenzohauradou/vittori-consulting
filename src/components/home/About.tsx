@@ -1,171 +1,305 @@
 'use client'
 
-import React, { useRef, useEffect, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import React, { useRef } from 'react'
+import { motion, useScroll, useTransform, MotionValue } from 'framer-motion'
+
+
+interface TeamMember {
+    name: string
+    role: string
+    quote: string
+    photo: string
+    position: 'center' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
+    delay: number
+}
 
 export default function About() {
     const containerRef = useRef<HTMLDivElement>(null)
-    const [currentStep, setCurrentStep] = useState(0)
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start end", "end start"]
     })
 
-    const scrollStep = useTransform(scrollYProgress, [0, 1], [0, 6])
-
-    useEffect(() => {
-        const unsubscribe = scrollStep.onChange((latest) => {
-            setCurrentStep(Math.floor(latest))
-        })
-        return unsubscribe
-    }, [scrollStep])
-
-    const founder = {
-        name: 'Valerio Vittori',
-        role: 'Founder',
-        quote: 'Ogni strategia non è teoria: è progettata per funzionare davvero'
-    }
-
-    const teamMembers = [
+    const teamMembers: TeamMember[] = [
+        {
+            name: 'Valerio Vittori',
+            role: 'Founder',
+            quote: 'Ogni strategia non è teoria: è progettata per funzionare davvero',
+            photo: '/images/team/valerio.jpg',
+            position: 'center',
+            delay: 0
+        },
         {
             name: 'Camilla',
             role: 'Social Media Manager',
             quote: 'La creatività è un&apos;arma e lei sa come usarla',
-            color: 'from-purple-500 to-purple-600'
+            photo: '/images/team/camilla.jpg',
+            position: 'top-left',
+            delay: 0.2
         },
         {
             name: 'Lorenzo',
             role: 'Web Developer',
             quote: 'Il Designer dei sogni digitali',
-            color: 'from-green-500 to-green-600'
+            photo: '/images/team/lorenzo.jpg',
+            position: 'top-right',
+            delay: 0.4
         },
         {
             name: 'Nicole',
             role: 'Project Manager',
             quote: 'Il Direttore d&apos;Orchestra del Tuo Marketing',
-            color: 'from-pink-500 to-pink-600'
+            photo: '/images/team/nicole.jpg',
+            position: 'bottom-left',
+            delay: 0.6
         },
         {
             name: 'Gioele',
             role: 'Media Buyer',
             quote: 'L&apos;alchimista delle Conversioni',
-            color: 'from-orange-500 to-orange-600'
+            photo: '/images/team/gioele.jpg',
+            position: 'bottom-right',
+            delay: 0.8
         }
     ]
 
     return (
-        <section ref={containerRef} className="relative" style={{ height: '500vh' }}>
-            <div className="sticky top-0 h-screen bg-white overflow-hidden">
-                <div className="max-w-7xl mx-auto px-6 py-12 h-full flex flex-col">
+        <section ref={containerRef} className="bg-gradient-to-b from-white to-blue-50 py-32 lg:py-48">
+            <div className="container mx-auto px-4 lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-16"
+                >
+                    <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-8">
+                        Ma chi siamo?
+                    </h2>
+                    <p className="text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                        Siamo <span className="font-bold text-blue-600">VittoriConsulting</span> l&apos;unica agenzia di Roma che integra marketing, operativo e commerciale: dalla strategia al branding alla vendita, grazie al <span className="font-bold text-blue-600">METODO VITTORI 360</span> che ha già cambiato il business a oltre <span className="font-bold">180 imprenditori e PMI</span>.
+                    </p>
+                </motion.div>
 
-                    {/* Titolo */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: currentStep >= 0 ? 1 : 0, y: currentStep >= 0 ? 0 : 20 }}
-                        transition={{ duration: 0.5 }}
-                        className="text-center mb-8"
-                    >
-                        <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
-                            Ma chi siamo?
-                        </h1>
-                    </motion.div>
+                <div className="relative min-h-[900px] lg:min-h-[1000px] mb-24">
+                    {teamMembers.map((member) => (
+                        <TeamCard
+                            key={member.name}
+                            member={member}
+                            scrollYProgress={scrollYProgress}
+                        />
+                    ))}
+                </div>
 
-                    {/* Valerio - Card principale in alto */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: currentStep >= 0 ? 1 : 0, y: currentStep >= 0 ? 0 : 30 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="flex justify-center mb-12"
-                    >
-                        <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md border border-gray-100">
-                            <div className="text-center">
-                                <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
-                                    <span className="text-3xl font-bold text-white">V</span>
-                                </div>
-                                <h2 className="text-2xl font-bold text-gray-900 mb-2">{founder.name}</h2>
-                                <p className="text-[#2563eb] font-semibold mb-4">{founder.role}</p>
-                                <blockquote className="text-gray-600 italic leading-relaxed">
-                                    &quot;{founder.quote}&quot;
-                                </blockquote>
-                            </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="bg-transparent backdrop-blur-md rounded-3xl shadow-xl p-8 lg:p-12"
+                >
+                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 text-center">
+                        Dietro La Strategia
+                    </h3>
+                    <p className="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto leading-relaxed">
+                        Siamo un team giovane e intraprendente, conosciamo il linguaggio dei Social e ci occupiamo di marketing a 360 gradi. Non lasciamo nulla al caso e né al cliente: seguiamo ogni fase con rigore, trasparenza e responsabilità.
+                    </p>
+
+                    <div className="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h4 className="text-xl font-bold text-gray-900 mb-4">Ci definiamo:</h4>
+                            <ul className="space-y-2 text-gray-700">
+                                <li className="flex items-center">
+                                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                    Devoti al risultato
+                                </li>
+                                <li className="flex items-center">
+                                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                    Ossessivi con il cliente (nel senso buono)
+                                </li>
+                                <li className="flex items-center">
+                                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                    Invasivi ma efficaci
+                                </li>
+                            </ul>
                         </div>
-                    </motion.div>
-
-                    {/* Team cards - Fila orizzontale */}
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                        {teamMembers.map((member, index) => (
-                            <motion.div
-                                key={member.name}
-                                initial={{ opacity: 0, y: 40 }}
-                                animate={{
-                                    opacity: currentStep >= index + 1 ? 1 : 0,
-                                    y: currentStep >= index + 1 ? 0 : 40
-                                }}
-                                transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
-                                className="bg-white rounded-xl shadow-lg p-6 border border-gray-100"
-                            >
-                                <div className="text-center">
-                                    <div className={`w-16 h-16 bg-gradient-to-br ${member.color} rounded-full mx-auto mb-4 flex items-center justify-center shadow-md`}>
-                                        <span className="text-xl font-bold text-white">
-                                            {member.name.charAt(0)}
-                                        </span>
-                                    </div>
-                                    <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
-                                    <p className="text-[#2563eb] font-medium text-sm mb-3">{member.role}</p>
-                                    <blockquote className="text-gray-600 text-sm italic leading-relaxed">
-                                        &quot;{member.quote}&quot;
-                                    </blockquote>
-                                </div>
-                            </motion.div>
-                        ))}
+                        <div>
+                            <h4 className="text-xl font-bold text-gray-900 mb-4">Un mix tra:</h4>
+                            <p className="text-gray-700 leading-relaxed">
+                                consulenti, creativi, operatori e cani da guardia della performance
+                            </p>
+                        </div>
                     </div>
 
-                    {/* Testo aziendale - Semplice e pulito */}
-                    {currentStep >= 4 && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                            className="text-center max-w-4xl mx-auto"
-                        >
-                            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
-                                Siamo <span className="font-bold text-[#2563eb]">VittoriConsulting</span>, l&apos;unica agenzia di Roma che integra marketing, operativo e commerciale.
-                                Grazie al <span className="font-bold text-[#2563eb]">METODO VITTORI 360</span> abbiamo già trasformato oltre 180 business.
-                            </p>
+                    <div className="text-center">
+                        <h4 className="text-2xl font-bold text-gray-900 mb-4">
+                            NOI CI METTIAMO LA FACCIA … E TU?
+                        </h4>
+                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="text-center"
+                    >
+                        <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
+                            INIZIA QUI
+                        </button>
+                    </motion.div>
+                </motion.div>
 
-                            {currentStep >= 5 && (
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ duration: 0.5, delay: 0.3 }}
-                                    className="space-y-6"
-                                >
-                                    <div className="flex flex-wrap justify-center gap-4 mb-8">
-                                        <span className="bg-blue-50 text-[#2563eb] px-4 py-2 rounded-full font-semibold">
-                                            Devoti al risultato
-                                        </span>
-                                        <span className="bg-blue-50 text-[#2563eb] px-4 py-2 rounded-full font-semibold">
-                                            Ossessivi con il cliente
-                                        </span>
-                                        <span className="bg-blue-50 text-[#2563eb] px-4 py-2 rounded-full font-semibold">
-                                            Invasivi ma efficaci
-                                        </span>
-                                    </div>
 
-                                    <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">
-                                        NOI CI METTIAMO LA FACCIA … E TU?
-                                    </h2>
-
-                                    <button className="btn-gradient-primary text-white px-8 py-3 rounded-full font-bold text-lg hover:scale-105 transition-transform duration-200">
-                                        INIZIA QUI
-                                    </button>
-                                </motion.div>
-                            )}
-                        </motion.div>
-                    )}
-                </div>
             </div>
         </section>
+    )
+}
+
+function TeamCard({ member, scrollYProgress }: {
+    member: TeamMember,
+    scrollYProgress?: MotionValue<number>
+}) {
+    const getAnimationValues = (position: string) => {
+        switch (position) {
+            case 'center':
+                return { rotate: 0, x: 0, y: 0 }
+            case 'top-left':
+                return { rotate: -25, x: -200, y: -150 }
+            case 'top-right':
+                return { rotate: 30, x: 200, y: -180 }
+            case 'bottom-left':
+                return { rotate: 15, x: -180, y: 200 }
+            case 'bottom-right':
+                return { rotate: -20, x: 220, y: 170 }
+            default:
+                return { rotate: 0, x: 0, y: 0 }
+        }
+    }
+
+    const animationValues = getAnimationValues(member.position)
+
+    const getGradientColor = (name: string) => {
+        switch (name) {
+            case 'Valerio Vittori':
+                return 'from-blue-500 to-blue-600'
+            case 'Camilla':
+                return 'from-purple-500 to-purple-600'
+            case 'Lorenzo':
+                return 'from-green-500 to-green-600'
+            case 'Nicole':
+                return 'from-pink-500 to-pink-600'
+            case 'Gioele':
+                return 'from-orange-500 to-orange-600'
+            default:
+                return 'from-gray-500 to-gray-600'
+        }
+    }
+
+    const getOrbitRadius = () => {
+        return 380
+    }
+
+    const getOrbitPosition = (position: string, progress: number = 0) => {
+        const radius = getOrbitRadius()
+        const baseAngles = {
+            'top-left': -135,
+            'top-right': -45,
+            'bottom-right': 45,
+            'bottom-left': 135
+        }
+
+        if (position === 'center') {
+            return { x: 0, y: 0 }
+        }
+
+        const baseAngle = baseAngles[position as keyof typeof baseAngles] || 0
+        const rotationAngle = baseAngle + (progress * 720)
+        const radians = (rotationAngle * Math.PI) / 180
+
+        return {
+            x: Math.cos(radians) * radius,
+            y: Math.sin(radians) * radius
+        }
+    }
+
+    const orbitX = useTransform(
+        scrollYProgress || { get: () => 0 } as MotionValue<number>,
+        [0, 0.5, 1],
+        [
+            getOrbitPosition(member.position, 0).x,
+            getOrbitPosition(member.position, 0.5).x,
+            getOrbitPosition(member.position, 1).x
+        ]
+    )
+
+    const orbitY = useTransform(
+        scrollYProgress || { get: () => 0 } as MotionValue<number>,
+        [0, 0.5, 1],
+        [
+            getOrbitPosition(member.position, 0).y,
+            getOrbitPosition(member.position, 0.5).y,
+            getOrbitPosition(member.position, 1).y
+        ]
+    )
+
+
+    const getPositionClasses = (position: string) => {
+        switch (position) {
+            case 'center':
+                return 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10'
+            default:
+                return 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[5]'
+        }
+    }
+
+    const cardScale = member.position === 'center' ? 1.2 : 1
+    const cardSizeClasses = member.position === 'center'
+        ? 'w-64 h-80 md:w-80 md:h-96'
+        : 'w-52 h-68 md:w-64 md:h-80'
+
+    return (
+        <motion.div
+            className={`absolute ${getPositionClasses(member.position)}`}
+            style={{
+                x: member.position !== 'center' ? orbitX : 0,
+                y: member.position !== 'center' ? orbitY : 0
+            }}
+            initial={{
+                opacity: 0,
+                scale: 0.3,
+                rotate: animationValues.rotate
+            }}
+            whileInView={{
+                opacity: 1,
+                scale: cardScale,
+                rotate: 0
+            }}
+            transition={{
+                duration: 1.2,
+                delay: member.delay,
+                type: "spring",
+                stiffness: 100,
+                damping: 15
+            }}
+            viewport={{ once: true }}
+        >
+            <div className={`${cardSizeClasses} bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center`}>
+                <div className={`${member.position === 'center' ? 'w-16 h-16 md:w-20 md:h-20' : 'w-12 h-12 md:w-16 md:h-16'} bg-gradient-to-br ${getGradientColor(member.name)} rounded-full mb-4 flex items-center justify-center shadow-lg`}>
+                    <span className={`${member.position === 'center' ? 'text-lg md:text-2xl' : 'text-sm md:text-lg'} font-bold text-white`}>
+                        {member.name.charAt(0)}
+                    </span>
+                </div>
+                <h3 className={`font-bold text-gray-900 mb-1 ${member.position === 'center' ? 'text-lg md:text-xl' : 'text-sm md:text-lg'}`}>
+                    {member.name}
+                </h3>
+                <p className={`text-blue-600 font-semibold mb-3 ${member.position === 'center' ? 'text-sm md:text-base' : 'text-xs md:text-sm'}`}>
+                    {member.role}
+                </p>
+                <blockquote className={`text-gray-600 italic leading-relaxed ${member.position === 'center' ? 'text-xs md:text-sm' : 'text-xs'}`}>
+                    &ldquo;{member.quote}&rdquo;
+                </blockquote>
+            </div>
+        </motion.div>
     )
 }

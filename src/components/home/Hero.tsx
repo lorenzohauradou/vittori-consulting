@@ -1,88 +1,215 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { CustomBackground } from '@/components/ui/custom-background'
 
 export default function Hero() {
+    const [currentPhase, setCurrentPhase] = useState(0)
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setCurrentPhase(prev => prev === 0 ? 1 : 0)
+        }, currentPhase === 0 ? 2000 : 3000)
+        return () => clearTimeout(timer)
+    }, [currentPhase])
+
     return (
-        <CustomBackground variant="hero" className="min-h-screen flex items-center pt-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-                <div className="grid lg:grid-cols-2 gap-12 items-center h-full">
-                    {/* Contenuto testuale a sinistra */}
+        <CustomBackground variant="hero" className="min-h-screen flex items-center pt-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+                <div className="grid lg:grid-cols-2 gap-16 items-center h-full">
                     <div className="relative z-10 text-left">
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                            Da Competitor a Leader del
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+                            <div className="relative inline-block">
+                                <AnimatePresence mode="wait">
+                                    {currentPhase === 0 ? (
+                                        <motion.span
+                                            key="competitor"
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -20 }}
+                                            transition={{ duration: 0.6 }}
+                                        >
+                                            Da Competitor
+                                        </motion.span>
+                                    ) : (
+                                        <motion.span
+                                            key="leader"
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.6 }}
+                                            className="relative"
+                                        >
+                                            A Leader
+                                            <motion.div
+                                                initial={{ scaleX: 0 }}
+                                                animate={{ scaleX: 1 }}
+                                                transition={{ duration: 0.8, delay: 0.3 }}
+                                                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-white to-blue-200 rounded-full origin-left"
+                                            />
+                                        </motion.span>
+                                    )}
+                                </AnimatePresence>
+                            </div>
                             <br />
-                            <span>Mercato di Roma</span>
+                            {" "}del
+                            <br />
+                            <span className="text-blue-100">Mercato di Roma</span>
                         </h1>
 
-                        <h2 className="text-xl sm:text-2xl font-semibold text-white/95 mb-6 leading-relaxed">
-                            Con l&apos;unico metodo che ha già trasformato il business di <span className=" font-bold">+189 imprenditori</span> e PMI romani.
-                        </h2>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                            className="text-xl sm:text-2xl font-semibold text-white/95 mb-6 leading-relaxed"
+                        >
+                            Con l&apos;unico metodo che ha già trasformato il business di <span className="font-bold">+189 imprenditori</span> e PMI romani.
+                        </motion.h2>
 
-                        <p className="text-lg text-white/90 mb-10 max-w-lg leading-relaxed">
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.5 }}
+                            className="text-lg text-white/90 mb-8 max-w-lg leading-relaxed"
+                        >
                             Siamo VittoriConsulting. Niente chiacchiere. Passa dall&apos;essere &apos;un&apos;opzione&apos; a essere &apos;LA scelta&apos; con il Metodo Vittori 360.
-                        </p>
+                        </motion.p>
 
-                        <div className="flex flex-col gap-6 mb-8">
-                            {/* Stats compatte */}
-                            <div className="flex flex-wrap gap-4">
-                                <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 border border-white/30">
-                                    <div className="text-left">
-                                        <div className="text-xl font-bold text-white">10+</div>
-                                        <div className="text-xs text-white/80">Anni</div>
-                                    </div>
-                                </div>
-                                <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 border border-white/30">
-                                    <div className="text-left">
-                                        <div className="text-xl font-bold text-white">92%</div>
-                                        <div className="text-xs text-white/80">Successo</div>
-                                    </div>
-                                </div>
-                                <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 border border-white/30">
-                                    <div className="text-left">
-                                        <div className="text-xl font-bold text-white">189+</div>
-                                        <div className="text-xs text-white/80">Progetti</div>
-                                    </div>
-                                </div>
-                            </div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.7 }}
+                            className="flex flex-col gap-6"
+                        >
+                            <motion.button
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="bg-white text-[#2e54a1] px-8 py-4 rounded-full font-bold text-lg hover:bg-white/95 transition-all duration-300 shadow-xl hover:shadow-2xl w-fit"
+                            >
+                                Parliamo di business
+                            </motion.button>
 
-                            {/* CTA Button */}
-                            <div>
-                                <button className="bg-white text-[#2563eb] px-8 py-3 rounded-full font-bold text-lg hover:bg-white/90 transition-colors shadow-lg">
-                                    Parliamo di business
-                                </button>
+                            <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-1">
+                                    {[...Array(5)].map((_, i) => (
+                                        <motion.svg
+                                            key={i}
+                                            initial={{ opacity: 0, scale: 0 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            transition={{ duration: 0.3, delay: 0.9 + i * 0.1 }}
+                                            className="w-5 h-5 text-yellow-400 fill-current"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                        </motion.svg>
+                                    ))}
+                                </div>
+                                <motion.div
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.6, delay: 1.4 }}
+                                    className="text-white/90"
+                                >
+                                    <span className="font-bold">4.9/5</span>
+                                    <span className="text-sm ml-2 opacity-80">(127 recensioni)</span>
+                                </motion.div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
 
-                    {/* Video circolare a destra */}
                     <div className="relative z-10 flex justify-center lg:justify-end">
                         <div className="relative">
-                            {/* Container video circolare con effetto rilievo */}
-                            <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-8 border-white/20 backdrop-blur-sm bg-white/10 relative">
-                                {/* Placeholder per il video */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8, delay: 0.5 }}
+                                className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-8 border-white/20 backdrop-blur-sm bg-white/10 relative"
+                            >
                                 <div className="w-full h-full bg-[#2e54a1] flex items-center justify-center">
                                     <div className="text-center text-white">
-                                        <div className="w-16 h-16 mx-auto mb-4 bg-white/30 rounded-full flex items-center justify-center">
+                                        <motion.div
+                                            initial={{ opacity: 0, scale: 0 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            transition={{ duration: 0.5, delay: 1 }}
+                                            className="w-16 h-16 mx-auto mb-4 bg-white/30 rounded-full flex items-center justify-center"
+                                        >
                                             <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M8 5v14l11-7z" />
                                             </svg>
-                                        </div>
-                                        <p className="text-lg font-semibold">Video Preview</p>
-                                        <p className="text-sm opacity-80">Valerio Vittori</p>
+                                        </motion.div>
+                                        <motion.p
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.5, delay: 1.2 }}
+                                            className="text-lg font-semibold"
+                                        >
+                                            Video Preview
+                                        </motion.p>
+                                        <motion.p
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.5, delay: 1.4 }}
+                                            className="text-sm opacity-80"
+                                        >
+                                            Valerio Vittori
+                                        </motion.p>
                                     </div>
                                 </div>
 
-                                {/* Effetto glow */}
                                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 blur-xl -z-10 scale-110"></div>
-                            </div>
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 1.6 }}
+                                className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-full"
+                            >
+                                <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/40">
+                                    <div className="flex justify-between items-center gap-8">
+                                        <div className="text-center">
+                                            <div className="flex items-center justify-center mb-2">
+                                                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                                                    <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div className="text-2xl font-bold text-gray-900">10+</div>
+                                            <div className="text-xs text-gray-600 font-medium">Anni di esperienza</div>
+                                        </div>
+
+                                        <div className="text-center">
+                                            <div className="flex items-center justify-center mb-2">
+                                                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                                                    <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div className="text-2xl font-bold text-gray-900">97%</div>
+                                            <div className="text-xs text-gray-600 font-medium">Tasso di successo</div>
+                                        </div>
+
+                                        <div className="text-center">
+                                            <div className="flex items-center justify-center mb-2">
+                                                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                                                    <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div className="text-2xl font-bold text-gray-900">189+</div>
+                                            <div className="text-xs text-gray-600 font-medium">Progetti realizzati</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* Fixed elements */}
             <div className="fixed bottom-8 right-8 flex flex-col space-y-4 z-50">
                 <button className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white hover:bg-green-600 transition-colors shadow-lg">
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

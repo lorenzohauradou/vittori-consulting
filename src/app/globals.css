@@ -135,6 +135,19 @@ html {
   box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
 }
 
+/* 3D Card Flip Animations */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
