@@ -28,7 +28,7 @@ export function CustomBackground({
         if (variant === 'hero') {
             return (
                 <>
-                    <div className="absolute inset-y-0 left-0 w-3/5 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#4f75c7] transform -skew-x-12 origin-top-left"></div>
+                    <div className="absolute inset-y-0 left-0 w-4/2 md:w-3/5 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#4f75c7] transform -skew-x-12 origin-top-left"></div>
 
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-white/10"></div>
 
