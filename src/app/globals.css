@@ -5,6 +5,14 @@ html, body {
   overflow-x: hidden;
 }
 
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {

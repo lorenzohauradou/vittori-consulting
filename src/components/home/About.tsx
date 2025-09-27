@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react'
-import { motion, useScroll, useTransform, MotionValue } from 'framer-motion'
+import { motion } from 'framer-motion'
 import IPhoneCanvas from '@/components/ui/iphone-canvas'
 
 
@@ -17,10 +17,8 @@ interface TeamMember {
 export default function About() {
     const containerRef = useRef<HTMLDivElement>(null)
 
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    })
+
+
 
     const teamMembers: TeamMember[] = [
         {
@@ -91,7 +89,7 @@ export default function About() {
                 <div className="absolute top-1/4 right-1/3 w-1 h-20 bg-gradient-to-b from-blue-200/30 to-transparent rotate-45"></div>
                 <div className="absolute bottom-1/3 left-1/4 w-1 h-16 bg-gradient-to-t from-blue-300/40 to-transparent rotate-12"></div>
             </div>
-            <div className="container mx-auto px-4 lg:px-8 relative z-10">
+            <div className="max-w-[95vw] mx-auto px-2 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -137,29 +135,31 @@ export default function About() {
                     </motion.p>
                 </motion.div>
 
-                {/* Desktop: Orbital Animation */}
-                <div className="hidden lg:block relative min-h-[1000px] mb-24">
-                    {teamMembers.map((member) => (
-                        <TeamCard
-                            key={member.name}
-                            member={member}
-                            scrollYProgress={scrollYProgress}
-                            isMobile={false}
-                        />
-                    ))}
-                </div>
-
-                {/* Mobile: Grid Layout */}
-                <div className="lg:hidden mb-24">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                        {teamMembers.map((member) => (
+                <div className="hidden lg:block mb-24">
+                    <div className="flex gap-4 justify-between">
+                        {teamMembers.map((member, index) => (
                             <TeamCard
                                 key={member.name}
                                 member={member}
-                                scrollYProgress={scrollYProgress}
-                                isMobile={true}
+                                index={index}
+                                isMobile={false}
                             />
                         ))}
+                    </div>
+                </div>
+
+                <div className="lg:hidden mb-24">
+                    <div className="overflow-x-auto pb-4 scrollbar-hide">
+                        <div className="flex gap-4 min-w-max pl-4 pr-20">
+                            {teamMembers.map((member, index) => (
+                                <TeamCard
+                                    key={member.name}
+                                    member={member}
+                                    index={index}
+                                    isMobile={true}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
 
@@ -369,30 +369,11 @@ export default function About() {
     )
 }
 
-function TeamCard({ member, scrollYProgress, isMobile }: {
+function TeamCard({ member, index, isMobile }: {
     member: TeamMember,
-    scrollYProgress?: MotionValue<number>,
+    index: number,
     isMobile: boolean
 }) {
-    const getAnimationValues = (position: string) => {
-        switch (position) {
-            case 'center':
-                return { rotate: 0, x: 0, y: 0 }
-            case 'top-left':
-                return { rotate: -25, x: -200, y: -150 }
-            case 'top-right':
-                return { rotate: 30, x: 200, y: -180 }
-            case 'bottom-left':
-                return { rotate: 15, x: -180, y: 200 }
-            case 'bottom-right':
-                return { rotate: -20, x: 220, y: 170 }
-            default:
-                return { rotate: 0, x: 0, y: 0 }
-        }
-    }
-
-    const animationValues = getAnimationValues(member.position)
-
     const getGradientColor = (name: string) => {
         switch (name) {
             case 'Valerio Vittori':
@@ -410,152 +391,108 @@ function TeamCard({ member, scrollYProgress, isMobile }: {
         }
     }
 
-    const getOrbitRadius = () => {
-        return 350
-    }
-
-    const getOrbitPosition = (position: string, progress: number = 0) => {
-        const radius = getOrbitRadius()
-        const baseAngles = {
-            'top-left': -135,
-            'top-right': -45,
-            'bottom-right': 45,
-            'bottom-left': 135
-        }
-
-        if (position === 'center') {
-            return { x: 0, y: 0 }
-        }
-
-        const baseAngle = baseAngles[position as keyof typeof baseAngles] || 0
-        const rotationAngle = baseAngle + (progress * 720)
-        const radians = (rotationAngle * Math.PI) / 180
-
-        return {
-            x: Math.cos(radians) * radius,
-            y: Math.sin(radians) * radius
-        }
-    }
-
-    const orbitX = useTransform(
-        scrollYProgress || { get: () => 0 } as MotionValue<number>,
-        [0, 0.5, 1],
-        [
-            getOrbitPosition(member.position, 0).x,
-            getOrbitPosition(member.position, 0.5).x,
-            getOrbitPosition(member.position, 1).x
-        ]
-    )
-
-    const orbitY = useTransform(
-        scrollYProgress || { get: () => 0 } as MotionValue<number>,
-        [0, 0.5, 1],
-        [
-            getOrbitPosition(member.position, 0).y,
-            getOrbitPosition(member.position, 0.5).y,
-            getOrbitPosition(member.position, 1).y
-        ]
-    )
-
-
-    const getPositionClasses = (position: string) => {
-        switch (position) {
-            case 'center':
-                return 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10'
-            default:
-                return 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[5]'
-        }
-    }
-
-    const cardScale = member.position === 'center' ? 1.2 : 1
-    const cardSizeClasses = member.position === 'center'
-        ? 'w-54 h-60 md:w-70 md:h-66'
-        : 'w-54 h-60 md:w-70 md:h-66'
+    const isFounder = member.position === 'center'
 
     if (isMobile) {
-        // Mobile: Simple grid layout
+        // Mobile: Cards più grandi per scroll orizzontale
         return (
             <motion.div
                 initial={{
                     opacity: 0,
-                    y: 30
+                    scale: 0.8
                 }}
                 whileInView={{
                     opacity: 1,
-                    y: 0
+                    scale: 1
                 }}
                 transition={{
                     duration: 0.6,
-                    delay: member.delay * 0.2,
+                    delay: index * 0.1,
                     type: "spring",
                     stiffness: 100,
                     damping: 15
                 }}
                 viewport={{ once: false }}
-                className={member.position === 'center' ? 'sm:col-span-2 mx-auto' : ''}
+                className="flex-shrink-0 w-72"
             >
-                <div className={`${member.position === 'center' ? 'w-72 h-80' : 'w-64 h-72'} bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center mx-auto`}>
-                    <div className={`${member.position === 'center' ? 'w-20 h-20' : 'w-16 h-16'} bg-gradient-to-br ${getGradientColor(member.name)} rounded-full mb-4 flex items-center justify-center shadow-lg`}>
-                        <span className={`${member.position === 'center' ? 'text-2xl' : 'text-lg'} font-bold text-white`}>
+                <div className="w-full h-96 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
+                    <div className={`w-20 h-20 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full mb-6 flex items-center justify-center shadow-lg`}>
+                        <span className="text-2xl font-bold text-white">
                             {member.name.charAt(0)}
                         </span>
                     </div>
-                    <h3 className={`font-bold text-gray-900 mb-2 ${member.position === 'center' ? 'text-xl' : 'text-lg'}`}>
+
+                    <h3 className="font-bold text-white mb-3 text-xl">
                         {member.name}
                     </h3>
-                    <p className={`text-blue-600 font-semibold mb-3 ${member.position === 'center' ? 'text-base' : 'text-sm'}`}>
+
+                    <p className="text-blue-200 font-semibold mb-4 text-base">
                         {member.role}
                     </p>
-                    <blockquote className={`text-gray-600 italic leading-relaxed ${member.position === 'center' ? 'text-sm' : 'text-xs'}`}>
+
+                    <blockquote className="text-white/90 italic leading-relaxed text-sm">
                         &ldquo;{member.quote}&rdquo;
                     </blockquote>
+
+                    {isFounder && (
+                        <div className="mt-4 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
+                            <span className="text-xs font-bold text-white uppercase tracking-wide">
+                                Founder
+                            </span>
+                        </div>
+                    )}
                 </div>
             </motion.div>
         )
     }
 
-    // Desktop: Orbital animation
+
     return (
         <motion.div
-            className={`absolute ${getPositionClasses(member.position)}`}
-            style={{
-                x: member.position !== 'center' ? orbitX : 0,
-                y: member.position !== 'center' ? orbitY : 0
-            }}
             initial={{
                 opacity: 0,
-                scale: 0.3,
-                rotate: animationValues.rotate
+                x: -150
             }}
             whileInView={{
                 opacity: 1,
-                scale: cardScale,
-                rotate: 0
+                x: 0
             }}
             transition={{
-                duration: 1.2,
-                delay: member.delay,
+                duration: 1,
+                delay: index * 0.15,
                 type: "spring",
-                stiffness: 100,
-                damping: 15
+                stiffness: 80,
+                damping: 20
             }}
             viewport={{ once: false }}
+            className="flex-1 max-w-[18%]"
         >
-            <div className={`${cardSizeClasses} bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center`}>
-                <div className={`${member.position === 'center' ? 'w-16 h-16 md:w-20 md:h-20' : 'w-12 h-12 md:w-16 md:h-16'} bg-gradient-to-br ${getGradientColor(member.name)} rounded-full mb-4 flex items-center justify-center shadow-lg`}>
-                    <span className={`${member.position === 'center' ? 'text-lg md:text-2xl' : 'text-sm md:text-lg'} font-bold text-white`}>
+            <div className="w-full h-80 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
+                <div className={`w-16 h-16 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full mb-4 flex items-center justify-center shadow-lg`}>
+                    <span className="text-xl font-bold text-white">
                         {member.name.charAt(0)}
                     </span>
                 </div>
-                <h3 className={`font-bold text-gray-900 mb-1 ${member.position === 'center' ? 'text-lg md:text-xl' : 'text-sm md:text-lg'}`}>
+
+                <h3 className="font-bold text-white mb-2 text-lg">
                     {member.name}
                 </h3>
-                <p className={`text-blue-600 font-semibold mb-3 ${member.position === 'center' ? 'text-sm md:text-base' : 'text-xs md:text-sm'}`}>
+
+                <p className="text-blue-200 font-semibold mb-3 text-sm">
                     {member.role}
                 </p>
-                <blockquote className={`text-gray-600 italic leading-relaxed ${member.position === 'center' ? 'text-xs md:text-sm' : 'text-xs'}`}>
+
+                <blockquote className="text-white/90 italic leading-relaxed text-xs">
                     &ldquo;{member.quote}&rdquo;
                 </blockquote>
+
+                {isFounder && (
+                    <div className="mt-3 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
+                        <span className="text-xs font-bold text-white uppercase tracking-wide">
+                            Founder
+                        </span>
+                    </div>
+                )}
             </div>
         </motion.div>
     )
