@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { CustomBackground } from '@/components/ui/custom-background'
 
 export default function Solution() {
 
@@ -18,7 +17,7 @@ export default function Solution() {
     ]
 
     return (
-        <CustomBackground variant="hero" className="min-h-screen flex items-center">
+        <section className="min-h-screen flex items-center bg-[#2e54a1]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
                 <div className="grid lg:grid-cols-2 gap-16 items-center h-full min-h-[80vh]">
 
@@ -90,8 +89,8 @@ export default function Solution() {
                         viewport={{ once: true }}
                         className="relative"
                     >
-                        <div className="relative w-full h-[500px] bg-white/15 backdrop-blur-md rounded-3xl border border-white/30 shadow-2xl p-8">
-                            <h3 className="text-2xl font-bold text-[#2e54a1] mb-6 text-center">
+                        <div className="relative w-full h-[500px] bg-white/95 backdrop-blur-sm rounded-3xl border-2 border-white shadow-2xl p-8">
+                            <h3 className="text-2xl font-bold text-[#2e54a1] mb-8 text-center">
                                 Metodo Vittori 360
                             </h3>
 
@@ -112,12 +111,13 @@ export default function Solution() {
                                                 y1={`${step.position.y}%`}
                                                 x2={`${nextStep.position.x}%`}
                                                 y2={`${nextStep.position.y}%`}
-                                                stroke="url(#pathGradient)"
+                                                stroke="#2e54a1"
                                                 strokeWidth="2"
-                                                strokeDasharray="5,5"
+                                                strokeDasharray="4,4"
+                                                strokeOpacity="0.6"
                                                 initial={{ pathLength: 0 }}
                                                 whileInView={{ pathLength: 1 }}
-                                                transition={{ duration: 1, delay: index * 0.2 }}
+                                                transition={{ duration: 0.8, delay: index * 0.1 }}
                                                 viewport={{ once: true }}
                                             />
                                         </g>
@@ -140,11 +140,11 @@ export default function Solution() {
                                         <circle
                                             cx={`${step.position.x}%`}
                                             cy={`${step.position.y}%`}
-                                            r="28"
-                                            fill="rgba(255,255,255,0.95)"
-                                            stroke="rgba(46,84,161,1)"
-                                            strokeWidth="3"
-                                            className="hover:fill-blue-50 transition-colors cursor-pointer drop-shadow-lg"
+                                            r="24"
+                                            fill="white"
+                                            stroke="#2e54a1"
+                                            strokeWidth="2"
+                                            className="drop-shadow-md"
                                         />
                                         <text
                                             x={`${step.position.x}%`}
@@ -157,9 +157,9 @@ export default function Solution() {
                                         </text>
                                         <text
                                             x={`${step.position.x}%`}
-                                            y={`${step.position.y + 15}%`}
+                                            y={`${step.position.y + 12}%`}
                                             textAnchor="middle"
-                                            className="text-xs font-bold fill-[#2e54a1] pointer-events-none drop-shadow-sm"
+                                            className="text-xs font-semibold fill-[#2e54a1] pointer-events-none"
                                         >
                                             {step.name}
                                         </text>
@@ -170,6 +170,6 @@ export default function Solution() {
                     </motion.div>
                 </div>
             </div>
-        </CustomBackground>
+        </section>
     )
 }

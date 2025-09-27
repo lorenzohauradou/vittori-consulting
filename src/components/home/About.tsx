@@ -41,7 +41,7 @@ export default function About() {
         {
             name: 'Lorenzo',
             role: 'Web Developer',
-            quote: 'Il Designer dei sogni digitali',
+            quote: 'Lo sviluppatore dei sogni digitali',
             photo: '/images/team/lorenzo.jpg',
             position: 'top-right',
             delay: 0.4
@@ -197,7 +197,7 @@ function TeamCard({ member, scrollYProgress }: {
     }
 
     const getOrbitRadius = () => {
-        return 380
+        return 420
     }
 
     const getOrbitPosition = (position: string, progress: number = 0) => {
