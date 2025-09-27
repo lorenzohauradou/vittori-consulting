@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import IPhoneCanvas from '@/components/ui/iphone-canvas'
 
 
@@ -414,10 +415,20 @@ function TeamCard({ member, index, isMobile }: {
                 className="flex-shrink-0 w-72"
             >
                 <div className="w-full h-96 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
-                    <div className={`w-20 h-20 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full mb-6 flex items-center justify-center shadow-lg`}>
-                        <span className="text-2xl font-bold text-white">
-                            {member.name.charAt(0)}
-                        </span>
+                    <div className={`w-20 h-20 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full mb-6 flex items-center justify-center shadow-lg overflow-hidden`}>
+                        {member.name === 'Lorenzo' ? (
+                            <Image
+                                src="/images/team/lorenzo.jpeg"
+                                alt="Lorenzo"
+                                width={80}
+                                height={80}
+                                className="w-full h-full object-cover"
+                            />
+                        ) : (
+                            <span className="text-2xl font-bold text-white">
+                                {member.name.charAt(0)}
+                            </span>
+                        )}
                     </div>
 
                     <h3 className="font-bold text-white mb-3 text-xl">
@@ -466,10 +477,20 @@ function TeamCard({ member, index, isMobile }: {
             className="flex-1 max-w-[18%]"
         >
             <div className="w-full h-80 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
-                <div className={`w-16 h-16 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full mb-4 flex items-center justify-center shadow-lg`}>
-                    <span className="text-xl font-bold text-white">
-                        {member.name.charAt(0)}
-                    </span>
+                <div className={`w-16 h-16 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full mb-4 flex items-center justify-center shadow-lg overflow-hidden`}>
+                    {member.name === 'Lorenzo' ? (
+                        <Image
+                            src="/images/team/lorenzo.jpeg"
+                            alt="Lorenzo"
+                            width={64}
+                            height={64}
+                            className="w-full h-full object-cover"
+                        />
+                    ) : (
+                        <span className="text-xl font-bold text-white">
+                            {member.name.charAt(0)}
+                        </span>
+                    )}
                 </div>
 
                 <h3 className="font-bold text-white mb-2 text-lg">
