@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import Image from 'next/image'
 
 export default function Problem() {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -109,13 +110,16 @@ export default function Problem() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5, delay: 0.8 }}
                                     viewport={{ once: true, margin: "-30px" }}
-                                    className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/30"
+                                    className="relative rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
                                 >
-                                    <div className="flex flex-col items-center text-center">
-                                        <div className="w-16 h-16 mb-4 bg-white/30 rounded-xl flex items-center justify-center">
-                                        </div>
-                                        <h4 className="text-lg font-bold text-white mb-2">Metodo Testato</h4>
-                                        <p className="text-sm text-blue-100">Strategia provata su centinaia di business</p>
+                                    <Image
+                                        src="/images/team/team-group.png"
+                                        alt="Team Vittori Consulting"
+                                        fill
+                                        className="object-cover"
+                                    />
+
+                                    <div className="relative z-10 flex flex-col items-center justify-center text-center h-full min-h-[120px]">
                                     </div>
                                 </motion.div>
 

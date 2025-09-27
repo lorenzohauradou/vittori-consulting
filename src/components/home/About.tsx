@@ -164,11 +164,9 @@ export default function About() {
                 </div>
 
                 <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-16 items-center mb-24">
-                    <div className="relative z-10 flex justify-center lg:justify-start">
+                    <div className="relative z-10 flex justify-center lg:justify-start md:pl-16 lg:ml-16 md:ml-10">
                         <IPhoneCanvas
-                            title="Il Nostro Team"
-                            description="Dietro ogni strategia vincente"
-                            showVideo={true}
+                            videoSrc="/videos/gelotti.mov"
                         />
                     </div>
                     <div className="relative z-10">
