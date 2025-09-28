@@ -2,7 +2,6 @@
 
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import Image from 'next/image'
 
 export default function Problem() {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -103,55 +102,72 @@ export default function Problem() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.6, delay: 0.7 }}
                                 viewport={{ once: true, margin: "-30px" }}
-                                className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+                                className="mb-10"
                             >
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
+                                <motion.form
+                                    id="contact-form"
+                                    initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: 0.8 }}
+                                    transition={{ duration: 0.6, delay: 0.8 }}
                                     viewport={{ once: true, margin: "-30px" }}
-                                    className="relative rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                                    className="bg-white/15 backdrop-blur-md rounded-3xl p-8 border border-white/30 shadow-xl"
                                 >
-                                    <Image
-                                        src="/images/team/team-group.png"
-                                        alt="Team Vittori Consulting"
-                                        fill
-                                        className="object-cover"
-                                    />
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                        <motion.div
+                                            initial={{ opacity: 0, x: -20 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.5, delay: 0.9 }}
+                                            viewport={{ once: true, margin: "-30px" }}
+                                        >
+                                            <label className="block text-sm font-semibold text-blue-100 mb-2">
+                                                Nome *
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                required
+                                                className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+                                                placeholder="Il tuo nome"
+                                            />
+                                        </motion.div>
 
-                                    <div className="relative z-10 flex flex-col items-center justify-center text-center h-full min-h-[120px]">
-                                    </div>
-                                </motion.div>
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.5, delay: 1.0 }}
+                                            viewport={{ once: true, margin: "-30px" }}
+                                        >
+                                            <label className="block text-sm font-semibold text-blue-100 mb-2">
+                                                Email *
+                                            </label>
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                required
+                                                className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+                                                placeholder="la-tua-email@esempio.com"
+                                            />
+                                        </motion.div>
 
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: 0.9 }}
-                                    viewport={{ once: true, margin: "-30px" }}
-                                    className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/30"
-                                >
-                                    <div className="flex flex-col items-center text-center">
-                                        <div className="w-16 h-16 mb-4 bg-white/30 rounded-xl flex items-center justify-center">
-                                        </div>
-                                        <h4 className="text-lg font-bold text-white mb-2">Risultati Generati</h4>
-                                        <p className="text-sm text-blue-100">ROI misurabili e crescita sostenibile</p>
+                                        <motion.div
+                                            initial={{ opacity: 0, x: 20 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.5, delay: 1.1 }}
+                                            viewport={{ once: true, margin: "-30px" }}
+                                        >
+                                            <label className="block text-sm font-semibold text-blue-100 mb-2">
+                                                Telefono *
+                                            </label>
+                                            <input
+                                                type="tel"
+                                                name="phone"
+                                                required
+                                                className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+                                                placeholder="+39 329 456 7890"
+                                            />
+                                        </motion.div>
                                     </div>
-                                </motion.div>
-
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: 1.0 }}
-                                    viewport={{ once: true, margin: "-30px" }}
-                                    className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/30"
-                                >
-                                    <div className="flex flex-col items-center text-center">
-                                        <div className="w-16 h-16 mb-4 bg-white/30 rounded-xl flex items-center justify-center">
-                                        </div>
-                                        <h4 className="text-lg font-bold text-white mb-2">Clienti Soddisfatti</h4>
-                                        <p className="text-sm text-blue-100">189+ imprenditori che ci ringraziano</p>
-                                    </div>
-                                </motion.div>
+                                </motion.form>
                             </motion.div>
 
                             <motion.div
@@ -179,6 +195,8 @@ export default function Problem() {
                         className="text-center"
                     >
                         <motion.button
+                            type="submit"
+                            form="contact-form"
                             whileHover={{
                                 scale: 1.05,
                                 boxShadow: "0 20px 40px rgba(46, 84, 161, 0.3)"
