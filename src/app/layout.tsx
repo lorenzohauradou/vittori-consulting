@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
@@ -57,6 +58,7 @@ export default function RootLayout({
     <html lang="it" className={`${inter.variable} antialiased`}>
       <body className="min-h-screen bg-background font-sans overflow-x-hidden">
         <main>{children}</main>
+        <Analytics />
       </body>
     </html>
   )
