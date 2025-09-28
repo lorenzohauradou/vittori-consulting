@@ -1,10 +1,15 @@
 'use client'
 
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { Calendar } from '@/components/ui/calendar'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 export default function Problem() {
     const containerRef = useRef<HTMLDivElement>(null)
+    const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
+    const [selectedTime, setSelectedTime] = useState<string>('')
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -13,6 +18,12 @@ export default function Problem() {
 
     const y1 = useTransform(scrollYProgress, [0, 1], [0, -30])
     const y2 = useTransform(scrollYProgress, [0, 1], [0, 40])
+    const today = new Date()
+    const disabledDays = Array.from({ length: 5 }, (_, i) => {
+        const date = new Date(today)
+        date.setDate(today.getDate() + i)
+        return date
+    })
 
     return (
         <section ref={containerRef} className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20">
@@ -104,70 +115,90 @@ export default function Problem() {
                                 viewport={{ once: true, margin: "-30px" }}
                                 className="mb-10"
                             >
-                                <motion.form
-                                    id="contact-form"
+                                <motion.div
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, delay: 0.8 }}
                                     viewport={{ once: true, margin: "-30px" }}
                                     className="bg-white/15 backdrop-blur-md rounded-3xl p-8 border border-white/30 shadow-xl"
                                 >
-                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                        <motion.div
-                                            initial={{ opacity: 0, x: -20 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            transition={{ duration: 0.5, delay: 0.9 }}
-                                            viewport={{ once: true, margin: "-30px" }}
-                                        >
-                                            <label className="block text-sm font-semibold text-blue-100 mb-2">
-                                                Nome *
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                required
-                                                className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
-                                                placeholder="Il tuo nome"
-                                            />
-                                        </motion.div>
-
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.5, delay: 1.0 }}
-                                            viewport={{ once: true, margin: "-30px" }}
-                                        >
-                                            <label className="block text-sm font-semibold text-blue-100 mb-2">
-                                                Email *
-                                            </label>
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                required
-                                                className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
-                                                placeholder="la-tua-email@esempio.com"
-                                            />
-                                        </motion.div>
-
-                                        <motion.div
-                                            initial={{ opacity: 0, x: 20 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            transition={{ duration: 0.5, delay: 1.1 }}
-                                            viewport={{ once: true, margin: "-30px" }}
-                                        >
-                                            <label className="block text-sm font-semibold text-blue-100 mb-2">
-                                                Telefono *
-                                            </label>
-                                            <input
-                                                type="tel"
-                                                name="phone"
-                                                required
-                                                className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
-                                                placeholder="+39 329 456 7890"
-                                            />
-                                        </motion.div>
+                                    <div className="text-center mb-6">
+                                        <h4 className="text-xl font-bold text-white mb-2">
+                                            Prenota la Tua Call Strategica
+                                        </h4>
+                                        <p className="text-blue-100 text-sm">
+                                            Seleziona una data disponibile per la tua consulenza gratuita
+                                        </p>
                                     </div>
-                                </motion.form>
+
+                                    <div className="flex justify-center mb-6">
+                                        <Calendar
+                                            mode="single"
+                                            selected={selectedDate}
+                                            onSelect={setSelectedDate}
+                                            disabled={disabledDays}
+                                            className="rounded-2xl bg-white/90 backdrop-blur-sm border border-white/50 shadow-lg p-4"
+                                            classNames={{
+                                                months: "flex w-full flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
+                                                month: "space-y-4 w-full flex flex-col",
+                                                table: "w-full h-full border-collapse space-y-1",
+                                                head_row: "",
+                                                row: "w-full mt-2",
+                                                cell: "relative p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-accent [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected].day-range-end)]:rounded-r-md",
+                                                day: "h-10 w-10 p-0 font-normal text-gray-900 hover:bg-blue-100 focus:bg-blue-200 rounded-md transition-colors",
+                                                day_selected: "bg-[#2e54a1] text-white hover:bg-[#2e54a1] hover:text-white focus:bg-[#2e54a1] focus:text-white",
+                                                day_today: "bg-blue-50 text-[#2e54a1] font-semibold",
+                                                day_outside: "text-gray-400 opacity-50",
+                                                day_disabled: "text-gray-300 opacity-30 cursor-not-allowed",
+                                                day_hidden: "invisible",
+                                            }}
+                                        />
+                                    </div>
+
+                                    <div className="flex flex-col items-center space-y-4">
+                                        <Label className="text-white font-semibold text-lg">
+                                            Seleziona l&apos;Orario
+                                        </Label>
+                                        <div className="flex flex-col items-center space-y-2">
+                                            <Input
+                                                type="time"
+                                                id="time-picker"
+                                                value={selectedTime}
+                                                onChange={(e) => setSelectedTime(e.target.value)}
+                                                min="09:00"
+                                                max="18:00"
+                                                step="1800"
+                                                className="w-48 bg-white/90 backdrop-blur-sm border-white/50 focus:border-white focus:ring-white/50 text-gray-900 text-center"
+                                            />
+                                            <p className="text-xs text-blue-100">
+                                                Orario di lavoro: 9:00 - 18:00
+                                            </p>
+                                        </div>
+
+                                        {selectedDate && selectedTime && (
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 10 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                className="mt-4 p-4 bg-white/20 backdrop-blur-sm rounded-xl border border-white/30"
+                                            >
+                                                <p className="text-white text-center">
+                                                    <span className="font-semibold">Appuntamento:</span>
+                                                    <br />
+                                                    {selectedDate.toLocaleDateString('it-IT', {
+                                                        weekday: 'long',
+                                                        day: 'numeric',
+                                                        month: 'long',
+                                                        year: 'numeric'
+                                                    })}
+                                                    <br />
+                                                    alle ore {selectedTime}
+                                                </p>
+                                            </motion.div>
+                                        )}
+                                    </div>
+
+
+                                </motion.div>
                             </motion.div>
 
                             <motion.div
@@ -195,39 +226,46 @@ export default function Problem() {
                         className="text-center"
                     >
                         <motion.button
-                            type="submit"
-                            form="contact-form"
-                            whileHover={{
+                            disabled={!selectedDate || !selectedTime}
+                            whileHover={selectedDate && selectedTime ? {
                                 scale: 1.05,
                                 boxShadow: "0 20px 40px rgba(46, 84, 161, 0.3)"
-                            }}
-                            whileTap={{ scale: 0.95 }}
-                            className="relative inline-flex items-center justify-center px-12 py-5 text-xl font-bold text-white bg-gradient-to-r from-[#2e54a1] to-blue-600 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group overflow-hidden"
+                            } : {}}
+                            whileTap={selectedDate && selectedTime ? { scale: 0.95 } : {}}
+                            className={`relative inline-flex items-center justify-center px-12 py-5 text-xl font-bold rounded-full shadow-2xl transition-all duration-300 group overflow-hidden ${selectedDate && selectedTime
+                                ? 'text-white bg-gradient-to-r from-[#2e54a1] to-blue-600 hover:shadow-3xl cursor-pointer'
+                                : 'text-gray-400 bg-gray-300 cursor-not-allowed opacity-50'
+                                }`}
                         >
-                            <motion.div
-                                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                                animate={{
-                                    x: ['-100%', '100%']
-                                }}
-                                transition={{
-                                    duration: 2,
-                                    repeat: Infinity,
-                                    repeatDelay: 3
-                                }}
-                            />
+                            {selectedDate && selectedTime && (
+                                <motion.div
+                                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                                    animate={{
+                                        x: ['-100%', '100%']
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        repeatDelay: 3
+                                    }}
+                                />
+                            )}
 
                             <span className="relative z-10 flex items-center gap-3">
-                                INIZIA QUI
-                                <motion.svg
-                                    className="w-6 h-6"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    animate={{ x: [0, 5, 0] }}
-                                    transition={{ duration: 1.5, repeat: Infinity }}
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </motion.svg>
+                                {selectedDate && selectedTime ? 'PRENOTA LA CALL' :
+                                    !selectedDate ? 'SELEZIONA DATA E ORARIO' : 'SELEZIONA L\'ORARIO'}
+                                {selectedDate && selectedTime && (
+                                    <motion.svg
+                                        className="w-6 h-6"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        animate={{ x: [0, 5, 0] }}
+                                        transition={{ duration: 1.5, repeat: Infinity }}
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </motion.svg>
+                                )}
                             </span>
                         </motion.button>
 
@@ -238,58 +276,16 @@ export default function Problem() {
                             viewport={{ once: true, margin: "-30px" }}
                             className="text-sm text-gray-500 mt-4"
                         >
-                            Scopri il metodo che ha già trasformato 189+ business
+                            {selectedDate && selectedTime
+                                ? 'Prenota la tua consulenza strategica gratuita'
+                                : !selectedDate
+                                    ? 'Seleziona data e orario per prenotare la tua call gratuita'
+                                    : 'Seleziona anche l\'orario per completare la prenotazione'
+                            }
                         </motion.p>
                     </motion.div>
                 </div>
             </div>
-
-            <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                className="absolute top-1/4 left-10 hidden lg:block"
-            >
-                <motion.div
-                    animate={{
-                        y: [0, -15, 0],
-                        rotate: [0, 5, 0]
-                    }}
-                    transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                    }}
-                    className="w-16 h-16 bg-gradient-to-br from-[#2e54a1]/20 to-blue-200/30 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/30"
-                >
-                    <span className="text-2xl">📈</span>
-                </motion.div>
-            </motion.div>
-
-            <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-                viewport={{ once: true, margin: "-100px" }}
-                className="absolute bottom-1/4 right-10 hidden lg:block"
-            >
-                <motion.div
-                    animate={{
-                        y: [0, 10, 0],
-                        rotate: [0, -3, 0]
-                    }}
-                    transition={{
-                        duration: 5,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: 1
-                    }}
-                    className="w-12 h-12 bg-gradient-to-br from-green-200/30 to-emerald-200/40 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/30"
-                >
-                    <span className="text-lg">💎</span>
-                </motion.div>
-            </motion.div>
         </section>
     )
 }
