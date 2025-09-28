@@ -23,11 +23,11 @@ export default function About() {
 
     const teamMembers: TeamMember[] = [
         {
-            name: 'Camilla',
-            role: 'Social Media Manager',
-            quote: 'La creatività è un\'arma e lei sa come usarla',
-            photo: '/images/team/camilla.jpg',
-            position: 'top-left',
+            name: 'Valerio Vittori',
+            role: 'Founder',
+            quote: 'Ogni strategia non è teoria: è progettata per funzionare davvero',
+            photo: '/images/team/valerio.jpg',
+            position: 'top-right',
             delay: 0
         },
         {
@@ -39,11 +39,11 @@ export default function About() {
             delay: 0.2
         },
         {
-            name: 'Valerio Vittori',
-            role: 'Founder',
-            quote: 'Ogni strategia non è teoria: è progettata per funzionare davvero',
-            photo: '/images/team/valerio.jpg',
-            position: 'top-right',
+            name: 'Camilla',
+            role: 'Social Media Manager',
+            quote: 'La creatività è un\'arma e lei sa come usarla',
+            photo: '/images/team/camilla.jpg',
+            position: 'top-left',
             delay: 0.4
         },
         {
