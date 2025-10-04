@@ -1,0 +1,198 @@
+'use client'
+
+import React from 'react'
+import { GradientButton } from '@/components/ui/gradient-button'
+
+export default function ComparisonSection() {
+    const comparisons = [
+        {
+            category: 'Coinvolgimento',
+            us: '100% quotidiano, Martellante',
+            them: 'Ti chiamano una volta al mese',
+        },
+        {
+            category: 'Strategia',
+            us: 'Fatta su misura per te. Nessun euro sprecato.',
+            them: 'Pacchetto uguale per tutti',
+        },
+        {
+            category: 'Operatività',
+            us: 'Full stack, facciamo tutto noi',
+            them: 'Solo strategia o lead generation',
+        },
+        {
+            category: 'Follow up',
+            us: 'Aggressivo, ti supportiamo fino alla firma con il cliente',
+            them: 'NON ESISTE',
+        },
+        {
+            category: 'Risultato Finale',
+            us: 'Ti trasformiamo il Business e lo portiamo al livello successivo!',
+            them: 'Ti cambiano il logo, Ti portano followers, ma ZERO clienti',
+        },
+        {
+            category: 'ROI e KPI reali',
+            us: 'Report con numeri chiari: "Hai guadagnato X… hai speso Y"',
+            them: '"Hai avuto tante visualizzazioni"',
+        },
+    ]
+
+    return (
+        <section className="relative py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#2e54a1]/5 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
+
+            <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                    <div className="inline-block bg-gradient-to-r from-[#2e54a1] to-[#1e3a70] rounded-2xl px-8 py-4 mb-8 shadow-xl transform hover:scale-105 transition-transform">
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white">
+                            Perché il METODO VITTORI 360 è Diverso
+                        </h2>
+                    </div>
+                </div>
+
+                <div className="hidden md:block bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-[#2e54a1]/20">
+                    <div className="overflow-x-auto">
+                        <table className="w-full">
+                            <thead>
+                                <tr className="bg-gradient-to-r from-gray-100 to-gray-50">
+                                    <th className="px-6 py-6 text-left text-xl font-bold text-gray-900 border-b-2 border-gray-200 w-1/4">
+                                        Quello che serve
+                                    </th>
+                                    <th className="px-6 py-6 text-center text-xl font-bold text-white bg-gradient-to-br from-[#2e54a1] to-[#1e3a70] border-b-2 border-[#2e54a1] w-3/8">
+                                        <div className="flex items-center justify-center gap-2">
+                                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                            </svg>
+                                            <span>Noi</span>
+                                        </div>
+                                    </th>
+                                    <th className="px-6 py-6 text-center text-xl font-bold text-gray-700 border-b-2 border-gray-200 w-3/8">
+                                        Gli Altri
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {comparisons.map((item, index) => (
+                                    <tr
+                                        key={index}
+                                        className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50/50 transition-colors`}
+                                    >
+                                        <td className="px-6 py-5 border-b border-gray-200">
+                                            <span className="font-bold text-gray-900 text-lg">{item.category}</span>
+                                        </td>
+                                        <td className="px-6 py-5 border-b border-gray-200 bg-[#2e54a1]/5">
+                                            <div className="flex items-start gap-3">
+                                                <svg className="w-6 h-6 text-[#2e54a1] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                                </svg>
+                                                <span className="text-gray-700 font-medium text-base leading-relaxed">{item.us}</span>
+                                            </div>
+                                        </td>
+                                        <td className="px-6 py-5 border-b border-gray-200">
+                                            <div className="flex items-start gap-3">
+                                                <svg className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                                </svg>
+                                                <span className="text-gray-600 text-base leading-relaxed">{item.them}</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div className="md:hidden space-y-6">
+                    {comparisons.map((item, index) => (
+                        <div key={index} className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-[#2e54a1]/20">
+                            <div className="bg-gradient-to-r from-gray-100 to-gray-50 px-6 py-4 border-b-2 border-gray-200">
+                                <h3 className="font-bold text-gray-900 text-lg">{item.category}</h3>
+                            </div>
+
+                            <div className="p-6 space-y-4">
+                                <div className="bg-[#2e54a1]/5 rounded-xl p-4">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <svg className="w-5 h-5 text-[#2e54a1]" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                        </svg>
+                                        <span className="font-bold text-[#2e54a1] text-sm">NOI</span>
+                                    </div>
+                                    <p className="text-gray-700 font-medium text-sm">{item.us}</p>
+                                </div>
+
+                                <div className="bg-gray-50 rounded-xl p-4">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                        </svg>
+                                        <span className="font-bold text-gray-600 text-sm">GLI ALTRI</span>
+                                    </div>
+                                    <p className="text-gray-600 text-sm">{item.them}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-12 bg-gradient-to-br from-[#2e54a1] to-[#1e3a70] rounded-3xl p-8 sm:p-12 shadow-2xl text-center">
+                    <div className="max-w-3xl mx-auto">
+                        <div className="w-16 h-16 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+
+                        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                            Non è solo marketing.
+                        </h3>
+                        <p className="text-xl text-blue-100 mb-6">
+                            È una <span className="font-bold text-white">trasformazione completa</span> del tuo business.
+                        </p>
+                        <p className="text-lg text-blue-50">
+                            Il Metodo Vittori 360 copre ogni aspetto: strategia, operatività, follow-up e risultati misurabili. Non lasciamo nulla al caso.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="mt-16 text-center">
+                    <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border-4 border-[#2e54a1]">
+                        <p className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
+                            Pronto a vedere la differenza con i tuoi occhi?
+                        </p>
+
+                        <GradientButton
+                            size="lg"
+                            className="text-xl px-12 py-6 shadow-2xl hover:scale-105 transition-transform"
+                        >
+                            Prenota subito la tua consulenza gratuita
+                        </GradientButton>
+
+                        <div className="mt-6 grid sm:grid-cols-3 gap-4 text-sm text-gray-600">
+                            <div className="flex items-center justify-center gap-2">
+                                <svg className="w-5 h-5 text-[#2e54a1]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <span className="font-medium">30 minuti di valore</span>
+                            </div>
+                            <div className="flex items-center justify-center gap-2">
+                                <svg className="w-5 h-5 text-[#2e54a1]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <span className="font-medium">100% gratuita</span>
+                            </div>
+                            <div className="flex items-center justify-center gap-2">
+                                <svg className="w-5 h-5 text-[#2e54a1]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <span className="font-medium">Nessun impegno</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
