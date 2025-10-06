@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { TrustedCustomers } from '@/components/ui/trusted-customers'
+import Image from 'next/image'
+
 
 const words = ['risultati!', 'crescita!', 'efficienza!', 'visibilità!', 'profitto!']
 
@@ -56,10 +58,13 @@ export default function HeroVideo() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="inline-block mb-6"
                         >
-                            <div className="bg-white/15 backdrop-blur-md border-2 border-white/30 rounded-full px-6 py-2">
-                                <span className="text-blue-100 font-bold text-sm uppercase tracking-wider">
-                                    ✨ Metodo Vittori 360
-                                </span>
+                            <div className="bg-white/15 backdrop-blur-md border-2 border-white/30 rounded-full px-6 overflow-hidden h-14 flex items-center">
+                                <div className="flex items-center gap-2">
+                                    <Image src="/images/logo/logo-circle.png" alt="Metodo Vittori 360" width={54} height={54} className="rounded-full overflow-hidden" />
+                                    <span className="text-blue-100 font-bold text-sm uppercase tracking-wider">
+                                        Vittori Consulting
+                                    </span>
+                                </div>
                             </div>
                         </motion.div>
 
@@ -81,13 +86,12 @@ export default function HeroVideo() {
                                     className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-white to-blue-200 rounded-full origin-left"
                                 />
                             </span>
-                            per imprenditori che
-                            vogliono{' '}
-                            <span className="relative inline-block min-w-[300px] text-left">
-                                <span className="text-blue-100">
+                            per imprenditori che vogliono{' '}
+                            <span className="relative inline-block min-w-[250px] sm:min-w-[300px]">
+                                <span className="bg-gradient-to-r from-blue-200 via-blue-100 to-blue-200 bg-clip-text text-transparent font-black">
                                     {displayText}
                                     {(isDeleting || displayText !== words[currentWordIndex]) && (
-                                        <span className="animate-pulse">|</span>
+                                        <span className="animate-pulse text-blue-200">|</span>
                                     )}
                                 </span>
                             </span>
@@ -150,7 +154,7 @@ export default function HeroVideo() {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 
