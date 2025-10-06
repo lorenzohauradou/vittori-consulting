@@ -58,11 +58,11 @@ export default function HeroVideo() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="inline-block mb-6"
                         >
-                            <div className="bg-white/15 backdrop-blur-md border-2 border-white/30 rounded-full px-6 overflow-hidden h-14 flex items-center">
-                                <div className="flex items-center gap-2">
-                                    <Image src="/images/logo/logo-circle.png" alt="Metodo Vittori 360" width={54} height={54} className="rounded-full overflow-hidden" />
-                                    <span className="text-blue-100 font-bold text-sm uppercase tracking-wider">
-                                        Vittori Consulting
+                            <div className="bg-white/15 backdrop-blur-md border-2 border-white/30 rounded-full px-4 overflow-hidden h-14 flex items-center">
+                                <div className="flex items-center">
+                                    <Image src="/images/logo/logo-circle.png" alt="Metodo Vittori 360" width={54} height={54} />
+                                    <span className="text-blue-100 font-bold text-sm pr-2">
+                                        VITTORI CONSULTING
                                     </span>
                                 </div>
                             </div>
