@@ -1,9 +1,40 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/gradient-button'
+import { TrustedCustomers } from '@/components/ui/trusted-customers'
+
+const words = ['risultati!', 'crescita!', 'efficienza!', 'visibilità!', 'profitto!']
 
 export default function HeroVideo() {
+    const [currentWordIndex, setCurrentWordIndex] = useState(0)
+    const [displayText, setDisplayText] = useState('')
+    const [isDeleting, setIsDeleting] = useState(false)
+
+    useEffect(() => {
+        const currentWord = words[currentWordIndex]
+        const typingSpeed = isDeleting ? 50 : 100
+        const pauseTime = isDeleting ? 500 : 2000
+
+        const timeout = setTimeout(() => {
+            if (!isDeleting && displayText === currentWord) {
+                setTimeout(() => setIsDeleting(true), pauseTime)
+            } else if (isDeleting && displayText === '') {
+                setIsDeleting(false)
+                setCurrentWordIndex((prev) => (prev + 1) % words.length)
+            } else {
+                setDisplayText(
+                    isDeleting
+                        ? currentWord.substring(0, displayText.length - 1)
+                        : currentWord.substring(0, displayText.length + 1)
+                )
+            }
+        }, typingSpeed)
+
+        return () => clearTimeout(timeout)
+    }, [displayText, isDeleting, currentWordIndex])
+
     return (
         <section className="relative min-h-screen bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#4f75c7] overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-white/10"></div>
@@ -13,11 +44,55 @@ export default function HeroVideo() {
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
                 <div className="flex flex-col items-center text-center">
 
-                    <div className="mb-12 max-w-7xl">
-                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                            Marketing a 360° per imprenditori che vogliono risultati!
-                        </h1>
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="mb-12 max-w-7xl"
+                    >
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="inline-block mb-6"
+                        >
+                            <div className="bg-white/15 backdrop-blur-md border-2 border-white/30 rounded-full px-6 py-2">
+                                <span className="text-blue-100 font-bold text-sm uppercase tracking-wider">
+                                    ✨ Metodo Vittori 360
+                                </span>
+                            </div>
+                        </motion.div>
+
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight"
+                        >
+                            Marketing a{' '}
+                            <span className="relative inline-block">
+                                <span className="bg-gradient-to-r from-blue-100 via-white to-blue-100 bg-clip-text text-transparent">
+                                    360°
+                                </span>
+                                <motion.div
+                                    initial={{ scaleX: 0 }}
+                                    animate={{ scaleX: 1 }}
+                                    transition={{ duration: 0.8, delay: 1 }}
+                                    className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-white to-blue-200 rounded-full origin-left"
+                                />
+                            </span>
+                            per imprenditori che
+                            vogliono{' '}
+                            <span className="relative inline-block min-w-[300px] text-left">
+                                <span className="text-blue-100">
+                                    {displayText}
+                                    {(isDeleting || displayText !== words[currentWordIndex]) && (
+                                        <span className="animate-pulse">|</span>
+                                    )}
+                                </span>
+                            </span>
+                        </motion.h1>
+                    </motion.div>
 
                     <div className="w-full max-w-7xl mb-12">
                         <div className="relative aspect-video bg-black/20 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm">
@@ -47,15 +122,22 @@ export default function HeroVideo() {
                             </video> */}
                         </div>
                     </div>
+                    <div className="mb-8">
+                        <TrustedCustomers />
+                    </div>
 
-                    <div className="mb-8 max-w-4xl">
-                        <p className="text-xl sm:text-2xl text-white/90 mb-6 leading-relaxed">
-                            Diamo voce e visibilità alle aziende di Roma, portando più clienti e più fatturato con strategie integrate e misurabili.
-                        </p>
+                    <div className="mb-12 max-w-5xl w-full">
+                        <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-white/20 shadow-2xl mb-6">
+                            <p className="text-2xl sm:text-3xl text-white leading-relaxed text-center font-medium">
+                                Diamo voce e visibilità alle aziende di Roma, portando più clienti e più fatturato con strategie integrate e misurabili.
+                            </p>
+                        </div>
 
-                        <p className="text-lg sm:text-xl text-white/90 font-medium">
-                            Affidati a <span className="font-bold">VittoriConsulting</span> gli ideatori del Metodo che sta rivoluzionando il business di oltre <span className="font-bold">180 Imprenditori</span> e PMI romani.
-                        </p>
+                        <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md rounded-3xl p-8 sm:p-10 border-2 border-white/30 shadow-2xl">
+                            <p className="text-xl sm:text-2xl text-white text-center leading-relaxed">
+                                Affidati a <span className="font-bold text-blue-100">VittoriConsulting</span> gli ideatori del Metodo che sta rivoluzionando il business di oltre <span className="font-bold text-blue-100">180 Imprenditori</span> e PMI romani.
+                            </p>
+                        </div>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 items-center mb-8">
@@ -65,27 +147,6 @@ export default function HeroVideo() {
                         >
                             Prenota subito la tua consulenza gratuita
                         </GradientButton>
-                    </div>
-
-                    <div className="flex flex-wrap justify-center gap-8 text-white/90 text-base">
-                        <div className="flex items-center gap-2">
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                            </svg>
-                            <span>Consulenza 100% gratuita</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                            </svg>
-                            <span>180+ Imprenditori serviti</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                            </svg>
-                            <span>Risultati misurabili garantiti</span>
-                        </div>
                     </div>
                 </div>
             </div>
