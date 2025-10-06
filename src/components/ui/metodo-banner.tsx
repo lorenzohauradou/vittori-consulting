@@ -11,9 +11,10 @@ interface MetodoStep {
 
 interface MetodoBannerProps {
     className?: string
+    reverse?: boolean
 }
 
-export default function MetodoBanner({ className = "" }: MetodoBannerProps) {
+export default function MetodoBanner({ className = "", reverse = false }: MetodoBannerProps) {
     const methodSteps: MetodoStep[] = [
         { name: "ANALISI", description: "Analizziamo il tuo business", number: 1 },
         { name: "ATTRAZIONE", description: "Attiriamo il target giusto", number: 2 },
@@ -32,7 +33,7 @@ export default function MetodoBanner({ className = "" }: MetodoBannerProps) {
                 <motion.div
                     className="flex items-center gap-8"
                     animate={{
-                        x: [-50 * methodSteps.length * 8, 0]
+                        x: reverse ? [0, -50 * methodSteps.length * 8] : [-50 * methodSteps.length * 8, 0]
                     }}
                     transition={{
                         x: {
@@ -66,7 +67,11 @@ export default function MetodoBanner({ className = "" }: MetodoBannerProps) {
 
                             {index < duplicatedSteps.length - 1 && (
                                 <div className="flex-shrink-0 ml-2">
-                                    <svg className="w-4 h-4 text-[#2e54a1]/60" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg
+                                        className={`w-4 h-4 text-[#2e54a1]/60 ${reverse ? 'rotate-180' : ''}`}
+                                        fill="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
                                         <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                                     </svg>
                                 </div>
@@ -83,7 +88,7 @@ export default function MetodoBanner({ className = "" }: MetodoBannerProps) {
                 <motion.div
                     className="absolute top-0 left-0 h-0.5 w-16 bg-gradient-to-r from-transparent via-[#2e54a1] to-transparent"
                     animate={{
-                        x: ["-64px", "calc(100vw)"]
+                        x: reverse ? ["calc(100vw)", "-64px"] : ["-64px", "calc(100vw)"]
                     }}
                     transition={{
                         x: {

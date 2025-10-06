@@ -28,7 +28,7 @@ export default function VideoLetter() {
             <VeritaSection />
             <MetodoBanner />
             <ComparisonSection />
-            <MetodoBanner />
+            <MetodoBanner reverse />
             <MethodSection />
             <TestimonialsSection />
             <CTASection />
