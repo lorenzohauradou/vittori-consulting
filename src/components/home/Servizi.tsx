@@ -2,8 +2,10 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useOptin } from '@/contexts/OptinContext'
 
 export default function Servizi() {
+    const { openModal } = useOptin()
 
     const servizi = [
         {
@@ -142,7 +144,10 @@ export default function Servizi() {
                         </div>
 
                         <div>
-                            <button className="relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-gradient-to-r from-[#2e54a1] to-blue-600 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                            <button
+                                onClick={openModal}
+                                className="relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-gradient-to-r from-[#2e54a1] to-blue-600 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                            >
                                 <span className="relative z-10">INIZIA QUI</span>
                             </button>
                         </div>

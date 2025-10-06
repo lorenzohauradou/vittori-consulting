@@ -3,8 +3,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { CustomBackground } from '@/components/ui/custom-background'
+import { useOptin } from '@/contexts/OptinContext'
 
 export default function Testimonials() {
+    const { openModal } = useOptin()
 
     const testimonials = [
         {
@@ -248,6 +250,7 @@ export default function Testimonials() {
                             </motion.span>
 
                             <motion.button
+                                onClick={openModal}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 1 }}

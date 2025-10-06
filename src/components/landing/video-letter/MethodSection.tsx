@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { motion } from 'framer-motion'
 
 export default function MethodSection() {
     const pillars = [
@@ -68,87 +69,80 @@ export default function MethodSection() {
     ]
 
     return (
-        <section className="relative py-20 bg-white overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-gray-50"></div>
+        <section className="relative py-24 lg:py-32 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] overflow-hidden">
+            <div className="absolute inset-0">
+                <div className="absolute top-20 right-20 w-32 h-32 bg-blue-100/20 rounded-full opacity-60 animate-pulse"></div>
+                <div className="absolute bottom-20 left-20 w-24 h-24 bg-blue-200/25 rounded-full opacity-50 animate-pulse delay-1000"></div>
+                <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-blue-100/15 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-l from-blue-200/20 to-transparent rounded-full blur-2xl"></div>
+                <div className="absolute top-1/3 right-1/4 w-8 h-8 bg-blue-300/40 rounded-full opacity-70 animate-bounce delay-500"></div>
+                <div className="absolute bottom-1/3 left-1/3 w-6 h-6 bg-blue-400/30 rounded-full opacity-60 animate-bounce delay-1500"></div>
+                <div className="absolute top-1/2 right-1/3 w-4 h-4 bg-blue-200/50 rounded-full opacity-50 animate-bounce delay-2000"></div>
+            </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                        Come ti portiamo i <span className="text-[#2e54a1]">Risultati</span>
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="text-center mb-16"
+                >
+                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+                        Come ti portiamo i <span className="text-blue-200">Risultati</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p className="text-xl text-white/90 max-w-3xl mx-auto">
                         I PILASTRI del nostro METODO
                     </p>
-                </div>
+                </motion.div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                     {pillars.map((pillar, index) => (
-                        <div
+                        <motion.div
                             key={index}
-                            className="group relative bg-white rounded-2xl p-8 border-2 border-gray-100 hover:border-[#2e54a1]/30 transition-all duration-300 hover:shadow-xl"
+                            initial={{
+                                opacity: 0,
+                                y: 50
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0
+                            }}
+                            transition={{
+                                duration: 0.6,
+                                delay: index * 0.1,
+                                type: "spring",
+                                stiffness: 100,
+                                damping: 15
+                            }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            className="group relative bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:shadow-2xl hover:scale-105"
                         >
-                            <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-[#2e54a1] to-[#1e3a70] rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
-                                <span className="text-white font-bold text-lg">{pillar.number}</span>
+                            <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-white to-blue-100 rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                                <span className="text-[#2e54a1] font-bold text-lg">{pillar.number}</span>
                             </div>
 
                             <div className="mb-6 mt-4">
-                                <div className="w-16 h-16 bg-[#2e54a1]/10 rounded-xl flex items-center justify-center text-[#2e54a1] mb-4 group-hover:bg-[#2e54a1] group-hover:text-white transition-colors">
+                                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-white mb-4 group-hover:bg-white/30 transition-colors">
                                     {pillar.icon}
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                                <h3 className="text-xl font-bold text-white mb-2">
                                     {pillar.title}
                                 </h3>
                                 {pillar.subtitle && (
-                                    <p className="text-sm font-semibold text-[#2e54a1] mb-2">
+                                    <p className="text-sm font-semibold text-blue-200 mb-2">
                                         {pillar.subtitle}
                                     </p>
                                 )}
                             </div>
 
-                            <p className="text-gray-600 leading-relaxed">
+                            <p className="text-white/90 leading-relaxed">
                                 {pillar.description}
                             </p>
 
-                            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2e54a1] to-[#1e3a70] opacity-0 group-hover:opacity-100 transition-opacity rounded-b-2xl"></div>
-                        </div>
+                            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-white to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity rounded-b-2xl"></div>
+                        </motion.div>
                     ))}
-                </div>
-
-                <div className="max-w-4xl mx-auto">
-                    <div className="bg-gradient-to-br from-[#2e54a1] to-[#1e3a70] rounded-3xl p-8 sm:p-12 shadow-2xl">
-                        <div className="flex flex-col md:flex-row items-center gap-8">
-                            <div className="flex-shrink-0">
-                                <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-                                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div className="flex-1 text-center md:text-left">
-                                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-                                    Il Metodo Completo per il Tuo Successo
-                                </h3>
-                                <p className="text-lg text-blue-100">
-                                    Non è una semplice consulenza. È un sistema completo che copre ogni aspetto del tuo marketing, dalla strategia ai risultati misurabili.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="mt-8 grid sm:grid-cols-3 gap-6">
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                                <div className="text-3xl font-bold text-white mb-1">360°</div>
-                                <div className="text-sm text-blue-100">Copertura completa</div>
-                            </div>
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                                <div className="text-3xl font-bold text-white mb-1">24/7</div>
-                                <div className="text-sm text-blue-100">Supporto continuo</div>
-                            </div>
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                                <div className="text-3xl font-bold text-white mb-1">100%</div>
-                                <div className="text-sm text-blue-100">Risultati garantiti</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>

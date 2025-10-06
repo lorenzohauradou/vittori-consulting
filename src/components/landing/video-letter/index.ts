@@ -1,6 +1,7 @@
 export { default as HeroVideo } from './HeroVideo'
 export { default as Calculator } from './Calculator'
 export { default as ProblemsSection } from './ProblemsSection'
+export { default as VeritaSection } from './VeritaSection'
 export { default as ComparisonSection } from './ComparisonSection'
 export { default as MethodSection } from './MethodSection'
 export { default as TestimonialsSection } from './TestimonialsSection'

@@ -3,9 +3,11 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CustomBackground } from '@/components/ui/custom-background'
+import { useOptin } from '@/contexts/OptinContext'
 
 export default function Hero() {
     const [currentPhase, setCurrentPhase] = useState(0)
+    const { openModal } = useOptin()
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -123,6 +125,7 @@ export default function Hero() {
                                 className="flex flex-col gap-6"
                             >
                                 <motion.button
+                                    onClick={openModal}
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     className="bg-white text-[#2e54a1] px-8 py-4 rounded-full font-bold text-lg hover:bg-white/95 transition-all duration-300 shadow-xl hover:shadow-2xl w-fit"

@@ -4,6 +4,7 @@ import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import IPhoneCanvas from '@/components/ui/iphone-canvas'
+import { useOptin } from '@/contexts/OptinContext'
 
 
 interface TeamMember {
@@ -17,6 +18,7 @@ interface TeamMember {
 
 export default function About() {
     const containerRef = useRef<HTMLDivElement>(null)
+    const { openModal } = useOptin()
 
 
 
@@ -336,6 +338,7 @@ export default function About() {
                                     NOI CI METTIAMO LA FACCIA … E TU?
                                 </motion.h4>
                                 <motion.button
+                                    onClick={openModal}
                                     className="font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                                     initial={{
                                         backgroundColor: "#2563eb",

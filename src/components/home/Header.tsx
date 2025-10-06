@@ -2,9 +2,11 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
+import { useOptin } from '@/contexts/OptinContext'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const { openModal } = useOptin()
 
     const menuItems = [
         { label: 'Servizi', href: '#servizi' },
@@ -44,7 +46,10 @@ export default function Header() {
                         ))}
                     </nav>
                     <div className="flex items-center space-x-4 ml-auto">
-                        <button className="hidden lg:block bg-gradient-to-r from-[#2e54a1] to-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300">
+                        <button
+                            onClick={openModal}
+                            className="hidden lg:block bg-gradient-to-r from-[#2e54a1] to-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
+                        >
                             INIZIA QUI
                         </button>
 
@@ -80,7 +85,13 @@ export default function Header() {
                                 </a>
                             ))}
                             <div className="pt-4 pb-2">
-                                <button className="w-full bg-gradient-to-r from-[#2e54a1] to-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300">
+                                <button
+                                    onClick={() => {
+                                        openModal()
+                                        setIsMenuOpen(false)
+                                    }}
+                                    className="w-full bg-gradient-to-r from-[#2e54a1] to-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
+                                >
                                     INIZIA QUI
                                 </button>
                             </div>

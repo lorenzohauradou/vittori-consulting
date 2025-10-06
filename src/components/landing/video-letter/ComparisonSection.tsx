@@ -136,60 +136,13 @@ export default function ComparisonSection() {
                     ))}
                 </div>
 
-                <div className="mt-12 bg-gradient-to-br from-[#2e54a1] to-[#1e3a70] rounded-3xl p-8 sm:p-12 shadow-2xl text-center">
-                    <div className="max-w-3xl mx-auto">
-                        <div className="w-16 h-16 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                        </div>
-
-                        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                            Non è solo marketing.
-                        </h3>
-                        <p className="text-xl text-blue-100 mb-6">
-                            È una <span className="font-bold text-white">trasformazione completa</span> del tuo business.
-                        </p>
-                        <p className="text-lg text-blue-50">
-                            Il Metodo Vittori 360 copre ogni aspetto: strategia, operatività, follow-up e risultati misurabili. Non lasciamo nulla al caso.
-                        </p>
-                    </div>
-                </div>
-
                 <div className="mt-16 text-center">
-                    <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border-4 border-[#2e54a1]">
-                        <p className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
-                            Pronto a vedere la differenza con i tuoi occhi?
-                        </p>
-
-                        <GradientButton
-                            size="lg"
-                            className="text-xl px-12 py-6 shadow-2xl hover:scale-105 transition-transform"
-                        >
-                            Prenota subito la tua consulenza gratuita
-                        </GradientButton>
-
-                        <div className="mt-6 grid sm:grid-cols-3 gap-4 text-sm text-gray-600">
-                            <div className="flex items-center justify-center gap-2">
-                                <svg className="w-5 h-5 text-[#2e54a1]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                </svg>
-                                <span className="font-medium">30 minuti di valore</span>
-                            </div>
-                            <div className="flex items-center justify-center gap-2">
-                                <svg className="w-5 h-5 text-[#2e54a1]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                </svg>
-                                <span className="font-medium">100% gratuita</span>
-                            </div>
-                            <div className="flex items-center justify-center gap-2">
-                                <svg className="w-5 h-5 text-[#2e54a1]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                </svg>
-                                <span className="font-medium">Nessun impegno</span>
-                            </div>
-                        </div>
-                    </div>
+                    <GradientButton
+                        size="lg"
+                        className="text-xl px-12 py-6 shadow-2xl hover:scale-105 transition-transform"
+                    >
+                        Prenota subito la tua consulenza gratuita
+                    </GradientButton>
                 </div>
             </div>
         </section>

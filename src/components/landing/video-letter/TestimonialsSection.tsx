@@ -54,7 +54,7 @@ export default function TestimonialsSection() {
                     </h2>
                 </div>
 
-                <div className="py-8 overflow-hidden mb-16">
+                <div className="py-8 mb-16">
                     <div className="relative">
                         <motion.div
                             className="flex items-center gap-6"
@@ -97,9 +97,6 @@ export default function TestimonialsSection() {
                                 </div>
                             ))}
                         </motion.div>
-
-                        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent pointer-events-none z-10"></div>
-                        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent pointer-events-none z-10"></div>
                     </div>
 
                     <div className="relative mt-4">

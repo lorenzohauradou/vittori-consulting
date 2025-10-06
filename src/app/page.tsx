@@ -12,13 +12,16 @@ import Testimonials from '@/components/home/Testimonials'
 import Footer from '@/components/home/Footer'
 import StickyFounder from '@/components/ui/sticky-founder'
 import StickyContact from '@/components/ui/sticky-contact'
+import { OptinModal } from '@/components/ui/optin-modal'
+import { OptinProvider } from '@/contexts/OptinContext'
 
 export default function Home() {
   return (
-    <>
+    <OptinProvider>
       <Header />
       <StickyFounder />
       <StickyContact />
+      <OptinModal />
       <Hero />
       <Partners />
       <Difference />
@@ -31,6 +34,6 @@ export default function Home() {
       <MetodoBanner />
       <Testimonials />
       <Footer />
-    </>
+    </OptinProvider>
   )
 }

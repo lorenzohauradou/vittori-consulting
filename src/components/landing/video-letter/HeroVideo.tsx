@@ -13,21 +13,13 @@ export default function HeroVideo() {
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
                 <div className="flex flex-col items-center text-center">
 
-                    <div className="mb-8 sm:mb-12 max-w-4xl">
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                    <div className="mb-12 max-w-7xl">
+                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
                             Marketing a 360° per imprenditori che vogliono risultati!
                         </h1>
-
-                        <p className="text-lg sm:text-xl lg:text-2xl text-blue-50 mb-6 leading-relaxed">
-                            Diamo voce e visibilità alle aziende di Roma, portando più clienti e più fatturato con strategie integrate e misurabili.
-                        </p>
-
-                        <p className="text-base sm:text-lg text-white/90 font-medium">
-                            Affidati a <span className="font-bold">VittoriConsulting</span> gli ideatori del Metodo che sta rivoluzionando il business di oltre <span className="font-bold">180 Imprenditori</span> e PMI romani.
-                        </p>
                     </div>
 
-                    <div className="w-full max-w-4xl mb-12">
+                    <div className="w-full max-w-7xl mb-12">
                         <div className="relative aspect-video bg-black/20 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm">
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <div className="text-center">
@@ -56,7 +48,17 @@ export default function HeroVideo() {
                         </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4 items-center">
+                    <div className="mb-8 max-w-4xl">
+                        <p className="text-xl sm:text-2xl text-white/90 mb-6 leading-relaxed">
+                            Diamo voce e visibilità alle aziende di Roma, portando più clienti e più fatturato con strategie integrate e misurabili.
+                        </p>
+
+                        <p className="text-lg sm:text-xl text-white/90 font-medium">
+                            Affidati a <span className="font-bold">VittoriConsulting</span> gli ideatori del Metodo che sta rivoluzionando il business di oltre <span className="font-bold">180 Imprenditori</span> e PMI romani.
+                        </p>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-4 items-center mb-8">
                         <GradientButton
                             size="lg"
                             className="text-lg px-10 py-5 shadow-2xl hover:scale-105 transition-transform"
@@ -65,7 +67,7 @@ export default function HeroVideo() {
                         </GradientButton>
                     </div>
 
-                    <div className="mt-12 flex flex-wrap justify-center gap-8 text-white/80 text-sm">
+                    <div className="flex flex-wrap justify-center gap-8 text-white/90 text-base">
                         <div className="flex items-center gap-2">
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
