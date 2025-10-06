@@ -50,9 +50,6 @@ export default function CTASection() {
                         </div>
 
                         <div className="max-w-2xl mx-auto">
-                            <p className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                                ⚠️ Posti limitati disponibili
-                            </p>
                             <p className="text-lg text-gray-700 leading-relaxed mb-8">
                                 Accettiamo solo un <span className="font-bold text-[#2e54a1]">numero limitato di clienti per settore</span>. Affrettati e assicurati la tua consulenza, prima che arrivi un tuo concorrente.
                             </p>

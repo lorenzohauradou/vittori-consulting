@@ -38,9 +38,20 @@ export default function ComparisonSection() {
     ]
 
     return (
-        <section className="relative py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#2e54a1]/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
+        <section className="relative py-20 bg-gradient-to-b from-white to-blue-50 overflow-hidden">
+            <div className="absolute inset-0">
+                <div className="absolute inset-y-0 left-0 w-2/5 bg-[#2e54a1] transform -skew-x-12 origin-top-left"></div>
+                <div className="absolute md:hidden -bottom-20 -right-40 w-3/5 h-250 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] transform -skew-x-12"></div>
+
+                <div className="absolute top-20 right-20 w-12 h-12 bg-blue-100 rounded-full opacity-30 animate-pulse" />
+                <div className="absolute bottom-32 right-32 w-8 h-8 bg-blue-200 rounded-full opacity-40 animate-pulse delay-1000" />
+                <div className="absolute top-1/4 right-0 w-64 h-64 bg-gradient-to-l from-blue-100/20 to-transparent rounded-full blur-2xl"></div>
+
+                <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+
+                <div className="absolute top-1/3 right-1/4 w-4 h-4 bg-blue-400 rounded-full opacity-60 animate-bounce delay-500" />
+                <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-indigo-400 rounded-full opacity-40 animate-bounce delay-1500" />
+            </div>
 
             <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
