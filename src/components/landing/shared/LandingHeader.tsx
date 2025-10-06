@@ -20,9 +20,9 @@ export default function LandingHeader() {
                             <Image
                                 src="/images/logo/logo.png"
                                 alt="Vittori Consulting"
-                                width={180}
-                                height={60}
-                                className="h-10 lg:h-12 w-auto hover:opacity-90 transition-opacity"
+                                width={300}
+                                height={300}
+                                className="hover:opacity-90 transition-opacity"
                             />
                         </Link>
                     </div>

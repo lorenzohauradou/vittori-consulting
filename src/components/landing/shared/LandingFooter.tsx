@@ -39,16 +39,13 @@ export default function LandingFooter() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
                     <div className="lg:col-span-2">
-                        <div className="mb-8">
-                            <div className="w-48 lg:w-60 mb-6">
-                                <Image
-                                    src="/images/logo/logo.png"
-                                    alt="VittoriConsulting Logo"
-                                    width={240}
-                                    height={80}
-                                    className="w-full h-auto"
-                                />
-                            </div>
+                        <div>
+                            <Image
+                                src="/images/logo/logo.png"
+                                alt="VittoriConsulting Logo"
+                                width={300}
+                                height={300}
+                            />
                             <p className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">
                                 Con noi il marketing non sarà più un peso.
                             </p>
@@ -136,7 +133,7 @@ export default function LandingFooter() {
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer >
     )
 }
 

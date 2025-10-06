@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { HeroVideo, Calculator, ProblemsSection, ComparisonSection, MethodSection, TestimonialsSection, CTASection, FAQSection } from '@/components/landing/video-letter'
 import Partners from '@/components/ui/Partners'
+import StickyContact from '@/components/ui/sticky-contact'
 
 export const metadata: Metadata = {
     title: 'Marketing a 360° per Imprenditori | VittoriConsulting',
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 export default function VideoLetter() {
     return (
         <>
+            <StickyContact />
             <HeroVideo />
             <Calculator />
             <Partners />

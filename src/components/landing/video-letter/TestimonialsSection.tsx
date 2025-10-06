@@ -1,12 +1,13 @@
 'use client'
 
 import React from 'react'
+import { motion } from 'framer-motion'
 
 export default function TestimonialsSection() {
     const stats = [
         {
             number: '189+',
-            label: 'PMI hanno già trasformato il loro business con il nostro metodo',
+            label: 'PMI hanno già trasformato il loro business',
         },
         {
             number: '+150%',
@@ -19,10 +20,12 @@ export default function TestimonialsSection() {
         },
         {
             number: '4:1',
-            label: 'ROI medio su tutte le campagne gestite',
+            label: 'ROI medio su tutte le campagne',
             highlight: true,
         },
     ]
+
+    const duplicatedStats = [...stats, ...stats, ...stats]
 
     const finalNumbers = [
         { value: '+150%', label: 'di ROI' },
@@ -51,34 +54,71 @@ export default function TestimonialsSection() {
                     </h2>
                 </div>
 
-                {/* Statistiche principali in grid */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                    {stats.map((stat, index) => (
-                        <div
-                            key={index}
-                            className={`
-                                relative rounded-2xl p-6 sm:p-8 text-center transition-all duration-300 hover:scale-105
-                                ${stat.highlight
-                                    ? 'bg-gradient-to-br from-[#2e54a1] to-[#1e3a70] text-white shadow-xl'
-                                    : 'bg-white border-2 border-gray-100 hover:border-[#2e54a1]/30 shadow-sm'
+                <div className="py-8 overflow-hidden mb-16">
+                    <div className="relative">
+                        <motion.div
+                            className="flex items-center gap-6"
+                            animate={{
+                                x: [-300 * stats.length, 0]
+                            }}
+                            transition={{
+                                x: {
+                                    repeat: Infinity,
+                                    repeatType: "loop",
+                                    duration: 25,
+                                    ease: "linear"
                                 }
-                            `}
+                            }}
                         >
-                            <div className={`text-4xl sm:text-5xl font-black mb-4 ${stat.highlight ? 'text-white' : 'text-[#2e54a1]'}`}>
-                                {stat.number}
-                            </div>
-                            <p className={`text-sm sm:text-base leading-relaxed ${stat.highlight ? 'text-blue-100' : 'text-gray-700'}`}>
-                                {stat.label}
-                            </p>
-                            {stat.highlight && (
-                                <div className="absolute -top-3 -right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
-                                    <svg className="w-5 h-5 text-[#2e54a1]" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                    </svg>
+                            {duplicatedStats.map((stat, index) => (
+                                <div
+                                    key={`stat-${index}`}
+                                    className={`
+                                        flex-shrink-0 rounded-2xl p-6 text-center min-w-[280px] shadow-lg
+                                        ${stat.highlight
+                                            ? 'bg-gradient-to-br from-[#2e54a1] to-[#1e3a70] text-white'
+                                            : 'bg-white border-2 border-gray-100'
+                                        }
+                                    `}
+                                >
+                                    <div className={`text-4xl font-black mb-3 ${stat.highlight ? 'text-white' : 'text-[#2e54a1]'}`}>
+                                        {stat.number}
+                                    </div>
+                                    <p className={`text-sm leading-tight ${stat.highlight ? 'text-blue-100' : 'text-gray-700'}`}>
+                                        {stat.label}
+                                    </p>
+                                    {stat.highlight && (
+                                        <div className="mt-3 inline-flex items-center justify-center w-6 h-6 bg-white rounded-full">
+                                            <svg className="w-4 h-4 text-[#2e54a1]" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    )}
                                 </div>
-                            )}
-                        </div>
-                    ))}
+                            ))}
+                        </motion.div>
+
+                        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent pointer-events-none z-10"></div>
+                        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent pointer-events-none z-10"></div>
+                    </div>
+
+                    <div className="relative mt-4">
+                        <div className="h-0.5 bg-gradient-to-r from-[#2e54a1]/20 via-[#2e54a1]/60 to-[#2e54a1]/20 mx-8"></div>
+                        <motion.div
+                            className="absolute top-0 left-0 h-0.5 w-16 bg-gradient-to-r from-transparent via-[#2e54a1] to-transparent"
+                            animate={{
+                                x: ["-64px", "calc(100vw)"]
+                            }}
+                            transition={{
+                                x: {
+                                    repeat: Infinity,
+                                    repeatType: "loop",
+                                    duration: 8,
+                                    ease: "linear"
+                                }
+                            }}
+                        />
+                    </div>
                 </div>
 
                 <div className="mb-16">
