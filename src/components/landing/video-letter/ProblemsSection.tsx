@@ -1,9 +1,22 @@
 'use client'
 
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+
+const images = ['/images/prestazioni.png', '/images/prestazioni1.png']
 
 export default function ProblemsSection() {
+    const [currentImage, setCurrentImage] = useState(0)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % images.length)
+        }, 4000)
+
+        return () => clearInterval(interval)
+    }, [])
+
     return (
         <section className="relative py-16 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent_50%)]"></div>
@@ -66,16 +79,23 @@ export default function ProblemsSection() {
                             viewport={{ once: true }}
                             className="bg-white/5 rounded-2xl overflow-hidden aspect-video relative"
                         >
-                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-white/10 to-white/5">
-                                <div className="text-center">
-                                    <div className="w-20 h-20 mx-auto mb-3 bg-white/20 rounded-2xl flex items-center justify-center">
-                                        <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                        </svg>
-                                    </div>
-                                    <p className="text-white/50 text-sm">Immagine placeholder</p>
-                                </div>
-                            </div>
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={currentImage}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.5 }}
+                                    className="absolute inset-0"
+                                >
+                                    <Image
+                                        src={images[currentImage]}
+                                        alt="Prestazioni"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </motion.div>
+                            </AnimatePresence>
                         </motion.div>
                     </div>
 
