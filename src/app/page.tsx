@@ -1,4 +1,3 @@
-
 import Header from '@/components/home/Header'
 import Hero from '@/components/home/Hero'
 import Partners from '@/components/ui/Partners'
