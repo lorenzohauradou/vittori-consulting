@@ -1,8 +1,8 @@
 'use client'
 
-import React from 'react'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
+import React from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface PartnersProps {
     showTitle?: boolean
@@ -10,31 +10,31 @@ interface PartnersProps {
 
 export default function Partners({ showTitle = true }: PartnersProps) {
     const partners = [
-        { name: 'Magic Box Roma', logo: '/images/partners/logo-magic-box-roma.png' },
+        { name: 'Magic Box Roma', logo: '/images/partners/logo-magic-box-roma.webp' },
         { name: 'Broker Associati', logo: '/images/partners/broker-associati.svg' },
-        { name: 'Gelotti', logo: '/images/partners/gelotti.png' },
-        { name: 'Ami School', logo: '/images/partners/amischool.png' },
-        { name: 'Alberto\'s Pizza', logo: '/images/partners/albertos-pizza.jpg' },
+        { name: 'Gelotti', logo: '/images/partners/gelotti.webp' },
+        { name: 'Ami School', logo: '/images/partners/amischool.webp' },
+        { name: 'Alberto\'s Pizza', logo: '/images/partners/albertos-pizza.webp' },
         { name: 'St. Peter Photo', logo: '/images/partners/st-peter-photo.webp' },
-        { name: 'Passito SpA', logo: '/images/partners/passito-spa.jpg' },
-        { name: 'Scavolini Store Fiumicino', logo: '/images/partners/scavolini-store-fiumicino.jpg' },
-        { name: 'Il Capriccio Pizzeria', logo: '/images/partners/capriccio.jpg' },
-        { name: 'Summer Fest', logo: '/images/partners/summer.png' },
-        { name: 'Voce', logo: '/images/partners/voce.png' },
-        { name: 'HeroCraft', logo: '/images/partners/herocraft.jpg' },
+        { name: 'Passito SpA', logo: '/images/partners/passito-spa.webp' },
+        { name: 'Scavolini Store Fiumicino', logo: '/images/partners/scavolini-store-fiumicino.webp' },
+        { name: 'Il Capriccio Pizzeria', logo: '/images/partners/capriccio.webp' },
+        { name: 'Summer Fest', logo: '/images/partners/summer.webp' },
+        { name: 'Voce', logo: '/images/partners/voce.webp' },
+        { name: 'HeroCraft', logo: '/images/partners/herocraft.webp' },
         // Duplico per effetto continuo
-        { name: 'Magic Box Roma', logo: '/images/partners/logo-magic-box-roma.png' },
+        { name: 'Magic Box Roma', logo: '/images/partners/logo-magic-box-roma.webp' },
         { name: 'Broker Associati', logo: '/images/partners/broker-associati.svg' },
-        { name: 'Gelotti', logo: '/images/partners/gelotti.png' },
-        { name: 'Ami School', logo: '/images/partners/amischool.png' },
-        { name: 'Alberto\'s Pizza', logo: '/images/partners/albertos-pizza.jpg' },
+        { name: 'Gelotti', logo: '/images/partners/gelotti.webp' },
+        { name: 'Ami School', logo: '/images/partners/amischool.webp' },
+        { name: 'Alberto\'s Pizza', logo: '/images/partners/albertos-pizza.webp' },
         { name: 'St. Peter Photo', logo: '/images/partners/st-peter-photo.webp' },
-        { name: 'Passito SpA', logo: '/images/partners/passito-spa.jpg' },
-        { name: 'Scavolini Store Fiumicino', logo: '/images/partners/scavolini-store-fiumicino.jpg' },
-        { name: 'Il Capriccio Pizzeria', logo: '/images/partners/capriccio.jpg' },
-        { name: 'Summer Fest', logo: '/images/partners/summer.png' },
-        { name: 'Voce', logo: '/images/partners/voce.png' },
-        { name: 'HeroCraft', logo: '/images/partners/herocraft.jpg' },
+        { name: 'Passito SpA', logo: '/images/partners/passito-spa.webp' },
+        { name: 'Scavolini Store Fiumicino', logo: '/images/partners/scavolini-store-fiumicino.webp' },
+        { name: 'Il Capriccio Pizzeria', logo: '/images/partners/capriccio.webp' },
+        { name: 'Summer Fest', logo: '/images/partners/summer.webp' },
+        { name: 'Voce', logo: '/images/partners/voce.webp' },
+        { name: 'HeroCraft', logo: '/images/partners/herocraft.webp' },
     ]
 
     return (
@@ -74,18 +74,18 @@ export default function Partners({ showTitle = true }: PartnersProps) {
                                 >
                                     <div className="whitespace-nowrap px-6 py-2 rounded-lg bg-white/50 backdrop-blur-sm border border-gray-200/50">
                                         <Image
-                                            src={partner.logo || ''}
+                                            src={partner.logo || ""}
                                             alt={partner.name}
                                             width={100}
                                             height={40}
                                             sizes="100px"
-                                            loading={isFirstBatch ? 'eager' : 'lazy'}
+                                            loading={isFirstBatch ? "eager" : "lazy"}
                                             priority={isFirstBatch && !isDuplicate}
                                             className="h-auto w-auto max-h-12"
                                         />
                                     </div>
                                 </div>
-                            )
+                            );
                         })}
                     </motion.div>
 
