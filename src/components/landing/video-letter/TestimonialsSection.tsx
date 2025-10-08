@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
 
 export default function TestimonialsSection() {
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -12,32 +12,28 @@ export default function TestimonialsSection() {
             name: 'Alberto Rossi',
             role: 'CEO, Alberto\'s Pizza',
             text: 'VittoriConsulting ha trasformato completamente il nostro business. Grazie al loro metodo abbiamo triplicato il fatturato in soli 6 mesi. Il team è sempre disponibile e professionale.',
-            video: null,
-            logo: '/images/partners/albertos-pizza.webp'
+            video: null
         },
         {
             id: 2,
             name: 'Marco Bianchi',
             role: 'Founder, Scavolini Store',
             text: 'Collaborare con VittoriConsulting è stata la scelta migliore per la nostra attività. Lead qualificati aumentati del 150% e un supporto costante in ogni fase del progetto.',
-            video: null,
-            logo: '/images/partners/scavolini-store-fiumicino.webp'
+            video: null
         },
         {
             id: 3,
             name: 'Giulia Verdi',
             role: 'Owner, Gelotti',
             text: 'Professionalità, competenza e risultati concreti. Il metodo Vittori 360 funziona davvero. Le nostre vendite online sono cresciute del 200% e continuiamo a crescere.',
-            video: null,
-            logo: '/images/partners/gelotti.webp'
+            video: null
         },
         {
             id: 4,
             name: 'Laura Neri',
             role: 'Director, Passito Spa',
             text: 'Risultati oltre ogni aspettativa. Le prenotazioni sono aumentate del 180% e la nostra brand awareness è cresciuta esponenzialmente. Team fantastico!',
-            video: null,
-            logo: '/images/partners/passito-spa.webp'
+            video: null
         }
     ]
 
@@ -222,6 +218,6 @@ export default function TestimonialsSection() {
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
