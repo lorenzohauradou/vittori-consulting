@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-// import Image from 'next/image'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 interface TrustedCustomersProps {
@@ -11,12 +11,12 @@ interface TrustedCustomersProps {
 export function TrustedCustomers({
 }: TrustedCustomersProps) {
     const customers = [
-        { id: 1, name: 'Cliente 1', image: '/images/customers/customer-1.jpg' },
-        { id: 2, name: 'Cliente 2', image: '/images/customers/customer-2.jpg' },
-        { id: 3, name: 'Cliente 3', image: '/images/customers/customer-3.jpg' },
-        { id: 4, name: 'Cliente 4', image: '/images/customers/customer-4.jpg' },
-        { id: 5, name: 'Cliente 5', image: '/images/customers/customer-5.jpg' },
-        { id: 6, name: 'Cliente 6', image: '/images/customers/customer-6.jpg' },
+        { id: 1, name: 'Cliente 1', image: '/images/trusted/alice.png' },
+        { id: 2, name: 'Cliente 2', image: '/images/trusted/adam.png' },
+        { id: 3, name: 'Cliente 3', image: '/images/trusted/fin.png' },
+        { id: 4, name: 'Cliente 4', image: '/images/trusted/dorothy.png' },
+        { id: 5, name: 'Cliente 5', image: '/images/trusted/brian.png' },
+        { id: 6, name: 'Cliente 6', image: '/images/trusted/freya.png' },
     ]
 
     return (
@@ -49,12 +49,12 @@ export function TrustedCustomers({
                                         {customer.name.charAt(0)}
                                     </span>
                                 </div>
-                                {/* <Image
+                                <Image
                                     src={customer.image}
                                     alt={customer.name}
                                     fill
                                     className="object-cover"
-                                /> */}
+                                />
                             </div>
                         </motion.div>
                     ))}
