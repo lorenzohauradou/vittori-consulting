@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import Image from 'next/image'
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { useOptin } from '@/contexts/OptinContext'
 
 export default function Header() {
@@ -46,7 +46,7 @@ export default function Header() {
                     <div className="flex-shrink-0">
                         <a href="#" className="w-72 lg:w-100 flex items-center justify-center">
                             <Image
-                                src="/images/logo/logo-extend.png"
+                                src="/images/logo/logo-extend.webp"
                                 alt="Vittori Consulting"
                                 width={300}
                                 height={300}
@@ -111,7 +111,7 @@ export default function Header() {
                             <div className="pt-4 pb-2">
                                 <button
                                     onClick={() => {
-                                        openModal()
+                                        openModal();
                                         setIsMenuOpen(false)
                                     }}
                                     className="w-full bg-gradient-to-r from-[#2e54a1] to-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
@@ -124,5 +124,5 @@ export default function Header() {
                 )}
             </div>
         </header>
-    )
+    );
 }

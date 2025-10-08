@@ -43,7 +43,7 @@ export default function LandingHeader() {
                     <div className="flex-shrink-0">
                         <Link href="/" className="flex items-center">
                             <Image
-                                src="/images/logo/logo.png"
+                                src="/images/logo/logo.webp"
                                 alt="Vittori Consulting"
                                 width={300}
                                 height={300}

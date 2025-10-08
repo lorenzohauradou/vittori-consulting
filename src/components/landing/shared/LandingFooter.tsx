@@ -1,9 +1,9 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Linkedin, Instagram, Facebook } from 'lucide-react'
+import Image from "next/image";
+import Link from "next/link";
+import { Linkedin, Instagram, Facebook } from "lucide-react";
 
 export default function LandingFooter() {
     const socialLinks = [
@@ -31,7 +31,7 @@ export default function LandingFooter() {
                     <div className="flex flex-col items-center justify-center mb-12">
                         <div className="items-center justify-center flex mb-6">
                             <Image
-                                src="/images/logo/logo-circle.png"
+                                src="/images/logo/logo-circle.webp"
                                 alt="VittoriConsulting Logo"
                                 width={100}
                                 height={100}

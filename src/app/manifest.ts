@@ -10,10 +10,10 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: '#ffffff',
     theme_color: '#000000',
     icons: [
-      {
-        src: '/images/logo/logo-circle.png',
+      { 
+        src: '/images/logo/logo-circle.webp',
         sizes: 'any',
-        type: 'image/png',
+        type: 'image/webp',
       },
     ],
   }

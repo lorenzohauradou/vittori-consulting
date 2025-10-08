@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Linkedin, Instagram, Facebook } from 'lucide-react'
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Linkedin, Instagram, Facebook } from "lucide-react";
 
 export default function Footer() {
     const [formData, setFormData] = useState({
@@ -62,7 +62,7 @@ export default function Footer() {
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-40 lg:w-60">
                                     <Image
-                                        src="/images/logo/logo.png"
+                                        src="/images/logo/logo.webp"
                                         alt="VittoriConsulting Logo"
                                         width={300}
                                         height={300}

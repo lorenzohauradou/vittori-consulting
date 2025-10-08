@@ -40,7 +40,7 @@ export const defaultMetadata: Metadata = {
     siteName: 'VittoriConsulting',
     images: [
       {
-        url: '/images/logo/logo-extend.png',
+        url: '/images/logo/logo-extend.webp',
         width: 1200,
         height: 630,
         alt: 'VittoriConsulting Logo',
@@ -52,7 +52,7 @@ export const defaultMetadata: Metadata = {
     title: 'VittoriConsulting - Marketing a 360° per Imprenditori Romani',
     description:
       'Trasforma il tuo business con il Metodo Vittori 360. Marketing strategico, branding e performance per PMI romane.',
-    images: ['/images/logo/logo-extend.png'],
+    images: ['/images/logo/logo-extend.webp'],
   },
   robots: {
     index: true,
@@ -67,7 +67,7 @@ export const defaultMetadata: Metadata = {
   },
   icons: {
     icon: '/favicon.ico',
-    apple: '/images/logo/logo-circle.png',
+    apple: '/images/logo/logo-circle.webp',
   },
   verification: {
     // google: 'your-google-verification-code',
@@ -81,7 +81,7 @@ export function createOrganizationSchema() {
     '@type': 'Organization',
     name: 'VittoriConsulting',
     url: baseUrl,
-    logo: `${baseUrl}/images/logo/logo.png`,
+    logo: `${baseUrl}/images/logo/logo.webp`,
     description: 'Agenzia di marketing a 360° per imprenditori romani. Specializzati in marketing strategico, branding e performance.',
     address: {
       '@type': 'PostalAddress',
@@ -130,7 +130,7 @@ export function createLocalBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'VittoriConsulting',
-    image: `${baseUrl}/images/logo/logo.png`,
+    image: `${baseUrl}/images/logo/logo.webp`,
     url: baseUrl,
     telephone: '+393401287852',
     email: 'info@vittoriconsulting.it',
@@ -162,7 +162,7 @@ export function createVideoSchema(videoUrl?: string) {
     '@type': 'VideoObject',
     name: 'Marketing a 360° per Imprenditori - VittoriConsulting',
     description: 'Scopri come oltre 180 imprenditori hanno trasformato il loro business con il Metodo Vittori 360.',
-    thumbnailUrl: `${baseUrl}/images/logo/logo-extend.png`,
+    thumbnailUrl: `${baseUrl}/images/logo/logo-extend.webp`,
     uploadDate: new Date().toISOString(),
     contentUrl: videoUrl || `${baseUrl}/video-letter`,
     embedUrl: videoUrl || `${baseUrl}/video-letter`,

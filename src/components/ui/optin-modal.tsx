@@ -98,7 +98,7 @@ export function OptinModal() {
                                         className="w-24 h-24 mx-auto mb-2 relative"
                                     >
                                         <Image
-                                            src="/images/logo/logo-circle.png"
+                                            src="/images/logo/logo-circle.webp"
                                             alt="Vittori Consulting"
                                             width={96}
                                             height={96}

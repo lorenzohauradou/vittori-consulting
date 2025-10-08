@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { TrustedCustomers } from '@/components/ui/trusted-customers'
-import Image from 'next/image'
+import Image from "next/image";
 
 
 const words = ['risultati!', 'crescita!', 'efficienza!', 'visibilità!', 'profitto!']
@@ -61,7 +61,7 @@ export default function HeroVideo() {
                             <div className="bg-white/15 backdrop-blur-md border-2 border-white/30 rounded-full px-4 overflow-hidden h-14 flex items-center">
                                 <div className="flex items-center">
                                     <Image
-                                        src="/images/logo/logo-circle.png"
+                                        src="/images/logo/logo-circle.webp"
                                         alt="Metodo Vittori 360"
                                         width={54}
                                         height={54}
