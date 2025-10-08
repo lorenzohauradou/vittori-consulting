@@ -44,6 +44,8 @@ async function handleCookieConsent(page: any) {
 
 export async function scrapeAndScreenshot(url: string) {
     let browser = null
+    console.log(`Inizio scraping per: ${url}. Ambiente: ${isDev ? 'Sviluppo' : 'Produzione'}`)
+    
     try {
         if (isDev) {
             const { chromium } = await import('playwright')
@@ -66,54 +68,37 @@ export async function scrapeAndScreenshot(url: string) {
         }
 
         const page = await browser.newPage({
-            viewport: {
-                width: 1920,
-                height: 1080
-            },
-            deviceScaleFactor: 2
+            userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
+            viewport: { width: 1200, height: 800 }
         })
         
         await page.goto(url, { 
-            waitUntil: 'networkidle',
-            timeout: 15000 
+            waitUntil: 'domcontentloaded',
+            timeout: 25000 
         })
 
         await handleCookieConsent(page)
 
-        await page.waitForTimeout(500)
-
-        const screenshotBuffer = await page.screenshot({ 
-            type: 'png',
-            fullPage: true
-        })
+        const screenshotBuffer = await page.screenshot({ type: 'png' })
         const screenshotBase64 = screenshotBuffer.toString('base64')
 
         const pageData = await page.evaluate(() => {
-            document.querySelectorAll('script, style, noscript').forEach(el => el.remove())
+            document.querySelectorAll('script, style, noscript, svg').forEach(el => el.remove())
             return {
                 title: document.title,
-                textContent: document.body.innerText
-                    .replace(/\s+/g, ' ')
-                    .trim()
-                    .substring(0, 4000)
+                textContent: document.body.innerText.replace(/\s+/g, ' ').trim().substring(0, 4000)
             }
         })
 
-        await browser.close()
+        return { ...pageData, screenshotBase64 }
 
-        return {
-            ...pageData,
-            screenshotBase64
-        }
     } catch (error) {
         console.error('Scraping error:', error)
-        if (browser) {
-            try {
-                await browser.close()
-            } catch {
-            }
-        }
         return null
+    } finally {
+        if (browser) {
+            await browser.close()
+        }
     }
 }
 
