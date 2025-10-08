@@ -74,12 +74,3 @@ export function CustomBackground({
     )
 }
 
-// Grid pattern CSS (da aggiungere al globals.css)
-export const gridPatternCSS = `
-.bg-grid-pattern {
-  background-image: 
-    linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
-`

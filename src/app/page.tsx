@@ -8,6 +8,7 @@ import About from '@/components/home/About'
 import Servizi from '@/components/home/Servizi'
 import MetodoBanner from '@/components/ui/metodo-banner'
 import Testimonials from '@/components/home/Testimonials'
+import FinalCTA from '@/components/home/FinalCTA'
 import Footer from '@/components/home/Footer'
 import StickyFounder from '@/components/ui/sticky-founder'
 import StickyContact from '@/components/ui/sticky-contact'
@@ -32,6 +33,8 @@ export default function Home() {
       <Servizi />
       <MetodoBanner />
       <Testimonials />
+      <MetodoBanner reverse />
+      <FinalCTA />
       <Footer />
     </OptinProvider>
   )

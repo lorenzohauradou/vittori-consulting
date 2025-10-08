@@ -59,16 +59,14 @@ export default function Footer() {
                 <div className="grid lg:grid-cols-2 gap-16">
                     <div>
                         <div className="mb-8">
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="w-40 lg:w-60">
-                                    <Image
-                                        src="/images/logo/logo.webp"
-                                        alt="VittoriConsulting Logo"
-                                        width={300}
-                                        height={300}
-                                        className="w-full h-auto"
-                                    />
-                                </div>
+                            <div className="items-center justify-left flex -mt-12">
+                                <Image
+                                    src="/images/logo/logo-circle.webp"
+                                    alt="VittoriConsulting Logo"
+                                    width={100}
+                                    height={100}
+                                />
+                                <span className="text-blue-100 font-bold text-2xl pr-8 mr-2 italic"> VittoriConsulting </span>
                             </div>
                             <p className="text-gray-300 text-lg leading-relaxed mb-6">
                                 L&apos;unica agenzia di Roma che integra marketing, operativo e commerciale.
