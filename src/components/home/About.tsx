@@ -426,6 +426,14 @@ function TeamCard({ member, index, isMobile }: {
                                 height={80}
                                 className="w-full h-full object-cover"
                             />
+                        ) : member.name === 'Camilla' ? (
+                            <Image
+                                src="/images/team/camilla.jpg"
+                                alt="Camilla"
+                                width={80}
+                                height={80}
+                                className="w-full h-full object-cover"
+                            />
                         ) : (
                             <span className="text-2xl font-bold text-white">
                                 {member.name.charAt(0)}
@@ -477,6 +485,14 @@ function TeamCard({ member, index, isMobile }: {
                         <Image
                             src="/images/team/lorenzo.jpeg"
                             alt="Lorenzo"
+                            width={64}
+                            height={64}
+                            className="w-full h-full object-cover"
+                        />
+                    ) : member.name === 'Camilla' ? (
+                        <Image
+                            src="/images/team/camilla.jpg"
+                            alt="Camilla"
                             width={64}
                             height={64}
                             className="w-full h-full object-cover"
