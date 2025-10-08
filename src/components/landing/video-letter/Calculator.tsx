@@ -169,10 +169,10 @@ export default function Calculator() {
                         Quanto puoi <span className="text-[#2e54a1]">realizzare?</span>
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-                        La nostra AI analizza il tuo business e crea una proiezione personalizzata di crescita
+                        Compila il form qui sotto per scoprire quali risultati puoi ottenere in 6 mesi di collaborazione con noi.
                     </p>
                     <p className="text-lg text-gray-500 font-medium">
-                        Risultati reali basati su 180+ casi di successo
+                        Provalo, il tuo futuro business ti ringrazierà
                     </p>
                 </div>
 
