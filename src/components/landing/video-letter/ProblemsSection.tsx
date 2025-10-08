@@ -122,6 +122,7 @@ export default function ProblemsSection() {
                                                 src={problem.imageBefore}
                                                 alt={`Prima - ${problem.text}`}
                                                 fill
+                                                sizes="(max-width: 768px) 340px, (max-width: 1024px) 380px, 450px"
                                                 className="object-cover"
                                             />
                                             <div className="absolute bottom-4 left-4">
@@ -148,6 +149,7 @@ export default function ProblemsSection() {
                                                 src={problem.imageAfter}
                                                 alt={`Dopo - ${problem.text}`}
                                                 fill
+                                                sizes="(max-width: 768px) 340px, (max-width: 1024px) 380px, 450px"
                                                 className="object-cover"
                                             />
                                             <div className="absolute bottom-4 right-4">

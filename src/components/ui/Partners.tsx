@@ -69,7 +69,13 @@ export default function Partners({ showTitle = true }: PartnersProps) {
                                 className="flex-shrink-0 h-16 flex items-center justify-center"
                             >
                                 <div className="whitespace-nowrap px-6 py-2 rounded-lg bg-white/50 backdrop-blur-sm border border-gray-200/50">
-                                    <Image src={partner.logo || ''} alt={partner.name} width={100} height={100} />
+                                    <Image
+                                        src={partner.logo || ''}
+                                        alt={partner.name}
+                                        width={100}
+                                        height={40}
+                                        className="h-auto w-auto max-h-12"
+                                    />
                                 </div>
                             </div>
                         ))}

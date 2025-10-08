@@ -63,12 +63,12 @@ export async function scrapeAndScreenshot(url: string) {
                 body: JSON.stringify({
                     url: url,
                     options: {
-                        fullPage: false,
+                        fullPage: true,
                         type: 'png',
                     },
                     viewport: {
-                        width: 1200,
-                        height: 800,
+                        width: 1920,
+                        height: 1080,
                     },
                     gotoOptions: {
                         waitUntil: 'networkidle0',

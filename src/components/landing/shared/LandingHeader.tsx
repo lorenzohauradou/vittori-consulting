@@ -22,7 +22,8 @@ export default function LandingHeader() {
                                 alt="Vittori Consulting"
                                 width={300}
                                 height={300}
-                                className="hover:opacity-90 transition-opacity"
+                                priority
+                                className="h-auto w-auto hover:opacity-90 transition-opacity"
                             />
                         </Link>
                     </div>

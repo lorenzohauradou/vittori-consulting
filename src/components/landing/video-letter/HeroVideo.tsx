@@ -60,7 +60,13 @@ export default function HeroVideo() {
                         >
                             <div className="bg-white/15 backdrop-blur-md border-2 border-white/30 rounded-full px-4 overflow-hidden h-14 flex items-center">
                                 <div className="flex items-center">
-                                    <Image src="/images/logo/logo-circle.png" alt="Metodo Vittori 360" width={54} height={54} />
+                                    <Image
+                                        src="/images/logo/logo-circle.png"
+                                        alt="Metodo Vittori 360"
+                                        width={54}
+                                        height={54}
+                                        className="h-auto w-auto"
+                                    />
                                     <span className="text-blue-100 font-bold text-sm pr-2">
                                         VITTORI CONSULTING
                                     </span>
