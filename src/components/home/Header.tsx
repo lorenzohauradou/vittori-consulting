@@ -1,12 +1,33 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useOptin } from '@/contexts/OptinContext'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isVisible, setIsVisible] = useState(true)
+    const [lastScrollY, setLastScrollY] = useState(0)
     const { openModal } = useOptin()
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY
+
+            if (currentScrollY < 10) {
+                setIsVisible(true)
+            } else if (currentScrollY > lastScrollY) {
+                setIsVisible(false)
+            } else {
+                setIsVisible(true)
+            }
+
+            setLastScrollY(currentScrollY)
+        }
+
+        window.addEventListener('scroll', handleScroll, { passive: true })
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [lastScrollY])
 
     const menuItems = [
         { label: 'Servizi', href: '#servizi' },
@@ -16,7 +37,10 @@ export default function Header() {
     ]
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+        <header
+            className={`fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'
+                }`}
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center h-16 lg:h-20">
                     <div className="flex-shrink-0">
