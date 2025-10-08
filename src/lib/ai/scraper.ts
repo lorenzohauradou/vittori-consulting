@@ -73,11 +73,13 @@ export async function scrapeAndScreenshot(url: string) {
         })
         
         await page.goto(url, { 
-            waitUntil: 'domcontentloaded',
-            timeout: 25000 
+            waitUntil: 'networkidle',
+            timeout: 60000 
         })
 
         await handleCookieConsent(page)
+
+        await page.waitForTimeout(1000)
 
         const screenshotBuffer = await page.screenshot({ type: 'png' })
         const screenshotBase64 = screenshotBuffer.toString('base64')
