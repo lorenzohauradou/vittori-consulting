@@ -107,9 +107,10 @@ export default function LandingFooter() {
             <div className="border-t border-gray-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-gray-400 text-sm text-center md:text-left">
-                            © 2025 VittoriConsulting. Tutti i diritti riservati.
-                        </p>
+                        <div className="text-gray-400 text-sm text-center md:text-left">
+                            <p>© 2025 VittoriConsulting. Tutti i diritti riservati.</p>
+                            <p className="text-xs mt-1">P.IVA: 02463360566</p>
+                        </div>
                         <div className="flex flex-wrap justify-center gap-6 text-sm">
                             <Link href="#privacy" className="text-gray-400 hover:text-white transition-colors duration-300">
                                 Privacy Policy
