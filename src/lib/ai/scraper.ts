@@ -43,72 +43,132 @@ async function handleCookieConsent(page: any) {
 }
 
 export async function scrapeAndScreenshot(url: string) {
-    let browser = null
     console.log(`Inizio scraping per: ${url}. Ambiente: ${isDev ? 'Sviluppo' : 'Produzione'}`)
     
     try {
-        if (isDev) {
-            const { chromium } = await import('playwright')
-            browser = await chromium.launch({
-                headless: true,
-            })
-        } else {
-            const playwright = (await import('playwright-core')).default
+        if (!isDev) {
             const BROWSERLESS_API_KEY = process.env.BROWSERLESS_API_KEY
             
             if (!BROWSERLESS_API_KEY) {
                 throw new Error('BROWSERLESS_API_KEY non configurata')
             }
             
-            console.log('Connessione a Browserless in corso...')
-            const browserWSEndpoint = `wss://production-sfo.browserless.io?token=${BROWSERLESS_API_KEY}`
+            console.log('Usando API REST di Browserless...')
             
-            try {
-                browser = await playwright.chromium.connect({ 
-                    wsEndpoint: browserWSEndpoint,
-                    timeout: 90000
-                })
-                console.log('Connessione a Browserless riuscita')
-            } catch (connectError) {
-                console.error('Errore connessione Browserless:', connectError)
-                throw new Error(`Impossibile connettersi a Browserless. Verifica che la chiave API sia valida e che il servizio sia disponibile.`)
+            const screenshotResponse = await fetch(`https://production-sfo.browserless.io/screenshot?token=${BROWSERLESS_API_KEY}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    url: url,
+                    options: {
+                        fullPage: false,
+                        type: 'png',
+                    },
+                    viewport: {
+                        width: 1200,
+                        height: 800,
+                    },
+                    gotoOptions: {
+                        waitUntil: 'networkidle0',
+                        timeout: 60000,
+                    },
+                }),
+            })
+
+            if (!screenshotResponse.ok) {
+                const errorText = await screenshotResponse.text()
+                console.error('Browserless API error:', errorText)
+                throw new Error(`Browserless API error: ${screenshotResponse.status}`)
             }
+
+            const screenshotBuffer = await screenshotResponse.arrayBuffer()
+            const screenshotBase64 = Buffer.from(screenshotBuffer).toString('base64')
+
+            const contentResponse = await fetch(`https://production-sfo.browserless.io/content?token=${BROWSERLESS_API_KEY}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    url: url,
+                    gotoOptions: {
+                        waitUntil: 'networkidle0',
+                        timeout: 60000,
+                    },
+                }),
+            })
+
+            if (!contentResponse.ok) {
+                console.error('Content API error:', contentResponse.status)
+                return {
+                    title: '',
+                    textContent: '',
+                    screenshotBase64
+                }
+            }
+
+            const html = await contentResponse.text()
+            
+            const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i)
+            const title = titleMatch ? titleMatch[1] : ''
+            
+            const textContent = html
+                .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+                .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+                .replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, '')
+                .replace(/<[^>]+>/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim()
+                .substring(0, 4000)
+
+            console.log('Screenshot e contenuto ottenuti con successo')
+            return { title, textContent, screenshotBase64 }
         }
 
-        const page = await browser.newPage({
-            userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
-            viewport: { width: 1200, height: 800 }
-        })
-        
-        await page.goto(url, { 
-            waitUntil: 'networkidle',
-            timeout: 60000 
-        })
+        let browser = null
+        try {
+            const { chromium } = await import('playwright')
+            browser = await chromium.launch({
+                headless: true,
+            })
 
-        await handleCookieConsent(page)
+            const page = await browser.newPage({
+                userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
+                viewport: { width: 1200, height: 800 }
+            })
+            
+            await page.goto(url, { 
+                waitUntil: 'networkidle',
+                timeout: 60000 
+            })
 
-        await page.waitForTimeout(1000)
+            await handleCookieConsent(page)
 
-        const screenshotBuffer = await page.screenshot({ type: 'png' })
-        const screenshotBase64 = screenshotBuffer.toString('base64')
+            await page.waitForTimeout(1000)
 
-        const pageData = await page.evaluate(() => {
-            document.querySelectorAll('script, style, noscript, svg').forEach(el => el.remove())
-            return {
-                title: document.title,
-                textContent: document.body.innerText.replace(/\s+/g, ' ').trim().substring(0, 4000)
+            const screenshotBuffer = await page.screenshot({ type: 'png' })
+            const screenshotBase64 = screenshotBuffer.toString('base64')
+
+            const pageData = await page.evaluate(() => {
+                document.querySelectorAll('script, style, noscript, svg').forEach(el => el.remove())
+                return {
+                    title: document.title,
+                    textContent: document.body.innerText.replace(/\s+/g, ' ').trim().substring(0, 4000)
+                }
+            })
+
+            return { ...pageData, screenshotBase64 }
+        } finally {
+            if (browser) {
+                await browser.close()
             }
-        })
-
-        return { ...pageData, screenshotBase64 }
+        }
 
     } catch (error) {
         console.error('Scraping error:', error)
         return null
-    } finally {
-        if (browser) {
-            await browser.close()
-        }
     }
 }
 
