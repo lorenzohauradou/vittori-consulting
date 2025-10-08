@@ -138,8 +138,8 @@ export default function TestimonialsSection() {
                     >
                         <div className="relative aspect-[4/5] bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl overflow-hidden shadow-2xl group">
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <button className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-all hover:scale-110 shadow-xl">
-                                    <svg className="w-10 h-10 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                <button aria-label="Riproduci video testimonianze" className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-all hover:scale-110 shadow-xl">
+                                    <svg className="w-10 h-10 ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M8 5v14l11-7z" />
                                     </svg>
                                 </button>
@@ -189,24 +189,27 @@ export default function TestimonialsSection() {
                         <div className="flex items-center gap-4">
                             <button
                                 onClick={prevTestimonial}
+                                aria-label="Testimonianze precedenti"
                                 className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-[#2e54a1] hover:text-[#2e54a1] transition-all"
                             >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                                 </svg>
                             </button>
                             <button
                                 onClick={nextTestimonial}
+                                aria-label="Testimonianze successive"
                                 className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-[#2e54a1] hover:text-[#2e54a1] transition-all"
                             >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
                             </button>
                         </div>
 
                         <a
-                            href="#"
+                            href="#calculator-section"
+                            aria-label="Vedi altri risultati e calcola la tua crescita"
                             className="inline-flex items-center gap-2 text-white md:text-gray-900 font-bold hover:text-[#2e54a1] transition-colors"
                         >
                             <span>VEDI ALTRI RISULTATI</span>

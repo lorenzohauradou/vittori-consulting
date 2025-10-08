@@ -37,23 +37,27 @@ export default function Hero() {
                             <span className="text-gray-600">Seguici:</span>
                             <div className="flex items-center gap-3">
                                 <Link
-                                    href="#"
+                                    href="https://www.linkedin.com/company/vittoriconsulting"
                                     className="w-8 h-8 bg-[#2e54a1] rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors"
-                                    aria-label="LinkedIn"
+                                    aria-label="Seguici su LinkedIn"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                 >
                                     <Linkedin className="w-4 h-4" />
                                 </Link>
                                 <Link
-                                    href="#"
+                                    href="https://www.facebook.com/vittoriconsulting"
                                     className="w-8 h-8 bg-[#2e54a1] rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors"
-                                    aria-label="Facebook"
+                                    aria-label="Seguici su Facebook"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                 >
                                     <Facebook className="w-4 h-4" />
                                 </Link>
                                 <Link
                                     href="https://www.instagram.com/vittoriconsulting"
                                     className="w-8 h-8 bg-[#2e54a1] rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors"
-                                    aria-label="Instagram"
+                                    aria-label="Seguici su Instagram"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >

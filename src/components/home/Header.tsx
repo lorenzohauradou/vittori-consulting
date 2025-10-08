@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useOptin } from '@/contexts/OptinContext'
 
 export default function Header() {
@@ -44,7 +45,7 @@ export default function Header() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center h-16 lg:h-20">
                     <div className="flex-shrink-0">
-                        <a href="#" className="w-72 lg:w-100 flex items-center justify-center">
+                        <Link href="/" aria-label="Vai alla homepage Vittori Consulting" className="w-72 lg:w-100 flex items-center justify-center">
                             <Image
                                 src="/images/logo/logo-extend.webp"
                                 alt="Vittori Consulting"
@@ -52,7 +53,7 @@ export default function Header() {
                                 height={300}
                                 className="lg:w-[500px] lg:h-[500px] hover:opacity-90 transition-opacity duration-100"
                             />
-                        </a>
+                        </Link>
                     </div>
                     <nav className="hidden lg:flex items-center space-x-2">
                         {menuItems.map((item, index) => (
