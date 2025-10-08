@@ -284,7 +284,7 @@ export default function Calculator() {
                             <div className="mb-6 text-center">
                                 <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] rounded-full px-6 py-3 mb-4 shadow-lg">
                                     <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-                                    <span className="text-white font-bold">🤖 Analisi AI in corso...</span>
+                                    <span className="text-white font-bold">Analisi AI in corso...</span>
                                 </div>
                             </div>
 

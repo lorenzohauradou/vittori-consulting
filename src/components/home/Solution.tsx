@@ -72,7 +72,7 @@ export default function Solution() {
                             </motion.button>
 
                             <p className="text-sm text-white/70 italic text-center">
-                                Il tuo tempo è prezioso: smetti di inseguire promesse vuote, soddisfatto o rimborsato.
+                                Il tuo tempo è prezioso: smetti di inseguire promesse vuote.
                             </p>
                         </div>
                     </motion.div>
