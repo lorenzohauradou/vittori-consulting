@@ -53,17 +53,17 @@ export async function scrapeAndScreenshot(url: string) {
                 headless: true,
             })
         } else {
-            const chromium = (await import('@sparticuz/chromium')).default
             const playwright = (await import('playwright-core')).default
+            const BROWSERLESS_API_KEY = process.env.BROWSERLESS_API_KEY
             
-            await chromium.font(
-                'https://raw.githack.com/googlei18n/noto-emoji/master/fonts/NotoColorEmoji.ttf'
-            )
+            if (!BROWSERLESS_API_KEY) {
+                throw new Error('BROWSERLESS_API_KEY non configurata')
+            }
             
-            browser = await playwright.chromium.launch({
-                args: chromium.args,
-                executablePath: await chromium.executablePath(),
-                headless: true,
+            const browserWSEndpoint = `wss://chrome.browserless.io?token=${BROWSERLESS_API_KEY}`
+            browser = await playwright.chromium.connect({ 
+                wsEndpoint: browserWSEndpoint,
+                timeout: 60000
             })
         }
 
