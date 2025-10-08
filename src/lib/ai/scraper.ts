@@ -60,7 +60,7 @@ export async function scrapeAndScreenshot(url: string) {
                 throw new Error('BROWSERLESS_API_KEY non configurata')
             }
             
-            const browserWSEndpoint = `wss://chrome.browserless.io?token=${BROWSERLESS_API_KEY}`
+            const browserWSEndpoint = `wss://production-sfo.browserless.io?token=${BROWSERLESS_API_KEY}`
             browser = await playwright.chromium.connect({ 
                 wsEndpoint: browserWSEndpoint,
                 timeout: 60000
