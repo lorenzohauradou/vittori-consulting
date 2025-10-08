@@ -29,7 +29,7 @@ export default function ProblemsSection() {
             highlight: 'nessuno cliccava',
             color: 'orange',
             imageBefore: '/images/problems/frustrato.png',
-            imageAfter: '/images/problems/prestazioni.png'
+            imageAfter: '/images/problems/sollevato.png'
         },
         {
             icon: (

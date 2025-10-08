@@ -38,21 +38,21 @@ export default function LandingFooter() {
         <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="-mt-12">
-                    <div className="lg:col-span-2">
-                        <div className="flex flex-col items-center justify-center">
-                            <div className="items-center justify-center flex">
-                                <Image
-                                    src="/images/logo/logo-circle.png"
-                                    alt="VittoriConsulting Logo"
-                                    width={100}
-                                    height={100}
-                                />
-                            </div>
-                            <p className="text-2xl lg:text-3xl font-bold text-white mb-10 leading-tight">
-                                Con noi il marketing non sarà più un peso, ma la tua <span className="text-[#2e54a1]">arma segreta</span>
-                            </p>
+                    <div className="flex flex-col items-center justify-center mb-12">
+                        <div className="items-center justify-center flex mb-6">
+                            <Image
+                                src="/images/logo/logo-circle.png"
+                                alt="VittoriConsulting Logo"
+                                width={100}
+                                height={100}
+                            />
                         </div>
+                        <p className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight text-center max-w-3xl">
+                            Con noi il marketing non sarà più un peso, ma la tua <span className="text-[#2e54a1]">arma segreta</span>
+                        </p>
+                    </div>
 
+                    <div className="grid lg:grid-cols-3 gap-12">
                         <div className="space-y-4">
                             <div className="flex items-start gap-3">
                                 <svg className="w-6 h-6 text-[#2e54a1] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
@@ -79,21 +79,21 @@ export default function LandingFooter() {
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div>
-                        <h4 className="text-xl font-bold text-white mb-6 mt-10">Seguici sui Social</h4>
-                        <div className="flex gap-4 mb-8">
-                            {socialLinks.map((social) => (
-                                <a
-                                    key={social.name}
-                                    href={social.href}
-                                    className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-300 hover:text-white hover:bg-[#2e54a1] transition-all duration-300 hover:scale-110"
-                                    aria-label={social.name}
-                                >
-                                    {social.icon}
-                                </a>
-                            ))}
+                        <div>
+                            <h4 className="text-xl font-bold text-white mb-6">Seguici sui Social</h4>
+                            <div className="flex gap-4">
+                                {socialLinks.map((social) => (
+                                    <a
+                                        key={social.name}
+                                        href={social.href}
+                                        className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-300 hover:text-white hover:bg-[#2e54a1] transition-all duration-300 hover:scale-110"
+                                        aria-label={social.name}
+                                    >
+                                        {social.icon}
+                                    </a>
+                                ))}
+                            </div>
                         </div>
 
                         <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
