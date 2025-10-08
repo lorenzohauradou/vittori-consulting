@@ -417,27 +417,28 @@ function TeamCard({ member, index, isMobile }: {
                 className="flex-shrink-0 w-72"
             >
                 <div className="w-full h-96 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
-                    <div className={`w-20 h-20 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full mb-6 flex items-center justify-center shadow-lg overflow-hidden`}>
-                        {member.name === 'Lorenzo' ? (
-                            <Image
-                                src="/images/team/lorenzo.jpeg"
-                                alt="Lorenzo"
-                                width={80}
-                                height={80}
-                                className="w-full h-full object-cover"
-                            />
-                        ) : member.name === 'Camilla' ? (
-                            <Image
-                                src="/images/team/camilla.jpg"
-                                alt="Camilla"
-                                width={80}
-                                height={80}
-                                className="w-full h-full object-cover"
-                            />
-                        ) : (
-                            <span className="text-2xl font-bold text-white">
-                                {member.name.charAt(0)}
-                            </span>
+                    <div className={`relative w-24 h-24 mb-6 flex items-center justify-center`}>
+                        {(member.name === 'Lorenzo' || member.name === 'Camilla') && (
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[5px]">
+                                <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                    <div className="w-full h-full rounded-full overflow-hidden">
+                                        <Image
+                                            src={member.name === 'Lorenzo' ? "/images/team/lorenzo.jpeg" : "/images/team/camilla.jpg"}
+                                            alt={member.name}
+                                            width={80}
+                                            height={80}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        {member.name !== 'Lorenzo' && member.name !== 'Camilla' && (
+                            <div className={`w-20 h-20 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
+                                <span className="text-2xl font-bold text-white">
+                                    {member.name.charAt(0)}
+                                </span>
+                            </div>
                         )}
                     </div>
 
@@ -480,27 +481,28 @@ function TeamCard({ member, index, isMobile }: {
             className="flex-1 max-w-[18%]"
         >
             <div className="w-full h-80 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
-                <div className={`w-16 h-16 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full mb-4 flex items-center justify-center shadow-lg overflow-hidden`}>
-                    {member.name === 'Lorenzo' ? (
-                        <Image
-                            src="/images/team/lorenzo.jpeg"
-                            alt="Lorenzo"
-                            width={64}
-                            height={64}
-                            className="w-full h-full object-cover"
-                        />
-                    ) : member.name === 'Camilla' ? (
-                        <Image
-                            src="/images/team/camilla.jpg"
-                            alt="Camilla"
-                            width={64}
-                            height={64}
-                            className="w-full h-full object-cover"
-                        />
-                    ) : (
-                        <span className="text-xl font-bold text-white">
-                            {member.name.charAt(0)}
-                        </span>
+                <div className={`relative w-20 h-20 mb-4 flex items-center justify-center`}>
+                    {(member.name === 'Lorenzo' || member.name === 'Camilla') && (
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[4px]">
+                            <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                <div className="w-full h-full rounded-full overflow-hidden">
+                                    <Image
+                                        src={member.name === 'Lorenzo' ? "/images/team/lorenzo.jpeg" : "/images/team/camilla.jpg"}
+                                        alt={member.name}
+                                        width={64}
+                                        height={64}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    {member.name !== 'Lorenzo' && member.name !== 'Camilla' && (
+                        <div className={`w-16 h-16 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
+                            <span className="text-xl font-bold text-white">
+                                {member.name.charAt(0)}
+                            </span>
+                        </div>
                     )}
                 </div>
 
