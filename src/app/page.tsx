@@ -2,7 +2,7 @@ import Header from '@/components/home/Header'
 import Hero from '@/components/home/Hero'
 import Partners from '@/components/ui/Partners'
 import Difference from '@/components/home/Difference'
-import Problem from '@/components/home/Problem'
+import Calendar from '@/components/home/Calendar'
 import Solution from '@/components/home/Solution'
 import About from '@/components/home/About'
 import Servizi from '@/components/home/Servizi'
@@ -26,7 +26,7 @@ export default function Home() {
       <Difference />
       <MetodoBanner />
       <About />
-      <Problem />
+      <Calendar />
       <Solution />
       <Partners showTitle={false} />
       <Servizi />
