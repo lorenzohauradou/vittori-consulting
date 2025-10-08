@@ -3,9 +3,11 @@
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import IPhoneCanvas from '@/components/ui/iphone-canvas'
+import { useOptin } from '@/contexts/OptinContext'
 
 export default function Difference() {
     const containerRef = useRef<HTMLDivElement>(null)
+    const { openModal } = useOptin()
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -177,6 +179,7 @@ export default function Difference() {
                             className="text-center"
                         >
                             <motion.button
+                                onClick={openModal}
                                 whileHover={{
                                     scale: 1.05,
                                     boxShadow: "0 20px 40px rgba(46, 84, 161, 0.25)"

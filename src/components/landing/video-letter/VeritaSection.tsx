@@ -105,7 +105,7 @@ export default function VeritaSection() {
                                     className="inline-block bg-white/20 backdrop-blur-sm rounded-2xl px-8 py-6 border-2 border-white/40 shadow-lg"
                                 >
                                     <p className="text-3xl sm:text-4xl font-black text-white mb-2">
-                                        Metodo Vittori 360
+                                        Metodo Vittori 360°
                                     </p>
                                 </motion.div>
                             </div>

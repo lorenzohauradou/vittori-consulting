@@ -25,8 +25,8 @@ export function OptinProvider({ children }: { children: ReactNode }) {
 
 export function useOptin() {
     const context = useContext(OptinContext)
-    if (context === undefined) {
-        throw new Error('useOptin must be used within an OptinProvider')
+    if (!context) {
+        throw new Error('useOptin deve essere usato all\'interno di OptinProvider')
     }
     return context
 }
