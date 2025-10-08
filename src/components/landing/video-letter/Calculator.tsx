@@ -291,22 +291,24 @@ export default function Calculator() {
                             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-[#2e54a1]/20 mb-6 bg-gray-100" style={{ height: '700px' }}>
                                 <motion.div
                                     initial={{ y: 0 }}
-                                    animate={{ y: [0, '-40%', 0] }}
+                                    animate={{ y: [0, '-70%', 0] }}
                                     transition={{
-                                        duration: 20,
+                                        duration: 25,
                                         ease: 'easeInOut',
                                         repeat: Infinity,
                                         repeatDelay: 1
                                     }}
                                     className="relative w-full"
+                                    style={{ minHeight: '100%' }}
                                 >
                                     <Image
                                         src={`data:image/png;base64,${screenshot}`}
                                         alt="Screenshot del sito in analisi"
-                                        width={1200}
-                                        height={6000}
-                                        className="w-full h-auto"
+                                        width={1920}
+                                        height={10000}
                                         unoptimized
+                                        className="w-full h-auto object-top"
+                                        style={{ display: 'block' }}
                                     />
                                 </motion.div>
                                 <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/60 pointer-events-none"></div>
