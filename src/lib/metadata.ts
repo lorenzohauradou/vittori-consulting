@@ -124,3 +124,95 @@ export function createServiceSchema() {
     description: 'Servizi di marketing a 360° per PMI: strategia, branding, social media, advertising e performance marketing.',
   }
 }
+
+export function createLocalBusinessSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'VittoriConsulting',
+    image: `${baseUrl}/images/logo/logo.png`,
+    url: baseUrl,
+    telephone: '+393401287852',
+    email: 'info@vittoriconsulting.it',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Roma',
+      addressRegion: 'Lazio',
+      addressCountry: 'IT',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '41.9028',
+      longitude: '12.4964',
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+    priceRange: '$$',
+    description: 'Agenzia di marketing a 360° per imprenditori romani. Specializzati in marketing strategico, branding e performance.',
+  }
+}
+
+export function createVideoSchema(videoUrl?: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: 'Marketing a 360° per Imprenditori - VittoriConsulting',
+    description: 'Scopri come oltre 180 imprenditori hanno trasformato il loro business con il Metodo Vittori 360.',
+    thumbnailUrl: `${baseUrl}/images/logo/logo-extend.png`,
+    uploadDate: new Date().toISOString(),
+    contentUrl: videoUrl || `${baseUrl}/video-letter`,
+    embedUrl: videoUrl || `${baseUrl}/video-letter`,
+  }
+}
+
+export function createAggregateRatingSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Metodo Vittori 360',
+    description: 'Servizio di marketing a 360° per imprenditori e PMI',
+    brand: {
+      '@type': 'Brand',
+      name: 'VittoriConsulting',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: '189',
+      bestRating: '5',
+      worstRating: '1',
+    },
+  }
+}
+
+export function createFAQSchema(faqs: { question: string; answer: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
+}
+
+export function createBreadcrumbSchema(items: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  }
+}
