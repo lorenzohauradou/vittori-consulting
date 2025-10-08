@@ -6,12 +6,9 @@ import { motion } from 'framer-motion'
 
 interface TrustedCustomersProps {
     title?: string
-    subtitle?: string
 }
 
 export function TrustedCustomers({
-    title = "Si fidano di noi",
-    subtitle = "Oltre 180 imprenditori hanno già trasformato il loro business"
 }: TrustedCustomersProps) {
     const customers = [
         { id: 1, name: 'Cliente 1', image: '/images/customers/customer-1.jpg' },
@@ -28,7 +25,7 @@ export function TrustedCustomers({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col items-center gap-6 py-8"
+            className="flex flex-col items-center gap-6"
         >
             <div className="flex items-center justify-center">
                 <div className="flex items-center -space-x-4">
@@ -64,13 +61,27 @@ export function TrustedCustomers({
                 </div>
             </div>
 
-            <div className="text-center">
-                <p className="text-white/90 text-lg sm:text-xl font-semibold mb-1">
-                    {title}
-                </p>
-                <p className="text-white/70 text-sm sm:text-base">
-                    {subtitle}
-                </p>
+            <div className="text-center space-y-3 -mt-4">
+                <div className="flex items-center justify-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                        <motion.svg
+                            key={i}
+                            initial={{ opacity: 0, scale: 0 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                duration: 0.3,
+                                delay: 0.6 + i * 0.1,
+                                type: "spring",
+                                stiffness: 200
+                            }}
+                            className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 fill-current"
+                            viewBox="0 0 24 24"
+                        >
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </motion.svg>
+                    ))}
+                </div>
             </div>
         </motion.div>
     )

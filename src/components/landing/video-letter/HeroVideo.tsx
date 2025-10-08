@@ -98,8 +98,34 @@ export default function HeroVideo() {
                         </motion.h1>
                     </motion.div>
 
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.8 }}
+                        className="mb-8 max-w-4xl w-full"
+                    >
+                        <p className="text-2xl sm:text-3xl text-white leading-relaxed text-center font-medium">
+                            Diamo voce e visibilità alle aziende di Roma, portando più clienti e più fatturato con <span className="font-bold text-blue-100">strategie integrate e misurabili</span>.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.9 }}
+                        className="flex items-center justify-center gap-3 mb-12"
+                    >
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent to-white/30"></div>
+                        <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 rounded-full bg-blue-200 animate-pulse"></div>
+                            <div className="w-2 h-2 rounded-full bg-blue-200 animate-pulse delay-75"></div>
+                            <div className="w-2 h-2 rounded-full bg-blue-200 animate-pulse delay-150"></div>
+                        </div>
+                        <div className="h-px w-16 bg-gradient-to-l from-transparent to-white/30"></div>
+                    </motion.div>
+
                     <div className="w-full max-w-7xl mb-12">
-                        <div className="relative aspect-video bg-black/20 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm">
+                        <div className="relative aspect-[4/5] sm:aspect-[3/4] md:aspect-video bg-black/20 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm">
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <div className="text-center">
                                     <div className="w-20 h-20 mx-auto mb-4 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors cursor-pointer">
@@ -126,23 +152,26 @@ export default function HeroVideo() {
                             </video> */}
                         </div>
                     </div>
-                    <div className="mb-8">
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 1 }}
+                        className="mb-10"
+                    >
                         <TrustedCustomers />
-                    </div>
+                    </motion.div>
 
-                    <div className="mb-12 max-w-5xl w-full">
-                        <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-white/20 shadow-2xl mb-6">
-                            <p className="text-2xl sm:text-3xl text-white leading-relaxed text-center font-medium">
-                                Diamo voce e visibilità alle aziende di Roma, portando più clienti e più fatturato con strategie integrate e misurabili.
-                            </p>
-                        </div>
-
-                        <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md rounded-3xl p-8 sm:p-10 border-2 border-white/30 shadow-2xl">
-                            <p className="text-xl sm:text-2xl text-white text-center leading-relaxed">
-                                Affidati a <span className="font-bold text-blue-100">VittoriConsulting</span> gli ideatori del Metodo che sta rivoluzionando il business di oltre <span className="font-bold text-blue-100">180 Imprenditori</span> e PMI romani.
-                            </p>
-                        </div>
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 1.1 }}
+                        className="mb-12 max-w-4xl w-full"
+                    >
+                        <p className="text-xl sm:text-2xl text-white/90 text-center leading-relaxed">
+                            Affidati a <span className="font-bold text-blue-100">VittoriConsulting</span> gli ideatori del Metodo che sta rivoluzionando il business di oltre <span className="font-bold text-blue-100">180 Imprenditori</span> e PMI romani.
+                        </p>
+                    </motion.div>
 
                     <div className="flex flex-col sm:flex-row gap-4 items-center mb-8">
                         <GradientButton

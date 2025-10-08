@@ -49,6 +49,7 @@ export default function VideoLetter() {
             <MetodoBanner reverse />
             <MethodSection />
             <TestimonialsSection />
+            <Partners showTitle={true} />
             <CTASection />
             <FAQSection />
         </>
