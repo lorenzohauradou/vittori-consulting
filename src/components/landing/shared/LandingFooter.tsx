@@ -37,20 +37,19 @@ export default function LandingFooter() {
     return (
         <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
+                <div className="-mt-12">
                     <div className="lg:col-span-2">
-                        <div>
-                            <Image
-                                src="/images/logo/logo.png"
-                                alt="VittoriConsulting Logo"
-                                width={300}
-                                height={300}
-                            />
-                            <p className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">
-                                Con noi il marketing non sarà più un peso.
-                            </p>
-                            <p className="text-xl lg:text-2xl font-bold text-[#2e54a1]">
-                                Ma la tua arma segreta.
+                        <div className="flex flex-col items-center justify-center">
+                            <div className="items-center justify-center flex">
+                                <Image
+                                    src="/images/logo/logo-circle.png"
+                                    alt="VittoriConsulting Logo"
+                                    width={100}
+                                    height={100}
+                                />
+                            </div>
+                            <p className="text-2xl lg:text-3xl font-bold text-white mb-10 leading-tight">
+                                Con noi il marketing non sarà più un peso, ma la tua <span className="text-[#2e54a1]">arma segreta</span>
                             </p>
                         </div>
 
@@ -83,7 +82,7 @@ export default function LandingFooter() {
                     </div>
 
                     <div>
-                        <h4 className="text-xl font-bold text-white mb-6">Seguici</h4>
+                        <h4 className="text-xl font-bold text-white mb-6 mt-10">Seguici sui Social</h4>
                         <div className="flex gap-4 mb-8">
                             {socialLinks.map((social) => (
                                 <a
