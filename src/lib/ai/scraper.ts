@@ -60,11 +60,19 @@ export async function scrapeAndScreenshot(url: string) {
                 throw new Error('BROWSERLESS_API_KEY non configurata')
             }
             
+            console.log('Connessione a Browserless in corso...')
             const browserWSEndpoint = `wss://production-sfo.browserless.io?token=${BROWSERLESS_API_KEY}`
-            browser = await playwright.chromium.connect({ 
-                wsEndpoint: browserWSEndpoint,
-                timeout: 60000
-            })
+            
+            try {
+                browser = await playwright.chromium.connect({ 
+                    wsEndpoint: browserWSEndpoint,
+                    timeout: 90000
+                })
+                console.log('Connessione a Browserless riuscita')
+            } catch (connectError) {
+                console.error('Errore connessione Browserless:', connectError)
+                throw new Error(`Impossibile connettersi a Browserless. Verifica che la chiave API sia valida e che il servizio sia disponibile.`)
+            }
         }
 
         const page = await browser.newPage({
