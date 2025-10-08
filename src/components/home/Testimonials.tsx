@@ -57,7 +57,6 @@ export default function Testimonials() {
         <CustomBackground variant="hero" className="py-24 lg:py-32" id="testimonials">
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -79,7 +78,6 @@ export default function Testimonials() {
                     </p>
                 </motion.div>
 
-                {/* Sottotitolo */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
