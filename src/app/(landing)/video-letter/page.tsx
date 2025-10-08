@@ -87,8 +87,9 @@ export default function VideoLetter() {
             <MethodSection />
             <TestimonialsSection />
             <Partners showTitle={true} />
-            <CTASection />
             <FAQSection />
+            <MetodoBanner />
+            <CTASection />
         </>
     )
 }
