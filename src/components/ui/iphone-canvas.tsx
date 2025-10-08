@@ -82,8 +82,11 @@ export default function IPhoneCanvas({
                                             loop
                                             muted
                                             playsInline
+                                            aria-label="Video dimostrativo del caso studio"
                                             className="w-full h-full object-cover"
-                                        />
+                                        >
+                                            <track kind="captions" />
+                                        </video>
                                     ) : (
                                         <div className="w-full h-full bg-gradient-to-br from-[#2e54a1] to-blue-600 flex flex-col items-center justify-center">
                                             {showVideo && (

@@ -244,14 +244,16 @@ export default function Calendar() {
                                     </div>
 
                                     <div className="bg-white/10 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-white/20 shadow-2xl">
-                                        <h4 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 text-center">
+                                        <label htmlFor="time-select" className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 text-center block">
                                             Seleziona l&apos;Orario
-                                        </h4>
+                                        </label>
 
                                         <div className="relative">
                                             <select
+                                                id="time-select"
                                                 value={selectedTime}
                                                 onChange={(e) => setSelectedTime(e.target.value)}
+                                                aria-label="Seleziona orario per l'appuntamento"
                                                 className="w-full appearance-none bg-white/20 backdrop-blur-sm text-white font-semibold text-base sm:text-lg px-4 sm:px-6 py-3 sm:py-4 rounded-xl border-2 border-white/30 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 cursor-pointer hover:bg-white/30"
                                             >
                                                 <option value="" disabled className="bg-[#2e54a1] text-white">
