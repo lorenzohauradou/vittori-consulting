@@ -210,8 +210,9 @@ export default function Testimonials() {
                             Scopri cosa dicono di noi i clienti che hanno già fatto il salto di qualità
                         </motion.p>
 
-                        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                        <div className="flex justify-center items-center">
                             <motion.button
+                                onClick={openModal}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.8 }}
@@ -235,32 +236,6 @@ export default function Testimonials() {
                                     }}
                                 />
                                 <span className="relative z-10">GUARDA LE RECENSIONI</span>
-                            </motion.button>
-
-                            <motion.span
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                transition={{ duration: 0.6, delay: 0.9 }}
-                                viewport={{ once: true }}
-                                className="text-white/60 font-medium"
-                            >
-                                oppure
-                            </motion.span>
-
-                            <motion.button
-                                onClick={openModal}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 1 }}
-                                viewport={{ once: true }}
-                                whileHover={{
-                                    scale: 1.05,
-                                    backgroundColor: "rgba(255, 255, 255, 0.1)"
-                                }}
-                                whileTap={{ scale: 0.95 }}
-                                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white border-2 border-white/60 rounded-full hover:border-white hover:bg-white/10 transition-all duration-300"
-                            >
-                                INIZIA ANCHE TU
                             </motion.button>
                         </div>
                     </div>
