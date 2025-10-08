@@ -103,8 +103,8 @@ export default function TestimonialsSection() {
                             ))}
                         </div>
 
-                        <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                            VittoriConsulting ha trasformato completamente il nostro business con il Metodo Vittori 360. Professionalità e risultati concreti in ogni fase del progetto.
+                        <p className="text-lg text-gray-700 leading-relaxed mb-6 italic">
+                            &quot;VittoriConsulting ha trasformato completamente il nostro business con il Metodo Vittori 360. Professionalità e risultati concreti in ogni fase del progetto.&quot;
                         </p>
 
                         <div className="pt-4">
