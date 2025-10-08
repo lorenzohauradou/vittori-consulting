@@ -37,6 +37,7 @@ export default function Calculator() {
 
     const [isLoading, setIsLoading] = useState(false)
     const [screenshot, setScreenshot] = useState<string | null>(null)
+    const [scrapedData, setScrapedData] = useState<{ title: string; textContent: string; screenshotBase64: string } | null>(null)
     const [aiResults, setAiResults] = useState<AIResults | null>(null)
     const [isDownloadingPDF, setIsDownloadingPDF] = useState(false)
 
@@ -61,39 +62,49 @@ export default function Calculator() {
 
         setIsLoading(true)
         setScreenshot(null)
+        setScrapedData(null)
         setAiResults(null)
 
         try {
+            let finalScrapedData = null
+
             if (formData.url) {
-                const screenshotResponse = await fetch('/api/screenshot', {
+                const scrapeResponse = await fetch('/api/scrape', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ url: formData.url }),
                 })
 
-                if (screenshotResponse.ok) {
-                    const { screenshot: screenshotData } = await screenshotResponse.json()
-                    setScreenshot(screenshotData)
+                if (scrapeResponse.ok) {
+                    const data = await scrapeResponse.json()
+                    finalScrapedData = data
+                    setScrapedData(data)
+                    setScreenshot(data.screenshotBase64)
+                } else {
+                    console.error('Errore durante lo scraping')
                 }
             }
 
-            const response = await fetch('/api/analyze', {
+            const analyzeResponse = await fetch('/api/analyze', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({
+                    currentRevenue: formData.currentRevenue,
+                    monthlyClients: formData.monthlyClients,
+                    scrapedData: finalScrapedData
+                }),
             })
 
-            if (response.ok) {
-                const results = await response.json()
+            if (analyzeResponse.ok) {
+                const results = await analyzeResponse.json()
                 setAiResults(results)
             } else {
-                console.error('Errore di analisi')
+                console.error('Errore di analisi AI')
             }
         } catch (error) {
             console.error('Errore:', error)
         } finally {
             setIsLoading(false)
-            setScreenshot(null)
         }
     }
 
@@ -113,7 +124,7 @@ export default function Calculator() {
                     projections: aiResults.projections,
                     insights: aiResults.insights,
                     summary: aiResults.summary,
-                    scrapedData: formData.url ? { title: '', textContent: '' } : null,
+                    scrapedData: scrapedData ? { title: scrapedData.title, textContent: scrapedData.textContent } : null,
                     companyName: 'Azienda'
                 }),
             })

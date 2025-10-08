@@ -53,6 +53,11 @@ export async function scrapeAndScreenshot(url: string) {
         } else {
             const chromium = (await import('@sparticuz/chromium')).default
             const playwright = (await import('playwright-core')).default
+            
+            await chromium.font(
+                'https://raw.githack.com/googlei18n/noto-emoji/master/fonts/NotoColorEmoji.ttf'
+            )
+            
             browser = await playwright.chromium.launch({
                 args: chromium.args,
                 executablePath: await chromium.executablePath(),

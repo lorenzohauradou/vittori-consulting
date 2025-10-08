@@ -7,7 +7,6 @@ const openai = new OpenAI({
 interface AnalysisInput {
     currentRevenue: number
     monthlyClients: number
-    url?: string
     scrapedData?: {
         title: string
         textContent: string

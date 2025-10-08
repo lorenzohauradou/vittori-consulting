@@ -1,0 +1,15 @@
+{
+  "functions": {
+    "app/api/scrape/route.ts": {
+      "maxDuration": 60,
+      "memory": 3008
+    },
+    "app/api/analyze/route.ts": {
+      "maxDuration": 60
+    },
+    "app/api/generate-pdf/route.ts": {
+      "maxDuration": 60
+    }
+  }
+}
+
