@@ -160,6 +160,55 @@ html {
   transform: rotateY(180deg);
 }
 
+/* Partners scroll animation */
+.scroll-track {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-content-seamless {
+  display: flex;
+  width: max-content;
+  animation: seamless-scroll 20s linear infinite;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.scroll-item-seamless {
+  flex: 0 0 auto;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 24px;
+}
+
+@keyframes seamless-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(-100% / 3), 0, 0);
+  }
+}
+
+.scroll-content-seamless:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .scroll-content-seamless {
+    animation-duration: 15s;
+  }
+  
+  .scroll-item-seamless {
+    margin: 0 16px;
+  }
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
