@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/gradient-button'
 
 export default function CTASection() {
@@ -17,13 +16,7 @@ export default function CTASection() {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
+                <div className="text-center mb-16">
                     <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                         Smonta, ricostruisci e scala<br />
                         <span className="text-blue-200">il tuo business</span>
@@ -34,16 +27,10 @@ export default function CTASection() {
                     <p className="text-xl sm:text-2xl text-white/80 max-w-3xl mx-auto">
                         Affidati a <span className="font-bold text-blue-100">VittoriConsulting</span> e inizia a guardare i tuoi competitor dall&apos;alto
                     </p>
-                </motion.div>
+                </div>
 
                 <div className="max-w-5xl mx-auto space-y-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7 }}
-                        viewport={{ once: true }}
-                        className="bg-white/10 backdrop-blur-md rounded-3xl p-8 sm:p-12 shadow-2xl border-2 border-white/30"
-                    >
+                    <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 sm:p-12 shadow-2xl border-2 border-white/30">
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                             <div className="flex-shrink-0 w-16 h-16 bg-white rounded-full flex items-center justify-center">
                                 <svg className="w-8 h-8 text-[#2e54a1]" fill="currentColor" viewBox="0 0 20 20">
@@ -59,15 +46,9 @@ export default function CTASection() {
                                 </p>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.2 }}
-                        viewport={{ once: true }}
-                        className="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border-2 border-white/50"
-                    >
+                    <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border-2 border-white/50">
                         <div className="flex items-center justify-center gap-3 mb-6">
                             <div className="w-3 h-3 bg-[#2e54a1] rounded-full animate-pulse"></div>
                             <div className="w-3 h-3 bg-[#2e54a1] rounded-full animate-pulse"></div>
@@ -86,7 +67,7 @@ export default function CTASection() {
                                 Prenota subito la tua consulenza gratuita
                             </GradientButton>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </section>
