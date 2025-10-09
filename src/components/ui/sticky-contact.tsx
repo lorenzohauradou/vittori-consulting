@@ -6,7 +6,7 @@ export default function StickyContact() {
     return (
         <div className="fixed bottom-8 right-8 flex flex-col space-y-4 z-[9999]">
             <a
-                href="https://wa.me/393401287852"
+                href="https://wa.me/393513708950"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Contattaci su WhatsApp"
