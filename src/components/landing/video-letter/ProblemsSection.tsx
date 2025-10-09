@@ -9,15 +9,31 @@ export default function ProblemsSection() {
     const problems = [
         {
             number: '01',
-            text: 'Hai iniziato con il "cugino smanettone" che ti ha fatto un sito che nessuno trova su Google.'
+            text: (
+                <>
+                    Hai iniziato con il <span className="font-bold">&quot;cugino smanettone&quot;</span> che ti ha fatto un sito che{' '}
+                    <span className="font-bold">nessuno trova</span> su Google
+                </>
+            )
         },
         {
             number: '02',
-            text: 'Poi hai provato con l\'agenzia "giovane e dinamica" che ti ha fatto spendere una barca di soldi in pubblicità che nessuno cliccava.'
+            text: (
+                <>
+                    Poi hai provato con l&apos;agenzia <span className="font-bold">&quot;giovane e dinamica&quot;</span> che ti ha fatto spendere una{' '}
+                    <span className="font-bold">barca di soldi</span> in pubblicità che{' '}
+                    <span className="font-bold">nessuno cliccava</span>
+                </>
+            )
         },
         {
             number: '03',
-            text: 'Per poi farti seguire da uno stagista che non sa neanche cos\'è un funnel di vendita.'
+            text: (
+                <>
+                    Per poi farti seguire da uno <span className="font-bold">stagista</span> che non sa neanche cos&apos;è un{' '}
+                    <span className="font-bold">funnel di vendita</span>
+                </>
+            )
         }
     ]
 

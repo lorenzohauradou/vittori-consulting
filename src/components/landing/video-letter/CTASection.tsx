@@ -32,7 +32,7 @@ export default function CTASection() {
                         Non ci sono scorciatoie.
                     </p>
                     <p className="text-xl sm:text-2xl text-white/80 max-w-3xl mx-auto">
-                        Affidati a <span className="font-bold text-blue-100">VittoriConsulting</span> e inizia a guardare i tuoi competitor dall&apos;alto.
+                        Affidati a <span className="font-bold text-blue-100">VittoriConsulting</span> e inizia a guardare i tuoi competitor dall&apos;alto
                     </p>
                 </motion.div>
 
@@ -76,7 +76,7 @@ export default function CTASection() {
 
                         <div className="max-w-2xl mx-auto text-center">
                             <p className="text-lg sm:text-xl text-gray-800 leading-relaxed mb-8 font-medium">
-                                Accettiamo solo un <span className="font-bold text-[#2e54a1]">numero limitato di clienti per settore</span>. Affrettati e assicurati la tua consulenza, prima che arrivi un tuo concorrente.
+                                Accettiamo solo un <span className="font-bold text-[#2e54a1]">numero limitato di clienti per settore</span>. Affrettati e assicurati la tua consulenza, prima che arrivi un tuo concorrente
                             </p>
 
                             <GradientButton
