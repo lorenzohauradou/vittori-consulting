@@ -30,7 +30,7 @@ export default function Hero() {
                             </div>
                             <div className="flex items-center gap-2">
                                 <Phone className="w-4 h-4 text-[#2e54a1]" />
-                                <span className="text-gray-700 font-medium">+39 3513708950</span>
+                                <span className="text-gray-700 font-medium">+39 351 370 8950</span>
                             </div>
                         </div>
                         <div className="flex items-center gap-4">
