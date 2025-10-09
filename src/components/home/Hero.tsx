@@ -135,6 +135,15 @@ export default function Hero() {
                                 transition={{ duration: 0.6, delay: 0.7 }}
                                 className="flex flex-col gap-6"
                             >
+                                <motion.p
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.8 }}
+                                    className="text-white/95 font-semibold text-lg mb-2"
+                                >
+                                    Vuoi sapere come?
+                                </motion.p>
+
                                 <motion.button
                                     onClick={openModal}
                                     whileHover={{ scale: 1.02 }}
@@ -151,7 +160,7 @@ export default function Hero() {
                                                 key={i}
                                                 initial={{ opacity: 0, scale: 0 }}
                                                 animate={{ opacity: 1, scale: 1 }}
-                                                transition={{ duration: 0.3, delay: 0.9 + i * 0.1 }}
+                                                transition={{ duration: 0.3, delay: 1.1 + i * 0.1 }}
                                                 className="w-5 h-5 text-yellow-400 fill-current"
                                                 viewBox="0 0 24 24"
                                             >
@@ -162,7 +171,7 @@ export default function Hero() {
                                     <motion.div
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
-                                        transition={{ duration: 0.6, delay: 1.4 }}
+                                        transition={{ duration: 0.6, delay: 1.6 }}
                                         className="text-white/90"
                                     >
                                         <span className="font-bold">4.9/5</span>
