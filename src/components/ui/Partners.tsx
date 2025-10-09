@@ -65,7 +65,7 @@ export default function Partners({ showTitle = true }: PartnersProps) {
                             x: {
                                 repeat: Infinity,
                                 repeatType: "loop",
-                                duration: 10, // 30 secondi per un ciclo più lento
+                                duration: 30, // 30 secondi per un ciclo più lento
                                 ease: "linear",
                             },
                         }}
