@@ -192,7 +192,7 @@ export default function About() {
                                             transition={{ duration: 2, ease: "easeInOut", delay: 0.8 }}
                                             viewport={{ once: true, amount: 0.3 }}
                                         >
-                                            • Devoti al risultato<br /> • Ossessivi con il cliente (nel senso buono)<br /> • Invasivi ma efficaci
+                                            • Devoti al risultato<br /> • Ossessivi con il cliente (nel senso buono)<br /> • Determinati e efficaci
                                         </motion.p>
                                     </div>
                                 </motion.div>
