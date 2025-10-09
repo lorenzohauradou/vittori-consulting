@@ -30,20 +30,26 @@ export const defaultMetadata: Metadata = {
     address: false,
     telephone: false,
   },
+  alternates: {
+    canonical: baseUrl,
+    languages: {
+      'it-IT': baseUrl,
+    },
+  },
   openGraph: {
     type: 'website',
     locale: 'it_IT',
     url: baseUrl,
-    title: 'VittoriConsulting - Marketing a 360° per Imprenditori Romani',
+    title: 'Marketing 360° per PMI Roma',
     description:
-      'Trasforma il tuo business con il Metodo Vittori 360. Marketing strategico, branding e performance per PMI romane.',
+      'Metodo Vittori 360: strategia, branding e performance',
     siteName: 'VittoriConsulting',
     images: [
       {
         url: '/images/logo/logo-extend.webp',
         width: 1200,
         height: 630,
-        alt: 'VittoriConsulting Logo',
+        alt: 'VittoriConsulting - Agenzia Marketing Roma',
       },
     ],
   },
@@ -51,8 +57,10 @@ export const defaultMetadata: Metadata = {
     card: 'summary_large_image',
     title: 'VittoriConsulting - Marketing a 360° per Imprenditori Romani',
     description:
-      'Trasforma il tuo business con il Metodo Vittori 360. Marketing strategico, branding e performance per PMI romane.',
+      'Trasforma il tuo business con il Metodo Vittori 360: marketing strategico, branding e performance per PMI romane. 189+ clienti hanno già fatto il salto. Consulenza gratuita disponibile.',
     images: ['/images/logo/logo-extend.webp'],
+    site: '@vittoriconsulting',
+    creator: '@valeriovittori',
   },
   robots: {
     index: true,
@@ -80,19 +88,42 @@ export function createOrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'VittoriConsulting',
+    alternateName: 'Vittori Consulting',
     url: baseUrl,
     logo: `${baseUrl}/images/logo/logo.webp`,
     description: 'Agenzia di marketing a 360° per imprenditori romani. Specializzati in marketing strategico, branding e performance.',
+    foundingDate: '2015',
+    founder: {
+      '@type': 'Person',
+      name: 'Valerio Vittori',
+      jobTitle: 'Founder & CEO',
+    },
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Roma',
+      addressRegion: 'Lazio',
       addressCountry: 'IT',
     },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+39-340-128-7852',
+      email: 'info@vittoriconsulting.it',
+      contactType: 'Customer Service',
+      areaServed: 'IT',
+      availableLanguage: 'Italian',
+    },
     sameAs: [
-      // 'https://www.facebook.com/vittoriconsulting',
+      'https://www.facebook.com/vittoriconsulting',
       'https://www.instagram.com/vittoriconsulting',
-      // 'https://www.linkedin.com/company/vittoriconsulting',
+      'https://www.linkedin.com/company/vittoriconsulting',
     ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '127',
+      bestRating: '5',
+      worstRating: '1',
+    },
   }
 }
 
@@ -104,6 +135,16 @@ export function createWebsiteSchema() {
     url: baseUrl,
     description: 'Marketing a 360° per Imprenditori Romani',
     inLanguage: 'it-IT',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${baseUrl}/?s={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+    about: {
+      '@type': 'Thing',
+      name: 'Marketing Consulting Services',
+      description: 'Servizi di consulenza marketing per PMI',
+    },
   }
 }
 
