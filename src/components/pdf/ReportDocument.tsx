@@ -225,7 +225,7 @@ export const ReportDocument = ({ data }: { data: ReportData }) => {
                 </View>
 
                 <View style={styles.footer}>
-                    <Text style={styles.footerText}>VittoriConsulting | +39 340 128 7852 | info@vittoriconsulting.it</Text>
+                    <Text style={styles.footerText}>VittoriConsulting | +39 3513708950 | info@vittoriconsulting.it</Text>
                     <Text style={styles.footerText}>Pagina 1</Text>
                 </View>
             </Page>
@@ -262,7 +262,7 @@ export const ReportDocument = ({ data }: { data: ReportData }) => {
                             })}
 
                             <View style={styles.footer}>
-                                <Text style={styles.footerText}>VittoriConsulting | +39 340 128 7852 | info@vittoriconsulting.it</Text>
+                                <Text style={styles.footerText}>VittoriConsulting | +39 3513708950 | info@vittoriconsulting.it</Text>
                                 <Text style={styles.footerText}>Pagina {Math.floor(index / 5) + 2}</Text>
                             </View>
                         </Page>

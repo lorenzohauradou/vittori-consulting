@@ -51,8 +51,8 @@ export default function LandingFooter() {
                                 </svg>
                                 <div>
                                     <p className="text-sm text-gray-400 mb-1">Telefono</p>
-                                    <a href="tel:+393401287852" className="text-lg font-semibold text-white hover:text-[#2e54a1] transition-colors">
-                                        +39 340 128 7852
+                                    <a href="tel:+393513708950" className="text-lg font-semibold text-white hover:text-[#2e54a1] transition-colors">
+                                        +39 3513708950
                                     </a>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@ export default function LandingFooter() {
                                 Prenota subito la tua consulenza gratuita
                             </p>
                             <a
-                                href="tel:+393401287852"
+                                href="tel:+393513708950"
                                 className="inline-flex items-center justify-center w-full bg-[#2e54a1] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#1e3a70] transition-all duration-300 hover:scale-105"
                             >
                                 Chiamaci ora

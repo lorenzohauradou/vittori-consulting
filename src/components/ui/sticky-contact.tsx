@@ -26,8 +26,8 @@ export default function StickyContact() {
                 </svg>
             </a>
             <a
-                href="tel:+393401287852"
-                aria-label="Chiama il numero +39 340 128 7852"
+                href="tel:+393513708950"
+                aria-label="Chiama il numero +39 3513708950"
                 className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 transition-colors shadow-lg"
             >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
