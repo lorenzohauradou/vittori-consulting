@@ -67,14 +67,10 @@ export default function About() {
     ]
 
     return (
-        <motion.section
+        <section
             id="about"
             ref={containerRef}
-            className="py-32 lg:py-48 relative overflow-hidden"
-            initial={{ backgroundColor: "#ffffff" }}
-            whileInView={{ backgroundColor: "#2e54a1" }}
-            transition={{ duration: 2, ease: "easeInOut" }}
-            viewport={{ once: false, amount: 0.1, margin: "0px 0px -200px 0px" }}
+            className="py-32 lg:py-48 relative overflow-hidden bg-[#2e54a1]"
         >
             <div className="absolute inset-0">
                 <div className="absolute top-20 right-20 w-32 h-32 bg-blue-100/20 rounded-full opacity-60 animate-pulse"></div>
@@ -93,50 +89,14 @@ export default function About() {
                 <div className="absolute bottom-1/3 left-1/4 w-1 h-16 bg-gradient-to-t from-blue-300/40 to-transparent rotate-12"></div>
             </div>
             <div className="max-w-[95vw] mx-auto px-2 relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <motion.h2
-                        className="text-4xl lg:text-6xl font-bold mb-8"
-                        initial={{ color: "#111827" }}
-                        whileInView={{ color: "#ffffff" }}
-                        transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                    >
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl lg:text-6xl font-bold mb-8 text-white">
                         Ma chi siamo?
-                    </motion.h2>
-                    <motion.p
-                        className="text-lg lg:text-xl max-w-4xl mx-auto leading-relaxed"
-                        initial={{ color: "#374151" }}
-                        whileInView={{ color: "#ffffff" }}
-                        transition={{ duration: 2, ease: "easeInOut", delay: 0.2 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                    >
-                        Siamo <motion.span
-                            className="font-bold"
-                            initial={{ color: "#2563eb" }}
-                            whileInView={{ color: "#93c5fd" }}
-                            transition={{ duration: 2, ease: "easeInOut", delay: 0.7 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                        >VittoriConsulting</motion.span> l&apos;unica agenzia di Roma che integra marketing, operativo e commerciale: dalla strategia al branding alla vendita, grazie al <motion.span
-                            className="font-bold"
-                            initial={{ color: "#2563eb" }}
-                            whileInView={{ color: "#93c5fd" }}
-                            transition={{ duration: 2, ease: "easeInOut", delay: 0.7 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                        >METODO VITTORI 360</motion.span> che ha già cambiato il business a oltre <motion.span
-                            className="font-bold"
-                            initial={{ color: "#111827" }}
-                            whileInView={{ color: "#ffffff" }}
-                            transition={{ duration: 2, ease: "easeInOut", delay: 0.7 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                        >180 imprenditori e PMI</motion.span>
-                    </motion.p>
-                </motion.div>
+                    </h2>
+                    <p className="text-lg lg:text-xl max-w-4xl mx-auto leading-relaxed text-white">
+                        Siamo <span className="font-bold text-blue-200">VittoriConsulting</span> l&apos;unica agenzia di Roma che integra marketing, operativo e commerciale: dalla strategia al branding alla vendita, grazie al <span className="font-bold text-blue-200">METODO VITTORI 360</span> che ha già cambiato il business a oltre <span className="font-bold text-white">180 imprenditori e PMI</span>
+                    </p>
+                </div>
 
                 <div className="hidden lg:block mb-24">
                     <div className="flex gap-4 justify-between">
@@ -173,76 +133,27 @@ export default function About() {
                         />
                     </div>
                     <div className="relative z-10">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            className="mb-12"
-                        >
-                            <motion.h3
-                                className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 leading-tight"
-                                initial={{ color: "#111827" }}
-                                whileInView={{ color: "#ffffff" }}
-                                transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
-                                viewport={{ once: true, amount: 0.3 }}
-                            >
+                        <div className="mb-12">
+                            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 leading-tight text-white">
                                 Dietro La Strategia:
                                 <br />
-                                <span className="relative">
-                                    <motion.span
-                                        initial={{ color: "#2563eb" }}
-                                        whileInView={{ color: "#93c5fd" }}
-                                        transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
-                                        viewport={{ once: true, amount: 0.3 }}
-                                    >
-                                        Un Team che Fa la Differenza
-                                    </motion.span>
-                                    <motion.div
-                                        initial={{ scaleX: 0 }}
-                                        whileInView={{ scaleX: 1 }}
-                                        transition={{ duration: 0.8, delay: 0.8 }}
-                                        viewport={{ once: true }}
-                                        className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-300 to-blue-400 rounded-full origin-left"
-                                    />
+                                <span className="relative text-blue-200">
+                                    Un Team che Fa la Differenza
+                                    <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-300 to-blue-400 rounded-full" />
                                 </span>
-                            </motion.h3>
-                        </motion.div>
+                            </h3>
+                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            className="mb-12"
-                        >
+                        <div className="mb-12">
                             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg">
-                                <motion.p
-                                    className="text-lg mb-6 leading-relaxed"
-                                    initial={{ color: "#374151" }}
-                                    whileInView={{ color: "#ffffff" }}
-                                    transition={{ duration: 2, ease: "easeInOut", delay: 0.7 }}
-                                    viewport={{ once: true, amount: 0.3 }}
-                                >
+                                <p className="text-lg mb-6 leading-relaxed text-white">
                                     Siamo un team giovane e intraprendente, conosciamo il linguaggio dei Social e ci occupiamo di marketing a 360 gradi.
-                                </motion.p>
-                                <motion.p
-                                    className="text-xl font-bold"
-                                    initial={{ color: "#111827" }}
-                                    whileInView={{ color: "#ffffff" }}
-                                    transition={{ duration: 2, ease: "easeInOut", delay: 0.7 }}
-                                    viewport={{ once: true, amount: 0.3 }}
-                                >
-                                    Non lasciamo nulla al caso e né al cliente: seguiamo ogni fase con <motion.span
-                                        initial={{ color: "#2563eb" }}
-                                        whileInView={{ color: "#93c5fd" }}
-                                        transition={{ duration: 2, ease: "easeInOut", delay: 0.7 }}
-                                        viewport={{ once: true, amount: 0.3 }}
-                                        className="font-extrabold"
-                                    >RIGORE, TRASPARENZA E RESPONSABILITÀ!</motion.span>
-                                </motion.p>
+                                </p>
+                                <p className="text-xl font-bold text-white">
+                                    Non lasciamo nulla al caso e né al cliente: seguiamo ogni fase con <span className="font-extrabold text-blue-200">RIGORE, TRASPARENZA E RESPONSABILITÀ!</span>
+                                </p>
                             </div>
-                        </motion.div>
+                        </div>
 
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
@@ -367,7 +278,7 @@ export default function About() {
 
 
             </div>
-        </motion.section>
+        </section>
     )
 }
 
@@ -417,7 +328,7 @@ function TeamCard({ member, index, isMobile }: {
                 className="flex-shrink-0 w-72"
             >
                 <div className="w-full h-96 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
-                    <div className={`relative w-24 h-24 mb-6 flex items-center justify-center`}>
+                    <div className={`relative w-28 h-28 mb-6 flex items-center justify-center`}>
                         {(member.name === 'Lorenzo' || member.name === 'Camilla') && (
                             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[5px]">
                                 <div className="w-full h-full rounded-full bg-white p-[2px]">
@@ -425,8 +336,8 @@ function TeamCard({ member, index, isMobile }: {
                                         <Image
                                             src={member.name === 'Lorenzo' ? "/images/team/lorenzo.jpeg" : "/images/team/camilla.jpg"}
                                             alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
-                                            width={80}
-                                            height={80}
+                                            width={90}
+                                            height={90}
                                             className="w-full h-full object-cover"
                                         />
                                     </div>
@@ -434,7 +345,7 @@ function TeamCard({ member, index, isMobile }: {
                             </div>
                         )}
                         {member.name !== 'Lorenzo' && member.name !== 'Camilla' && (
-                            <div className={`w-20 h-20 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
+                            <div className={`w-24 h-24 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
                                 <span className="text-2xl font-bold text-white">
                                     {member.name.charAt(0)}
                                 </span>
@@ -481,7 +392,7 @@ function TeamCard({ member, index, isMobile }: {
             className="flex-1 max-w-[18%]"
         >
             <div className="w-full h-80 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
-                <div className={`relative w-20 h-20 mb-4 flex items-center justify-center`}>
+                <div className={`relative w-24 h-24 mb-4 flex items-center justify-center`}>
                     {(member.name === 'Lorenzo' || member.name === 'Camilla') && (
                         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[4px]">
                             <div className="w-full h-full rounded-full bg-white p-[2px]">
@@ -489,8 +400,8 @@ function TeamCard({ member, index, isMobile }: {
                                     <Image
                                         src={member.name === 'Lorenzo' ? "/images/team/lorenzo.jpeg" : "/images/team/camilla.jpg"}
                                         alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
-                                        width={64}
-                                        height={64}
+                                        width={76}
+                                        height={76}
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
@@ -498,7 +409,7 @@ function TeamCard({ member, index, isMobile }: {
                         </div>
                     )}
                     {member.name !== 'Lorenzo' && member.name !== 'Camilla' && (
-                        <div className={`w-16 h-16 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
+                        <div className={`w-20 h-20 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
                             <span className="text-xl font-bold text-white">
                                 {member.name.charAt(0)}
                             </span>
