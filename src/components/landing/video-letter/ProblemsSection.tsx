@@ -140,7 +140,7 @@ export default function ProblemsSection() {
                                 className="object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                            <div className="absolute bottom-4 left-4">
+                            <div className="absolute top-4 left-4">
                                 <div className="bg-red-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
                                     Prima
                                 </div>
@@ -159,7 +159,7 @@ export default function ProblemsSection() {
                                 className="object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                            <div className="absolute bottom-4 right-4">
+                            <div className="absolute top-4 left-4">
                                 <div className="bg-green-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
                                     Dopo
                                 </div>
