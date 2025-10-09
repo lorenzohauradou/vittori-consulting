@@ -22,7 +22,7 @@ export default function Partners({ showTitle = true }: PartnersProps) {
         { name: 'Summer Fest', logo: '/images/partners/summer.webp' },
         { name: 'Voce', logo: '/images/partners/voce.webp' },
         { name: 'HeroCraft', logo: '/images/partners/herocraft.webp' },
-        // Duplico per effetto continuo
+        // Prima duplicazione per effetto seamless
         { name: 'Magic Box Roma', logo: '/images/partners/logo-magic-box-roma.webp' },
         { name: 'Broker Associati', logo: '/images/partners/broker-associati.svg' },
         { name: 'Gelotti', logo: '/images/partners/gelotti.webp' },
@@ -35,6 +35,13 @@ export default function Partners({ showTitle = true }: PartnersProps) {
         { name: 'Summer Fest', logo: '/images/partners/summer.webp' },
         { name: 'Voce', logo: '/images/partners/voce.webp' },
         { name: 'HeroCraft', logo: '/images/partners/herocraft.webp' },
+        // Seconda duplicazione per garantire seamless perfetto
+        { name: 'Magic Box Roma', logo: '/images/partners/logo-magic-box-roma.webp' },
+        { name: 'Broker Associati', logo: '/images/partners/broker-associati.svg' },
+        { name: 'Gelotti', logo: '/images/partners/gelotti.webp' },
+        { name: 'Ami School', logo: '/images/partners/amischool.webp' },
+        { name: 'Alberto\'s Pizza', logo: '/images/partners/albertos-pizza.webp' },
+        { name: 'St. Peter Photo', logo: '/images/partners/st-peter-photo.webp' },
     ]
 
     return (
@@ -52,36 +59,36 @@ export default function Partners({ showTitle = true }: PartnersProps) {
                     <motion.div
                         className="flex space-x-12 items-center"
                         animate={{
-                            x: [0, -1400], // Muove da 0 a -1400px (larghezza approssimativa dei loghi)
+                            x: ["-50%", "-100%"], // Scorre dalla metà alla fine, poi ricomincia seamless
                         }}
                         transition={{
                             x: {
                                 repeat: Infinity,
                                 repeatType: "loop",
-                                duration: 20, // 20 secondi per un ciclo completo
+                                duration: 10, // 30 secondi per un ciclo più lento
                                 ease: "linear",
                             },
                         }}
                     >
                         {partners.map((partner, index) => {
-                            const isFirstBatch = index < 6
+                            const isFirstBatch = index < 12 // Primi 12 loghi originali
                             const isDuplicate = index >= 12
 
                             return (
                                 <div
                                     key={`${partner.name}-${index}`}
-                                    className="flex-shrink-0 h-16 flex items-center justify-center"
+                                    className="flex-shrink-0 h-20 flex items-center justify-center"
                                 >
-                                    <div className="whitespace-nowrap px-6 py-2 rounded-lg bg-white/50 backdrop-blur-sm border border-gray-200/50">
+                                    <div className="whitespace-nowrap px-6 py-3 rounded-lg bg-white/50 backdrop-blur-sm border border-gray-200/50">
                                         <Image
                                             src={partner.logo || ""}
                                             alt={`${partner.name} - Cliente VittoriConsulting Marketing Roma`}
-                                            width={100}
-                                            height={40}
-                                            sizes="100px"
+                                            width={partner.name === 'Broker Associati' ? 100 : 140}
+                                            height={partner.name === 'Broker Associati' ? 40 : 60}
+                                            sizes={partner.name === 'Broker Associati' ? "100px" : "140px"}
                                             loading={isFirstBatch ? "eager" : "lazy"}
                                             priority={isFirstBatch && !isDuplicate}
-                                            className="h-auto w-auto max-h-12"
+                                            className={partner.name === 'Broker Associati' ? "h-auto w-auto max-h-12" : "h-auto w-auto max-h-16"}
                                         />
                                     </div>
                                 </div>
