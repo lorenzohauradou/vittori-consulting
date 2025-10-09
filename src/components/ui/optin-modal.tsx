@@ -99,7 +99,7 @@ export function OptinModal() {
                                     >
                                         <Image
                                             src="/images/logo/logo-circle.webp"
-                                            alt="Vittori Consulting"
+                                            alt="VittoriConsulting Logo - Metodo Vittori 360 Marketing Roma"
                                             width={96}
                                             height={96}
                                             className="w-full h-full object-cover"

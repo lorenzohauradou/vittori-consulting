@@ -303,7 +303,7 @@ export default function Calculator() {
                                 >
                                     <Image
                                         src={`data:image/png;base64,${screenshot}`}
-                                        alt="Screenshot del sito in analisi"
+                                        alt="Analisi AI del sito web - Calcolatore crescita business VittoriConsulting"
                                         width={1920}
                                         height={10000}
                                         unoptimized

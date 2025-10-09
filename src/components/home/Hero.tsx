@@ -73,7 +73,8 @@ export default function Hero() {
                     <div className="grid lg:grid-cols-2 gap-16 items-center h-full">
                         <div className="relative z-10 text-left">
                             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
-                                <div className="relative inline-block">
+                                <span className="sr-only">Agenzia Marketing Roma - Consulenza Marketing 360° per Imprenditori e PMI - VittoriConsulting</span>
+                                <div className="relative inline-block" aria-hidden="true">
                                     <AnimatePresence mode="wait">
                                         {currentPhase === 0 ? (
                                             <motion.span

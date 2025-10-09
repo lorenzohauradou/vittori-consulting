@@ -75,7 +75,7 @@ export default function Partners({ showTitle = true }: PartnersProps) {
                                     <div className="whitespace-nowrap px-6 py-2 rounded-lg bg-white/50 backdrop-blur-sm border border-gray-200/50">
                                         <Image
                                             src={partner.logo || ""}
-                                            alt={partner.name}
+                                            alt={`${partner.name} - Cliente VittoriConsulting Marketing Roma`}
                                             width={100}
                                             height={40}
                                             sizes="100px"

@@ -48,7 +48,7 @@ export default function Header() {
                         <Link href="/" aria-label="Vai alla homepage Vittori Consulting" className="w-72 lg:w-100 flex items-center justify-center">
                             <Image
                                 src="/images/logo/logo-extend.webp"
-                                alt="Vittori Consulting"
+                                alt="VittoriConsulting - Agenzia Marketing 360° Roma"
                                 width={300}
                                 height={300}
                                 className="lg:w-[500px] lg:h-[500px] hover:opacity-90 transition-opacity duration-100"

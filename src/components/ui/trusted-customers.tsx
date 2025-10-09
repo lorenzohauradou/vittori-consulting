@@ -51,7 +51,7 @@ export function TrustedCustomers({
                                 </div>
                                 <Image
                                     src={customer.image}
-                                    alt={customer.name}
+                                    alt={`Cliente soddisfatto VittoriConsulting - Agenzia Marketing Roma`}
                                     fill
                                     sizes="(max-width: 640px) 56px, 64px"
                                     className="object-cover"

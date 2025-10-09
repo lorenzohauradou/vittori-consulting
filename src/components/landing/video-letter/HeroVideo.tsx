@@ -62,7 +62,7 @@ export default function HeroVideo() {
                                 <div className="flex items-center">
                                     <Image
                                         src="/images/logo/logo-circle.webp"
-                                        alt="Metodo Vittori 360"
+                                        alt="VittoriConsulting Logo - Agenzia Marketing Roma"
                                         width={54}
                                         height={54}
                                         className="h-auto w-auto"

@@ -150,7 +150,7 @@ export default function ProblemsSection() {
                         >
                             <Image
                                 src="/images/problems/frustrato.png"
-                                alt="Prima della trasformazione"
+                                alt="Imprenditore frustrato prima di affidarsi a VittoriConsulting - Marketing Roma"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 className="object-cover"
@@ -169,7 +169,7 @@ export default function ProblemsSection() {
                         >
                             <Image
                                 src="/images/problems/sollevato.png"
-                                alt="Dopo la trasformazione"
+                                alt="Imprenditore di successo dopo consulenza marketing VittoriConsulting Roma"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 className="object-cover"

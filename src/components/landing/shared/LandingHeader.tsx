@@ -44,7 +44,7 @@ export default function LandingHeader() {
                         <Link href="/" className="flex items-center">
                             <Image
                                 src="/images/logo/logo.webp"
-                                alt="Vittori Consulting"
+                                alt="VittoriConsulting - Marketing a 360° per PMI Roma"
                                 width={300}
                                 height={300}
                                 priority

@@ -32,7 +32,7 @@ export default function LandingFooter() {
                         <div className="items-center justify-left flex -mt-6">
                             <Image
                                 src="/images/logo/logo-circle.webp"
-                                alt="VittoriConsulting Logo"
+                                alt="VittoriConsulting - Consulenza Marketing 360° Roma Logo"
                                 width={100}
                                 height={100}
                             />

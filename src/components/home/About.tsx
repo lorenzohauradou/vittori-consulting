@@ -424,7 +424,7 @@ function TeamCard({ member, index, isMobile }: {
                                     <div className="w-full h-full rounded-full overflow-hidden">
                                         <Image
                                             src={member.name === 'Lorenzo' ? "/images/team/lorenzo.jpeg" : "/images/team/camilla.jpg"}
-                                            alt={member.name}
+                                            alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                                             width={80}
                                             height={80}
                                             className="w-full h-full object-cover"
@@ -488,7 +488,7 @@ function TeamCard({ member, index, isMobile }: {
                                 <div className="w-full h-full rounded-full overflow-hidden">
                                     <Image
                                         src={member.name === 'Lorenzo' ? "/images/team/lorenzo.jpeg" : "/images/team/camilla.jpg"}
-                                        alt={member.name}
+                                        alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                                         width={64}
                                         height={64}
                                         className="w-full h-full object-cover"
