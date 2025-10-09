@@ -27,7 +27,7 @@ export default function Home() {
       <About />
       <Calendar />
       <Solution />
-      <Partners showTitle={false} />
+      <Partners />
       <Servizi />
       <MetodoBanner />
       <Testimonials />

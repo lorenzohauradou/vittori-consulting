@@ -87,7 +87,7 @@ export default function Difference() {
                             viewport={{ once: true, margin: "-50px" }}
                             className="mb-12"
                         >
-                            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                            <h3 className="text-2xl justify-left sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
                                 La Differenza la senti Subito:
                                 <br />
                                 <span className="text-[#2e54a1] relative">

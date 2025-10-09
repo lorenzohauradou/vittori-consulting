@@ -79,14 +79,10 @@ export default function Servizi() {
                 <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-indigo-400 rounded-full opacity-40 animate-bounce delay-1500" />
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                        Cosa Facciamo per
-                        <span className="text-white relative ml-2">
-                            TE!
-                            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#2e54a1] to-blue-600 rounded-full origin-left" />
-                        </span>
+            <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
+                <div className="text-left mb-16">
+                    <h2 className="text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                        Cosa Facciamo<br />per TE!
                     </h2>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
