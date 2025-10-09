@@ -1,14 +1,39 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+
+declare global {
+    interface Window {
+        Calendly?: {
+            initPopupWidget: (options: { url: string }) => void
+        }
+    }
+}
 
 export default function Calendar() {
     const containerRef = useRef<HTMLDivElement>(null)
     const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
     const [selectedTime, setSelectedTime] = useState<string>('')
     const [currentMonth, setCurrentMonth] = useState(new Date())
+
+    useEffect(() => {
+        const link = document.createElement('link')
+        link.href = 'https://assets.calendly.com/assets/external/widget.css'
+        link.rel = 'stylesheet'
+        document.head.appendChild(link)
+
+        const script = document.createElement('script')
+        script.src = 'https://assets.calendly.com/assets/external/widget.js'
+        script.async = true
+        document.body.appendChild(script)
+
+        return () => {
+            document.head.removeChild(link)
+            document.body.removeChild(script)
+        }
+    }, [])
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -332,10 +357,10 @@ export default function Calendar() {
                         <motion.button
                             disabled={!selectedDate || !selectedTime}
                             onClick={() => {
-                                if (selectedDate && selectedTime) {
+                                if (selectedDate && selectedTime && window.Calendly) {
                                     const formattedDate = selectedDate.toISOString().split('T')[0]
-                                    const calendlyUrl = `https://calendly.com/valerio-vittori/consulenza?date=${formattedDate}&time=${selectedTime}`
-                                    window.open(calendlyUrl, '_blank')
+                                    const calendlyUrl = `https://calendly.com/valerio-vittori/consulenza?date=${formattedDate}&a1=${selectedTime}`
+                                    window.Calendly.initPopupWidget({ url: calendlyUrl })
                                 }
                             }}
                             whileHover={selectedDate && selectedTime ? {

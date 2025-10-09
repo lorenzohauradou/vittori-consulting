@@ -120,7 +120,7 @@ export default function FinalCTA() {
                                 <span className="text-2xl sm:text-3xl flex-shrink-0">✅</span>
                                 <div className="text-left">
                                     <p className="font-bold text-gray-900 text-base sm:text-lg mb-1">Piano strategico</p>
-                                    <p className="text-sm sm:text-base text-gray-600">costruito su misura per te</p>
+                                    <p className="text-sm sm:text-base text-gray-600">Costruito su misura per te</p>
                                 </div>
                             </motion.div>
 
@@ -131,7 +131,7 @@ export default function FinalCTA() {
                                 <span className="text-2xl sm:text-3xl flex-shrink-0">✅</span>
                                 <div className="text-left">
                                     <p className="font-bold text-gray-900 text-base sm:text-lg mb-1">Crescita solida</p>
-                                    <p className="text-sm sm:text-base text-gray-600">zero spreco di budget</p>
+                                    <p className="text-sm sm:text-base text-gray-600">Zero spreco di budget</p>
                                 </div>
                             </motion.div>
 
@@ -142,7 +142,7 @@ export default function FinalCTA() {
                                 <span className="text-2xl sm:text-3xl flex-shrink-0">✅</span>
                                 <div className="text-left">
                                     <p className="font-bold text-gray-900 text-base sm:text-lg mb-1">Riconoscibilità Online</p>
-                                    <p className="text-sm sm:text-base text-gray-600">diventerai impossibile da ignorare</p>
+                                    <p className="text-sm sm:text-base text-gray-600">Diventerai impossibile da ignorare</p>
                                 </div>
                             </motion.div>
 
@@ -153,7 +153,7 @@ export default function FinalCTA() {
                                 <span className="text-2xl sm:text-3xl flex-shrink-0">✅</span>
                                 <div className="text-left">
                                     <p className="font-bold text-gray-900 text-base sm:text-lg mb-1">Incremento del fatturato</p>
-                                    <p className="text-sm sm:text-base text-gray-600">cifre che prima potevi solo sognare</p>
+                                    <p className="text-sm sm:text-base text-gray-600">Cifre che prima potevi solo sognare</p>
                                 </div>
                             </motion.div>
                         </div>
