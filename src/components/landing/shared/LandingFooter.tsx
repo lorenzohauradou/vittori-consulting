@@ -9,7 +9,7 @@ export default function LandingFooter() {
     const socialLinks = [
         {
             name: 'LinkedIn',
-            href: '#',
+            href: 'https://www.linkedin.com/in/valerio-vittori-290022233/',
             icon: <Linkedin className="w-6 h-6" />
         },
         {
@@ -19,7 +19,7 @@ export default function LandingFooter() {
         },
         {
             name: 'Facebook',
-            href: '#',
+            href: 'https://www.facebook.com/profile.php?id=61578681689930',
             icon: <Facebook className="w-6 h-6" />
         }
     ]
@@ -52,7 +52,7 @@ export default function LandingFooter() {
                                 <div>
                                     <p className="text-sm text-gray-400 mb-1">Telefono</p>
                                     <a href="tel:+393513708950" className="text-lg font-semibold text-white hover:text-[#2e54a1] transition-colors">
-                                        +39 3513708950
+                                        +39 351 370 8950
                                     </a>
                                 </div>
                             </div>

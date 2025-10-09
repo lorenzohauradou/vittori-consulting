@@ -113,9 +113,9 @@ export function createOrganizationSchema() {
       availableLanguage: 'Italian',
     },
     sameAs: [
-      'https://www.facebook.com/vittoriconsulting',
+      'https://www.facebook.com/profile.php?id=61578681689930',
       'https://www.instagram.com/vittoriconsulting',
-      'https://www.linkedin.com/company/vittoriconsulting',
+      'https://www.linkedin.com/in/valerio-vittori-290022233/',
     ],
     aggregateRating: {
       '@type': 'AggregateRating',

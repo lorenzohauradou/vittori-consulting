@@ -37,7 +37,7 @@ export default function Hero() {
                             <span className="text-gray-600">Seguici:</span>
                             <div className="flex items-center gap-3">
                                 <Link
-                                    href="https://www.linkedin.com/company/vittoriconsulting"
+                                    href="https://www.linkedin.com/in/valerio-vittori-290022233/"
                                     className="w-8 h-8 bg-[#2e54a1] rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors"
                                     aria-label="Seguici su LinkedIn"
                                     target="_blank"
@@ -46,7 +46,7 @@ export default function Hero() {
                                     <Linkedin className="w-4 h-4" />
                                 </Link>
                                 <Link
-                                    href="https://www.facebook.com/vittoriconsulting"
+                                    href="https://www.facebook.com/profile.php?id=61578681689930"
                                     className="w-8 h-8 bg-[#2e54a1] rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors"
                                     aria-label="Seguici su Facebook"
                                     target="_blank"

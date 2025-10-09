@@ -38,7 +38,7 @@ export default function Footer() {
     const socialLinks = [
         {
             name: 'LinkedIn',
-            href: '#',
+            href: 'https://www.linkedin.com/in/valerio-vittori-290022233/',
             icon: <Linkedin className="w-6 h-6" />
         },
         {
@@ -48,7 +48,7 @@ export default function Footer() {
         },
         {
             name: 'Facebook',
-            href: '#',
+            href: 'https://www.facebook.com/profile.php?id=61578681689930',
             icon: <Facebook className="w-6 h-6" />
         }
     ]
