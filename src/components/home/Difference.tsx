@@ -53,7 +53,7 @@ export default function Difference() {
     return (
         <section ref={containerRef} className="relative py-24 overflow-hidden">
             <div className="absolute inset-0">
-                <div className="absolute inset-y-0 right-0 w-2/5 bg-[#2e54a1] transform skew-x-12 origin-top-right"></div>
+                <div className="absolute inset-y-0 -right-6 w-2/5 bg-[#2e54a1] transform skew-x-12 origin-top-right"></div>
 
                 <motion.div
                     style={{ y: y1 }}
@@ -87,11 +87,12 @@ export default function Difference() {
                             viewport={{ once: true, margin: "-50px" }}
                             className="mb-12"
                         >
-                            <h3 className="text-2xl justify-left sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                                La Differenza la senti Subito:
+                            <h3 className="text-2xl text-left sm:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
+                                <span className="text-gray-900 lg:text-gray-900 md:text-gray-900 sm:text-white">La Differenza la senti</span><br />
+                                <span className="text-gray-900 lg:text-gray-900 md:text-gray-900 sm:text-white">Subito:</span>
                                 <br />
-                                <span className="text-[#2e54a1] relative">
-                                    Chiarezza e <span className="font-extrabold text-gray-900">Risultati Veri</span>
+                                <span className="text-[#2e54a1] lg:text-[#2e54a1] md:text-[#2e54a1] sm:text-blue-200 relative">
+                                    Chiarezza e <span className="font-extrabold text-gray-900 lg:text-gray-900 md:text-gray-900 sm:text-white">Risultati Veri</span>
                                     <motion.div
                                         initial={{ scaleX: 0 }}
                                         whileInView={{ scaleX: 1 }}

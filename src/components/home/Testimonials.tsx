@@ -62,19 +62,19 @@ export default function Testimonials() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                     viewport={{ once: true, margin: "-50px" }}
-                    className="text-center mb-16"
+                    className="text-left mb-16"
                 >
-                    <h2 className="text-4xl lg:text-6xl font-bold text-white mb-8">
-                        No, non ce la cantiamo e ce la suoniamo da soli.
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 lg:mb-8 drop-shadow-lg">
+                        No, non ce la cantiamo<br />e ce la suoniamo<br className='lg:hidden' />da soli
                     </h2>
-                    <div className="relative inline-block mb-8">
-                        <h3 className="text-3xl lg:text-5xl font-bold text-blue-200 mb-4">
+                    <div className="relative inline-block mb-6 lg:mb-8">
+                        <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-100 mb-4 drop-shadow-lg">
                             Parlano i Fatti:
                         </h3>
-                        <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 to-blue-300 rounded-full"></div>
+                        <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full shadow-lg"></div>
                     </div>
-                    <p className="text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-                        Già <span className="font-bold text-blue-200">+189 attività</span> hanno fatto il salto di qualità
+                    <p className="text-lg sm:text-xl lg:text-2xl text-white max-w-4xl leading-relaxed drop-shadow-md">
+                        Già <span className="font-bold text-blue-100 bg-blue-900/30 px-2 py-1 rounded-lg">+189 attività</span> hanno fatto il salto di qualità
                     </p>
                 </motion.div>
 
@@ -83,10 +83,10 @@ export default function Testimonials() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true, margin: "-50px" }}
-                    className="text-center mb-16"
+                    className="text-left mb-16"
                 >
-                    <p className="text-lg text-white/80 mb-8">
-                        Guarda le video testimonianze qui sotto oppure le recensioni di chi ci ha già scelto
+                    <p className="text-base sm:text-lg lg:text-xl text-white/95 mb-8 drop-shadow-md max-w-3xl">
+                        Guarda le video testimonianze qui sotto oppure le recensioni<br className='hidden md:block' />di chi ci ha già scelto.
                     </p>
                 </motion.div>
 
@@ -190,13 +190,13 @@ export default function Testimonials() {
                     viewport={{ once: true, margin: "-50px" }}
                     className="text-center"
                 >
-                    <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-10 border border-white/20 shadow-2xl">
+                    <div className="bg-white/15 backdrop-blur-md rounded-3xl p-8 lg:p-12 border border-white/30 shadow-2xl">
                         <motion.h4
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.6 }}
                             viewport={{ once: true }}
-                            className="text-3xl font-bold mb-6 text-white"
+                            className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-white lg:text-gray-900 drop-shadow-lg"
                         >
                             Vuoi vedere altre testimonianze?
                         </motion.h4>
@@ -205,7 +205,7 @@ export default function Testimonials() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.7 }}
                             viewport={{ once: true }}
-                            className="text-xl mb-8 text-white/80"
+                            className="text-lg sm:text-xl lg:text-2xl mb-8 text-white/95 lg:text-gray-700 drop-shadow-md max-w-2xl mx-auto leading-relaxed"
                         >
                             Scopri cosa dicono di noi i clienti che hanno già fatto il salto di qualità
                         </motion.p>
@@ -222,7 +222,7 @@ export default function Testimonials() {
                                     boxShadow: "0 20px 40px rgba(255, 255, 255, 0.3)"
                                 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-[#2e54a1] bg-white rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 group overflow-hidden"
+                                className="relative inline-flex items-center justify-center px-8 lg:px-10 py-4 lg:py-5 text-lg lg:text-xl font-bold text-[#2e54a1] bg-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group overflow-hidden border-2 border-white/50"
                             >
                                 <motion.div
                                     className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/20 to-transparent"

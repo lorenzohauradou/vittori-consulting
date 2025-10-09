@@ -79,31 +79,33 @@ export default function Servizi() {
                 <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-indigo-400 rounded-full opacity-40 animate-bounce delay-1500" />
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-left mb-16">
-                    <h2 className="text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-8 leading-tight">
                         Cosa Facciamo<br />per TE!
                     </h2>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 lg:gap-8 mb-16">
                     {servizi.map((servizio) => (
                         <div
                             key={servizio.title}
-                            className="group bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl hover:bg-white/80 transition-all duration-500"
+                            className="group bg-white/70 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/50 shadow-lg hover:shadow-xl hover:bg-white/80 transition-all duration-500 h-full"
                         >
-                            <div className="flex items-start gap-4 mb-4">
-                                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[#2e54a1]/10 to-blue-100/50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    {servizio.icon}
+                            <div className="flex flex-col h-full">
+                                <div className="flex items-start gap-4 mb-4">
+                                    <div className="flex-shrink-0 w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-[#2e54a1]/10 to-blue-100/50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                        {servizio.icon}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <h3 className="text-lg lg:text-xl font-bold text-[#2e54a1] mb-2 transition-colors duration-300 leading-tight">
+                                            {servizio.title}
+                                        </h3>
+                                    </div>
                                 </div>
-                                <div className="flex-1">
-                                    <h3 className="text-xl font-bold text-[#2e54a1] mb-2 transition-colors duration-300">
-                                        {servizio.title}
-                                    </h3>
-                                </div>
+                                <p className="text-gray-600 leading-relaxed text-sm lg:text-base flex-1">
+                                    {servizio.description}
+                                </p>
                             </div>
-                            <p className="text-gray-600 leading-relaxed">
-                                {servizio.description}
-                            </p>
                         </div>
                     ))}
                 </div>
@@ -116,23 +118,23 @@ export default function Servizi() {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     viewport={{ once: false, amount: 0.3 }}
                 >
-                    <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-10 border border-white/60 shadow-2xl">
-                        <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-white/60 shadow-2xl">
+                        <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-6 lg:mb-8">
                             E Poi?
                         </h3>
 
-                        <div className="flex items-center justify-center gap-4 mb-8">
-                            <div className="flex items-center gap-3">
+                        <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mb-6 lg:mb-8">
+                            <div className="flex items-center gap-4 lg:gap-6">
                                 <div className="flex-shrink-0">
-                                    <svg className="w-8 h-8 text-[#2e54a1]" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-8 h-8 lg:w-10 lg:h-10 text-[#2e54a1]" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                                     </svg>
                                 </div>
                                 <div className="text-left">
-                                    <h4 className="text-2xl lg:text-3xl font-bold text-[#2e54a1] mb-1">
+                                    <h4 className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#2e54a1] mb-2">
                                         RIPETI E SCALA
                                     </h4>
-                                    <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                                    <p className="text-base lg:text-lg xl:text-xl text-gray-700 leading-relaxed max-w-2xl">
                                         Replichiamo il successo su nuovi canali e mercati per una <span className="font-bold text-[#2e54a1]">crescita illimitata!!</span>
                                     </p>
                                 </div>
