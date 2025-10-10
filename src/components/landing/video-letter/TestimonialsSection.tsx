@@ -66,7 +66,7 @@ export default function TestimonialsSection() {
             name: 'Daniele',
             role: 'Alberto\'s Pizza',
             text: 'Ho notato un grande cambiamento, in positivo, da quando lavoro con il team di Valerio. Sono rimasto veramente contento e soddisfatto dei risultati ottenuti, i ragazzi sono molto professionali e in gamba, pronti a risolvere qualsiasi problema che si presenta.',
-            photo: '/images/trusted/daniele.webp'
+            photo: '/images/partners/albertos-pizza.webp'
         }
     ]
 

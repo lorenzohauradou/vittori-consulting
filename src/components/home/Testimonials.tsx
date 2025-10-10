@@ -105,21 +105,21 @@ export default function Testimonials() {
                                     <div className="w-full h-full rounded-full bg-white p-[2px]">
                                         <div className="w-full h-full rounded-full overflow-hidden">
                                             <Image
-                                                src="/images/trusted/miraje.webp"
-                                                alt="Desert Miraje - Coach di crescita per donne"
+                                                src="/images/partners/albertos-pizza.webp"
+                                                alt="Daniele - Alberto's Pizza"
                                                 width={48}
                                                 height={48}
                                                 className="w-full h-full object-cover"
                                                 priority
-                                                aria-label='Foto di Desert Miraje - Coach di crescita per donne - cliente soddisfatta Vittori Consulting'
+                                                aria-label="Foto di Daniele - Alberto's Pizza - cliente soddisfatto Vittori Consulting"
                                             />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <h5 className="font-bold text-gray-900 text-lg">Desert Miraje</h5>
-                                <p className="text-sm text-gray-600">Coach di crescita per donne</p>
+                                <h5 className="font-bold text-gray-900 text-lg">Daniele</h5>
+                                <p className="text-sm text-gray-600">Alberto&apos;s Pizza</p>
                             </div>
                         </div>
 
@@ -131,7 +131,7 @@ export default function Testimonials() {
                             </div>
 
                             <blockquote className="text-gray-700 leading-relaxed text-base italic pt-4">
-                                Con Valerio e il suo team mi sono trovata veramente bene, mi hanno capito e mi hanno aiutato a fare il mio primo lancio online, stra consigliati per altri professionisti che si vogliono affacciare sul digitale!
+                                Ho notato un grande cambiamento, in positivo, da quando lavoro con il team di Valerio. Sono rimasto veramente contento e soddisfatto dei risultati ottenuti, i ragazzi sono molto professionali e in gamba, pronti a risolvere qualsiasi problema che si presenta.
                             </blockquote>
                         </div>
                     </motion.div>
@@ -243,20 +243,20 @@ export default function Testimonials() {
                                     <div className="w-full h-full rounded-full bg-white p-[2px]">
                                         <div className="w-full h-full rounded-full overflow-hidden">
                                             <Image
-                                                src="/images/trusted/miraje.webp"
-                                                alt="Desert Miraje - Coach di crescita per donne"
+                                                src="/images/partners/albertos-pizza.webp"
+                                                alt="Daniele - Alberto's Pizza"
                                                 width={48}
                                                 height={48}
                                                 className="w-full h-full object-cover"
-                                                aria-label='Foto di Desert Miraje - Coach di crescita per donne - cliente soddisfatta Vittori Consulting'
+                                                aria-label="Foto di Daniele - Alberto's Pizza - cliente soddisfatto Vittori Consulting"
                                             />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <h5 className="font-bold text-white text-lg drop-shadow-lg">Desert Miraje</h5>
-                                <p className="text-sm text-blue-200 drop-shadow-md">Coach di crescita per donne</p>
+                                <h5 className="font-bold text-white text-lg drop-shadow-lg">Daniele</h5>
+                                <p className="text-sm text-blue-200 drop-shadow-md">Alberto&apos;s Pizza</p>
                             </div>
                         </div>
 
@@ -268,7 +268,7 @@ export default function Testimonials() {
                             </div>
 
                             <blockquote className="text-gray-700 leading-relaxed text-base italic pt-4">
-                                Con Valerio e il suo team mi sono trovata veramente bene, mi hanno capito e mi hanno aiutato a fare il mio primo lancio online, stra consigliati per altri professionisti che si vogliono affacciare sul digitale!
+                                Ho notato un grande cambiamento, in positivo, da quando lavoro con il team di Valerio. Sono rimasto veramente contento e soddisfatto dei risultati ottenuti, i ragazzi sono molto professionali e in gamba, pronti a risolvere qualsiasi problema che si presenta.
                             </blockquote>
                         </div>
                     </motion.div>

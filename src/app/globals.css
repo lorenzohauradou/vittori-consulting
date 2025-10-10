@@ -195,10 +195,6 @@ html {
   }
 }
 
-.scroll-content-seamless:hover {
-  animation-play-state: paused;
-}
-
 @media (max-width: 768px) {
   .scroll-content-seamless {
     animation-duration: 15s;

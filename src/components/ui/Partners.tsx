@@ -44,11 +44,11 @@ export default function Partners() {
                                         <Image
                                             src={partner.logo || ""}
                                             alt={`${partner.name} - Cliente VittoriConsulting Marketing Roma`}
-                                            width={partner.name === 'Broker Associati' ? 100 : 140}
-                                            height={partner.name === 'Broker Associati' ? 40 : 60}
-                                            sizes={partner.name === 'Broker Associati' ? "100px" : "140px"}
+                                            width={partner.name === 'Scavolini Store Fiumicino' ? 180 : partner.name === 'Broker Associati' ? 100 : 140}
+                                            height={partner.name === 'Scavolini Store Fiumicino' ? 80 : partner.name === 'Broker Associati' ? 40 : 60}
+                                            sizes={partner.name === 'Scavolini Store Fiumicino' ? "180px" : partner.name === 'Broker Associati' ? "100px" : "140px"}
                                             loading="lazy"
-                                            className={partner.name === 'Broker Associati' ? "h-auto w-auto max-h-12" : "h-auto w-auto max-h-16"}
+                                            className={partner.name === 'Scavolini Store Fiumicino' ? "h-auto w-auto max-h-20" : partner.name === 'Broker Associati' ? "h-auto w-auto max-h-12" : "h-auto w-auto max-h-16"}
                                         />
                                     </div>
                                 </div>
@@ -62,11 +62,11 @@ export default function Partners() {
                                         <Image
                                             src={partner.logo || ""}
                                             alt={`${partner.name} - Cliente VittoriConsulting Marketing Roma`}
-                                            width={partner.name === 'Broker Associati' ? 100 : 140}
-                                            height={partner.name === 'Broker Associati' ? 40 : 60}
-                                            sizes={partner.name === 'Broker Associati' ? "100px" : "140px"}
+                                            width={partner.name === 'Broker Associati' ? 100 : 180}
+                                            height={partner.name === 'Broker Associati' ? 40 : 90}
+                                            sizes={partner.name === 'Broker Associati' ? "100px" : "180px"}
                                             loading="lazy"
-                                            className={partner.name === 'Broker Associati' ? "h-auto w-auto max-h-12" : "h-auto w-auto max-h-16"}
+                                            className={partner.name === 'Broker Associati' ? "h-auto w-auto max-h-12" : "h-auto w-auto max-h-24"}
                                         />
                                     </div>
                                 </div>
@@ -80,11 +80,11 @@ export default function Partners() {
                                         <Image
                                             src={partner.logo || ""}
                                             alt={`${partner.name} - Cliente VittoriConsulting Marketing Roma`}
-                                            width={partner.name === 'Broker Associati' ? 100 : 140}
-                                            height={partner.name === 'Broker Associati' ? 40 : 60}
-                                            sizes={partner.name === 'Broker Associati' ? "100px" : "140px"}
+                                            width={partner.name === 'Scavolini Store Fiumicino' ? 180 : partner.name === 'Broker Associati' ? 100 : 140}
+                                            height={partner.name === 'Scavolini Store Fiumicino' ? 80 : partner.name === 'Broker Associati' ? 40 : 60}
+                                            sizes={partner.name === 'Scavolini Store Fiumicino' ? "180px" : partner.name === 'Broker Associati' ? "100px" : "140px"}
                                             loading="lazy"
-                                            className={partner.name === 'Broker Associati' ? "h-auto w-auto max-h-12" : "h-auto w-auto max-h-16"}
+                                            className={partner.name === 'Scavolini Store Fiumicino' ? "h-auto w-auto max-h-20" : partner.name === 'Broker Associati' ? "h-auto w-auto max-h-12" : "h-auto w-auto max-h-16"}
                                         />
                                     </div>
                                 </div>
