@@ -67,7 +67,7 @@ export default function Servizi() {
     return (
         <section id="servizi" className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50">
             <div className="absolute inset-0">
-                <div className="absolute inset-y-0 right-0 w-2/5 bg-[#2e54a1] transform skew-x-12 origin-top-right"></div>
+                <div className="absolute inset-y-0 right-0 w-1/4 bg-[#2e54a1] transform skew-x-12 origin-top-right"></div>
 
                 <div className="absolute top-20 left-20 w-12 h-12 bg-blue-100 rounded-full opacity-30 animate-pulse" />
                 <div className="absolute bottom-32 left-32 w-8 h-8 bg-blue-200 rounded-full opacity-40 animate-pulse delay-1000" />
