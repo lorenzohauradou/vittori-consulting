@@ -1,11 +1,43 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 export default function TestimonialsSection() {
     const [currentIndex, setCurrentIndex] = useState(0)
+    const [isMuted, setIsMuted] = useState(true)
+    const [showAudioButton, setShowAudioButton] = useState(true)
+    const videoRef = useRef<HTMLVideoElement>(null)
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+    const toggleMute = () => {
+        if (videoRef.current) {
+            videoRef.current.muted = !videoRef.current.muted
+            const newMutedState = !isMuted
+            setIsMuted(newMutedState)
+
+            setShowAudioButton(true)
+
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current)
+            }
+
+            if (!newMutedState) {
+                timeoutRef.current = setTimeout(() => {
+                    setShowAudioButton(false)
+                }, 2000)
+            }
+        }
+    }
+
+    useEffect(() => {
+        return () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current)
+            }
+        }
+    }, [])
 
     const testimonials = [
         {
@@ -154,16 +186,66 @@ export default function TestimonialsSection() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.7 }}
                         viewport={{ once: true }}
-                        className="relative"
+                        className="relative flex justify-center"
                     >
-                        <div className="relative aspect-[4/5] bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl overflow-hidden shadow-2xl group">
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <button aria-label="Riproduci video testimonianze" className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-all hover:scale-110 shadow-xl">
-                                    <svg className="w-10 h-10 ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M8 5v14l11-7z" />
-                                    </svg>
-                                </button>
-                            </div>
+                        <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[380px] aspect-[9/16] bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl overflow-hidden shadow-2xl group cursor-pointer">
+                            <video
+                                ref={videoRef}
+                                className="w-full h-full object-cover"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                preload="metadata"
+                                onClick={toggleMute}
+                                aria-label="Video testimonianza di Alberto's Pizza - Cliente soddisfatto di VittoriConsulting Marketing Roma"
+                                title="Testimonianza video Alberto's Pizza - Risultati concreti con VittoriConsulting"
+                            >
+                                <source src="/videos/testimonial/albertos.mp4" type="video/mp4" />
+                                <track kind="captions" srcLang="it" label="Italiano" />
+                                Il tuo browser non supporta la riproduzione video. Questa è una testimonianza di Alberto&apos;s Pizza sui risultati ottenuti con VittoriConsulting.
+                            </video>
+
+                            <div
+                                className="absolute inset-0 bg-black/0 hover:bg-black/5 transition-all duration-300 cursor-pointer"
+                                onClick={toggleMute}
+                                role="button"
+                                tabIndex={0}
+                                aria-label={isMuted ? "Clicca per attivare l'audio della testimonianza" : "Clicca per disattivare l'audio"}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                        e.preventDefault()
+                                        toggleMute()
+                                    }
+                                }}
+                            />
+                            {showAudioButton && (
+                                <motion.button
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.8 }}
+                                    transition={{ duration: 0.3 }}
+                                    onClick={(e) => {
+                                        e.stopPropagation()
+                                        toggleMute()
+                                    }}
+                                    className="absolute top-4 right-4 w-10 h-10 bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/30 transition-all z-10 focus:outline-none focus:ring-2 focus:ring-white/50"
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    aria-label={isMuted ? "Attiva audio testimonianza" : "Disattiva audio testimonianza"}
+                                    title={isMuted ? "Attiva audio" : "Disattiva audio"}
+                                >
+                                    {isMuted ? (
+                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+                                        </svg>
+                                    ) : (
+                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                                        </svg>
+                                    )}
+                                </motion.button>
+                            )}
                         </div>
                     </motion.div>
                 </div>

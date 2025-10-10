@@ -151,7 +151,7 @@ export default function ProblemsSection() {
                             <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">E adesso?</span>
                             {' '}Adesso sei qui, paralizzato dalla paura di buttare altri soldi, mentre guardi i tuoi competitor{' '}
                             <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">fatturare milioni</span>
-                            {' '}con strategie che sembrano copiate dal tuo stesso settore.
+                            {' '}con strategie che sembrano copiate dal tuo stesso settore
                         </p>
                     </div>
                 </motion.div>

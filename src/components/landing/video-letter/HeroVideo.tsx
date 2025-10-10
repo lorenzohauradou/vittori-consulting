@@ -7,7 +7,7 @@ import { TrustedCustomers } from '@/components/ui/trusted-customers'
 import Image from "next/image";
 
 
-const words = ['risultati!', 'crescita!', 'efficienza!', 'visibilità!', 'profitto!']
+const words = ['più risultati!', 'più crescita!', 'più efficienza!', 'più visibilità!', 'più profitto!']
 
 export default function HeroVideo() {
     const [currentWordIndex, setCurrentWordIndex] = useState(0)
@@ -111,7 +111,7 @@ export default function HeroVideo() {
                         className="mb-8 max-w-4xl w-full"
                     >
                         <p className="text-2xl sm:text-3xl text-white leading-relaxed text-center font-medium">
-                            Diamo voce e visibilità alle aziende di Roma, portando più clienti e più fatturato con <span className="font-bold text-blue-100">strategie integrate e misurabili</span>.
+                            Diamo voce e visibilità alle aziende di Roma, portando più clienti e più fatturato con <span className="font-bold text-blue-100">strategie integrate e misurabili</span>
                         </p>
                     </motion.div>
 
@@ -175,7 +175,7 @@ export default function HeroVideo() {
                         className="mb-12 max-w-4xl w-full"
                     >
                         <p className="text-xl sm:text-2xl text-white/90 text-center leading-relaxed">
-                            Affidati a <span className="font-bold text-blue-100">VittoriConsulting</span> gli ideatori del Metodo che sta rivoluzionando il business di oltre <span className="font-bold text-blue-100">180 Imprenditori</span> e PMI romani.
+                            Affidati a <span className="font-bold text-blue-100">VittoriConsulting</span> gli ideatori del Metodo che sta rivoluzionando il business di oltre <span className="font-bold text-blue-100">180 Imprenditori</span> e PMI romani
                         </p>
                     </motion.div>
 
