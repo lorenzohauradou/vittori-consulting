@@ -155,124 +155,53 @@ export default function About() {
                             </div>
                         </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            className="mb-12"
-                        >
+                        <div className="mb-12">
                             <div className="grid gap-6 mb-10">
-                                <motion.div
-                                    initial={{ opacity: 0, x: 30 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.6, delay: 0.5 }}
-                                    viewport={{ once: true, margin: "-30px" }}
-                                    className="group flex items-center gap-6 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg"
-                                >
+                                <div className="group flex items-center gap-6 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg">
                                     <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-400/20 to-blue-300/30 rounded-2xl flex items-center justify-center">
                                         <svg className="w-8 h-8 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
                                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                     </div>
                                     <div className="flex-1">
-                                        <motion.h5
-                                            className="text-xl font-bold mb-2"
-                                            initial={{ color: "#2563eb" }}
-                                            whileInView={{ color: "#93c5fd" }}
-                                            transition={{ duration: 2, ease: "easeInOut", delay: 0.8 }}
-                                            viewport={{ once: true, amount: 0.3 }}
-                                        >
+                                        <h5 className="text-xl font-bold mb-2 text-blue-200">
                                             Ci definiamo:
-                                        </motion.h5>
-                                        <motion.p
-                                            className="leading-relaxed"
-                                            initial={{ color: "#374151" }}
-                                            whileInView={{ color: "#ffffff" }}
-                                            transition={{ duration: 2, ease: "easeInOut", delay: 0.8 }}
-                                            viewport={{ once: true, amount: 0.3 }}
-                                        >
+                                        </h5>
+                                        <p className="leading-relaxed text-white">
                                             • Devoti al risultato<br /> • Ossessivi con il cliente (nel senso buono)<br /> • Determinati e efficaci
-                                        </motion.p>
+                                        </p>
                                     </div>
-                                </motion.div>
+                                </div>
 
-                                <motion.div
-                                    initial={{ opacity: 0, x: 30 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.6, delay: 0.6 }}
-                                    viewport={{ once: true, margin: "-30px" }}
-                                    className="group flex items-center gap-6 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg"
-                                >
+                                <div className="group flex items-center gap-6 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg">
                                     <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-400/20 to-blue-300/30 rounded-2xl flex items-center justify-center">
                                         <svg className="w-8 h-8 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
                                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                         </svg>
                                     </div>
                                     <div className="flex-1">
-                                        <motion.h5
-                                            className="text-xl font-bold mb-2"
-                                            initial={{ color: "#2563eb" }}
-                                            whileInView={{ color: "#93c5fd" }}
-                                            transition={{ duration: 2, ease: "easeInOut", delay: 0.9 }}
-                                            viewport={{ once: true, amount: 0.3 }}
-                                        >
+                                        <h5 className="text-xl font-bold mb-2 text-blue-200">
                                             Un mix tra:
-                                        </motion.h5>
-                                        <motion.p
-                                            className="leading-relaxed"
-                                            initial={{ color: "#374151" }}
-                                            whileInView={{ color: "#ffffff" }}
-                                            transition={{ duration: 2, ease: "easeInOut", delay: 0.9 }}
-                                            viewport={{ once: true, amount: 0.3 }}
-                                        >
+                                        </h5>
+                                        <p className="leading-relaxed text-white">
                                             Consulenti, creativi, operatori e cani da guardia della performance
-                                        </motion.p>
+                                        </p>
                                     </div>
-                                </motion.div>
+                                </div>
                             </div>
 
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.8 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                                className="text-center"
-                            >
-                                <motion.h4
-                                    className="text-2xl font-bold mb-6"
-                                    initial={{ color: "#111827" }}
-                                    whileInView={{ color: "#ffffff" }}
-                                    transition={{ duration: 2, ease: "easeInOut", delay: 1 }}
-                                    viewport={{ once: true, amount: 0.3 }}
-                                >
+                            <div className="text-center">
+                                <h4 className="text-2xl font-bold mb-6 text-white">
                                     NOI CI METTIAMO LA FACCIA … E TU?
-                                </motion.h4>
-                                <motion.button
+                                </h4>
+                                <button
                                     onClick={openModal}
-                                    className="font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                                    initial={{
-                                        backgroundColor: "#2563eb",
-                                        color: "#ffffff",
-                                        borderColor: "#2563eb"
-                                    }}
-                                    whileInView={{
-                                        backgroundColor: "#ffffff",
-                                        color: "#2e54a1",
-                                        borderColor: "#ffffff"
-                                    }}
-                                    whileHover={{
-                                        scale: 1.05,
-                                        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-                                    }}
-                                    transition={{ duration: 2, ease: "easeInOut", delay: 1.2 }}
-                                    viewport={{ once: true, amount: 0.3 }}
-                                    style={{ border: "2px solid" }}
+                                    className="font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-xl bg-white text-[#2e54a1] border-2 border-white hover:scale-105"
                                 >
                                     INIZIA QUI
-                                </motion.button>
-                            </motion.div>
-                        </motion.div>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
