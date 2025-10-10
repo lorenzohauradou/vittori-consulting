@@ -3,11 +3,9 @@
 import React from "react";
 import Image from "next/image";
 
-interface PartnersProps {
-    showTitle?: boolean
-}
 
-export default function Partners({ showTitle = true }: PartnersProps) {
+
+export default function Partners() {
     const partners = [
         { name: 'Magic Box Roma', logo: '/images/partners/logo-magic-box-roma.webp' },
         { name: 'Broker Associati', logo: '/images/partners/broker-associati.svg' },
@@ -26,13 +24,13 @@ export default function Partners({ showTitle = true }: PartnersProps) {
     return (
         <section className="py-10 bg-gray-50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {showTitle && (
-                    <div className="text-center mb-12">
-                        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
-                            HANNO SCELTO VITTORI CONSULTING
-                        </h2>
-                    </div>
-                )}
+
+                <div className="text-center mb-12">
+                    <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
+                        HANNO SCELTO VITTORI CONSULTING
+                    </h2>
+                </div>
+
 
                 <div className="relative">
                     <div className="scroll-track">

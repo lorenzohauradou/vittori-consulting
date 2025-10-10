@@ -79,14 +79,14 @@ export default function VideoLetter() {
             <Calculator />
             <Partners />
             <ProblemsSection />
-            <Partners showTitle={false} />
+            <Partners />
             <VeritaSection />
             <MetodoBanner />
             <ComparisonSection />
             <MetodoBanner reverse />
             <MethodSection />
             <TestimonialsSection />
-            <Partners showTitle={true} />
+            <Partners />
             <FAQSection />
             <MetodoBanner />
             <CTASection />
