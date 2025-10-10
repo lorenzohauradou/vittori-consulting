@@ -118,7 +118,6 @@ export default function TestimonialsSection() {
                         viewport={{ once: true }}
                         className="space-y-6"
                     >
-                        {/* 5.0, stelle e Desert Miraje affiancati */}
                         <div className="flex items-center justify-between gap-4 mb-6">
                             <div className="flex flex-col">
                                 <span className="text-6xl font-bold text-gray-900 mb-2">5.0</span>

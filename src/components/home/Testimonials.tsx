@@ -8,6 +8,51 @@ import { useOptin } from '@/contexts/OptinContext'
 export default function Testimonials() {
     const { openModal } = useOptin()
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0)
+    const [showVideo, setShowVideo] = useState(false)
+    const [isMuted, setIsMuted] = useState(true)
+    const [showAudioButton, setShowAudioButton] = useState(true)
+    const videoRef = React.useRef<HTMLVideoElement>(null)
+    const timeoutRef = React.useRef<NodeJS.Timeout | null>(null)
+
+    React.useEffect(() => {
+        return () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current)
+            }
+        }
+    }, [])
+
+    const toggleMute = () => {
+        if (videoRef.current) {
+            videoRef.current.muted = !videoRef.current.muted
+            const newMutedState = !isMuted
+            setIsMuted(newMutedState)
+
+            setShowAudioButton(true)
+
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current)
+            }
+
+            if (!newMutedState) {
+                timeoutRef.current = setTimeout(() => {
+                    setShowAudioButton(false)
+                }, 2000)
+            }
+        }
+    }
+
+    const closeVideo = () => {
+        if (videoRef.current && !isMuted) {
+            videoRef.current.muted = true
+        }
+        setIsMuted(true)
+        setShowAudioButton(true)
+        setShowVideo(false)
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current)
+        }
+    }
 
     const reviews = [
         {
@@ -227,89 +272,160 @@ export default function Testimonials() {
                     viewport={{ once: true, margin: "-50px" }}
                     className="mb-16"
                 >
-                    <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 lg:p-8 border border-white/50 shadow-2xl overflow-hidden">
-                        <h4 className="text-xl lg:text-2xl font-bold text-[#2e54a1] mb-6 lg:mb-8 text-center">
-                            Video Testimonianze dei Nostri Clienti
-                        </h4>
+                    {!showVideo ? (
+                        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 lg:p-8 border border-white/50 shadow-2xl overflow-hidden">
+                            <h4 className="text-xl lg:text-2xl font-bold text-[#2e54a1] mb-6 lg:mb-8 text-center">
+                                Video Testimonianze dei Nostri Clienti
+                            </h4>
 
-                        <div className="hidden lg:block overflow-x-auto">
-                            <table className="w-full">
-                                <thead>
-                                    <tr className="border-b-2 border-[#2e54a1]/20">
-                                        <th className="text-left py-4 px-6 font-bold text-[#2e54a1]">Azienda</th>
-                                        <th className="text-left py-4 px-6 font-bold text-[#2e54a1]">Settore</th>
-                                        <th className="text-left py-4 px-6 font-bold text-[#2e54a1]">Risultato</th>
-                                        <th className="text-center py-4 px-6 font-bold text-[#2e54a1]">Video</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {testimonials.map((testimonial) => (
-                                        <motion.tr
-                                            key={testimonial.company}
-                                            initial={{ opacity: 0, x: -30 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            transition={{ duration: 0.6, delay: testimonial.delay }}
-                                            viewport={{ once: true, margin: "-30px" }}
-                                            className="border-b border-gray-200/50 hover:bg-blue-50/50 transition-colors duration-300"
-                                        >
-                                            <td className="py-6 px-6">
-                                                <div className="font-semibold text-gray-900">{testimonial.company}</div>
-                                            </td>
-                                            <td className="py-6 px-6">
-                                                <div className="text-gray-600">{testimonial.industry}</div>
-                                            </td>
-                                            <td className="py-6 px-6">
-                                                <div className="font-bold text-green-600">{testimonial.result}</div>
-                                            </td>
-                                            <td className="py-6 px-6 text-center">
-                                                <motion.button
-                                                    whileHover={{ scale: 1.05 }}
-                                                    whileTap={{ scale: 0.95 }}
-                                                    className="inline-flex items-center justify-center w-12 h-12 bg-[#2e54a1] text-white rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg hover:shadow-xl"
-                                                >
-                                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                                        <path d="M8 5v14l11-7z" />
-                                                    </svg>
-                                                </motion.button>
-                                            </td>
-                                        </motion.tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
+                            <div className="hidden lg:block overflow-x-auto">
+                                <table className="w-full">
+                                    <thead>
+                                        <tr className="border-b-2 border-[#2e54a1]/20">
+                                            <th className="text-left py-4 px-6 font-bold text-[#2e54a1]">Azienda</th>
+                                            <th className="text-left py-4 px-6 font-bold text-[#2e54a1]">Settore</th>
+                                            <th className="text-left py-4 px-6 font-bold text-[#2e54a1]">Risultato</th>
+                                            <th className="text-center py-4 px-6 font-bold text-[#2e54a1]">Video</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {testimonials.map((testimonial) => (
+                                            <motion.tr
+                                                key={testimonial.company}
+                                                initial={{ opacity: 0, x: -30 }}
+                                                whileInView={{ opacity: 1, x: 0 }}
+                                                transition={{ duration: 0.6, delay: testimonial.delay }}
+                                                viewport={{ once: true, margin: "-30px" }}
+                                                className="border-b border-gray-200/50 hover:bg-blue-50/50 transition-colors duration-300"
+                                            >
+                                                <td className="py-6 px-6">
+                                                    <div className="font-semibold text-gray-900">{testimonial.company}</div>
+                                                </td>
+                                                <td className="py-6 px-6">
+                                                    <div className="text-gray-600">{testimonial.industry}</div>
+                                                </td>
+                                                <td className="py-6 px-6">
+                                                    <div className="font-bold text-green-600">{testimonial.result}</div>
+                                                </td>
+                                                <td className="py-6 px-6 text-center">
+                                                    <motion.button
+                                                        onClick={() => testimonial.company === "Alberto's Pizza" && setShowVideo(true)}
+                                                        whileHover={{ scale: 1.05 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                        className={`inline-flex items-center justify-center w-12 h-12 bg-[#2e54a1] text-white rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg hover:shadow-xl ${testimonial.company === "Alberto's Pizza" ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'}`}
+                                                        aria-label={testimonial.company === "Alberto's Pizza" ? "Guarda la testimonianza video" : "Video non disponibile"}
+                                                    >
+                                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                            <path d="M8 5v14l11-7z" />
+                                                        </svg>
+                                                    </motion.button>
+                                                </td>
+                                            </motion.tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
 
-                        <div className="lg:hidden space-y-4">
-                            {testimonials.map((testimonial) => (
-                                <motion.div
-                                    key={testimonial.company}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: testimonial.delay }}
-                                    viewport={{ once: true, margin: "-30px" }}
-                                    className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-white/30 shadow-lg"
-                                >
-                                    <div className="flex items-center justify-between mb-3">
-                                        <div className="flex-1">
-                                            <h5 className="font-bold text-gray-900 text-lg mb-1">{testimonial.company}</h5>
-                                            <p className="text-gray-600 text-sm">{testimonial.industry}</p>
+                            <div className="lg:hidden space-y-4">
+                                {testimonials.map((testimonial) => (
+                                    <motion.div
+                                        key={testimonial.company}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.6, delay: testimonial.delay }}
+                                        viewport={{ once: true, margin: "-30px" }}
+                                        className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-white/30 shadow-lg"
+                                    >
+                                        <div className="flex items-center justify-between mb-3">
+                                            <div className="flex-1">
+                                                <h5 className="font-bold text-gray-900 text-lg mb-1">{testimonial.company}</h5>
+                                                <p className="text-gray-600 text-sm">{testimonial.industry}</p>
+                                            </div>
+                                            <motion.button
+                                                onClick={() => testimonial.company === "Alberto's Pizza" && setShowVideo(true)}
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                className={`inline-flex items-center justify-center w-12 h-12 bg-[#2e54a1] text-white rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg hover:shadow-xl flex-shrink-0 ${testimonial.company === "Alberto's Pizza" ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'}`}
+                                            >
+                                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M8 5v14l11-7z" />
+                                                </svg>
+                                            </motion.button>
                                         </div>
-                                        <motion.button
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            className="inline-flex items-center justify-center w-12 h-12 bg-[#2e54a1] text-white rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg hover:shadow-xl flex-shrink-0"
-                                        >
-                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M8 5v14l11-7z" />
-                                            </svg>
-                                        </motion.button>
-                                    </div>
-                                    <div className="bg-green-50 rounded-lg p-3">
-                                        <p className="font-bold text-green-600 text-center">{testimonial.result}</p>
-                                    </div>
-                                </motion.div>
-                            ))}
+                                        <div className="bg-green-50 rounded-lg p-3">
+                                            <p className="font-bold text-green-600 text-center">{testimonial.result}</p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    ) : (
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3 }}
+                            className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 lg:p-8 border border-white/50 shadow-2xl"
+                        >
+                            <div className="flex items-center justify-between mb-6">
+                                <button
+                                    onClick={closeVideo}
+                                    className="flex items-center gap-2 text-[#2e54a1] hover:text-blue-600 transition-colors font-semibold"
+                                    aria-label="Torna alla tabella"
+                                >
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                    <span>Torna alla tabella</span>
+                                </button>
+                                <h4 className="text-xl lg:text-2xl font-bold text-[#2e54a1]">
+                                    Alberto&apos;s Pizza - Testimonianza
+                                </h4>
+                            </div>
+
+                            <div className="relative w-full max-w-sm mx-auto bg-black rounded-2xl overflow-hidden aspect-[9/16] lg:aspect-video lg:max-w-full">
+                                <video
+                                    ref={videoRef}
+                                    className="w-full h-full object-cover cursor-pointer"
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    onClick={toggleMute}
+                                    aria-label="Video testimonianza Alberto's Pizza"
+                                >
+                                    <source src="/videos/testimonial/albertos.mp4" type="video/mp4" />
+                                    <track kind="captions" />
+                                </video>
+
+                                {showAudioButton && (
+                                    <motion.button
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.8 }}
+                                        transition={{ duration: 0.3 }}
+                                        onClick={(e) => {
+                                            e.stopPropagation()
+                                            toggleMute()
+                                        }}
+                                        className="absolute top-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all z-20 shadow-lg"
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        aria-label={isMuted ? "Attiva audio" : "Disattiva audio"}
+                                    >
+                                        {isMuted ? (
+                                            <svg className="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+                                            </svg>
+                                        ) : (
+                                            <svg className="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                                            </svg>
+                                        )}
+                                    </motion.button>
+                                )}
+                            </div>
+                        </motion.div>
+                    )}
                 </motion.div>
 
                 <div className="lg:hidden mb-16">
