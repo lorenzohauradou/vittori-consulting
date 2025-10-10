@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
 
 export default function MethodSection() {
     const pillars = [
@@ -81,41 +80,19 @@ export default function MethodSection() {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    className="text-center mb-16"
-                >
+                <div className="text-center mb-16">
                     <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
                         Come ti portiamo i <span className="text-blue-200">Risultati</span>
                     </h2>
                     <p className="text-xl text-white/90 max-w-3xl mx-auto">
                         I PILASTRI del nostro METODO
                     </p>
-                </motion.div>
+                </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                     {pillars.map((pillar, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{
-                                opacity: 0,
-                                y: 50
-                            }}
-                            whileInView={{
-                                opacity: 1,
-                                y: 0
-                            }}
-                            transition={{
-                                duration: 0.6,
-                                delay: index * 0.1,
-                                type: "spring",
-                                stiffness: 100,
-                                damping: 15
-                            }}
-                            viewport={{ once: true, margin: "-50px" }}
                             className="group relative bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:shadow-2xl hover:scale-105"
                         >
                             <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-white to-blue-100 rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
@@ -141,7 +118,7 @@ export default function MethodSection() {
                             </p>
 
                             <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-white to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity rounded-b-2xl"></div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>
