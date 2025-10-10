@@ -169,12 +169,8 @@ html {
 .scroll-content-seamless {
   display: flex;
   width: max-content;
-  animation: seamless-scroll 20s linear infinite;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
+  animation: seamless-scroll 40s linear infinite;
   will-change: transform;
-  transform-style: preserve-3d;
 }
 
 .scroll-item-seamless {
@@ -191,7 +187,7 @@ html {
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(calc(-100% / 3), 0, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
