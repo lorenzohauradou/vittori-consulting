@@ -35,7 +35,7 @@ export default function About() {
         {
             name: 'Lorenzo',
             role: 'Full Stack Developer',
-            quote: 'Fail fast, Ship faster',
+            quote: 'Serial app builder',
             photo: '/images/team/lorenzo.jpg',
             position: 'center',
             delay: 0.2
