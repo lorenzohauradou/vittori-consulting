@@ -378,7 +378,7 @@ export default function Testimonials() {
                                     <span>Torna alla tabella</span>
                                 </button>
                                 <h4 className="text-xl lg:text-2xl font-bold text-[#2e54a1]">
-                                    Alberto&apos;s Pizza - Testimonianza
+                                    Alberto&apos;s Pizza <span className="hidden md:block">- Testimonianza</span>
                                 </h4>
                             </div>
 
