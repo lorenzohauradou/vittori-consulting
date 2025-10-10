@@ -271,6 +271,76 @@ export default function Testimonials() {
                                 Comunque ragazzi volevo farvi i miei complimenti perché siete molto scrupolosi, precisi ed organizzati. Mi sento proprio al sicuro ad essermi affidata a voi! Grazie♥️
                             </blockquote>
                         </div>
+
+                        <div className="flex items-center gap-3 mt-8">
+                            <div className="relative w-12 h-12 flex items-center justify-center">
+                                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                    <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                        <div className="w-full h-full rounded-full overflow-hidden">
+                                            <Image
+                                                src="/images/trusted/luigiferro.webp"
+                                                alt="Luigi Ferro - Azienda farmaceutica"
+                                                width={48}
+                                                height={48}
+                                                className="w-full h-full object-cover"
+                                                aria-label="Foto di Luigi Ferro - Azienda farmaceutica - cliente soddisfatto Vittori Consulting"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-white text-lg drop-shadow-lg">Luigi Ferro</h5>
+                                <p className="text-sm text-blue-200 drop-shadow-md">Azienda farmaceutica</p>
+                            </div>
+                        </div>
+
+                        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 hover:shadow-xl transition-all relative">
+                            <div className="absolute -top-2 left-6">
+                                <svg className="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                                </svg>
+                            </div>
+
+                            <blockquote className="text-gray-700 leading-relaxed text-base italic pt-4">
+                                Ciao Valerio. Grazie per il lavoro svolto e per avermi aiutato a riordinare e analizzare i dati condivisi. Mi è stato molto utile come base per organizzare la pianificazione a cui sto lavorando.
+                            </blockquote>
+                        </div>
+
+                        <div className="flex items-center gap-3 mt-8">
+                            <div className="relative w-12 h-12 flex items-center justify-center">
+                                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                    <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                        <div className="w-full h-full rounded-full overflow-hidden">
+                                            <Image
+                                                src="/images/partners/albertos-pizza.webp"
+                                                alt="Daniele - Alberto's Pizza"
+                                                width={48}
+                                                height={48}
+                                                className="w-full h-full object-cover"
+                                                aria-label="Foto di Daniele - Alberto's Pizza - cliente soddisfatto Vittori Consulting"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-white text-lg drop-shadow-lg">Daniele</h5>
+                                <p className="text-sm text-blue-200 drop-shadow-md">Alberto&apos;s Pizza</p>
+                            </div>
+                        </div>
+
+                        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 hover:shadow-xl transition-all relative">
+                            <div className="absolute -top-2 left-6">
+                                <svg className="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                                </svg>
+                            </div>
+
+                            <blockquote className="text-gray-700 leading-relaxed text-base italic pt-4">
+                                Ho notato un grande cambiamento, in positivo, da quando lavoro con il team di Valerio. Sono rimasto veramente contento e soddisfatto dei risultati ottenuti, i ragazzi sono molto professionali e in gamba, pronti a risolvere qualsiasi problema che si presenta.
+                            </blockquote>
+                        </div>
                     </motion.div>
                 </div>
 
