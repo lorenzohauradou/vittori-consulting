@@ -189,36 +189,18 @@ export default function Hero() {
                                     transition={{ duration: 0.8, delay: 0.5 }}
                                     className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-8 border-white/20 backdrop-blur-sm bg-white/10 relative"
                                 >
-                                    <div className="w-full h-full bg-[#2e54a1] flex items-center justify-center">
-                                        <div className="text-center text-white">
-                                            <motion.div
-                                                initial={{ opacity: 0, scale: 0 }}
-                                                animate={{ opacity: 1, scale: 1 }}
-                                                transition={{ duration: 0.5, delay: 1 }}
-                                                className="w-16 h-16 mx-auto mb-4 bg-white/30 rounded-full flex items-center justify-center"
-                                            >
-                                                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M8 5v14l11-7z" />
-                                                </svg>
-                                            </motion.div>
-                                            <motion.p
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.5, delay: 1.2 }}
-                                                className="text-lg font-semibold"
-                                            >
-                                                Video Preview
-                                            </motion.p>
-                                            <motion.p
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.5, delay: 1.4 }}
-                                                className="text-sm opacity-80"
-                                            >
-                                                Valerio Vittori
-                                            </motion.p>
-                                        </div>
-                                    </div>
+                                    <video
+                                        className="w-full h-full object-cover"
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        aria-label="Video presentazione Valerio Vittori - VittoriConsulting"
+                                    >
+                                        <source src="/videos/socialvideo.mp4" type="video/mp4" />
+                                        <track kind="captions" />
+                                        Video presentazione di Valerio Vittori
+                                    </video>
 
                                     <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 blur-xl -z-10 scale-110"></div>
                                 </motion.div>

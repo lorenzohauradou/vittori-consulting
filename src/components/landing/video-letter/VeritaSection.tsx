@@ -69,7 +69,7 @@ export default function VeritaSection() {
                             title="Metodo Vittori 360"
                             description="Il sistema che sta trasformando Roma"
                             showVideo={true}
-                            videoSrc="/videos/testimonial/albertos.mp4"
+                            videoSrc="/videos/socialvideo.mp4"
                         />
                     </motion.div>
 

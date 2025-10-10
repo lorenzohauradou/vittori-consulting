@@ -118,35 +118,29 @@ export default function TestimonialsSection() {
                         viewport={{ once: true }}
                         className="space-y-6"
                     >
-                        <div className="flex items-center gap-2 mb-4">
-                            <div className="flex items-center">
-                                <span className="text-6xl font-bold text-gray-900">5.0</span>
+                        {/* 5.0, stelle e Desert Miraje affiancati */}
+                        <div className="flex items-center justify-between gap-4 mb-6">
+                            <div className="flex flex-col">
+                                <span className="text-6xl font-bold text-gray-900 mb-2">5.0</span>
+                                <div className="flex items-center gap-1">
+                                    {[...Array(5)].map((_, i) => (
+                                        <svg key={i} className="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="flex items-center gap-1 mb-6">
-                            {[...Array(5)].map((_, i) => (
-                                <svg key={i} className="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                            ))}
-                        </div>
-
-                        <p className="text-lg text-gray-700 leading-relaxed mb-6 italic">
-                            &quot;Con Valerio e il suo team mi sono trovata veramente bene, mi hanno capito e mi hanno aiutato a fare il mio primo lancio online, stra consigliati per altri professionisti che si vogliono affacciare sul digitale!&quot;
-                        </p>
-
-                        <div className="pt-4">
                             <div className="flex items-center gap-3">
-                                <div className="relative w-16 h-16 flex items-center justify-center">
+                                <div className="relative w-14 h-14 flex items-center justify-center flex-shrink-0">
                                     <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
                                         <div className="w-full h-full rounded-full bg-white p-[2px]">
                                             <div className="w-full h-full rounded-full overflow-hidden">
                                                 <Image
                                                     src="/images/trusted/miraje.webp"
                                                     alt="Desert Miraje - Coach di crescita per donne"
-                                                    width={48}
-                                                    height={48}
+                                                    width={56}
+                                                    height={56}
                                                     className="w-full h-full object-cover"
                                                 />
                                             </div>
@@ -154,12 +148,16 @@ export default function TestimonialsSection() {
                                     </div>
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-gray-900 text-xl">Desert Miraje</h4>
-                                    <p className="text-gray-600">Coach di crescita per donne</p>
+                                    <h4 className="font-bold text-gray-900 text-base sm:text-lg">Desert Miraje</h4>
+                                    <p className="text-gray-600 text-sm">Coach di crescita per donne</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+
+                        <p className="text-lg text-gray-700 leading-relaxed mb-6 italic">
+                            &quot;Con Valerio e il suo team mi sono trovata veramente bene, mi hanno capito e mi hanno aiutato a fare il mio primo lancio online, stra consigliati per altri professionisti che si vogliono affacciare sul digitale!&quot;
+                        </p>
+                        <div className="bg-white md:mt-26 rounded-2xl p-6 shadow-lg border border-gray-100">
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="text-center p-3 bg-gray-50 rounded-lg">
                                     <div className="text-2xl font-black text-[#2e54a1]">189+</div>
