@@ -14,7 +14,6 @@ export default function Hero() {
     const timeoutRef = useRef<NodeJS.Timeout | null>(null)
     const [isMuted, setIsMuted] = useState(true)
     const [showAudioButton, setShowAudioButton] = useState(true)
-    const [isVideoLoaded, setIsVideoLoaded] = useState(false)
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -49,10 +48,6 @@ export default function Hero() {
                 }, 2000)
             }
         }
-    }
-
-    const handleVideoLoad = () => {
-        setIsVideoLoaded(true)
     }
 
     return (
@@ -226,22 +221,13 @@ export default function Hero() {
                                     transition={{ duration: 0.8, delay: 0.5 }}
                                     className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-white/10 relative"
                                 >
-                                    {!isVideoLoaded && (
-                                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#2e54a1] to-blue-600 z-10">
-                                            <div className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
-                                        </div>
-                                    )}
-
                                     <video
                                         ref={videoRef}
-                                        className="w-full h-full object-cover cursor-pointer"
+                                        className="w-full h-full object-cover"
                                         autoPlay
                                         loop
                                         muted
                                         playsInline
-                                        preload="auto"
-                                        onLoadedData={handleVideoLoad}
-                                        onClick={toggleMute}
                                         aria-label="Video presentazione Valerio Vittori - VittoriConsulting"
                                     >
                                         <source src="/videos/socialvideo.mp4" type="video/mp4" />
@@ -249,33 +235,16 @@ export default function Hero() {
                                         Video presentazione di Valerio Vittori
                                     </video>
 
-                                    <div
-                                        className="absolute inset-0 bg-black/0 hover:bg-black/5 transition-all duration-300 cursor-pointer rounded-full"
-                                        onClick={toggleMute}
-                                        role="button"
-                                        tabIndex={0}
-                                        aria-label={isMuted ? "Clicca per attivare l'audio" : "Clicca per disattivare l'audio"}
-                                        onKeyDown={(e) => {
-                                            if (e.key === 'Enter' || e.key === ' ') {
-                                                e.preventDefault()
-                                                toggleMute()
-                                            }
-                                        }}
-                                    />
-
                                     <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 blur-xl -z-10 scale-110"></div>
                                 </motion.div>
 
-                                {showAudioButton && isVideoLoaded && (
+                                {showAudioButton && (
                                     <motion.button
                                         initial={{ opacity: 0, scale: 0.8 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.8 }}
                                         transition={{ duration: 0.3 }}
-                                        onClick={(e) => {
-                                            e.stopPropagation()
-                                            toggleMute()
-                                        }}
+                                        onClick={toggleMute}
                                         className="absolute top-8 right-8 w-14 h-14 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center text-[#2e54a1] hover:bg-white transition-all z-30 focus:outline-none focus:ring-2 focus:ring-[#2e54a1]/50 shadow-xl border-2 border-[#2e54a1]/20"
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}
