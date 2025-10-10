@@ -219,11 +219,12 @@ export default function Hero() {
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.8, delay: 0.5 }}
-                                    className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-white/10 relative"
+                                    className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-white/10 relative cursor-pointer"
+                                    onClick={toggleMute}
                                 >
                                     <video
                                         ref={videoRef}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover pointer-events-none"
                                         autoPlay
                                         loop
                                         muted
@@ -244,7 +245,10 @@ export default function Hero() {
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.8 }}
                                         transition={{ duration: 0.3 }}
-                                        onClick={toggleMute}
+                                        onClick={(e) => {
+                                            e.stopPropagation()
+                                            toggleMute()
+                                        }}
                                         className="absolute top-8 right-8 w-14 h-14 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center text-[#2e54a1] hover:bg-white transition-all z-30 focus:outline-none focus:ring-2 focus:ring-[#2e54a1]/50 shadow-xl border-2 border-[#2e54a1]/20"
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}
