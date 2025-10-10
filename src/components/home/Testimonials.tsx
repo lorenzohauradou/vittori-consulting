@@ -8,7 +8,6 @@ import { useOptin } from '@/contexts/OptinContext'
 export default function Testimonials() {
     const { openModal } = useOptin()
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0)
-    const [showVideo, setShowVideo] = useState(false)
     const [isMuted, setIsMuted] = useState(true)
     const [showAudioButton, setShowAudioButton] = useState(true)
     const videoRef = React.useRef<HTMLVideoElement>(null)
@@ -38,25 +37,6 @@ export default function Testimonials() {
         }
     }
 
-    const openVideo = () => {
-        setShowVideo(true)
-        setIsMuted(false)
-        setShowAudioButton(true)
-
-        timeoutRef.current = setTimeout(() => {
-            setShowAudioButton(false)
-        }, 2000)
-    }
-
-    const closeVideo = () => {
-        setIsMuted(true)
-        setShowAudioButton(true)
-        setShowVideo(false)
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current)
-        }
-    }
-
     const reviews = [
         {
             name: 'Alessia Giovannoni',
@@ -75,6 +55,18 @@ export default function Testimonials() {
             role: 'Alberto\'s Pizza',
             text: 'Ho notato un grande cambiamento, in positivo, da quando lavoro con il team di Valerio. Sono rimasto veramente contento e soddisfatto dei risultati ottenuti, i ragazzi sono molto professionali e in gamba, pronti a risolvere qualsiasi problema che si presenta.',
             photo: '/images/partners/albertos-pizza.webp'
+        },
+        {
+            name: 'Desert Miraje',
+            role: 'Coach di crescita per donne',
+            text: 'Con Valerio e il suo team mi sono trovata veramente bene, mi hanno capito e mi hanno aiutato a fare il mio primo lancio online, stra consigliati per altri professionisti che si vogliono affacciare sul digitale!',
+            photo: '/images/trusted/miraje.webp'
+        },
+        {
+            name: 'Jacqueline Valdivia',
+            role: 'Passito Spa Centro Estetico',
+            text: 'Con Vittori Consulting mi sono trovata e mi sto trovando molto bene, sono molto disponibili e fin da subito mi hanno fatto correre a differenza di altre agenzie di marketing, stiamo raggiungendo risultati veramente incredibili che in 6 anni di attività non avevo mai raggiunto. Mi stanno arrivando nuovi clienti per l\'estetica avanzata ogni mese. Li consiglierei assolutamente a tutti!',
+            photo: '/images/trusted/jacqueline.webp'
         }
     ]
 
@@ -87,51 +79,6 @@ export default function Testimonials() {
     }
 
     const currentReview = reviews[currentReviewIndex]
-
-    const testimonials = [
-        {
-            company: "Alberto's Pizza",
-            industry: "Ristorazione",
-            result: "+300% fatturato in 6 mesi",
-            video: "/videos/testimonial-albertos.mp4",
-            delay: 0.1
-        },
-        {
-            company: "Scavolini Store Fiumicino",
-            industry: "Arredamento",
-            result: "+150% lead qualificati",
-            video: "/videos/testimonial-scavolini.mp4",
-            delay: 0.2
-        },
-        {
-            company: "Gelotti",
-            industry: "Food & Beverage",
-            result: "+200% vendite online",
-            video: "/videos/testimonial-gelotti.mp4",
-            delay: 0.3
-        },
-        {
-            company: "Passito Spa",
-            industry: "Wellness",
-            result: "+180% prenotazioni",
-            video: "/videos/testimonial-passito.mp4",
-            delay: 0.4
-        },
-        {
-            company: "Magic Box Roma",
-            industry: "Intrattenimento",
-            result: "+250% eventi organizzati",
-            video: "/videos/testimonial-magicbox.mp4",
-            delay: 0.5
-        },
-        {
-            company: "Broker Associati",
-            industry: "Servizi Finanziari",
-            result: "+120% clienti acquisiti",
-            video: "/videos/testimonial-broker.mp4",
-            delay: 0.6
-        }
-    ]
 
     return (
         <section className="relative overflow-hidden bg-[#2e54a1] lg:bg-white py-24 lg:py-32" id="testimonials">
@@ -275,160 +222,54 @@ export default function Testimonials() {
                     viewport={{ once: true, margin: "-50px" }}
                     className="mb-16"
                 >
-                    {!showVideo ? (
-                        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 lg:p-8 border border-white/50 shadow-2xl overflow-hidden">
-                            <h4 className="text-xl lg:text-2xl font-bold text-[#2e54a1] mb-6 lg:mb-8 text-center">
-                                Video Testimonianze dei Nostri Clienti
-                            </h4>
+                    <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 lg:p-8 border border-white/50 shadow-2xl">
+                        <h4 className="text-xl lg:text-2xl font-bold text-[#2e54a1] mb-6 text-center">
+                            Alberto&apos;s Pizza - Testimonianza
+                        </h4>
 
-                            <div className="hidden lg:block overflow-x-auto">
-                                <table className="w-full">
-                                    <thead>
-                                        <tr className="border-b-2 border-[#2e54a1]/20">
-                                            <th className="text-left py-4 px-6 font-bold text-[#2e54a1]">Azienda</th>
-                                            <th className="text-left py-4 px-6 font-bold text-[#2e54a1]">Settore</th>
-                                            <th className="text-left py-4 px-6 font-bold text-[#2e54a1]">Risultato</th>
-                                            <th className="text-center py-4 px-6 font-bold text-[#2e54a1]">Video</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {testimonials.map((testimonial) => (
-                                            <motion.tr
-                                                key={testimonial.company}
-                                                initial={{ opacity: 0, x: -30 }}
-                                                whileInView={{ opacity: 1, x: 0 }}
-                                                transition={{ duration: 0.6, delay: testimonial.delay }}
-                                                viewport={{ once: true, margin: "-30px" }}
-                                                className="border-b border-gray-200/50 hover:bg-blue-50/50 transition-colors duration-300"
-                                            >
-                                                <td className="py-6 px-6">
-                                                    <div className="font-semibold text-gray-900">{testimonial.company}</div>
-                                                </td>
-                                                <td className="py-6 px-6">
-                                                    <div className="text-gray-600">{testimonial.industry}</div>
-                                                </td>
-                                                <td className="py-6 px-6">
-                                                    <div className="font-bold text-green-600">{testimonial.result}</div>
-                                                </td>
-                                                <td className="py-6 px-6 text-center">
-                                                    <motion.button
-                                                        onClick={() => testimonial.company === "Alberto's Pizza" && openVideo()}
-                                                        whileHover={{ scale: 1.05 }}
-                                                        whileTap={{ scale: 0.95 }}
-                                                        className={`inline-flex items-center justify-center w-12 h-12 bg-[#2e54a1] text-white rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg hover:shadow-xl ${testimonial.company === "Alberto's Pizza" ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'}`}
-                                                        aria-label={testimonial.company === "Alberto's Pizza" ? "Guarda la testimonianza video" : "Video non disponibile"}
-                                                    >
-                                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                                            <path d="M8 5v14l11-7z" />
-                                                        </svg>
-                                                    </motion.button>
-                                                </td>
-                                            </motion.tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div className="relative w-full max-w-sm mx-auto bg-black rounded-2xl overflow-hidden aspect-[9/16] lg:max-w-md">
+                            <video
+                                ref={videoRef}
+                                className="w-full h-full object-cover cursor-pointer"
+                                autoPlay
+                                loop
+                                muted={isMuted}
+                                playsInline
+                                onClick={toggleMute}
+                                aria-label="Video testimonianza Alberto's Pizza"
+                            >
+                                <source src="/videos/testimonial/albertos.mp4" type="video/mp4" />
+                                <track kind="captions" />
+                            </video>
 
-                            <div className="lg:hidden space-y-4">
-                                {testimonials.map((testimonial) => (
-                                    <motion.div
-                                        key={testimonial.company}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.6, delay: testimonial.delay }}
-                                        viewport={{ once: true, margin: "-30px" }}
-                                        className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-white/30 shadow-lg"
-                                    >
-                                        <div className="flex items-center justify-between mb-3">
-                                            <div className="flex-1">
-                                                <h5 className="font-bold text-gray-900 text-lg mb-1">{testimonial.company}</h5>
-                                                <p className="text-gray-600 text-sm">{testimonial.industry}</p>
-                                            </div>
-                                            <motion.button
-                                                onClick={() => testimonial.company === "Alberto's Pizza" && openVideo()}
-                                                whileHover={{ scale: 1.05 }}
-                                                whileTap={{ scale: 0.95 }}
-                                                className={`inline-flex items-center justify-center w-12 h-12 bg-[#2e54a1] text-white rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg hover:shadow-xl flex-shrink-0 ${testimonial.company === "Alberto's Pizza" ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'}`}
-                                            >
-                                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M8 5v14l11-7z" />
-                                                </svg>
-                                            </motion.button>
-                                        </div>
-                                        <div className="bg-green-50 rounded-lg p-3">
-                                            <p className="font-bold text-green-600 text-center">{testimonial.result}</p>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
+                            {showAudioButton && (
+                                <motion.button
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.8 }}
+                                    transition={{ duration: 0.3 }}
+                                    onClick={(e) => {
+                                        e.stopPropagation()
+                                        toggleMute()
+                                    }}
+                                    className="absolute top-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all z-20 shadow-lg"
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    aria-label={isMuted ? "Attiva audio" : "Disattiva audio"}
+                                >
+                                    {isMuted ? (
+                                        <svg className="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+                                        </svg>
+                                    ) : (
+                                        <svg className="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                                        </svg>
+                                    )}
+                                </motion.button>
+                            )}
                         </div>
-                    ) : (
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.3 }}
-                            className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 lg:p-8 border border-white/50 shadow-2xl"
-                        >
-                            <div className="flex items-center justify-between mb-6">
-                                <button
-                                    onClick={closeVideo}
-                                    className="flex items-center gap-2 text-[#2e54a1] hover:text-blue-600 transition-colors font-semibold"
-                                    aria-label="Torna alla tabella"
-                                >
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                    </svg>
-                                    <span>Torna alla tabella</span>
-                                </button>
-                                <h4 className="text-xl lg:text-2xl font-bold text-[#2e54a1]">
-                                    Alberto&apos;s Pizza <span className="hidden md:block">- Testimonianza</span>
-                                </h4>
-                            </div>
-
-                            <div className="relative w-full max-w-sm mx-auto bg-black rounded-2xl overflow-hidden aspect-[9/16] lg:max-w-md">
-                                <video
-                                    ref={videoRef}
-                                    className="w-full h-full object-cover cursor-pointer"
-                                    autoPlay
-                                    loop
-                                    muted={isMuted}
-                                    playsInline
-                                    onClick={toggleMute}
-                                    aria-label="Video testimonianza Alberto's Pizza"
-                                >
-                                    <source src="/videos/testimonial/albertos.mp4" type="video/mp4" />
-                                    <track kind="captions" />
-                                </video>
-
-                                {showAudioButton && (
-                                    <motion.button
-                                        initial={{ opacity: 0, scale: 0.8 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 0.8 }}
-                                        transition={{ duration: 0.3 }}
-                                        onClick={(e) => {
-                                            e.stopPropagation()
-                                            toggleMute()
-                                        }}
-                                        className="absolute top-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all z-20 shadow-lg"
-                                        whileHover={{ scale: 1.1 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        aria-label={isMuted ? "Attiva audio" : "Disattiva audio"}
-                                    >
-                                        {isMuted ? (
-                                            <svg className="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
-                                            </svg>
-                                        ) : (
-                                            <svg className="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                                            </svg>
-                                        )}
-                                    </motion.button>
-                                )}
-                            </div>
-                        </motion.div>
-                    )}
+                    </div>
                 </motion.div>
 
                 <div className="lg:hidden mb-16">
@@ -541,6 +382,76 @@ export default function Testimonials() {
 
                             <blockquote className="text-gray-700 leading-relaxed text-base italic pt-4">
                                 Ho notato un grande cambiamento, in positivo, da quando lavoro con il team di Valerio. Sono rimasto veramente contento e soddisfatto dei risultati ottenuti, i ragazzi sono molto professionali e in gamba, pronti a risolvere qualsiasi problema che si presenta.
+                            </blockquote>
+                        </div>
+
+                        <div className="flex items-center gap-3 mt-8">
+                            <div className="relative w-12 h-12 flex items-center justify-center">
+                                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                    <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                        <div className="w-full h-full rounded-full overflow-hidden">
+                                            <Image
+                                                src="/images/trusted/miraje.webp"
+                                                alt="Desert Miraje - Coach di crescita per donne"
+                                                width={48}
+                                                height={48}
+                                                className="w-full h-full object-cover"
+                                                aria-label="Foto di Desert Miraje - Coach di crescita per donne - cliente soddisfatta Vittori Consulting"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-white text-lg drop-shadow-lg">Desert Miraje</h5>
+                                <p className="text-sm text-blue-200 drop-shadow-md">Coach di crescita per donne</p>
+                            </div>
+                        </div>
+
+                        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 hover:shadow-xl transition-all relative">
+                            <div className="absolute -top-2 left-6">
+                                <svg className="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                                </svg>
+                            </div>
+
+                            <blockquote className="text-gray-700 leading-relaxed text-base italic pt-4">
+                                Con Valerio e il suo team mi sono trovata veramente bene, mi hanno capito e mi hanno aiutato a fare il mio primo lancio online, stra consigliati per altri professionisti che si vogliono affacciare sul digitale!
+                            </blockquote>
+                        </div>
+
+                        <div className="flex items-center gap-3 mt-8">
+                            <div className="relative w-12 h-12 flex items-center justify-center">
+                                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                    <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                        <div className="w-full h-full rounded-full overflow-hidden">
+                                            <Image
+                                                src="/images/trusted/jacqueline.webp"
+                                                alt="Jacqueline Valdivia - Passito Spa Centro Estetico"
+                                                width={48}
+                                                height={48}
+                                                className="w-full h-full object-cover"
+                                                aria-label="Foto di Jacqueline Valdivia - Passito Spa Centro Estetico - cliente soddisfatta Vittori Consulting"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-white text-lg drop-shadow-lg">Jacqueline Valdivia</h5>
+                                <p className="text-sm text-blue-200 drop-shadow-md">Passito Spa Centro Estetico</p>
+                            </div>
+                        </div>
+
+                        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 hover:shadow-xl transition-all relative">
+                            <div className="absolute -top-2 left-6">
+                                <svg className="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                                </svg>
+                            </div>
+
+                            <blockquote className="text-gray-700 leading-relaxed text-base italic pt-4">
+                                Con Vittori Consulting mi sono trovata e mi sto trovando molto bene, sono molto disponibili e fin da subito mi hanno fatto correre a differenza di altre agenzie di marketing, stiamo raggiungendo risultati veramente incredibili che in 6 anni di attività non avevo mai raggiunto. Mi stanno arrivando nuovi clienti per l&apos;estetica avanzata ogni mese. Li consiglierei assolutamente a tutti!
                             </blockquote>
                         </div>
                     </motion.div>
