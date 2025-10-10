@@ -53,7 +53,7 @@ export default function Difference() {
     return (
         <section ref={containerRef} className="relative py-24 overflow-hidden">
             <div className="absolute inset-0">
-                <div className="absolute inset-y-0 -right-6 w-2/5 bg-[#2e54a1] transform skew-x-12 origin-top-right"></div>
+                <div className="absolute inset-y-0 -right-6 w-1/5 bg-[#2e54a1] transform skew-x-12 origin-top-right"></div>
 
                 <motion.div
                     style={{ y: y1 }}
