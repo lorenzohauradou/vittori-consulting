@@ -48,7 +48,7 @@ export default function Partners() {
                                             height={partner.name === 'Scavolini Store Fiumicino' ? 100 : 100}
                                             sizes={partner.name === 'Scavolini Store Fiumicino' ? "100px" : "100px"}
                                             loading="eager"
-                                            className={partner.name === 'Scavolini Store Fiumicino' ? "h-[80px] w-auto max-h-[300px]" : "h-auto w-auto max-h-24"}
+                                            className={partner.name === 'Scavolini Store Fiumicino' ? "h-[70px] w-auto max-h-[300px]" : "h-auto w-auto max-h-24"}
                                             placeholder="blur"
                                             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
                                         />
