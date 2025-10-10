@@ -382,7 +382,7 @@ export default function Testimonials() {
                                 </h4>
                             </div>
 
-                            <div className="relative w-full max-w-sm mx-auto bg-black rounded-2xl overflow-hidden aspect-[9/16] lg:aspect-video lg:max-w-full">
+                            <div className="relative w-full max-w-sm mx-auto bg-black rounded-2xl overflow-hidden aspect-[9/16] lg:max-w-md">
                                 <video
                                     ref={videoRef}
                                     className="w-full h-full object-cover cursor-pointer"
