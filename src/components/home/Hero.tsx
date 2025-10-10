@@ -219,7 +219,7 @@ export default function Hero() {
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.8, delay: 0.5 }}
-                                    className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-white/10 relative cursor-pointer"
+                                    className="w-90 h-90 lg:h-100 lg:w-100 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-white/10 relative cursor-pointer"
                                     onClick={toggleMute}
                                 >
                                     <video
