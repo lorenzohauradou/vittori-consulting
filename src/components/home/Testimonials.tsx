@@ -111,6 +111,7 @@ export default function Testimonials() {
                                                 height={48}
                                                 className="w-full h-full object-cover"
                                                 priority
+                                                aria-label='Foto di Desert Miraje - Coach di crescita per donne - cliente soddisfatta Vittori Consulting'
                                             />
                                         </div>
                                     </div>
@@ -247,6 +248,7 @@ export default function Testimonials() {
                                                 width={48}
                                                 height={48}
                                                 className="w-full h-full object-cover"
+                                                aria-label='Foto di Desert Miraje - Coach di crescita per donne - cliente soddisfatta Vittori Consulting'
                                             />
                                         </div>
                                     </div>
