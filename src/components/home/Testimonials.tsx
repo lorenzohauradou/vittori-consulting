@@ -87,7 +87,7 @@ export default function Testimonials() {
                     className="text-left mb-16"
                 >
                     <p className="text-base sm:text-lg lg:text-xl text-white/95 mb-8 drop-shadow-md max-w-3xl">
-                        Guarda le video testimonianze qui sotto oppure le recensioni<br className='hidden md:block' />di chi ci ha già scelto.
+                        Guarda le video testimonianze qui sotto oppure le recensioni<br className='hidden md:block' /> di chi ci ha già scelto
                     </p>
                 </motion.div>
 
