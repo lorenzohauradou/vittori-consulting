@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef, useState, useEffect } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 interface IPhoneCanvasProps {
     title?: string
@@ -18,7 +18,6 @@ export default function IPhoneCanvas({
     videoSrc,
     className = ""
 }: IPhoneCanvasProps) {
-    const containerRef = useRef<HTMLDivElement>(null)
     const videoRef = useRef<HTMLVideoElement>(null)
     const timeoutRef = useRef<NodeJS.Timeout | null>(null)
     const [isMuted, setIsMuted] = useState(true)
@@ -52,29 +51,13 @@ export default function IPhoneCanvas({
         }
     }, [])
 
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    })
-
-    const y = useTransform(scrollYProgress, [0, 1], [100, -100])
-    const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [15, 0, -15])
-    const rotateY = useTransform(scrollYProgress, [0, 0.5, 1], [-10, 0, 10])
-    const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 0.9])
-
     return (
-        <div ref={containerRef} className={`relative ${className}`}>
+        <div className={`relative ${className}`}>
             <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
                 viewport={{ once: true, margin: "-50px" }}
-                style={{
-                    y,
-                    rotateX,
-                    rotateY,
-                    scale
-                }}
                 className="relative"
             >
                 <div className="relative w-80 h-[600px] bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
