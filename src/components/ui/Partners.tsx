@@ -35,7 +35,7 @@ export default function Partners() {
                 <div className="relative">
                     <div className="scroll-track">
                         <div className="scroll-content-seamless">
-                            {[...partners, ...partners].map((partner, index) => (
+                            {[...partners, ...partners, ...partners].map((partner, index) => (
                                 <div
                                     key={`partner-${index}`}
                                     className="scroll-item-seamless"

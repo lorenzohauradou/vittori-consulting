@@ -169,7 +169,7 @@ html {
 .scroll-content-seamless {
   display: flex;
   width: max-content;
-  animation: seamless-scroll 40s linear infinite;
+  animation: seamless-scroll 60s linear infinite;
   will-change: transform;
 }
 
@@ -187,13 +187,13 @@ html {
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-33.333%, 0, 0);
   }
 }
 
 @media (max-width: 768px) {
   .scroll-content-seamless {
-    animation-duration: 15s;
+    animation-duration: 30s;
   }
   
   .scroll-item-seamless {
