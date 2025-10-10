@@ -187,7 +187,7 @@ export default function Hero() {
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.8, delay: 0.5 }}
-                                    className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-8 border-white/20 backdrop-blur-sm bg-white/10 relative"
+                                    className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-white/10 relative"
                                 >
                                     <video
                                         className="w-full h-full object-cover"
