@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 
 export default function ProblemsSection() {
 
@@ -137,51 +136,7 @@ export default function ProblemsSection() {
                         ))}
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7, delay: 0.5 }}
-                        className="mt-16 lg:mt-20 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
-                    >
-                        <motion.div
-                            whileHover={{ y: -5 }}
-                            className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl"
-                        >
-                            <Image
-                                src="/images/problems/frustrato.png"
-                                alt="Imprenditore frustrato prima di affidarsi a VittoriConsulting - Marketing Roma"
-                                fill
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                className="object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                            <div className="absolute top-4 left-4">
-                                <div className="bg-red-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
-                                    Prima
-                                </div>
-                            </div>
-                        </motion.div>
 
-                        <motion.div
-                            whileHover={{ y: -5 }}
-                            className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl"
-                        >
-                            <Image
-                                src="/images/problems/sollevato.png"
-                                alt="Imprenditore di successo dopo consulenza marketing VittoriConsulting Roma"
-                                fill
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                className="object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                            <div className="absolute top-4 left-4">
-                                <div className="bg-green-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
-                                    Dopo
-                                </div>
-                            </div>
-                        </motion.div>
-                    </motion.div>
                 </motion.div>
 
                 <motion.div
