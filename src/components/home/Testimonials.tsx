@@ -287,7 +287,7 @@ export default function Testimonials() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.6 }}
                             viewport={{ once: true }}
-                            className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-white lg:text-gray-900 drop-shadow-lg"
+                            className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-white lg:text-[#2e54a1] drop-shadow-lg"
                         >
                             Vuoi vedere altre testimonianze?
                         </motion.h4>
