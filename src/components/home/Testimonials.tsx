@@ -1,13 +1,44 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { CustomBackground } from '@/components/ui/custom-background'
 import { useOptin } from '@/contexts/OptinContext'
 
 export default function Testimonials() {
     const { openModal } = useOptin()
+    const [currentReviewIndex, setCurrentReviewIndex] = useState(0)
+
+    const reviews = [
+        {
+            name: 'Alessia Giovannoni',
+            role: 'Nutrizionista',
+            text: 'Comunque ragazzi volevo farvi i miei complimenti perché siete molto scrupolosi, precisi ed organizzati. Mi sento proprio al sicuro ad essermi affidata a voi! Grazie♥️',
+            photo: '/images/trusted/alessia.webp'
+        },
+        {
+            name: 'Luigi Ferro',
+            role: 'Azienda farmaceutica',
+            text: 'Ciao Valerio. Grazie per il lavoro svolto e per avermi aiutato a riordinare e analizzare i dati condivisi. Mi è stato molto utile come base per organizzare la pianificazione a cui sto lavorando.',
+            photo: '/images/trusted/luigiferro.webp'
+        },
+        {
+            name: 'Daniele',
+            role: 'Alberto\'s Pizza',
+            text: 'Ho notato un grande cambiamento, in positivo, da quando lavoro con il team di Valerio. Sono rimasto veramente contento e soddisfatto dei risultati ottenuti, i ragazzi sono molto professionali e in gamba, pronti a risolvere qualsiasi problema che si presenta.',
+            photo: '/images/partners/albertos-pizza.webp'
+        }
+    ]
+
+    const nextReview = () => {
+        setCurrentReviewIndex((prev) => (prev + 1) % reviews.length)
+    }
+
+    const prevReview = () => {
+        setCurrentReviewIndex((prev) => (prev - 1 + reviews.length) % reviews.length)
+    }
+
+    const currentReview = reviews[currentReviewIndex]
 
     const testimonials = [
         {
@@ -55,7 +86,31 @@ export default function Testimonials() {
     ]
 
     return (
-        <CustomBackground variant="hero" className="py-24 lg:py-32" id="testimonials">
+        <section className="relative overflow-hidden bg-[#2e54a1] lg:bg-white py-24 lg:py-32" id="testimonials">
+
+            <div className="lg:hidden absolute inset-0">
+                <div className="absolute top-20 right-20 w-32 h-32 bg-blue-100/20 rounded-full opacity-60 animate-pulse"></div>
+                <div className="absolute bottom-20 left-20 w-24 h-24 bg-blue-200/25 rounded-full opacity-50 animate-pulse delay-1000"></div>
+                <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-blue-100/15 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-l from-blue-200/20 to-transparent rounded-full blur-2xl"></div>
+                <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+                <div className="absolute top-1/3 right-1/4 w-8 h-8 bg-blue-300/40 rounded-full opacity-70 animate-bounce delay-500"></div>
+                <div className="absolute bottom-1/3 left-1/3 w-6 h-6 bg-blue-400/30 rounded-full opacity-60 animate-bounce delay-1500"></div>
+                <div className="absolute top-1/2 right-1/3 w-4 h-4 bg-blue-200/50 rounded-full opacity-50 animate-bounce delay-2000"></div>
+            </div>
+
+            <div className="hidden lg:block absolute inset-0">
+                <div className="absolute inset-y-0 left-0 w-4/2 md:w-3/5 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#4f75c7] transform -skew-x-12 origin-top-left"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-white/10"></div>
+                <div className="absolute top-20 right-20 w-20 h-20 bg-gradient-to-br from-blue-100/30 to-blue-200/20 rounded-full opacity-60 animate-pulse"></div>
+                <div className="absolute bottom-20 right-32 w-16 h-16 bg-gradient-to-br from-blue-200/25 to-indigo-200/15 rounded-full opacity-50 animate-pulse delay-1000"></div>
+                <div className="absolute top-1/4 right-0 w-80 h-80 bg-gradient-to-l from-blue-100/15 via-blue-50/10 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-tl from-indigo-100/10 to-transparent rounded-full blur-2xl"></div>
+                <div className="absolute inset-0 bg-grid-pattern opacity-3"></div>
+                <div className="absolute top-1/3 right-1/4 w-6 h-6 bg-gradient-to-br from-blue-400/60 to-blue-500/40 rounded-full opacity-70 animate-bounce delay-500"></div>
+                <div className="absolute bottom-1/3 left-1/3 w-4 h-4 bg-gradient-to-br from-indigo-400/50 to-purple-400/30 rounded-full opacity-60 animate-bounce delay-1500"></div>
+                <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-gradient-to-br from-blue-300/40 to-cyan-300/20 rounded-full opacity-50 animate-bounce delay-2000"></div>
+            </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
@@ -97,42 +152,70 @@ export default function Testimonials() {
                         whileInView={{ opacity: 1, scale: 1, y: 0 }}
                         transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
                         viewport={{ once: true }}
-                        className="space-y-4"
+                        className="space-y-4 relative"
                     >
-                        <div className="flex items-center gap-3">
-                            <div className="relative w-12 h-12 flex items-center justify-center">
-                                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
-                                    <div className="w-full h-full rounded-full bg-white p-[2px]">
-                                        <div className="w-full h-full rounded-full overflow-hidden">
-                                            <Image
-                                                src="/images/trusted/alessia.webp"
-                                                alt="Alessia Giovannoni - Nutrizionista"
-                                                width={48}
-                                                height={48}
-                                                className="w-full h-full object-cover"
-                                                priority
-                                                aria-label="Foto di Alessia Giovannoni - Nutrizionista - cliente soddisfatta Vittori Consulting"
-                                            />
+                        <motion.div
+                            key={currentReviewIndex}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.4 }}
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="relative w-12 h-12 flex items-center justify-center">
+                                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                        <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                            <div className="w-full h-full rounded-full overflow-hidden">
+                                                <Image
+                                                    src={currentReview.photo}
+                                                    alt={`${currentReview.name} - ${currentReview.role}`}
+                                                    width={48}
+                                                    height={48}
+                                                    className="w-full h-full object-cover"
+                                                    priority
+                                                    aria-label={`Foto di ${currentReview.name} - ${currentReview.role} - cliente soddisfatto Vittori Consulting`}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div>
+                                    <h5 className="font-bold text-gray-900 text-lg">{currentReview.name}</h5>
+                                    <p className="text-sm text-gray-600">{currentReview.role}</p>
+                                </div>
                             </div>
-                            <div>
-                                <h5 className="font-bold text-gray-900 text-lg">Alessia Giovannoni</h5>
-                                <p className="text-sm text-gray-600">Nutrizionista</p>
-                            </div>
-                        </div>
 
-                        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all relative">
-                            <div className="absolute -top-2 left-6">
-                                <svg className="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all relative">
+                                <div className="absolute -top-2 left-6">
+                                    <svg className="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                                    </svg>
+                                </div>
+
+                                <blockquote className="text-gray-700 leading-relaxed text-base italic pt-4">
+                                    {currentReview.text}
+                                </blockquote>
+                            </div>
+                        </motion.div>
+
+                        <div className="flex items-center justify-end gap-3 pt-4">
+                            <button
+                                onClick={prevReview}
+                                className="w-10 h-10 rounded-full bg-white border border-gray-200 hover:border-[#2e54a1] hover:bg-[#2e54a1] hover:text-white text-gray-600 transition-all duration-300 flex items-center justify-center shadow-sm hover:shadow-md"
+                                aria-label="Recensione precedente"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                                 </svg>
-                            </div>
-
-                            <blockquote className="text-gray-700 leading-relaxed text-base italic pt-4">
-                                Comunque ragazzi volevo farvi i miei complimenti perché siete molto scrupolosi, precisi ed organizzati. Mi sento proprio al sicuro ad essermi affidata a voi! Grazie♥️
-                            </blockquote>
+                            </button>
+                            <button
+                                onClick={nextReview}
+                                className="w-10 h-10 rounded-full bg-white border border-gray-200 hover:border-[#2e54a1] hover:bg-[#2e54a1] hover:text-white text-gray-600 transition-all duration-300 flex items-center justify-center shadow-sm hover:shadow-md"
+                                aria-label="Prossima recensione"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
                         </div>
                     </motion.div>
                 </div>
@@ -402,6 +485,6 @@ export default function Testimonials() {
                     </div>
                 </motion.div>
             </div>
-        </CustomBackground>
+        </section>
     )
 }
