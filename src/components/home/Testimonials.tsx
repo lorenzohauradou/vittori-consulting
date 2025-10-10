@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { CustomBackground } from '@/components/ui/custom-background'
 import { useOptin } from '@/contexts/OptinContext'
 
@@ -90,6 +91,50 @@ export default function Testimonials() {
                     </p>
                 </motion.div>
 
+                <div className="hidden lg:block absolute top-20 right-12 xl:right-20 z-20 max-w-sm">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                        className="space-y-4"
+                    >
+                        <div className="flex items-center gap-3">
+                            <div className="relative w-12 h-12 flex items-center justify-center">
+                                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                    <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                        <div className="w-full h-full rounded-full overflow-hidden">
+                                            <Image
+                                                src="/images/trusted/miraje.webp"
+                                                alt="Desert Miraje - Coach di crescita per donne"
+                                                width={48}
+                                                height={48}
+                                                className="w-full h-full object-cover"
+                                                priority
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-gray-900 text-lg">Desert Miraje</h5>
+                                <p className="text-sm text-gray-600">Coach di crescita per donne</p>
+                            </div>
+                        </div>
+
+                        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all relative">
+                            <div className="absolute -top-2 left-6">
+                                <svg className="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                                </svg>
+                            </div>
+
+                            <blockquote className="text-gray-700 leading-relaxed text-base italic pt-4">
+                                Con Valerio e il suo team mi sono trovata veramente bene, mi hanno capito e mi hanno aiutato a fare il mio primo lancio online, stra consigliati per altri professionisti che si vogliono affacciare sul digitale!
+                            </blockquote>
+                        </div>
+                    </motion.div>
+                </div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -182,6 +227,50 @@ export default function Testimonials() {
                         </div>
                     </div>
                 </motion.div>
+
+                <div className="lg:hidden mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        viewport={{ once: true }}
+                        className="space-y-4"
+                    >
+                        <div className="flex items-center gap-3">
+                            <div className="relative w-12 h-12 flex items-center justify-center">
+                                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                    <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                        <div className="w-full h-full rounded-full overflow-hidden">
+                                            <Image
+                                                src="/images/trusted/miraje.webp"
+                                                alt="Desert Miraje - Coach di crescita per donne"
+                                                width={48}
+                                                height={48}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-white text-lg drop-shadow-lg">Desert Miraje</h5>
+                                <p className="text-sm text-blue-200 drop-shadow-md">Coach di crescita per donne</p>
+                            </div>
+                        </div>
+
+                        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 hover:shadow-xl transition-all relative">
+                            <div className="absolute -top-2 left-6">
+                                <svg className="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                                </svg>
+                            </div>
+
+                            <blockquote className="text-gray-700 leading-relaxed text-base italic pt-4">
+                                Con Valerio e il suo team mi sono trovata veramente bene, mi hanno capito e mi hanno aiutato a fare il mio primo lancio online, stra consigliati per altri professionisti che si vogliono affacciare sul digitale!
+                            </blockquote>
+                        </div>
+                    </motion.div>
+                </div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function TestimonialsSection() {
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -9,40 +10,40 @@ export default function TestimonialsSection() {
     const testimonials = [
         {
             id: 1,
-            name: 'Alberto Rossi',
-            role: 'CEO, Alberto\'s Pizza',
-            text: 'VittoriConsulting ha trasformato completamente il nostro business. Grazie al loro metodo abbiamo triplicato il fatturato in soli 6 mesi. Il team è sempre disponibile e professionale.',
-            video: null
+            name: 'Luigi Ferro',
+            role: 'Azienda farmaceutica',
+            text: 'Ciao Valerio. Grazie per il lavoro svolto e per avermi aiutato a riordinare e analizzare i dati condivisi. Mi è stato molto utile come base per organizzare la pianificazione a cui sto lavorando.',
+            photo: '/images/trusted/luigiferro.webp'
         },
         {
             id: 2,
-            name: 'Marco Bianchi',
-            role: 'Founder, Scavolini Store',
-            text: 'Collaborare con VittoriConsulting è stata la scelta migliore per la nostra attività. Lead qualificati aumentati del 150% e un supporto costante in ogni fase del progetto.',
-            video: null
+            name: 'Alessia Giovannoni',
+            role: 'Nutrizionista',
+            text: 'Comunque ragazzi volevo farvi i miei complimenti perché siete molto scrupolosi, precisi ed organizzati. Mi sento proprio al sicuro ad essermi affidata a voi! Grazie♥️',
+            photo: '/images/trusted/alessia.webp'
         },
         {
             id: 3,
-            name: 'Giulia Verdi',
-            role: 'Owner, Gelotti',
-            text: 'Professionalità, competenza e risultati concreti. Il metodo Vittori 360 funziona davvero. Le nostre vendite online sono cresciute del 200% e continuiamo a crescere.',
-            video: null
+            name: 'Jacqueline Valdivia',
+            role: 'Passito Spa Centro Estetico',
+            text: 'Con Vittori Consulting mi sono trovata e mi sto trovando molto bene, sono molto disponibili e fin da subito mi hanno fatto correre a differenza di altre agenzie di marketing, stiamo raggiungendo risultati veramente incredibili che in 6 anni di attività non avevo mai raggiunto. Mi stanno arrivando nuovi clienti per l\'estetica avanzata ogni mese. Li consiglierei assolutamente a tutti!',
+            photo: '/images/trusted/jacqueline.webp'
         },
         {
             id: 4,
-            name: 'Laura Neri',
-            role: 'Director, Passito Spa',
-            text: 'Risultati oltre ogni aspettativa. Le prenotazioni sono aumentate del 180% e la nostra brand awareness è cresciuta esponenzialmente. Team fantastico!',
-            video: null
+            name: 'Daniele',
+            role: 'Alberto\'s Pizza',
+            text: 'Ho notato un grande cambiamento, in positivo, da quando lavoro con il team di Valerio. Sono rimasto veramente contento e soddisfatto dei risultati ottenuti, i ragazzi sono molto professionali e in gamba, pronti a risolvere qualsiasi problema che si presenta.',
+            photo: '/images/trusted/daniele.webp'
         }
     ]
 
     const nextTestimonial = () => {
-        setCurrentIndex((prev) => (prev + 3 >= testimonials.length ? 0 : prev + 3))
+        setCurrentIndex((prev) => (prev + 1 >= testimonials.length ? 0 : prev + 1))
     }
 
     const prevTestimonial = () => {
-        setCurrentIndex((prev) => (prev - 3 < 0 ? Math.max(0, testimonials.length - 3) : prev - 3))
+        setCurrentIndex((prev) => (prev - 1 < 0 ? testimonials.length - 1 : prev - 1))
     }
 
     return (
@@ -100,12 +101,31 @@ export default function TestimonialsSection() {
                         </div>
 
                         <p className="text-lg text-gray-700 leading-relaxed mb-6 italic">
-                            &quot;VittoriConsulting ha trasformato completamente il nostro business con il Metodo Vittori 360. Professionalità e risultati concreti in ogni fase del progetto.&quot;
+                            &quot;Con Valerio e il suo team mi sono trovata veramente bene, mi hanno capito e mi hanno aiutato a fare il mio primo lancio online, stra consigliati per altri professionisti che si vogliono affacciare sul digitale!&quot;
                         </p>
 
                         <div className="pt-4">
-                            <h4 className="font-bold text-gray-900 text-xl">Daniele</h4>
-                            <p className="text-gray-600">Alberto&apos;s Pizza</p>
+                            <div className="flex items-center gap-3">
+                                <div className="relative w-16 h-16 flex items-center justify-center">
+                                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                        <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                            <div className="w-full h-full rounded-full overflow-hidden">
+                                                <Image
+                                                    src="/images/trusted/miraje.webp"
+                                                    alt="Desert Miraje - Coach di crescita per donne"
+                                                    width={48}
+                                                    height={48}
+                                                    className="w-full h-full object-cover"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-gray-900 text-xl">Desert Miraje</h4>
+                                    <p className="text-gray-600">Coach di crescita per donne</p>
+                                </div>
+                            </div>
                         </div>
                         <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
                             <div className="grid grid-cols-2 gap-4">
@@ -149,44 +169,74 @@ export default function TestimonialsSection() {
                 </div>
 
                 <div className="mb-12">
-                    <div className="overflow-x-auto pb-4 -mx-4 px-4 md:overflow-visible md:mx-0 md:px-0 scrollbar-hide">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                            className="flex md:grid md:grid-cols-3 gap-6 mb-8 min-w-max md:min-w-0"
-                        >
-                            {testimonials.slice(currentIndex, currentIndex + 3).map((testimonial, index) => (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="space-y-8 md:grid md:grid-cols-3 md:gap-6 md:space-y-0"
+                    >
+                        {testimonials.map((testimonial, index) => {
+                            // Su desktop mostra solo 3 testimonianze in base a currentIndex
+                            const isVisibleOnDesktop = index >= currentIndex && index < currentIndex + 3
+
+                            return (
                                 <motion.div
                                     key={testimonial.id}
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    transition={{ duration: 0.5, delay: (index - currentIndex) * 0.1 }}
                                     viewport={{ once: true }}
-                                    className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all w-[320px] md:w-auto flex-shrink-0"
+                                    className={`space-y-4 ${!isVisibleOnDesktop ? 'md:hidden' : ''}`}
                                 >
-                                    <div className="mb-4">
-                                        <div className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center mb-4">
-                                            <span className="text-white font-bold text-lg">C</span>
+                                    <div className="flex items-center gap-3">
+                                        <div className="relative w-12 h-12 flex items-center justify-center">
+                                            {testimonial.photo ? (
+                                                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                                    <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                                        <div className="w-full h-full rounded-full overflow-hidden">
+                                                            <Image
+                                                                src={testimonial.photo}
+                                                                alt={`${testimonial.name} - ${testimonial.role}`}
+                                                                width={48}
+                                                                height={48}
+                                                                className="w-full h-full object-cover"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <div className="w-12 h-12 bg-[#2e54a1] rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span className="text-white font-bold text-lg">
+                                                        {testimonial.name.charAt(0)}
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <h5 className="font-bold text-gray-900 text-lg">{testimonial.name}</h5>
+                                            <p className="text-sm text-gray-600">{testimonial.role.split(',')[1]?.trim() || testimonial.role}</p>
                                         </div>
                                     </div>
 
-                                    <p className="text-gray-700 mb-6 leading-relaxed text-sm">
-                                        {testimonial.text}
-                                    </p>
+                                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all relative">
+                                        <div className="absolute -top-2 left-6">
+                                            <svg className="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                                            </svg>
+                                        </div>
 
-                                    <div className="border-t border-gray-100 pt-4">
-                                        <h5 className="font-bold text-gray-900">{testimonial.name}</h5>
-                                        <p className="text-sm text-gray-600">{testimonial.role}</p>
+                                        <blockquote className="text-gray-700 leading-relaxed text-base italic pt-4">
+                                            {testimonial.text}
+                                        </blockquote>
                                     </div>
                                 </motion.div>
-                            ))}
-                        </motion.div>
-                    </div>
+                            )
+                        })}
+                    </motion.div>
 
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
+                        <div className="hidden md:flex items-center gap-4 mt-4">
                             <button
                                 onClick={prevTestimonial}
                                 aria-label="Testimonianze precedenti"
@@ -210,7 +260,7 @@ export default function TestimonialsSection() {
                         <a
                             href="#calculator-section"
                             aria-label="Vedi altri risultati e calcola la tua crescita"
-                            className="inline-flex items-center gap-2 text-white md:text-gray-900 font-bold hover:text-[#2e54a1] transition-colors"
+                            className="inline-flex items-center gap-2 mt-6 md:mt-0 text-white md:text-gray-900 font-bold hover:text-[#2e54a1] transition-colors ml-auto md:ml-0"
                         >
                             <span>VEDI ALTRI RISULTATI</span>
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

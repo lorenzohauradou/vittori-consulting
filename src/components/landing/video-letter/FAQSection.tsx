@@ -61,7 +61,7 @@ export default function FAQSection() {
                     <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
                         Rispondiamo alle <span className="text-blue-200">Tue domande</span>
                     </h2>
-                    <p className="text-lg text-white/90">
+                    <p className="text-lg text-white/90 md:hidden">
                         Tutto quello che devi sapere prima di iniziare
                     </p>
                 </div>

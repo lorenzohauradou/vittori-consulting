@@ -11,12 +11,12 @@ interface TrustedCustomersProps {
 export function TrustedCustomers({
 }: TrustedCustomersProps) {
     const customers = [
-        { id: 1, name: 'Cliente 1', image: '/images/trusted/alice.png' },
-        { id: 2, name: 'Cliente 2', image: '/images/trusted/adam.png' },
-        { id: 3, name: 'Cliente 3', image: '/images/trusted/fin.png' },
-        { id: 4, name: 'Cliente 4', image: '/images/trusted/dorothy.png' },
-        { id: 5, name: 'Cliente 5', image: '/images/trusted/brian.png' },
-        { id: 6, name: 'Cliente 6', image: '/images/trusted/freya.png' },
+        { id: 1, name: 'Cliente 1', image: '/images/trusted/luigiferro.webp' },
+        { id: 2, name: 'Cliente 2', image: '/images/trusted/alessia.webp' },
+        { id: 3, name: 'Cliente 3', image: '/images/trusted/sara.webp' },
+        { id: 4, name: 'Cliente 4', image: '/images/trusted/jacqueline.webp' },
+        { id: 5, name: 'Cliente 5', image: '/images/trusted/miraje.webp' },
+        { id: 6, name: 'Cliente 6', image: '/images/trusted/pacini.webp' },
     ]
 
     return (
