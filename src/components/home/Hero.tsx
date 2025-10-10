@@ -51,7 +51,7 @@ export default function Hero() {
     }
 
     return (
-        <CustomBackground variant="hero" className="min-h-screen flex flex-col pt-16">
+        <CustomBackground variant="hero" className="min-h-screen flex flex-col pt-16 pb-46 lg:pb-0">
             <div className="bg-white/95 hidden md:block backdrop-blur-sm border-b max-w-4xl mx-auto rounded-3xl border-white/20 shadow-sm mt-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
                     <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
@@ -271,7 +271,7 @@ export default function Hero() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, delay: 1.6 }}
-                                    className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-full -mb-14 hidden md:block"
+                                    className="absolute -bottom-30 lg:-bottom-16 left-1/2 transform -translate-x-1/2 w-full -mb-14"
                                 >
                                     <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/40">
                                         <div className="flex justify-between items-center gap-8">
