@@ -23,29 +23,32 @@ export default function Testimonials() {
     }, [])
 
     const toggleMute = () => {
-        if (videoRef.current) {
-            videoRef.current.muted = !videoRef.current.muted
-            const newMutedState = !isMuted
-            setIsMuted(newMutedState)
+        const newMutedState = !isMuted
+        setIsMuted(newMutedState)
+        setShowAudioButton(true)
 
-            setShowAudioButton(true)
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current)
+        }
 
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current)
-            }
-
-            if (!newMutedState) {
-                timeoutRef.current = setTimeout(() => {
-                    setShowAudioButton(false)
-                }, 2000)
-            }
+        if (!newMutedState) {
+            timeoutRef.current = setTimeout(() => {
+                setShowAudioButton(false)
+            }, 2000)
         }
     }
 
+    const openVideo = () => {
+        setShowVideo(true)
+        setIsMuted(false)
+        setShowAudioButton(true)
+
+        timeoutRef.current = setTimeout(() => {
+            setShowAudioButton(false)
+        }, 2000)
+    }
+
     const closeVideo = () => {
-        if (videoRef.current && !isMuted) {
-            videoRef.current.muted = true
-        }
         setIsMuted(true)
         setShowAudioButton(true)
         setShowVideo(false)
@@ -309,7 +312,7 @@ export default function Testimonials() {
                                                 </td>
                                                 <td className="py-6 px-6 text-center">
                                                     <motion.button
-                                                        onClick={() => testimonial.company === "Alberto's Pizza" && setShowVideo(true)}
+                                                        onClick={() => testimonial.company === "Alberto's Pizza" && openVideo()}
                                                         whileHover={{ scale: 1.05 }}
                                                         whileTap={{ scale: 0.95 }}
                                                         className={`inline-flex items-center justify-center w-12 h-12 bg-[#2e54a1] text-white rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg hover:shadow-xl ${testimonial.company === "Alberto's Pizza" ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'}`}
@@ -342,7 +345,7 @@ export default function Testimonials() {
                                                 <p className="text-gray-600 text-sm">{testimonial.industry}</p>
                                             </div>
                                             <motion.button
-                                                onClick={() => testimonial.company === "Alberto's Pizza" && setShowVideo(true)}
+                                                onClick={() => testimonial.company === "Alberto's Pizza" && openVideo()}
                                                 whileHover={{ scale: 1.05 }}
                                                 whileTap={{ scale: 0.95 }}
                                                 className={`inline-flex items-center justify-center w-12 h-12 bg-[#2e54a1] text-white rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg hover:shadow-xl flex-shrink-0 ${testimonial.company === "Alberto's Pizza" ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'}`}
@@ -388,7 +391,7 @@ export default function Testimonials() {
                                     className="w-full h-full object-cover cursor-pointer"
                                     autoPlay
                                     loop
-                                    muted
+                                    muted={isMuted}
                                     playsInline
                                     onClick={toggleMute}
                                     aria-label="Video testimonianza Alberto's Pizza"
