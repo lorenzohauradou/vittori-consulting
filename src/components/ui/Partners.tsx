@@ -44,11 +44,11 @@ export default function Partners() {
                                         <Image
                                             src={partner.logo || ""}
                                             alt={`${partner.name} - Cliente VittoriConsulting Marketing Roma`}
-                                            width={180}
-                                            height={90}
-                                            sizes="180px"
+                                            width={partner.name === 'Scavolini Store Fiumicino' ? 300 : 300}
+                                            height={partner.name === 'Scavolini Store Fiumicino' ? 300 : 300}
+                                            sizes={partner.name === 'Scavolini Store Fiumicino' ? "300px" : "300px"}
                                             loading="eager"
-                                            className="h-auto w-auto max-h-24"
+                                            className={partner.name === 'Scavolini Store Fiumicino' ? "h-[100px] w-auto max-h-[300px]" : "h-auto w-auto max-h-24"}
                                             placeholder="blur"
                                             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
                                         />
