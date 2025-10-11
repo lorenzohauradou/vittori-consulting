@@ -41,7 +41,12 @@ Ogni azione deve seguire questo formato:
 "[FASE X - SETTIMANA/MESE Y] Titolo Azione: Descrizione completa dell'azione, includendo cosa fare esattamente, perché è importante per questo specifico cliente, quali metriche monitorare, e risultati attesi. [Risorse: tools/persone necessarie]"
 
 ESEMPIO:
-"[FASE 1 - SETTIMANA 1-2] Audit SEO Completo: Analisi approfondita del sito web utilizzando tools come SEMrush e Google Search Console. Identificare le keyword ad alto volume per il settore, analizzare i competitor diretti, verificare la struttura tecnica del sito (velocità, mobile-first, sitemap). Risultati attesi: lista prioritizzata di 20-30 keyword target, report tecnico con 10-15 criticità da risolvere. [Risorse: SEO specialist, budget tools €100/mese]"
+"[FASE 1 - SETTIMANA 1-2] Audit SEO Completo: Analisi approfondita del sito web utilizzando tools come SEMrush e Google Search Console. Identificare le keyword ad alto volume per il settore, analizzare i competitor diretti, verificare la struttura tecnica del sito (velocità, mobile-first, sitemap). Risultati attesi: lista prioritizzata di 20-30 keyword target, report tecnico con 10-15 criticità da risolvere. [Risorse: SEO specialist, budget tools € 100/mese]"
+
+IMPORTANTE SULLA FORMATTAZIONE:
+- Quando scrivi importi in euro, usa SEMPRE uno spazio tra il simbolo e il numero: "€ 5.000" NON "€5.000"
+- Esempio corretto: "budget di € 1.000/mese", "investimento € 500"
+- Esempio SBAGLIATO: "budget di €1.000/mese", "investimento €500"
 
 Rispondi con un oggetto JSON:
 {
@@ -93,7 +98,7 @@ Crea un piano d'azione personalizzato usando il Metodo Vittori 360 e le strategi
             '[FASE 2 - MESE 2] Ottimizzazione SEO: Correzione criticità tecniche, ottimizzazione titoli/meta, miglioramento velocità sito, implementazione schema markup. Creazione piano editoriale per content marketing. Risultati attesi: +30% velocità sito, 20 articoli pianificati. [Risorse: SEO specialist, copywriter]',
             '[FASE 2 - MESE 2-3] Branding e Posizionamento: Definizione USP chiara, ottimizzazione brand identity, creazione linea grafica coerente per tutti i materiali. Sviluppo storytelling aziendale e tone of voice. Risultati attesi: brand guidelines complete, materiali brandizzati. [Risorse: Brand strategist, designer]',
             '[FASE 3 - MESE 3-4] Setup Advertising: Creazione account pubblicitari Meta e Google Ads, struttura campagne per awareness e conversione, creazione creative set (5-10 varianti), setup audience targeting. Risultati attesi: 3 campagne pronte al lancio. [Risorse: Media buyer, designer]',
-            '[FASE 3 - MESE 4-5] Lancio Campagne Paid: Attivazione campagne Meta Ads (Facebook/Instagram) e Google Ads (Search/Display). Budget test iniziale €1000-2000/mese. Testing A/B continuo su creative, copy, audience. Risultati attesi: ROAS 2:1 minimo primo mese. [Risorse: Media buyer, budget ads]',
+            '[FASE 3 - MESE 4-5] Lancio Campagne Paid: Attivazione campagne Meta Ads (Facebook/Instagram) e Google Ads (Search/Display). Budget test iniziale € 1.000-2.000/mese. Testing A/B continuo su creative, copy, audience. Risultati attesi: ROAS 2:1 minimo primo mese. [Risorse: Media buyer, budget ads]',
             '[FASE 4 - MESE 5-6] Content Marketing: Pubblicazione articoli blog SEO-optimized, creazione contenuti social (20-30 post/mese), newsletter mensile, video content per social. Risultati attesi: +50% traffico organico, 500+ nuovi follower. [Risorse: Copywriter, video maker]',
             '[FASE 4 - MESE 6-7] Funnel Optimization: Analisi percorso utente, ottimizzazione landing pages, A/B testing CTA e form, implementazione lead magnet. Riduzione bounce rate e aumento conversion rate. Risultati attesi: +30% conversion rate. [Risorse: CRO specialist, copywriter]',
             '[FASE 5 - MESE 7-8] Email Marketing Automation: Setup piattaforma email marketing, creazione sequenze automatiche (welcome, nurturing, recovery), segmentazione database. Risultati attesi: 3 funnel email attivi, 25% open rate. [Risorse: Email marketer, copywriter]',

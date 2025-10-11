@@ -154,10 +154,10 @@ interface ReportData {
 }
 
 export const ReportDocument = ({ data }: { data: ReportData }) => {
-    const projection6Months = data.projections[6]?.revenue || 0
-    const projection12Months = data.projections[12]?.revenue || 0
-    const growth6M = ((projection6Months - data.currentRevenue) / data.currentRevenue * 100).toFixed(1)
-    const growth12M = ((projection12Months - data.currentRevenue) / data.currentRevenue * 100).toFixed(1)
+    const projection6MonthsAnnual = (data.projections[6]?.revenue || 0) * 12
+    const projection12MonthsAnnual = (data.projections[12]?.revenue || 0) * 12
+    const growth6M = ((projection6MonthsAnnual - data.currentRevenue) / data.currentRevenue * 100).toFixed(1)
+    const growth12M = ((projection12MonthsAnnual - data.currentRevenue) / data.currentRevenue * 100).toFixed(1)
 
     return (
         <Document>
@@ -175,7 +175,7 @@ export const ReportDocument = ({ data }: { data: ReportData }) => {
                     <View style={styles.kpiBox}>
                         <View style={styles.kpi}>
                             <Text style={styles.kpiValue}>
-                                €{data.currentRevenue.toLocaleString('it-IT')}
+                                € {data.currentRevenue.toLocaleString('it-IT')}
                             </Text>
                             <Text style={styles.kpiLabel}>Fatturato Annuale</Text>
                         </View>
@@ -185,7 +185,7 @@ export const ReportDocument = ({ data }: { data: ReportData }) => {
                         </View>
                         <View style={styles.kpi}>
                             <Text style={styles.kpiValue}>
-                                €{Math.round(data.avgTicket).toLocaleString('it-IT')}
+                                € {Math.round(data.avgTicket).toLocaleString('it-IT')}
                             </Text>
                             <Text style={styles.kpiLabel}>Ticket Medio</Text>
                         </View>
@@ -197,13 +197,13 @@ export const ReportDocument = ({ data }: { data: ReportData }) => {
                     <View style={styles.projectionBox}>
                         <Text style={styles.projectionLabel}>Obiettivo 6 Mesi</Text>
                         <Text style={styles.projectionValue}>
-                            €{projection6Months.toLocaleString('it-IT')} ({growth6M > '0' ? '+' : ''}{growth6M}%)
+                            € {projection6MonthsAnnual.toLocaleString('it-IT')} ({growth6M > '0' ? '+' : ''}{growth6M}%)
                         </Text>
                     </View>
                     <View style={styles.projectionBox}>
                         <Text style={styles.projectionLabel}>Obiettivo 12 Mesi</Text>
                         <Text style={styles.projectionValue}>
-                            €{projection12Months.toLocaleString('it-IT')} ({growth12M > '0' ? '+' : ''}{growth12M}%)
+                            € {projection12MonthsAnnual.toLocaleString('it-IT')} ({growth12M > '0' ? '+' : ''}{growth12M}%)
                         </Text>
                     </View>
                 </View>
