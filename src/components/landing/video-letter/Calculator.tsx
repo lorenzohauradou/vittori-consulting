@@ -10,10 +10,9 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { Loader2, TrendingUp, Users, DollarSign, Download } from 'lucide-react'
 
 interface FormData {
+    businessSector: string
     currentRevenue: number
     monthlyClients: number
-    businessSector: string
-    companyName: string
     url: string
 }
 
@@ -27,10 +26,9 @@ interface AIResults {
 
 export default function Calculator() {
     const [formData, setFormData] = useState<FormData>({
+        businessSector: '',
         currentRevenue: 0,
         monthlyClients: 0,
-        businessSector: '',
-        companyName: '',
         url: '',
     })
 
@@ -107,7 +105,6 @@ export default function Calculator() {
                     currentRevenue: formData.currentRevenue,
                     monthlyClients: formData.monthlyClients,
                     businessSector: formData.businessSector,
-                    companyName: formData.companyName,
                     scrapedData: finalScrapedData
                 }),
             })
@@ -142,7 +139,7 @@ export default function Calculator() {
                     insights: aiResults.insights,
                     summary: aiResults.summary,
                     scrapedData: scrapedData ? { title: scrapedData.title, textContent: scrapedData.textContent } : null,
-                    companyName: formData.companyName || 'Azienda',
+                    companyName: 'Azienda',
                     businessSector: formData.businessSector
                 }),
             })
@@ -207,6 +204,22 @@ export default function Calculator() {
 
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="space-y-2">
+                                    <Label htmlFor="businessSector" className="text-base font-semibold text-gray-700">
+                                        Settore / Attività
+                                    </Label>
+                                    <Input
+                                        id="businessSector"
+                                        type="text"
+                                        placeholder="es. Ristorante, E-commerce, Consulenza..."
+                                        value={formData.businessSector}
+                                        onChange={(e) => setFormData({ ...formData, businessSector: e.target.value })}
+                                        className="h-12 text-lg"
+                                        required
+                                        disabled={isLoading}
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
                                     <Label htmlFor="currentRevenue" className="text-base font-semibold text-gray-700">
                                         Fatturato annuale attuale (€)
                                     </Label>
@@ -234,37 +247,6 @@ export default function Calculator() {
                                         onChange={(e) => handleNumberInput('monthlyClients', e.target.value)}
                                         className="h-12 text-lg"
                                         required
-                                        disabled={isLoading}
-                                    />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="businessSector" className="text-base font-semibold text-gray-700">
-                                        Settore / Attività
-                                    </Label>
-                                    <Input
-                                        id="businessSector"
-                                        type="text"
-                                        placeholder="es. Ristorante, E-commerce, Consulenza..."
-                                        value={formData.businessSector}
-                                        onChange={(e) => setFormData({ ...formData, businessSector: e.target.value })}
-                                        className="h-12 text-lg"
-                                        required
-                                        disabled={isLoading}
-                                    />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="companyName" className="text-base font-semibold text-gray-700">
-                                        Nome Azienda (opzionale)
-                                    </Label>
-                                    <Input
-                                        id="companyName"
-                                        type="text"
-                                        placeholder="es. La tua azienda"
-                                        value={formData.companyName}
-                                        onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                                        className="h-12 text-lg"
                                         disabled={isLoading}
                                     />
                                 </div>

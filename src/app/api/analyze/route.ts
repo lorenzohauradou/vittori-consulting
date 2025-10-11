@@ -6,7 +6,7 @@ export const maxDuration = 60
 export async function POST(req: Request) {
     try {
         const body = await req.json()
-        const { currentRevenue, monthlyClients, businessSector, companyName, scrapedData } = body
+        const { currentRevenue, monthlyClients, businessSector, scrapedData } = body
 
         if (!currentRevenue || !monthlyClients || !businessSector) {
             return NextResponse.json(
@@ -19,7 +19,6 @@ export async function POST(req: Request) {
             currentRevenue,
             monthlyClients,
             businessSector,
-            companyName,
             scrapedData
         })
 
