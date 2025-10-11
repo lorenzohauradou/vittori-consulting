@@ -257,10 +257,10 @@ function TeamCard({ member, index, isMobile }: {
                 className="flex-shrink-0 w-72"
             >
                 <div className="w-full h-96 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
-                    <div className={`relative w-28 h-28 mb-6 flex items-center justify-center`}>
+                    <div className={`relative w-36 h-36 mb-6 flex items-center justify-center`}>
                         {(member.name === 'Lorenzo' || member.name === 'Camilla' || member.name === 'Nicole') && (
                             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[5px]">
-                                <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                <div className="w-full h-full rounded-full overflow-hidden">
                                     <div className="w-full h-full rounded-full overflow-hidden">
                                         <Image
                                             src={
@@ -269,8 +269,8 @@ function TeamCard({ member, index, isMobile }: {
                                                         "/images/team/nicole.webp"
                                             }
                                             alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
-                                            width={90}
-                                            height={90}
+                                            width={120}
+                                            height={120}
                                             className="w-full h-full object-cover"
                                         />
                                     </div>
@@ -278,8 +278,8 @@ function TeamCard({ member, index, isMobile }: {
                             </div>
                         )}
                         {member.name !== 'Lorenzo' && member.name !== 'Camilla' && member.name !== 'Nicole' && (
-                            <div className={`w-24 h-24 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
-                                <span className="text-2xl font-bold text-white">
+                            <div className={`w-32 h-32 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
+                                <span className="text-3xl font-bold text-white">
                                     {member.name.charAt(0)}
                                 </span>
                             </div>
@@ -325,10 +325,10 @@ function TeamCard({ member, index, isMobile }: {
             className="flex-1 max-w-[18%]"
         >
             <div className="w-full h-80 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
-                <div className={`relative w-24 h-24 mb-4 flex items-center justify-center`}>
+                <div className={`relative w-32 h-32 mb-4 flex items-center justify-center`}>
                     {(member.name === 'Lorenzo' || member.name === 'Camilla' || member.name === 'Nicole') && (
                         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[4px]">
-                            <div className="w-full h-full rounded-full bg-white p-[2px]">
+                            <div className="w-full h-full rounded-full overflow-hidden">
                                 <div className="w-full h-full rounded-full overflow-hidden">
                                     <Image
                                         src={
@@ -337,8 +337,8 @@ function TeamCard({ member, index, isMobile }: {
                                                     "/images/team/nicole.webp"
                                         }
                                         alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
-                                        width={76}
-                                        height={76}
+                                        width={110}
+                                        height={110}
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
@@ -346,8 +346,8 @@ function TeamCard({ member, index, isMobile }: {
                         </div>
                     )}
                     {member.name !== 'Lorenzo' && member.name !== 'Camilla' && member.name !== 'Nicole' && (
-                        <div className={`w-20 h-20 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
-                            <span className="text-xl font-bold text-white">
+                        <div className={`w-28 h-28 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
+                            <span className="text-2xl font-bold text-white">
                                 {member.name.charAt(0)}
                             </span>
                         </div>
