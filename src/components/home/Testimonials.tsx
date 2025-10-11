@@ -8,6 +8,7 @@ import { useOptin } from '@/contexts/OptinContext'
 export default function Testimonials() {
     const { openModal } = useOptin()
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0)
+    const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
     const [isMuted, setIsMuted] = useState(true)
     const [showAudioButton, setShowAudioButton] = useState(true)
     const videoRef = React.useRef<HTMLVideoElement>(null)
@@ -36,6 +37,49 @@ export default function Testimonials() {
             }, 2000)
         }
     }
+
+    const videoTestimonials = [
+        {
+            id: 1,
+            title: 'Testimonianza Scavolini Store Fiumicino',
+            src: 'https://iframe.mediadelivery.net/embed/510109/48aef447-75a3-4a7e-b28d-367506aaf14e?autoplay=true&loop=false&muted=false&preload=true&responsive=true',
+            isIframe: true,
+            aspectRatio: '16/9',
+            description: 'Testimonianza di un cliente che ha ottenuto risultati straordinari'
+        },
+        {
+            id: 2,
+            title: "Alberto's Pizza - Testimonianza",
+            src: '/videos/testimonial/albertos.mp4',
+            isIframe: false,
+            aspectRatio: '9/16',
+            description: 'Testimonianza di Daniele - Alberto\'s Pizza'
+        }
+    ]
+
+    const handleVideoChange = (index: number) => {
+        setCurrentVideoIndex(index)
+        setIsMuted(true)
+        setShowAudioButton(true)
+    }
+
+    const nextVideo = () => {
+        handleVideoChange((currentVideoIndex + 1) % videoTestimonials.length)
+    }
+
+    const prevVideo = () => {
+        handleVideoChange((currentVideoIndex - 1 + videoTestimonials.length) % videoTestimonials.length)
+    }
+
+    const getVideoContainerClasses = (aspectRatio: string) => {
+        const baseClasses = "relative mx-auto rounded-2xl overflow-hidden bg-white flex justify-center"
+        const sizeClasses = aspectRatio === '16/9'
+            ? 'w-full max-w-5xl h-[380px] sm:h-[450px] md:h-[520px] lg:h-[590px]'
+            : 'w-[300px] sm:w-[350px] md:w-[400px] h-[500px] sm:h-[550px] md:h-[600px]'
+        return `${baseClasses} ${sizeClasses}`
+    }
+
+    const currentVideo = videoTestimonials[currentVideoIndex]
 
     const reviews = [
         {
@@ -223,51 +267,111 @@ export default function Testimonials() {
                     className="mb-16"
                 >
                     <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 lg:p-8 border border-white/50 shadow-2xl">
-                        <h4 className="text-xl lg:text-2xl font-bold text-[#2e54a1] mb-6 text-center">
-                            Alberto&apos;s Pizza - Testimonianza
-                        </h4>
+                        <div className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4">
+                            <h4 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-[#2e54a1] text-center sm:text-left flex-1 px-2">
+                                {currentVideo.title}
+                            </h4>
 
-                        <div className="relative w-full max-w-sm mx-auto bg-black rounded-2xl overflow-hidden aspect-[9/16] lg:max-w-md">
-                            <video
-                                ref={videoRef}
-                                className="w-full h-full object-cover cursor-pointer"
-                                autoPlay
-                                loop
-                                muted={isMuted}
-                                playsInline
-                                onClick={toggleMute}
-                                aria-label="Video testimonianza Alberto's Pizza"
-                            >
-                                <source src="/videos/testimonial/albertos.mp4" type="video/mp4" />
-                                <track kind="captions" />
-                            </video>
-
-                            {showAudioButton && (
-                                <motion.button
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.8 }}
-                                    transition={{ duration: 0.3 }}
-                                    onClick={(e) => {
-                                        e.stopPropagation()
-                                        toggleMute()
-                                    }}
-                                    className="absolute top-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all z-20 shadow-lg"
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    aria-label={isMuted ? "Attiva audio" : "Disattiva audio"}
+                            <div className="flex items-center gap-3">
+                                <button
+                                    onClick={prevVideo}
+                                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#2e54a1] hover:bg-[#1e3a70] text-white transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg"
+                                    aria-label="Video precedente"
                                 >
-                                    {isMuted ? (
-                                        <svg className="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
-                                        </svg>
-                                    ) : (
-                                        <svg className="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                                        </svg>
+                                    <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                </button>
+                                <span className="text-base sm:text-lg lg:text-xl text-[#2e54a1] font-bold px-3 sm:px-4">
+                                    {currentVideoIndex + 1}/{videoTestimonials.length}
+                                </span>
+                                <button
+                                    onClick={nextVideo}
+                                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#2e54a1] hover:bg-[#1e3a70] text-white transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg"
+                                    aria-label="Video successivo"
+                                >
+                                    <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <motion.div
+                            key={currentVideoIndex}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className={getVideoContainerClasses(currentVideo.aspectRatio)}
+                        >
+                            {currentVideo.isIframe ? (
+                                <div className="relative w-full h-full bg-white rounded-2xl">
+                                    <iframe
+                                        src={currentVideo.src}
+                                        className="w-full h-full border-0 rounded-2xl"
+                                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                        allowFullScreen
+                                        title={currentVideo.title}
+                                    />
+                                </div>
+                            ) : (
+                                <>
+                                    <video
+                                        ref={videoRef}
+                                        className="w-full h-full object-cover cursor-pointer rounded-2xl bg-black"
+                                        autoPlay
+                                        loop
+                                        muted={isMuted}
+                                        playsInline
+                                        onClick={toggleMute}
+                                        aria-label={currentVideo.description}
+                                    >
+                                        <source src={currentVideo.src} type="video/mp4" />
+                                        <track kind="captions" />
+                                    </video>
+
+                                    {showAudioButton && (
+                                        <motion.button
+                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 0.8 }}
+                                            transition={{ duration: 0.3 }}
+                                            onClick={(e) => {
+                                                e.stopPropagation()
+                                                toggleMute()
+                                            }}
+                                            className="absolute top-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all z-20 shadow-lg"
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            aria-label={isMuted ? "Attiva audio" : "Disattiva audio"}
+                                        >
+                                            {isMuted ? (
+                                                <svg className="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+                                                </svg>
+                                            ) : (
+                                                <svg className="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                                                </svg>
+                                            )}
+                                        </motion.button>
                                     )}
-                                </motion.button>
+                                </>
                             )}
+                        </motion.div>
+
+                        <div className="flex justify-center mt-8 gap-4">
+                            {videoTestimonials.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => handleVideoChange(index)}
+                                    className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full transition-all duration-300 ${index === currentVideoIndex
+                                        ? 'bg-[#2e54a1] scale-125 shadow-md'
+                                        : 'bg-gray-300 hover:bg-gray-400'
+                                        }`}
+                                    aria-label={`Vai al video ${index + 1}`}
+                                />
+                            ))}
                         </div>
                     </div>
                 </motion.div>
