@@ -39,7 +39,7 @@ export default function LandingFooter() {
                             <span className="text-blue-100 font-bold text-2xl pr-8 mr-2 italic"> VittoriConsulting </span>
                         </div>
                         <p className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight text-center max-w-3xl">
-                            Con noi il marketing non sarà più un peso, ma la tua <span className="text-[#2e54a1]">arma segreta</span>
+                            Con noi il marketing non sarà più un peso, ma la tua <span className="text-[#2e54a1]">arma segreta.</span>
                         </p>
                     </div>
 

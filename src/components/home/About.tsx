@@ -28,7 +28,7 @@ export default function About() {
             name: 'Valerio Vittori',
             role: 'Founder',
             quote: 'Ogni strategia non è teoria: è progettata per funzionare davvero',
-            photo: '/images/team/valerio.jpg',
+            photo: '/images/team/valerio.webp',
             position: 'top-right',
             delay: 0
         },
@@ -36,7 +36,7 @@ export default function About() {
             name: 'Lorenzo',
             role: 'Full Stack Developer',
             quote: 'Learn slow, fail fast, ship faster',
-            photo: '/images/team/lorenzo.jpg',
+            photo: '/images/team/lorenzo.webp',
             position: 'center',
             delay: 0.2
         },
@@ -44,7 +44,7 @@ export default function About() {
             name: 'Camilla',
             role: 'Social Media Manager',
             quote: 'La creatività è un\'arma e lei sa come usarla',
-            photo: '/images/team/camilla.jpg',
+            photo: '/images/team/camilla.webp',
             position: 'top-left',
             delay: 0.4
         },
@@ -52,7 +52,7 @@ export default function About() {
             name: 'Nicole',
             role: 'Project Manager',
             quote: 'Il Direttore d\'Orchestra del Tuo Marketing',
-            photo: '/images/team/nicole.jpg',
+            photo: '/images/team/nicole.webp',
             position: 'bottom-left',
             delay: 0.6
         },
@@ -60,7 +60,7 @@ export default function About() {
             name: 'Gioele',
             role: 'Media Buyer',
             quote: 'L\'alchimista delle Conversioni',
-            photo: '/images/team/gioele.jpg',
+            photo: '/images/team/gioele.webp',
             position: 'bottom-right',
             delay: 0.8
         }
@@ -258,12 +258,16 @@ function TeamCard({ member, index, isMobile }: {
             >
                 <div className="w-full h-96 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
                     <div className={`relative w-28 h-28 mb-6 flex items-center justify-center`}>
-                        {(member.name === 'Lorenzo' || member.name === 'Camilla') && (
+                        {(member.name === 'Lorenzo' || member.name === 'Camilla' || member.name === 'Nicole') && (
                             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[5px]">
                                 <div className="w-full h-full rounded-full bg-white p-[2px]">
                                     <div className="w-full h-full rounded-full overflow-hidden">
                                         <Image
-                                            src={member.name === 'Lorenzo' ? "/images/team/lorenzo.jpeg" : "/images/team/camilla.jpg"}
+                                            src={
+                                                member.name === 'Lorenzo' ? "/images/team/lorenzo.webp" :
+                                                    member.name === 'Camilla' ? "/images/team/camilla.webp" :
+                                                        "/images/team/nicole.webp"
+                                            }
                                             alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                                             width={90}
                                             height={90}
@@ -273,7 +277,7 @@ function TeamCard({ member, index, isMobile }: {
                                 </div>
                             </div>
                         )}
-                        {member.name !== 'Lorenzo' && member.name !== 'Camilla' && (
+                        {member.name !== 'Lorenzo' && member.name !== 'Camilla' && member.name !== 'Nicole' && (
                             <div className={`w-24 h-24 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
                                 <span className="text-2xl font-bold text-white">
                                     {member.name.charAt(0)}
@@ -322,12 +326,16 @@ function TeamCard({ member, index, isMobile }: {
         >
             <div className="w-full h-80 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
                 <div className={`relative w-24 h-24 mb-4 flex items-center justify-center`}>
-                    {(member.name === 'Lorenzo' || member.name === 'Camilla') && (
+                    {(member.name === 'Lorenzo' || member.name === 'Camilla' || member.name === 'Nicole') && (
                         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[4px]">
                             <div className="w-full h-full rounded-full bg-white p-[2px]">
                                 <div className="w-full h-full rounded-full overflow-hidden">
                                     <Image
-                                        src={member.name === 'Lorenzo' ? "/images/team/lorenzo.jpeg" : "/images/team/camilla.jpg"}
+                                        src={
+                                            member.name === 'Lorenzo' ? "/images/team/lorenzo.webp" :
+                                                member.name === 'Camilla' ? "/images/team/camilla.webp" :
+                                                    "/images/team/nicole.webp"
+                                        }
                                         alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                                         width={76}
                                         height={76}
@@ -337,7 +345,7 @@ function TeamCard({ member, index, isMobile }: {
                             </div>
                         </div>
                     )}
-                    {member.name !== 'Lorenzo' && member.name !== 'Camilla' && (
+                    {member.name !== 'Lorenzo' && member.name !== 'Camilla' && member.name !== 'Nicole' && (
                         <div className={`w-20 h-20 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
                             <span className="text-xl font-bold text-white">
                                 {member.name.charAt(0)}
