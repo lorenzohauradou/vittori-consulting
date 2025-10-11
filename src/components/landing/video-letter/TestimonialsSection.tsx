@@ -341,7 +341,7 @@ export default function TestimonialsSection() {
                             aria-label="Vedi altri risultati e calcola la tua crescita"
                             className="inline-flex items-center gap-2 mt-6 md:mt-0 text-white md:text-gray-900 font-bold hover:text-[#2e54a1] transition-colors ml-auto md:ml-0"
                         >
-                            <span>VEDI ALTRI RISULTATI</span>
+                            <span>CALCOLA IL TUO POTENZIALE</span>
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>

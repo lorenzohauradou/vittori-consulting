@@ -222,7 +222,7 @@ export default function Calculator() {
 
                                 <div className="space-y-2">
                                     <Label htmlFor="url" className="text-base font-semibold text-gray-700">
-                                        URL del tuo sito (opzionale)
+                                        URL del tuo sito
                                     </Label>
                                     <Input
                                         id="url"
