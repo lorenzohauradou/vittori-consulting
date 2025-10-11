@@ -81,7 +81,7 @@ export default function TestimonialsSection() {
     return (
         <section className="relative py-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
             <div className="absolute inset-0">
-                <div className="absolute md:hidden -bottom-20 -right-60 w-4/5 h-500 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] transform -skew-x-12"></div>
+                <div className="absolute md:hidden -bottom-20 -right-60 w-4/5 h-600 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] transform -skew-x-12"></div>
 
                 <div className="absolute top-20 right-20 w-12 h-12 bg-blue-100 rounded-full opacity-30 animate-pulse" />
                 <div className="absolute bottom-24 right-26 w-8 h-8 bg-blue-200 rounded-full opacity-40 animate-pulse delay-1000" />
