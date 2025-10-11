@@ -219,7 +219,7 @@ export default function Hero() {
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.8, delay: 0.5 }}
-                                    className="w-96 h-96 lg:h-100 lg:w-100 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-white/10 relative cursor-pointer"
+                                    className="w-96 h-96 lg:h-120 lg:w-120 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-white/10 relative cursor-pointer"
                                     onClick={toggleMute}
                                 >
                                     <video
@@ -272,7 +272,7 @@ export default function Hero() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, delay: 1.6 }}
-                                    className="absolute -bottom-30 lg:-bottom-16 left-1/2 transform -translate-x-1/2 w-full -mb-14"
+                                    className="absolute -bottom-30 md:-bottom-6 left-1/2 transform -translate-x-1/2 w-full -mb-14"
                                 >
                                     <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/40">
                                         <div className="flex justify-between items-center gap-8">
