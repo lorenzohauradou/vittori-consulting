@@ -1,5 +1,47 @@
 const isDev = process.env.NODE_ENV === 'development'
 
+async function getContentOnly(url: string, apiKey: string) {
+    try {
+        console.log('Tentativo di ottenere solo il contenuto...')
+        const contentResponse = await fetch(`https://production-sfo.browserless.io/content?token=${apiKey}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                url: url,
+                gotoOptions: {
+                    waitUntil: 'domcontentloaded',
+                    timeout: 20000,
+                },
+            }),
+        })
+
+        if (!contentResponse.ok) {
+            throw new Error(`Content API fallback failed: ${contentResponse.status}`)
+        }
+
+        const html = await contentResponse.text()
+        const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i)
+        const title = titleMatch ? titleMatch[1] : ''
+        
+        const textContent = html
+            .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+            .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+            .replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, '')
+            .replace(/<[^>]+>/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .substring(0, 12000)
+
+        console.log('Contenuto ottenuto via fallback (senza screenshot)')
+        return { title, textContent, screenshotBase64: '' }
+    } catch (error) {
+        console.error('Fallback content-only failed:', error)
+        throw error
+    }
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function handleCookieConsent(page: any) {
     try {
@@ -53,64 +95,72 @@ export async function scrapeAndScreenshot(url: string) {
                 throw new Error('BROWSERLESS_API_KEY non configurata')
             }
             
-            console.log('Usando API REST di Browserless...')
+            console.log('Usando Browserless /scrape endpoint (singola chiamata)...')
             
-            const [screenshotResponse, contentResponse] = await Promise.all([
-                fetch(`https://production-sfo.browserless.io/screenshot?token=${BROWSERLESS_API_KEY}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
+            const scrapeResponse = await fetch(`https://production-sfo.browserless.io/scrape?token=${BROWSERLESS_API_KEY}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    url: url,
+                    elements: [
+                        {
+                            selector: 'body',
+                            timeout: 20000
+                        }
+                    ],
+                    gotoOptions: {
+                        waitUntil: 'networkidle2',
+                        timeout: 30000,
                     },
-                    body: JSON.stringify({
-                        url: url,
-                        options: {
-                            fullPage: true,
-                            type: 'png',
-                        },
-                        viewport: {
-                            width: 1440,
-                            height: 900,
-                        },
-                        gotoOptions: {
-                            waitUntil: 'networkidle2',
-                            timeout: 30000,
-                        },
-                    }),
                 }),
-                fetch(`https://production-sfo.browserless.io/content?token=${BROWSERLESS_API_KEY}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        url: url,
-                        gotoOptions: {
-                            waitUntil: 'networkidle2',
-                            timeout: 30000,
-                        },
-                    }),
-                })
-            ])
+            })
 
-            if (!screenshotResponse.ok) {
-                const errorText = await screenshotResponse.text()
-                console.error('Browserless API error:', errorText)
-                throw new Error(`Browserless API error: ${screenshotResponse.status}`)
+            if (!scrapeResponse.ok) {
+                const errorText = await scrapeResponse.text()
+                console.error('Browserless scrape error:', errorText)
+                
+                if (scrapeResponse.status === 429) {
+                    console.log('Rate limit raggiunto, fallback a contenuto senza screenshot...')
+                    return await getContentOnly(url, BROWSERLESS_API_KEY)
+                }
+                
+                throw new Error(`Browserless API error: ${scrapeResponse.status}`)
             }
 
-            const screenshotBuffer = await screenshotResponse.arrayBuffer()
-            const screenshotBase64 = Buffer.from(screenshotBuffer).toString('base64')
+            const scrapeData = await scrapeResponse.json()
+            const html = scrapeData.data[0]?.results[0]?.html || ''
+            
+            const screenshotResponse = await fetch(`https://production-sfo.browserless.io/screenshot?token=${BROWSERLESS_API_KEY}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    url: url,
+                    options: {
+                        fullPage: true,
+                        type: 'png',
+                    },
+                    viewport: {
+                        width: 1440,
+                        height: 900,
+                    },
+                    gotoOptions: {
+                        waitUntil: 'domcontentloaded',
+                        timeout: 20000,
+                    },
+                }),
+            })
 
-            let html = ''
-            if (contentResponse.ok) {
-                html = await contentResponse.text()
+            let screenshotBase64 = ''
+            if (screenshotResponse.ok) {
+                const screenshotBuffer = await screenshotResponse.arrayBuffer()
+                screenshotBase64 = Buffer.from(screenshotBuffer).toString('base64')
+                console.log('Screenshot ottenuto con successo')
             } else {
-                console.error('Content API error:', contentResponse.status)
-                return {
-                    title: '',
-                    textContent: '',
-                    screenshotBase64
-                }
+                console.warn('Screenshot fallito, procedo solo con contenuto')
             }
             
             const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i)
@@ -125,7 +175,7 @@ export async function scrapeAndScreenshot(url: string) {
                 .trim()
                 .substring(0, 12000)
 
-            console.log('Screenshot e contenuto ottenuti con successo')
+            console.log('Contenuto ottenuto con successo')
             return { title, textContent, screenshotBase64 }
         }
 
