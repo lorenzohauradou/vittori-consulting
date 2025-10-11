@@ -25,6 +25,27 @@ interface AIResults {
 }
 
 export default function Calculator() {
+    const businessSectors = [
+        'Ristorante / Bar / Caffetteria',
+        'E-commerce / Vendita Online',
+        'Consulenza / Servizi Professionali',
+        'Negozio / Retail',
+        'Hotel / B&B / Affittacamere',
+        'Centro Estetico / Parrucchiere / Spa',
+        'Palestra / Centro Sportivo',
+        'Agenzia Immobiliare',
+        'Studio Medico / Dentistico',
+        'Artigianato / Produzione',
+        'Edilizia / Ristrutturazioni',
+        'Marketing / Comunicazione',
+        'Software / Tecnologia / SaaS',
+        'Formazione / Corsi Online',
+        'Fotografia / Video',
+        'Eventi / Wedding Planner',
+        'Automotive / Officina',
+        'Logistica / Trasporti'
+    ]
+
     const [formData, setFormData] = useState<FormData>({
         businessSector: '',
         currentRevenue: 0,
@@ -210,13 +231,19 @@ export default function Calculator() {
                                     <Input
                                         id="businessSector"
                                         type="text"
-                                        placeholder="es. Ristorante, E-commerce, Consulenza..."
+                                        list="business-sectors"
+                                        placeholder="Seleziona o scrivi il tuo settore..."
                                         value={formData.businessSector}
                                         onChange={(e) => setFormData({ ...formData, businessSector: e.target.value })}
                                         className="h-12 text-lg"
                                         required
                                         disabled={isLoading}
                                     />
+                                    <datalist id="business-sectors">
+                                        {businessSectors.map((sector) => (
+                                            <option key={sector} value={sector} />
+                                        ))}
+                                    </datalist>
                                 </div>
 
                                 <div className="space-y-2">
