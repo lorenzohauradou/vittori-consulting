@@ -12,6 +12,8 @@ import { Loader2, TrendingUp, Users, DollarSign, Download } from 'lucide-react'
 interface FormData {
     currentRevenue: number
     monthlyClients: number
+    businessSector: string
+    companyName: string
     url: string
 }
 
@@ -27,6 +29,8 @@ export default function Calculator() {
     const [formData, setFormData] = useState<FormData>({
         currentRevenue: 0,
         monthlyClients: 0,
+        businessSector: '',
+        companyName: '',
         url: '',
     })
 
@@ -102,6 +106,8 @@ export default function Calculator() {
                 body: JSON.stringify({
                     currentRevenue: formData.currentRevenue,
                     monthlyClients: formData.monthlyClients,
+                    businessSector: formData.businessSector,
+                    companyName: formData.companyName,
                     scrapedData: finalScrapedData
                 }),
             })
@@ -136,7 +142,8 @@ export default function Calculator() {
                     insights: aiResults.insights,
                     summary: aiResults.summary,
                     scrapedData: scrapedData ? { title: scrapedData.title, textContent: scrapedData.textContent } : null,
-                    companyName: 'Azienda'
+                    companyName: formData.companyName || 'Azienda',
+                    businessSector: formData.businessSector
                 }),
             })
 
@@ -227,6 +234,37 @@ export default function Calculator() {
                                         onChange={(e) => handleNumberInput('monthlyClients', e.target.value)}
                                         className="h-12 text-lg"
                                         required
+                                        disabled={isLoading}
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <Label htmlFor="businessSector" className="text-base font-semibold text-gray-700">
+                                        Settore / Attività
+                                    </Label>
+                                    <Input
+                                        id="businessSector"
+                                        type="text"
+                                        placeholder="es. Ristorante, E-commerce, Consulenza..."
+                                        value={formData.businessSector}
+                                        onChange={(e) => setFormData({ ...formData, businessSector: e.target.value })}
+                                        className="h-12 text-lg"
+                                        required
+                                        disabled={isLoading}
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <Label htmlFor="companyName" className="text-base font-semibold text-gray-700">
+                                        Nome Azienda (opzionale)
+                                    </Label>
+                                    <Input
+                                        id="companyName"
+                                        type="text"
+                                        placeholder="es. La tua azienda"
+                                        value={formData.companyName}
+                                        onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                                        className="h-12 text-lg"
                                         disabled={isLoading}
                                     />
                                 </div>

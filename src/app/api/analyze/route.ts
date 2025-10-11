@@ -6,11 +6,11 @@ export const maxDuration = 60
 export async function POST(req: Request) {
     try {
         const body = await req.json()
-        const { currentRevenue, monthlyClients, scrapedData } = body
+        const { currentRevenue, monthlyClients, businessSector, companyName, scrapedData } = body
 
-        if (!currentRevenue || !monthlyClients) {
+        if (!currentRevenue || !monthlyClients || !businessSector) {
             return NextResponse.json(
-                { error: 'Dati finanziari mancanti' },
+                { error: 'Dati finanziari e settore mancanti' },
                 { status: 400 }
             )
         }
@@ -18,6 +18,8 @@ export async function POST(req: Request) {
         const analysis = await analyzeWithAI({
             currentRevenue,
             monthlyClients,
+            businessSector,
+            companyName,
             scrapedData
         })
 

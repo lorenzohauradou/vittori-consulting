@@ -7,6 +7,8 @@ const openai = new OpenAI({
 interface AnalysisInput {
     currentRevenue: number
     monthlyClients: number
+    businessSector: string
+    companyName?: string
     scrapedData?: {
         title: string
         textContent: string
@@ -59,6 +61,8 @@ Rispondi SEMPRE con un oggetto JSON valido con questa struttura:
         {
             type: 'text',
             text: `Analizza questa azienda:
+${data.companyName ? `- Nome azienda: ${data.companyName}` : ''}
+- Settore/Attività: ${data.businessSector}
 - Fatturato annuale: €${data.currentRevenue.toLocaleString('it-IT')}
 - Fatturato mensile attuale: €${currentMonthly.toLocaleString('it-IT')}
 - Clienti al mese: ${data.monthlyClients}
