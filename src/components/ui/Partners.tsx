@@ -33,12 +33,12 @@ export default function Partners() {
 
 
                 <div className="relative">
-                    <div className="scroll-track">
+                    <div className="scroll-track relative">
                         <div className="scroll-content-seamless">
                             {[...partners, ...partners, ...partners].map((partner, index) => (
                                 <div
                                     key={`partner-${index}`}
-                                    className="scroll-item-seamless"
+                                    className="scroll-item-seamless relative"
                                 >
                                     <div className="whitespace-nowrap px-6 py-3 rounded-lg bg-white/50 backdrop-blur-sm border border-gray-200/50">
                                         <Image
@@ -47,8 +47,8 @@ export default function Partners() {
                                             width={partner.name === 'Scavolini Store Fiumicino' ? 100 : 100}
                                             height={partner.name === 'Scavolini Store Fiumicino' ? 100 : 100}
                                             sizes={partner.name === 'Scavolini Store Fiumicino' ? "100px" : "100px"}
-                                            loading="eager"
-                                            className={partner.name === 'Scavolini Store Fiumicino' ? "h-[70px] w-auto max-h-[300px]" : "h-auto w-auto max-h-24"}
+                                            priority={index < 6}
+                                            className={partner.name === 'Scavolini Store Fiumicino' ? "h-[70px] w-auto max-h-[300px] object-contain" : "h-auto w-auto max-h-24 object-contain"}
                                             placeholder="blur"
                                             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
                                         />

@@ -51,6 +51,7 @@ export default function Header() {
                                 alt="VittoriConsulting - Agenzia Marketing 360° Roma"
                                 width={300}
                                 height={300}
+                                priority
                                 className="lg:w-[500px] lg:h-[500px] hover:opacity-90 transition-opacity duration-100"
                             />
                         </Link>
