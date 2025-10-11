@@ -168,12 +168,16 @@ export default function Calculator() {
                     <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
                         Quanto puoi <span className="text-[#2e54a1]">realizzare?</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-                        Compila il form qui sotto per scoprire quali risultati puoi ottenere in 6 mesi di collaborazione con noi
-                    </p>
-                    <p className="text-lg text-gray-500 font-medium">
-                        Provalo, il tuo futuro business ti ringrazierà
-                    </p>
+                    {!aiResults && (
+                        <>
+                            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+                                Compila il form qui sotto per scoprire quali risultati puoi ottenere in 6 mesi di collaborazione con noi
+                            </p>
+                            <p className="text-lg text-gray-500 font-medium">
+                                Provalo, il tuo futuro business ti ringrazierà
+                            </p>
+                        </>
+                    )}
                 </div>
 
                 {!aiResults && !isLoading && (
