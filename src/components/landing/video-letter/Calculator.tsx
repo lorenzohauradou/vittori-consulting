@@ -233,12 +233,12 @@ export default function Calculator() {
 
                                 <div className="space-y-2">
                                     <Label htmlFor="url" className="text-base font-semibold text-gray-700">
-                                        URL del tuo sito
+                                        URL del tuo sito (opzionale)
                                     </Label>
                                     <Input
                                         id="url"
-                                        type="url"
-                                        placeholder="https://tuosito.it"
+                                        type="text"
+                                        placeholder="es. tuosito.it"
                                         value={formData.url}
                                         onChange={(e) => setFormData({ ...formData, url: e.target.value })}
                                         className="h-12 text-lg"
