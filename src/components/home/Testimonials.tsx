@@ -41,7 +41,7 @@ export default function Testimonials() {
     const videoTestimonials = [
         {
             id: 1,
-            title: 'Testimonianza Scavolini Store Fiumicino',
+            title: 'Nicoletta - Scavolini Store Fiumicino',
             src: 'https://iframe.mediadelivery.net/embed/510109/48aef447-75a3-4a7e-b28d-367506aaf14e?autoplay=true&loop=false&muted=false&preload=true&responsive=true',
             isIframe: true,
             aspectRatio: '16/9',
