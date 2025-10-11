@@ -19,9 +19,11 @@ export default function IPhoneCanvas({
     className = ""
 }: IPhoneCanvasProps) {
     const videoRef = useRef<HTMLVideoElement>(null)
+    const containerRef = useRef<HTMLDivElement>(null)
     const timeoutRef = useRef<NodeJS.Timeout | null>(null)
     const [isMuted, setIsMuted] = useState(true)
     const [showAudioButton, setShowAudioButton] = useState(true)
+    const [isVideoVisible, setIsVideoVisible] = useState(false)
 
     const toggleMute = () => {
         if (videoRef.current) {
@@ -44,15 +46,48 @@ export default function IPhoneCanvas({
     }
 
     useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setIsVideoVisible(true)
+                        if (videoRef.current && videoRef.current.paused) {
+                            videoRef.current.play().catch(console.error)
+                        }
+                    } else {
+                        setIsVideoVisible(false)
+                        if (videoRef.current && !videoRef.current.paused) {
+                            videoRef.current.pause()
+                        }
+                    }
+                })
+            },
+            {
+                threshold: 0.3,
+                rootMargin: '0px'
+            }
+        )
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current)
+        }
+
         return () => {
             if (timeoutRef.current) {
                 clearTimeout(timeoutRef.current)
             }
+            observer.disconnect()
         }
     }, [])
 
+    useEffect(() => {
+        if (videoRef.current && isVideoVisible) {
+            videoRef.current.play().catch(console.error)
+        }
+    }, [isVideoVisible])
+
     return (
-        <div className={`relative ${className}`}>
+        <div ref={containerRef} className={`relative ${className}`}>
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -95,7 +130,6 @@ export default function IPhoneCanvas({
                                             <video
                                                 ref={videoRef}
                                                 src={videoSrc}
-                                                autoPlay
                                                 loop
                                                 muted
                                                 playsInline
