@@ -55,6 +55,15 @@ export default function Calculator() {
         setDisplayValues(prev => ({ ...prev, [field]: formattedValue }))
     }
 
+    const normalizeUrl = (url: string): string => {
+        if (!url) return ''
+        let normalized = url.trim()
+        if (!normalized.startsWith('http://') && !normalized.startsWith('https://')) {
+            normalized = 'https://' + normalized
+        }
+        return normalized
+    }
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
 
@@ -69,10 +78,12 @@ export default function Calculator() {
             let finalScrapedData = null
 
             if (formData.url) {
+                const normalizedUrl = normalizeUrl(formData.url)
+
                 const scrapeResponse = await fetch('/api/scrape', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ url: formData.url }),
+                    body: JSON.stringify({ url: normalizedUrl }),
                 })
 
                 if (scrapeResponse.ok) {
