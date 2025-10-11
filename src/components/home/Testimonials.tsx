@@ -309,7 +309,7 @@ export default function Testimonials() {
                                     <iframe
                                         src={currentVideo.src}
                                         className="w-full h-full border-0 rounded-2xl"
-                                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                        allow="accelerometer; gyroscope; encrypted-media; picture-in-picture;"
                                         allowFullScreen
                                         title={currentVideo.title}
                                     />
