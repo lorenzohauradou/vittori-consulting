@@ -220,7 +220,7 @@ export default function Calculator() {
                     <div className="max-w-2xl mx-auto">
                         <div className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
                             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                                Analisi Gratuita con AI
+                                Analisi Gratuita con <span className="text-[#2e54a1] italic">Intelligenza Artificiale</span>
                             </h3>
 
                             <form onSubmit={handleSubmit} className="space-y-6">
@@ -292,7 +292,7 @@ export default function Calculator() {
                                         disabled={isLoading}
                                     />
                                     <p className="text-sm text-gray-500">
-                                        La nostra AI analizzerà il tuo sito per una proiezione più accurata
+                                        La nostra AI effettuerà una scansione del tuo sito per una proiezione più accurata
                                     </p>
                                 </div>
 
