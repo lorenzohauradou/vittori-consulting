@@ -269,8 +269,8 @@ function TeamCard({ member, index, isMobile }: {
                                                         "/images/team/nicole.webp"
                                             }
                                             alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
-                                            width={120}
-                                            height={120}
+                                            width={200}
+                                            height={200}
                                             className="w-full h-full object-cover"
                                         />
                                     </div>
@@ -337,8 +337,8 @@ function TeamCard({ member, index, isMobile }: {
                                                     "/images/team/nicole.webp"
                                         }
                                         alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
-                                        width={110}
-                                        height={110}
+                                        width={180}
+                                        height={180}
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
