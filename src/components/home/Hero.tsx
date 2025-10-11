@@ -213,7 +213,7 @@ export default function Hero() {
                             </motion.div>
                         </div>
 
-                        <div className="relative z-10 flex justify-center lg:justify-end">
+                        <div className="relative z-10 flex justify-center lg:justify-end md:-top-10">
                             <div className="relative">
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0.8 }}
