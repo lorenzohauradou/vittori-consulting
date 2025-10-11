@@ -18,7 +18,16 @@ export async function analyzeWithAI(data: AnalysisInput) {
     const avgTicket = data.currentRevenue / 12 / data.monthlyClients
     const currentMonthly = data.currentRevenue / 12
 
-    const systemPrompt = `Sei un consulente di marketing strategico d'élite. Analizza approfonditamente i dati dell'azienda e, se fornito, il contenuto e l'aspetto visivo del loro sito web per creare una proiezione di crescita realistica e insight di altissimo valore ESTREMAMENTE PERSONALIZZATI.
+    const systemPrompt = `Sei un consulente di marketing strategico d'élite. Analizza approfonditamente i dati dell'azienda e, se fornito, il contenuto e l'aspetto visivo del loro sito web per creare una proiezione di crescita REALISTICA E CONSERVATIVA con insight di altissimo valore ESTREMAMENTE PERSONALIZZATI.
+
+IMPORTANTE SULLE PROIEZIONI:
+- Sii CONSERVATIVO e REALISTICO con i numeri
+- La crescita deve essere GRADUALE, non esplosiva
+- Mese 1-3: crescita molto lenta (max +5-10% al mese)
+- Mese 4-6: crescita moderata (max +10-15% al mese)
+- Mese 7-12: crescita stabile (max +15-20% al mese)
+- Il fatturato a 12 mesi NON deve superare 2x quello iniziale (massimo raddoppio)
+- Evita proiezioni troppo ottimistiche che sembrano irrealistiche
 
 IMPORTANTE: Quando ricevi il contenuto del sito, studialo in dettaglio per capire:
 - Settore specifico e positioning dell'azienda
