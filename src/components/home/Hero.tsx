@@ -283,7 +283,7 @@ export default function Hero() {
                                                         </svg>
                                                     </div>
                                                 </div>
-                                                <div className="text-2xl font-bold text-gray-900">10+</div>
+                                                <div className="text-2xl font-bold text-gray-900">6+</div>
                                                 <div className="text-xs text-gray-600 font-medium">Anni di esperienza</div>
                                             </div>
 
