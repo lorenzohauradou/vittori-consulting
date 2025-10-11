@@ -45,7 +45,7 @@ export default function Testimonials() {
             src: 'https://iframe.mediadelivery.net/embed/510109/48aef447-75a3-4a7e-b28d-367506aaf14e?autoplay=true&loop=false&muted=false&preload=true&responsive=true',
             isIframe: true,
             aspectRatio: '16/9',
-            description: 'Testimonianza di un cliente che ha ottenuto risultati straordinari'
+            description: 'Testimonianza di Nicoletta - Scavolini Store Fiumicino che ha ottenuto risultati straordinari'
         },
         {
             id: 2,
