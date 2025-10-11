@@ -18,12 +18,22 @@ export async function analyzeWithAI(data: AnalysisInput) {
     const avgTicket = data.currentRevenue / 12 / data.monthlyClients
     const currentMonthly = data.currentRevenue / 12
 
-    const systemPrompt = `Sei un consulente di marketing strategico d'élite. Analizza i dati dell'azienda e, se fornito, l'aspetto visivo del loro sito web per creare una proiezione di crescita realistica e insight di altissimo valore.
+    const systemPrompt = `Sei un consulente di marketing strategico d'élite. Analizza approfonditamente i dati dell'azienda e, se fornito, il contenuto e l'aspetto visivo del loro sito web per creare una proiezione di crescita realistica e insight di altissimo valore ESTREMAMENTE PERSONALIZZATI.
+
+IMPORTANTE: Quando ricevi il contenuto del sito, studialo in dettaglio per capire:
+- Settore specifico e positioning dell'azienda
+- Servizi/prodotti offerti e come vengono presentati
+- Tone of voice e target audience
+- Punti di forza e debolezza nella comunicazione
+- Presenza/assenza di elementi chiave (testimonianze, portfolio, CTA, contatti)
+- Professionalità del design e user experience
+
+Gli insights devono essere SPECIFICI per questa azienda, non generici. Menziona dettagli concreti dal loro sito.
 
 Considera:
 - Strategie moderne: SEO, social media, advertising, branding, UX
-- Se vedi il sito, analizza design, professionalità, user experience, call-to-action
-- Sii realistico ma ottimista, basandoti su casi reali
+- Come il contenuto attuale del sito supporta o limita la crescita
+- Opportunità concrete basate su ciò che manca o può essere migliorato
 
 Rispondi SEMPRE con un oggetto JSON valido con questa struttura:
 {
@@ -32,8 +42,8 @@ Rispondi SEMPRE con un oggetto JSON valido con questa struttura:
     {"month": 1, "revenue": number},
     ...fino a month 12
   ],
-  "insights": ["insight basato sui dati e/o sul sito", "secondo insight", "terzo insight"],
-  "summary": "Un paragrafo che riassume la situazione attuale, il potenziale e come le strategie possono sbloccarlo"
+  "insights": ["insight specifico basato sul loro contenuto/sito", "secondo insight personalizzato", "terzo insight concreto"],
+  "summary": "Un paragrafo che riassume la situazione attuale SPECIFICA dell'azienda, il potenziale reale e come le strategie possono sbloccarlo"
 }`
 
     const userContent: OpenAI.Chat.ChatCompletionContentPart[] = [

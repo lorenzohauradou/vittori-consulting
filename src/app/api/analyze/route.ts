@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import { analyzeWithAI } from '@/lib/ai/openai'
 
+export const maxDuration = 60
+
 export async function POST(req: Request) {
     try {
         const body = await req.json()

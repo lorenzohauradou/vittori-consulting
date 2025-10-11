@@ -55,27 +55,42 @@ export async function scrapeAndScreenshot(url: string) {
             
             console.log('Usando API REST di Browserless...')
             
-            const screenshotResponse = await fetch(`https://production-sfo.browserless.io/screenshot?token=${BROWSERLESS_API_KEY}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    url: url,
-                    options: {
-                        fullPage: true,
-                        type: 'png',
+            const [screenshotResponse, contentResponse] = await Promise.all([
+                fetch(`https://production-sfo.browserless.io/screenshot?token=${BROWSERLESS_API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
                     },
-                    viewport: {
-                        width: 1920,
-                        height: 1080,
-                    },
-                    gotoOptions: {
-                        waitUntil: 'networkidle0',
-                        timeout: 60000,
-                    },
+                    body: JSON.stringify({
+                        url: url,
+                        options: {
+                            fullPage: true,
+                            type: 'png',
+                        },
+                        viewport: {
+                            width: 1440,
+                            height: 900,
+                        },
+                        gotoOptions: {
+                            waitUntil: 'networkidle2',
+                            timeout: 30000,
+                        },
+                    }),
                 }),
-            })
+                fetch(`https://production-sfo.browserless.io/content?token=${BROWSERLESS_API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        url: url,
+                        gotoOptions: {
+                            waitUntil: 'networkidle2',
+                            timeout: 30000,
+                        },
+                    }),
+                })
+            ])
 
             if (!screenshotResponse.ok) {
                 const errorText = await screenshotResponse.text()
@@ -86,21 +101,10 @@ export async function scrapeAndScreenshot(url: string) {
             const screenshotBuffer = await screenshotResponse.arrayBuffer()
             const screenshotBase64 = Buffer.from(screenshotBuffer).toString('base64')
 
-            const contentResponse = await fetch(`https://production-sfo.browserless.io/content?token=${BROWSERLESS_API_KEY}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    url: url,
-                    gotoOptions: {
-                        waitUntil: 'networkidle0',
-                        timeout: 60000,
-                    },
-                }),
-            })
-
-            if (!contentResponse.ok) {
+            let html = ''
+            if (contentResponse.ok) {
+                html = await contentResponse.text()
+            } else {
                 console.error('Content API error:', contentResponse.status)
                 return {
                     title: '',
@@ -108,8 +112,6 @@ export async function scrapeAndScreenshot(url: string) {
                     screenshotBase64
                 }
             }
-
-            const html = await contentResponse.text()
             
             const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i)
             const title = titleMatch ? titleMatch[1] : ''
@@ -121,7 +123,7 @@ export async function scrapeAndScreenshot(url: string) {
                 .replace(/<[^>]+>/g, ' ')
                 .replace(/\s+/g, ' ')
                 .trim()
-                .substring(0, 4000)
+                .substring(0, 12000)
 
             console.log('Screenshot e contenuto ottenuti con successo')
             return { title, textContent, screenshotBase64 }
@@ -148,14 +150,17 @@ export async function scrapeAndScreenshot(url: string) {
 
             await page.waitForTimeout(1000)
 
-            const screenshotBuffer = await page.screenshot({ type: 'png' })
+            const screenshotBuffer = await page.screenshot({ 
+                type: 'png',
+                fullPage: true
+            })
             const screenshotBase64 = screenshotBuffer.toString('base64')
 
             const pageData = await page.evaluate(() => {
                 document.querySelectorAll('script, style, noscript, svg').forEach(el => el.remove())
                 return {
                     title: document.title,
-                    textContent: document.body.innerText.replace(/\s+/g, ' ').trim().substring(0, 4000)
+                    textContent: document.body.innerText.replace(/\s+/g, ' ').trim().substring(0, 12000)
                 }
             })
 
