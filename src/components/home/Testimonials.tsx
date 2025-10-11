@@ -313,26 +313,6 @@ export default function Testimonials() {
                                         allowFullScreen
                                         title={currentVideo.title}
                                     />
-                                    <div
-                                        className="absolute inset-0 bg-transparent cursor-pointer flex items-center justify-center group"
-                                        onClick={(e) => {
-                                            e.preventDefault()
-                                            const iframe = e.currentTarget.previousElementSibling as HTMLIFrameElement
-                                            if (iframe) {
-                                                const newSrc = iframe.src.includes('autoplay=true')
-                                                    ? iframe.src
-                                                    : iframe.src.replace('?', '?autoplay=true&')
-                                                iframe.src = newSrc
-                                                e.currentTarget.style.display = 'none'
-                                            }
-                                        }}
-                                    >
-                                        <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-300">
-                                            <svg className="w-8 h-8 text-[#2e54a1] ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M8 5v14l11-7z" />
-                                            </svg>
-                                        </div>
-                                    </div>
                                 </div>
                             ) : (
                                 <>
