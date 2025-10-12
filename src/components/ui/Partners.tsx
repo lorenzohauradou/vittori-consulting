@@ -7,18 +7,18 @@ import Image from "next/image";
 
 export default function Partners() {
     const partners = [
-        { name: 'Magic Box Roma', logo: '/images/partners/logo-magic-box-roma.webp' },
-        { name: 'Broker Associati', logo: '/images/partners/broker-associati.svg' },
-        { name: 'Alberto\'s Pizza', logo: '/images/partners/albertos-pizza.webp' },
-        { name: 'St. Peter Photo', logo: '/images/partners/st-peter-photo.webp' },
-        { name: 'Gelotti', logo: '/images/partners/gelotti.webp' },
-        { name: 'Passito SpA', logo: '/images/partners/passito-spa.webp' },
-        { name: 'Scavolini Store Fiumicino', logo: '/images/partners/scavolini-store-fiumicino.webp' },
-        { name: 'Il Capriccio Pizzeria', logo: '/images/partners/capriccio.webp' },
-        { name: 'Ami School', logo: '/images/partners/amischool.webp' },
-        { name: 'Summer Fest', logo: '/images/partners/summer.webp' },
-        { name: 'Voce', logo: '/images/partners/voce.webp' },
-        { name: 'HeroCraft', logo: '/images/partners/herocraft.webp' },
+        { name: 'Magic Box Roma', logo: 'https://vittoriconsulting.b-cdn.net/partners/logo-magic-box-roma.webp' },
+        { name: 'Broker Associati', logo: 'https://vittoriconsulting.b-cdn.net/partners/broker-associati.svg' },
+        { name: 'Alberto\'s Pizza', logo: 'https://vittoriconsulting.b-cdn.net/partners/albertos-pizza.webp' },
+        { name: 'St. Peter Photo', logo: 'https://vittoriconsulting.b-cdn.net/partners/st-peter-photo.webp' },
+        { name: 'Gelotti', logo: 'https://vittoriconsulting.b-cdn.net/partners/gelotti.webp' },
+        { name: 'Passito SpA', logo: 'https://vittoriconsulting.b-cdn.net/partners/passito-spa.webp' },
+        { name: 'Scavolini Store Fiumicino', logo: 'https://vittoriconsulting.b-cdn.net/partners/scavolini-store-fiumicino.webp' },
+        { name: 'Il Capriccio Pizzeria', logo: 'https://vittoriconsulting.b-cdn.net/partners/capriccio.webp' },
+        { name: 'Ami School', logo: 'https://vittoriconsulting.b-cdn.net/partners/amischool.webp' },
+        { name: 'Summer Fest', logo: 'https://vittoriconsulting.b-cdn.net/partners/summer.webp' },
+        { name: 'Voce', logo: 'https://vittoriconsulting.b-cdn.net/partners/voce.webp' },
+        { name: 'HeroCraft', logo: 'https://vittoriconsulting.b-cdn.net/partners/herocraft.webp' },
     ]
 
     return (
