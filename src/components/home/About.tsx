@@ -253,7 +253,7 @@ function TeamCard({ member, index, isMobile }: {
                     stiffness: 100,
                     damping: 15
                 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 className="flex-shrink-0 w-72"
             >
                 <div className="w-full h-96 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
@@ -321,7 +321,7 @@ function TeamCard({ member, index, isMobile }: {
                 stiffness: 80,
                 damping: 20
             }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             className="flex-1 max-w-[18%]"
         >
             <div className="w-full h-80 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
