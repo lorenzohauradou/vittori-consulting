@@ -20,7 +20,7 @@ export default function Partners() {
         { name: 'HeroCraft', logo: 'https://vittoriconsulting.b-cdn.net/partners/herocraft.webp' },
     ]
 
-    const duplicatedPartners = [...partners, ...partners]
+    const duplicatedPartners = [...partners, ...partners, ...partners]
     const x = useMotionValue(0)
     const containerRef = useRef<HTMLDivElement>(null)
     const controls = useAnimation()
