@@ -13,8 +13,6 @@ export default function Testimonials() {
     const [showAudioButton, setShowAudioButton] = useState(true)
     const videoRef = React.useRef<HTMLVideoElement>(null)
     const timeoutRef = React.useRef<NodeJS.Timeout | null>(null)
-    const touchStartX = React.useRef<number>(0)
-    const touchEndX = React.useRef<number>(0)
 
     React.useEffect(() => {
         return () => {
@@ -125,28 +123,6 @@ export default function Testimonials() {
     }
 
     const currentReview = reviews[currentReviewIndex]
-
-    const handleTouchStart = (e: React.TouchEvent) => {
-        touchStartX.current = e.touches[0].clientX
-    }
-
-    const handleTouchMove = (e: React.TouchEvent) => {
-        touchEndX.current = e.touches[0].clientX
-    }
-
-    const handleTouchEnd = () => {
-        const difference = touchStartX.current - touchEndX.current
-        const threshold = 50
-
-        if (difference > threshold) {
-            nextVideo()
-        } else if (difference < -threshold) {
-            prevVideo()
-        }
-
-        touchStartX.current = 0
-        touchEndX.current = 0
-    }
 
     return (
         <section className="relative overflow-hidden bg-[#2e54a1] lg:bg-white py-24 lg:py-32" id="testimonials">
@@ -327,9 +303,6 @@ export default function Testimonials() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5 }}
                             className={getVideoContainerClasses(currentVideo.aspectRatio)}
-                            onTouchStart={handleTouchStart}
-                            onTouchMove={handleTouchMove}
-                            onTouchEnd={handleTouchEnd}
                         >
                             {currentVideo.isIframe ? (
                                 <div className="relative w-full h-full bg-white rounded-2xl">
@@ -339,12 +312,6 @@ export default function Testimonials() {
                                         allow="accelerometer; gyroscope; encrypted-media; picture-in-picture;"
                                         allowFullScreen
                                         title={currentVideo.title}
-                                    />
-                                    <div
-                                        className="md:hidden absolute inset-0 z-10 touch-pan-y"
-                                        onTouchStart={handleTouchStart}
-                                        onTouchMove={handleTouchMove}
-                                        onTouchEnd={handleTouchEnd}
                                     />
                                 </div>
                             ) : (
