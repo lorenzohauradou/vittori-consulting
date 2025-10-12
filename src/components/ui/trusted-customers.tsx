@@ -11,12 +11,12 @@ interface TrustedCustomersProps {
 export function TrustedCustomers({
 }: TrustedCustomersProps) {
     const customers = [
-        { id: 1, name: 'Cliente 1', image: '/images/trusted/luigiferro.webp' },
-        { id: 2, name: 'Cliente 2', image: '/images/trusted/alessia.webp' },
-        { id: 3, name: 'Cliente 3', image: '/images/trusted/sara.webp' },
-        { id: 4, name: 'Cliente 4', image: '/images/trusted/jacqueline.webp' },
-        { id: 5, name: 'Cliente 5', image: '/images/trusted/miraje.webp' },
-        { id: 6, name: 'Cliente 6', image: '/images/trusted/pacini.webp' },
+        { id: 1, name: 'Cliente 1', image: 'https://vittoriconsulting.b-cdn.net/trusted/luigiferro.webp' },
+        { id: 2, name: 'Cliente 2', image: 'https://vittoriconsulting.b-cdn.net/trusted/alessia.webp' },
+        { id: 3, name: 'Cliente 3', image: 'https://vittoriconsulting.b-cdn.net/trusted/sara.webp' },
+        { id: 4, name: 'Cliente 4', image: 'https://vittoriconsulting.b-cdn.net/trusted/jacqueline.webp' },
+        { id: 5, name: 'Cliente 5', image: 'https://vittoriconsulting.b-cdn.net/trusted/miraje.webp' },
+        { id: 6, name: 'Cliente 6', image: 'https://vittoriconsulting.b-cdn.net/trusted/pacini.webp' },
     ]
 
     return (
