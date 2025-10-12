@@ -50,8 +50,8 @@ export default function Testimonials() {
         {
             id: 2,
             title: "Alberto's Pizza - Testimonianza",
-            src: '/videos/testimonial/albertos.mp4',
-            isIframe: false,
+            src: 'https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=true&loop=true&muted=false&preload=true&responsive=true',
+            isIframe: true,
             aspectRatio: '9/16',
             description: 'Testimonianza di Daniele - Alberto\'s Pizza'
         }
@@ -303,6 +303,17 @@ export default function Testimonials() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5 }}
                             className={getVideoContainerClasses(currentVideo.aspectRatio)}
+                            drag="x"
+                            dragConstraints={{ left: 0, right: 0 }}
+                            dragElastic={0.2}
+                            onDragEnd={(e, { offset, velocity }) => {
+                                const swipe = Math.abs(offset.x) * velocity.x;
+                                if (swipe < -10000) {
+                                    nextVideo();
+                                } else if (swipe > 10000) {
+                                    prevVideo();
+                                }
+                            }}
                         >
                             {currentVideo.isIframe ? (
                                 <div className="relative w-full h-full bg-white rounded-2xl">

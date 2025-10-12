@@ -205,7 +205,7 @@ export default function Difference() {
                     </div>
 
                     <div className="relative z-10 flex justify-center lg:justify-end">
-                        <IPhoneCanvas videoSrc="/videos/gelotti.mov" />
+                        <IPhoneCanvas videoSrc="https://vz-b2f9626e-b59.b-cdn.net/1f259ac2-0707-4216-9f99-e8ead1924627/play_720p.mp4" />
                     </div>
                 </div>
             </div>
