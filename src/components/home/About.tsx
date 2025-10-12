@@ -28,7 +28,7 @@ export default function About() {
             name: 'Valerio Vittori',
             role: 'Founder',
             quote: 'Ogni strategia non è teoria: è progettata per funzionare davvero',
-            photo: '/images/team/valerio.webp',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/valerio.webp',
             position: 'top-right',
             delay: 0
         },
@@ -36,7 +36,7 @@ export default function About() {
             name: 'Lorenzo',
             role: 'Full Stack Developer',
             quote: 'Learn slow, fail fast, ship faster',
-            photo: '/images/team/lorenzo.webp',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/lorenzo.webp',
             position: 'center',
             delay: 0.2
         },
@@ -44,7 +44,7 @@ export default function About() {
             name: 'Camilla',
             role: 'Social Media Manager',
             quote: 'La creatività è un\'arma e lei sa come usarla',
-            photo: '/images/team/camilla.webp',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/camilla.jpg',
             position: 'top-left',
             delay: 0.4
         },
@@ -52,7 +52,7 @@ export default function About() {
             name: 'Nicole',
             role: 'Project Manager',
             quote: 'Il Direttore d\'Orchestra del Tuo Marketing',
-            photo: '/images/team/nicole.webp',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/nicole.jpg',
             position: 'bottom-left',
             delay: 0.6
         },
@@ -60,7 +60,7 @@ export default function About() {
             name: 'Gioele',
             role: 'Media Buyer',
             quote: 'L\'alchimista delle Conversioni',
-            photo: '/images/team/gioele.webp',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/gioele.jpg',
             position: 'bottom-right',
             delay: 0.8
         }
@@ -72,21 +72,14 @@ export default function About() {
             ref={containerRef}
             className="py-32 lg:py-48 relative overflow-hidden bg-[#2e54a1]"
         >
-            <div className="absolute inset-0">
-                <div className="absolute top-20 right-20 w-32 h-32 bg-blue-100/20 rounded-full opacity-60 animate-pulse"></div>
-                <div className="absolute bottom-20 left-20 w-24 h-24 bg-blue-200/25 rounded-full opacity-50 animate-pulse delay-1000"></div>
+            <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-blue-100/15 to-transparent rounded-full blur-3xl"></div>
                 <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-l from-blue-200/20 to-transparent rounded-full blur-2xl"></div>
                 <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-                <div className="absolute top-1/3 right-1/4 w-8 h-8 bg-blue-300/40 rounded-full opacity-70 animate-bounce delay-500"></div>
-                <div className="absolute bottom-1/3 left-1/3 w-6 h-6 bg-blue-400/30 rounded-full opacity-60 animate-bounce delay-1500"></div>
-                <div className="absolute top-1/2 right-1/3 w-4 h-4 bg-blue-200/50 rounded-full opacity-50 animate-bounce delay-2000"></div>
-                <div className="absolute top-10 left-1/4 w-3 h-3 bg-white/20 rounded-full animate-ping delay-3000"></div>
-                <div className="absolute bottom-10 right-1/5 w-2 h-2 bg-white/30 rounded-full animate-ping delay-4000"></div>
+                <div className="absolute top-20 right-20 w-32 h-32 bg-blue-100/20 rounded-full opacity-60"></div>
+                <div className="absolute bottom-20 left-20 w-24 h-24 bg-blue-200/25 rounded-full opacity-50"></div>
                 <div className="absolute top-2/3 left-10 w-16 h-16 border-2 border-blue-200/30 rounded-full opacity-40"></div>
                 <div className="absolute bottom-1/4 right-10 w-20 h-20 border border-blue-100/40 rounded-full opacity-30"></div>
-                <div className="absolute top-1/4 right-1/3 w-1 h-20 bg-gradient-to-b from-blue-200/30 to-transparent rotate-45"></div>
-                <div className="absolute bottom-1/3 left-1/4 w-1 h-16 bg-gradient-to-t from-blue-300/40 to-transparent rotate-12"></div>
             </div>
             <div className="max-w-[95vw] mx-auto px-2 relative z-10">
                 <div className="text-center mb-16">
@@ -247,11 +240,9 @@ function TeamCard({ member, index, isMobile }: {
                     scale: 1
                 }}
                 transition={{
-                    duration: 0.6,
+                    duration: 0.5,
                     delay: index * 0.1,
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 15
+                    ease: "easeOut"
                 }}
                 viewport={{ once: true }}
                 className="flex-shrink-0 w-72"
@@ -264,9 +255,9 @@ function TeamCard({ member, index, isMobile }: {
                                     <div className="w-full h-full rounded-full overflow-hidden">
                                         <Image
                                             src={
-                                                member.name === 'Lorenzo' ? "/images/team/lorenzo.webp" :
-                                                    member.name === 'Camilla' ? "/images/team/camilla.webp" :
-                                                        "/images/team/nicole.webp"
+                                                member.name === 'Lorenzo' ? "https://vittoriconsulting.b-cdn.net/team/lorenzo.webp" :
+                                                    member.name === 'Camilla' ? "https://vittoriconsulting.b-cdn.net/team/camilla.jpg" :
+                                                        "https://vittoriconsulting.b-cdn.net/team/nicole.jpg"
                                             }
                                             alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                                             width={200}
@@ -315,11 +306,9 @@ function TeamCard({ member, index, isMobile }: {
                 x: 0
             }}
             transition={{
-                duration: 1,
-                delay: index * 0.15,
-                type: "spring",
-                stiffness: 80,
-                damping: 20
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: "easeOut"
             }}
             viewport={{ once: true }}
             className="flex-1 max-w-[18%]"
@@ -332,9 +321,9 @@ function TeamCard({ member, index, isMobile }: {
                                 <div className="w-full h-full rounded-full overflow-hidden">
                                     <Image
                                         src={
-                                            member.name === 'Lorenzo' ? "/images/team/lorenzo.webp" :
-                                                member.name === 'Camilla' ? "/images/team/camilla.webp" :
-                                                    "/images/team/nicole.webp"
+                                            member.name === 'Lorenzo' ? "https://vittoriconsulting.b-cdn.net/team/lorenzo.webp" :
+                                                member.name === 'Camilla' ? "https://vittoriconsulting.b-cdn.net/team/camilla.jpg" :
+                                                    "https://vittoriconsulting.b-cdn.net/team/nicole.jpg"
                                         }
                                         alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                                         width={180}
