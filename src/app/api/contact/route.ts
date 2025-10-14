@@ -15,7 +15,7 @@ export async function POST(request: Request) {
         }
 
         const emailContent = `
-            <h2>Nuova richiesta di contatto dal sito</h2>
+            <h2>Nuova richiesta di contatto</h2>
             <p><strong>Nome:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             ${phone ? `<p><strong>Telefono:</strong> ${phone}</p>` : ''}
@@ -28,7 +28,7 @@ export async function POST(request: Request) {
             from: 'VittoriConsulting <onboarding@resend.dev>',
             to: 'valerio.vittorii@gmail.com',
             replyTo: email,
-            subject: `Nuovo contatto da ${name}`,
+            subject: `Nuovo contatto da sito web`,
             html: emailContent,
         })
 
