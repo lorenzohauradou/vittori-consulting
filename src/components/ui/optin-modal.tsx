@@ -98,10 +98,10 @@ export function OptinModal() {
                                         className="w-24 h-24 mx-auto mb-2 relative"
                                     >
                                         <Image
-                                            src="/images/logo/logo-circle.webp"
+                                            src="https://vittoriconsulting.b-cdn.net/logos/logo-circle.webp"
                                             alt="VittoriConsulting Logo - Metodo Vittori 360 Marketing Roma"
-                                            width={96}
-                                            height={96}
+                                            width={100}
+                                            height={100}
                                             className="w-full h-full object-cover"
                                         />
                                     </motion.div>
