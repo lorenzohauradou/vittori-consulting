@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useOptin } from '@/contexts/OptinContext'
+import { TrendingUp, Eye } from 'lucide-react'
 
 export default function Testimonials() {
     const { openModal } = useOptin()
@@ -42,6 +43,8 @@ export default function Testimonials() {
         {
             id: 1,
             title: 'Nicoletta - Scavolini Store Fiumicino',
+            result: '+13.500€ di fatturato in 7 giorni',
+            icon: 'trending',
             src: 'https://iframe.mediadelivery.net/embed/510109/48aef447-75a3-4a7e-b28d-367506aaf14e?loop=false&muted=false&preload=true&responsive=true',
             isIframe: true,
             aspectRatio: '16/9',
@@ -50,6 +53,8 @@ export default function Testimonials() {
         {
             id: 2,
             title: "Alberto's Pizza - Testimonianza",
+            result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
+            icon: 'eye',
             src: 'https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=true&loop=true&muted=false&preload=true&responsive=true',
             isIframe: true,
             aspectRatio: '9/16',
@@ -279,9 +284,19 @@ export default function Testimonials() {
                 >
                     <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 lg:p-8 border border-white/50 shadow-2xl">
                         <div className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4">
-                            <h4 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-[#2e54a1] text-center sm:text-left flex-1 px-2">
-                                {currentVideo.title}
-                            </h4>
+                            <div className="flex-1 px-2 text-center sm:text-left">
+                                <h4 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-[#2e54a1] mb-2">
+                                    {currentVideo.title}
+                                </h4>
+                                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md">
+                                    {currentVideo.icon === 'trending' ? (
+                                        <TrendingUp className="w-4 h-4" />
+                                    ) : (
+                                        <Eye className="w-4 h-4" />
+                                    )}
+                                    <span>{currentVideo.result}</span>
+                                </div>
+                            </div>
 
                             <div className="flex items-center gap-3">
                                 <button

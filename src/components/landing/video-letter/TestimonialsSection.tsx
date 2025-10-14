@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { Eye } from 'lucide-react'
 
 export default function TestimonialsSection() {
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -155,8 +156,17 @@ export default function TestimonialsSection() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.7 }}
                         viewport={{ once: true }}
-                        className="relative flex justify-center"
+                        className="relative flex flex-col items-center gap-4"
                     >
+                        <div className="text-center">
+                            <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                                Alberto&apos;s Pizza
+                            </h4>
+                            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md">
+                                <Eye className="w-4 h-4" />
+                                <span>3 milioni di visualizzazioni negli ultimi 30 giorni</span>
+                            </div>
+                        </div>
                         <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[380px] aspect-[9/16] bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl overflow-hidden shadow-2xl group cursor-pointer">
                             <iframe
                                 src="https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=true&loop=true&muted=false&preload=true&responsive=true"
@@ -165,7 +175,6 @@ export default function TestimonialsSection() {
                                 allowFullScreen
                                 title="Video testimonianza di Alberto's Pizza - Cliente soddisfatto di VittoriConsulting Marketing Roma"
                             />
-
                         </div>
                     </motion.div>
                 </div>
