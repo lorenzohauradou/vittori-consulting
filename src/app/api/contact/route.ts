@@ -28,7 +28,7 @@ export async function POST(request: Request) {
             from: 'VittoriConsulting <onboarding@resend.dev>',
             to: 'valerio.vittorii@gmail.com',
             replyTo: email,
-            subject: `Nuovo contatto da sito web`,
+            subject: `Nuovo contatto sito web: ${name}`,
             html: emailContent,
         })
 
