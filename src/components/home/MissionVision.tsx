@@ -24,7 +24,14 @@ export default function MissionVision() {
 
                 <div className="space-y-8">
                     <div className="relative bg-white rounded-3xl p-10 sm:p-12 lg:p-16 shadow-2xl">
-                        <div className="absolute top-0 right-12">
+                        <div className="absolute top-8 right-8 flex items-center gap-4">
+                            <Image
+                                src="/images/logo/firma.png"
+                                alt="Firma Valerio Vittori"
+                                width={180}
+                                height={60}
+                                className="object-contain"
+                            />
                             <Image
                                 src="https://vittoriconsulting.b-cdn.net/logos/logo-circle.webp"
                                 alt="VittoriConsulting Logo - Mission"
@@ -62,7 +69,14 @@ export default function MissionVision() {
                     </div>
 
                     <div className="relative bg-white rounded-3xl p-10 sm:p-12 lg:p-16 shadow-2xl">
-                        <div className="absolute top-0 right-12">
+                        <div className="absolute top-8 right-8 flex items-center gap-4">
+                            <Image
+                                src="/images/logo/firma.png"
+                                alt="Firma Valerio Vittori"
+                                width={180}
+                                height={60}
+                                className="object-contain"
+                            />
                             <Image
                                 src="https://vittoriconsulting.b-cdn.net/logos/logo-circle.webp"
                                 alt="VittoriConsulting Logo - Vision"
