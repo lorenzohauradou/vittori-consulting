@@ -24,7 +24,7 @@ export default function MissionVision() {
                         <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-blue-100 to-transparent mt-2"></div>
                     </div>
                     <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
-                        Cosa Ci <span className="text-blue-100">Muove</span>
+                        La Nostra <span className="text-blue-100">Direzione</span>
                     </h2>
                 </div>
 
