@@ -57,7 +57,7 @@ export default function Calendar() {
 
                             <CalendlyEmbed />
 
-                            <div className="text-center mt-6 sm:mt-8">
+                            <div className="text-center">
                                 <p className="text-lg sm:text-xl lg:text-2xl font-bold text-[#2e54a1] mb-2">
                                     Ora tocca a te!
                                 </p>
