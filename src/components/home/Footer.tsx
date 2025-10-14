@@ -61,7 +61,7 @@ export default function Footer() {
                         <div className="mb-8">
                             <div className="items-center justify-left flex -mt-12">
                                 <Image
-                                    src="/images/logo/logo-circle.webp"
+                                    src="https://vittoriconsulting.b-cdn.net/logos/logo-circle.webp"
                                     alt="VittoriConsulting - Agenzia Marketing Roma Logo"
                                     width={100}
                                     height={100}

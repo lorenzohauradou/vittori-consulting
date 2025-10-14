@@ -43,7 +43,7 @@ export default function LandingHeader() {
                     <div className="flex-shrink-0">
                         <Link href="/" className="flex items-center">
                             <Image
-                                src="/images/logo/logo.webp"
+                                src="https://vittoriconsulting.b-cdn.net/logos/logo.webp"
                                 alt="VittoriConsulting - Marketing a 360° per PMI Roma"
                                 width={300}
                                 height={300}

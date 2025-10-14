@@ -47,7 +47,7 @@ export default function Header() {
                     <div className="flex-shrink-0">
                         <Link href="/" aria-label="Vai alla homepage Vittori Consulting" className="w-72 lg:w-100 flex items-center justify-center">
                             <Image
-                                src="/images/logo/logo-extend.webp"
+                                src="https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp"
                                 alt="VittoriConsulting - Agenzia Marketing 360° Roma"
                                 width={300}
                                 height={300}

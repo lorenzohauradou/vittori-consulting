@@ -31,7 +31,7 @@ export default function LandingFooter() {
                     <div className="flex flex-col items-center justify-center mb-12">
                         <div className="items-center justify-left flex -mt-6">
                             <Image
-                                src="/images/logo/logo-circle.webp"
+                                src="https://vittoriconsulting.b-cdn.net/logos/logo-circle.webp"
                                 alt="VittoriConsulting - Consulenza Marketing 360° Roma Logo"
                                 width={100}
                                 height={100}
