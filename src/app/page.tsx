@@ -26,10 +26,10 @@ export default function Home() {
       <Difference />
       <MetodoBanner />
       <About />
-      <Calendar />
-      <Solution />
       <MetodoBanner reverse />
       <MissionVision />
+      <Calendar />
+      <Solution />
       <Partners />
       <Servizi />
       <MetodoBanner />
