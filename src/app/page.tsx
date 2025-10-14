@@ -5,6 +5,7 @@ import Difference from '@/components/home/Difference'
 import Calendar from '@/components/home/Calendar'
 import Solution from '@/components/home/Solution'
 import About from '@/components/home/About'
+import MissionVision from '@/components/home/MissionVision'
 import Servizi from '@/components/home/Servizi'
 import MetodoBanner from '@/components/ui/metodo-banner'
 import Testimonials from '@/components/home/Testimonials'
@@ -27,6 +28,8 @@ export default function Home() {
       <About />
       <Calendar />
       <Solution />
+      <MetodoBanner reverse />
+      <MissionVision />
       <Partners />
       <Servizi />
       <MetodoBanner />
