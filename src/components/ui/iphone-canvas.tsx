@@ -9,6 +9,7 @@ interface IPhoneCanvasProps {
     showVideo?: boolean
     videoSrc?: string
     className?: string
+    hideAudioButton?: boolean
 }
 
 export default function IPhoneCanvas({
@@ -16,7 +17,8 @@ export default function IPhoneCanvas({
     description = "Guarda come abbiamo trasformato questo business",
     showVideo = true,
     videoSrc,
-    className = ""
+    className = "",
+    hideAudioButton = false
 }: IPhoneCanvasProps) {
     const videoRef = useRef<HTMLVideoElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
@@ -140,21 +142,23 @@ export default function IPhoneCanvas({
                                                 <track kind="captions" />
                                             </video>
 
-                                            <div
-                                                className="absolute inset-0 bg-black/0 hover:bg-black/5 transition-all duration-300 cursor-pointer"
-                                                onClick={toggleMute}
-                                                role="button"
-                                                tabIndex={0}
-                                                aria-label={isMuted ? "Clicca per attivare l'audio" : "Clicca per disattivare l'audio"}
-                                                onKeyDown={(e) => {
-                                                    if (e.key === 'Enter' || e.key === ' ') {
-                                                        e.preventDefault()
-                                                        toggleMute()
-                                                    }
-                                                }}
-                                            />
+                                            {!hideAudioButton && (
+                                                <div
+                                                    className="absolute inset-0 bg-black/0 hover:bg-black/5 transition-all duration-300 cursor-pointer"
+                                                    onClick={toggleMute}
+                                                    role="button"
+                                                    tabIndex={0}
+                                                    aria-label={isMuted ? "Clicca per attivare l'audio" : "Clicca per disattivare l'audio"}
+                                                    onKeyDown={(e) => {
+                                                        if (e.key === 'Enter' || e.key === ' ') {
+                                                            e.preventDefault()
+                                                            toggleMute()
+                                                        }
+                                                    }}
+                                                />
+                                            )}
 
-                                            {showAudioButton && (
+                                            {!hideAudioButton && showAudioButton && (
                                                 <motion.button
                                                     initial={{ opacity: 0, scale: 0.8 }}
                                                     animate={{ opacity: 1, scale: 1 }}
