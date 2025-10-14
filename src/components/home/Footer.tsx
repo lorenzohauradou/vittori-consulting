@@ -13,6 +13,8 @@ export default function Footer() {
         company: '',
         message: ''
     })
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target
@@ -22,9 +24,39 @@ export default function Footer() {
         }))
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        console.log('Form submitted:', formData)
+        setIsSubmitting(true)
+        setSubmitStatus('idle')
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+
+            if (response.ok) {
+                setSubmitStatus('success')
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    company: '',
+                    message: ''
+                })
+                setTimeout(() => setSubmitStatus('idle'), 5000)
+            } else {
+                setSubmitStatus('error')
+            }
+        } catch (error) {
+            console.error('Errore invio form:', error)
+            setSubmitStatus('error')
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     const footerLinks = [
@@ -237,10 +269,23 @@ export default function Footer() {
                                 <div>
                                     <button
                                         type="submit"
-                                        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-4 px-8 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:scale-105"
+                                        disabled={isSubmitting}
+                                        className={`w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-4 px-8 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'}`}
                                     >
-                                        INVIA RICHIESTA
+                                        {isSubmitting ? 'INVIO IN CORSO...' : 'INVIA RICHIESTA'}
                                     </button>
+
+                                    {submitStatus === 'success' && (
+                                        <p className="mt-4 text-green-400 text-center font-semibold">
+                                            ✓ Messaggio inviato con successo! Ti contatteremo presto.
+                                        </p>
+                                    )}
+
+                                    {submitStatus === 'error' && (
+                                        <p className="mt-4 text-red-400 text-center font-semibold">
+                                            ✗ Errore nell&apos;invio. Riprova o contattaci direttamente.
+                                        </p>
+                                    )}
                                 </div>
                             </form>
                         </div>
