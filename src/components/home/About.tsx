@@ -249,7 +249,7 @@ function TeamCard({ member, index, isMobile }: {
             >
                 <div className="w-full h-96 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
                     <div className={`relative w-36 h-36 mb-6 flex items-center justify-center`}>
-                        {(member.name === 'Lorenzo' || member.name === 'Camilla' || member.name === 'Nicole') && (
+                        {(member.name === 'Lorenzo' || member.name === 'Camilla' || member.name === 'Nicole' || member.name === 'Valerio Vittori') && (
                             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[5px]">
                                 <div className="w-full h-full rounded-full overflow-hidden">
                                     <div className="w-full h-full rounded-full overflow-hidden">
@@ -257,7 +257,8 @@ function TeamCard({ member, index, isMobile }: {
                                             src={
                                                 member.name === 'Lorenzo' ? "https://vittoriconsulting.b-cdn.net/team/lorenzo.webp" :
                                                     member.name === 'Camilla' ? "https://vittoriconsulting.b-cdn.net/team/camilla.jpg" :
-                                                        "https://vittoriconsulting.b-cdn.net/team/nicole.jpg"
+                                                        member.name === 'Valerio Vittori' ? "https://vittoriconsulting.b-cdn.net/team/valerio.png" :
+                                                            "https://vittoriconsulting.b-cdn.net/team/nicole.jpg"
                                             }
                                             alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                                             width={200}
@@ -268,7 +269,7 @@ function TeamCard({ member, index, isMobile }: {
                                 </div>
                             </div>
                         )}
-                        {member.name !== 'Lorenzo' && member.name !== 'Camilla' && member.name !== 'Nicole' && (
+                        {member.name !== 'Lorenzo' && member.name !== 'Camilla' && member.name !== 'Nicole' && member.name !== 'Valerio Vittori' && (
                             <div className={`w-32 h-32 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
                                 <span className="text-3xl font-bold text-white">
                                     {member.name.charAt(0)}
@@ -315,7 +316,7 @@ function TeamCard({ member, index, isMobile }: {
         >
             <div className="w-full h-80 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
                 <div className={`relative w-32 h-32 mb-4 flex items-center justify-center`}>
-                    {(member.name === 'Lorenzo' || member.name === 'Camilla' || member.name === 'Nicole') && (
+                    {(member.name === 'Lorenzo' || member.name === 'Camilla' || member.name === 'Nicole' || member.name === 'Valerio Vittori') && (
                         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[4px]">
                             <div className="w-full h-full rounded-full overflow-hidden">
                                 <div className="w-full h-full rounded-full overflow-hidden">
@@ -323,7 +324,8 @@ function TeamCard({ member, index, isMobile }: {
                                         src={
                                             member.name === 'Lorenzo' ? "https://vittoriconsulting.b-cdn.net/team/lorenzo.webp" :
                                                 member.name === 'Camilla' ? "https://vittoriconsulting.b-cdn.net/team/camilla.jpg" :
-                                                    "https://vittoriconsulting.b-cdn.net/team/nicole.jpg"
+                                                    member.name === 'Valerio Vittori' ? "https://vittoriconsulting.b-cdn.net/team/valerio.png" :
+                                                        "https://vittoriconsulting.b-cdn.net/team/nicole.jpg"
                                         }
                                         alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                                         width={180}
@@ -334,7 +336,7 @@ function TeamCard({ member, index, isMobile }: {
                             </div>
                         </div>
                     )}
-                    {member.name !== 'Lorenzo' && member.name !== 'Camilla' && member.name !== 'Nicole' && (
+                    {member.name !== 'Lorenzo' && member.name !== 'Camilla' && member.name !== 'Nicole' && member.name !== 'Valerio Vittori' && (
                         <div className={`w-28 h-28 bg-gradient-to-br ${getGradientColor(member.name)} rounded-full flex items-center justify-center shadow-lg`}>
                             <span className="text-2xl font-bold text-white">
                                 {member.name.charAt(0)}
