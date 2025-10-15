@@ -60,16 +60,6 @@ export default function MissionVision() {
                             <h3 className="text-3xl sm:text-4xl font-bold text-[#2e54a1]">Mission</h3>
                         </div>
 
-                        <div className="lg:hidden flex justify-center -mt-8">
-                            <Image
-                                src="/images/logo/firma.png"
-                                alt="Firma Valerio Vittori"
-                                width={180}
-                                height={60}
-                                className="object-contain"
-                            />
-                        </div>
-
                         <div className="space-y-5 text-gray-700 text-base sm:text-lg leading-relaxed">
                             <p>
                                 In Vittori Consulting aiutiamo imprenditori e PMI a smettere di sprecare budget e tempo in strategie improvvisate, per costruire finalmente un <span className="font-bold text-gray-900">business stabile, riconoscibile e profittevole</span>.
@@ -85,6 +75,16 @@ export default function MissionVision() {
                                     Perché il vero successo non è arrivare in alto una volta, ma rimanerci con stabilità e controllo.
                                 </p>
                             </div>
+                        </div>
+
+                        <div className="lg:hidden flex justify-end">
+                            <Image
+                                src="/images/logo/firma.png"
+                                alt="Firma Valerio Vittori"
+                                width={160}
+                                height={53}
+                                className="object-contain"
+                            />
                         </div>
                     </div>
 
@@ -126,16 +126,6 @@ export default function MissionVision() {
                             <h3 className="text-3xl sm:text-4xl font-bold text-[#2e54a1]">Vision</h3>
                         </div>
 
-                        <div className="lg:hidden flex justify-center -mt-8">
-                            <Image
-                                src="/images/logo/firma.png"
-                                alt="Firma Valerio Vittori"
-                                width={180}
-                                height={60}
-                                className="object-contain"
-                            />
-                        </div>
-
                         <div className="space-y-5 text-gray-700 text-base sm:text-lg leading-relaxed">
                             <p>
                                 La nostra vision è diventare la realtà di <span className="font-bold text-gray-900">marketing integrato</span> più riconosciuta a <span className="font-bold text-gray-900">livello internazionale</span>.
@@ -143,6 +133,16 @@ export default function MissionVision() {
                             <p>
                                 Il nostro obiettivo? Portare Vittori Consulting nelle mani delle <span className="font-bold text-gray-900">multinazionali</span> e dimostrare che il marketing, quando è integrato e strategico, può trasformare qualsiasi business in una <span className="font-bold text-gray-900">macchina da crescita costante</span>.
                             </p>
+                        </div>
+
+                        <div className="lg:hidden flex justify-end">
+                            <Image
+                                src="/images/logo/firma.png"
+                                alt="Firma Valerio Vittori"
+                                width={160}
+                                height={53}
+                                className="object-contain"
+                            />
                         </div>
                     </div>
                 </div>
