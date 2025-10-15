@@ -3,10 +3,41 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Eye } from 'lucide-react'
+import { Eye, TrendingUp } from 'lucide-react'
 
 export default function TestimonialsSection() {
     const [currentIndex, setCurrentIndex] = useState(0)
+    const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+
+    const videoTestimonials = [
+        {
+            id: 1,
+            title: "Alberto's Pizza",
+            result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
+            icon: 'eye',
+            src: 'https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=true&loop=true&muted=false&preload=true&responsive=true',
+            aspectRatio: '9/16',
+            description: 'Testimonianza di Daniele - Alberto\'s Pizza'
+        },
+        {
+            id: 2,
+            title: 'Nicoletta - Scavolini Store Fiumicino',
+            result: '+13.500€ di fatturato in 7 giorni',
+            icon: 'trending',
+            src: 'https://iframe.mediadelivery.net/embed/510109/48aef447-75a3-4a7e-b28d-367506aaf14e?loop=false&muted=false&preload=true&responsive=true',
+            aspectRatio: '16/9',
+            description: 'Testimonianza di Nicoletta - Scavolini Store Fiumicino'
+        },
+        {
+            id: 3,
+            title: 'St Peter Photo',
+            result: '+6 servizi fotografici raggiunti in soli 30 giorni',
+            icon: 'trending',
+            src: 'https://iframe.mediadelivery.net/embed/510109/7a315d76-854f-4b1d-8b5c-430722150141?loop=false&muted=false&preload=true&responsive=true',
+            aspectRatio: '16/9',
+            description: 'Testimonianza di St Peter Photo'
+        }
+    ]
 
     const testimonials = [
         {
@@ -43,12 +74,22 @@ export default function TestimonialsSection() {
         }
     ]
 
+    const currentVideo = videoTestimonials[currentVideoIndex]
+
     const nextTestimonial = () => {
         setCurrentIndex((prev) => (prev + 1 >= testimonials.length ? 0 : prev + 1))
     }
 
     const prevTestimonial = () => {
         setCurrentIndex((prev) => (prev - 1 < 0 ? testimonials.length - 1 : prev - 1))
+    }
+
+    const nextVideo = () => {
+        setCurrentVideoIndex((prev) => (prev + 1) % videoTestimonials.length)
+    }
+
+    const prevVideo = () => {
+        setCurrentVideoIndex((prev) => (prev - 1 + videoTestimonials.length) % videoTestimonials.length)
     }
 
     return (
@@ -160,21 +201,59 @@ export default function TestimonialsSection() {
                     >
                         <div className="text-center">
                             <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
-                                Alberto&apos;s Pizza
+                                {currentVideo.title}
                             </h4>
                             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md">
-                                <Eye className="w-4 h-4" />
-                                <span>3 milioni di visualizzazioni negli ultimi 30 giorni</span>
+                                {currentVideo.icon === 'trending' ? (
+                                    <TrendingUp className="w-4 h-4" />
+                                ) : (
+                                    <Eye className="w-4 h-4" />
+                                )}
+                                <span>{currentVideo.result}</span>
                             </div>
                         </div>
-                        <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[380px] aspect-[9/16] bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl overflow-hidden shadow-2xl group cursor-pointer">
+
+                        <motion.div
+                            key={currentVideoIndex}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.4 }}
+                            className={`relative w-full bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl overflow-hidden shadow-2xl ${currentVideo.aspectRatio === '9/16'
+                                ? 'max-w-[280px] sm:max-w-[320px] lg:max-w-[380px] aspect-[9/16]'
+                                : 'max-w-full aspect-video'
+                                }`}
+                        >
                             <iframe
-                                src="https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=true&loop=true&muted=false&preload=true&responsive=true"
+                                src={currentVideo.src}
                                 className="w-full h-full border-0 rounded-2xl"
                                 allow="accelerometer; gyroscope; encrypted-media; picture-in-picture;"
                                 allowFullScreen
-                                title="Video testimonianza di Alberto's Pizza - Cliente soddisfatto di VittoriConsulting Marketing Roma"
+                                title={currentVideo.description}
                             />
+                        </motion.div>
+
+                        <div className="flex items-center gap-4 mt-2">
+                            <button
+                                onClick={prevVideo}
+                                className="w-10 h-10 rounded-full bg-white border-2 border-gray-300 hover:border-[#2e54a1] hover:bg-[#2e54a1] hover:text-white text-gray-600 transition-all duration-300 flex items-center justify-center shadow-md"
+                                aria-label="Video precedente"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <span className="text-sm font-bold text-gray-600">
+                                {currentVideoIndex + 1}/{videoTestimonials.length}
+                            </span>
+                            <button
+                                onClick={nextVideo}
+                                className="w-10 h-10 rounded-full bg-white border-2 border-gray-300 hover:border-[#2e54a1] hover:bg-[#2e54a1] hover:text-white text-gray-600 transition-all duration-300 flex items-center justify-center shadow-md"
+                                aria-label="Video successivo"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
                         </div>
                     </motion.div>
                 </div>
