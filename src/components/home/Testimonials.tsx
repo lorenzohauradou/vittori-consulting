@@ -91,35 +91,35 @@ export default function Testimonials() {
             name: 'Alessia Giovannoni',
             role: 'Nutrizionista',
             result: '+2.438€ in organico nei primi 10 giorni di collaborazione',
-            text: 'Comunque ragazzi volevo farvi i miei complimenti perché siete molto scrupolosi, precisi ed organizzati. Mi sento proprio al sicuro ad essermi affidata a voi! Grazie♥️',
+            text: '"Comunque ragazzi volevo farvi i miei complimenti perché siete molto scrupolosi, precisi ed organizzati. Mi sento proprio al sicuro ad essermi affidata a voi! Grazie♥️ "',
             photo: 'https://vittoriconsulting.b-cdn.net/trusted/alessia.webp'
         },
         {
             name: 'Luigi Ferro',
             role: 'Azienda farmaceutica',
             result: '+24% in più di vendite ottimizzando KPI lato commerciale',
-            text: 'Ciao Valerio. Grazie per il lavoro svolto e per avermi aiutato a riordinare e analizzare i dati condivisi. Mi è stato molto utile come base per organizzare la pianificazione a cui sto lavorando.',
+            text: '"Ciao Valerio. Grazie per il lavoro svolto e per avermi aiutato a riordinare e analizzare i dati condivisi. Mi è stato molto utile come base per organizzare la pianificazione a cui sto lavorando."',
             photo: 'https://vittoriconsulting.b-cdn.net/trusted/luigiferro.webp'
         },
         {
             name: 'Daniele',
             role: 'Alberto\'s Pizza',
             result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
-            text: 'Ho notato un grande cambiamento, in positivo, da quando lavoro con il team di Valerio. Sono rimasto veramente contento e soddisfatto dei risultati ottenuti, i ragazzi sono molto professionali e in gamba, pronti a risolvere qualsiasi problema che si presenta.',
+            text: '"Ho notato un grande cambiamento, in positivo, da quando lavoro con il team di Valerio. Sono rimasto veramente contento e soddisfatto dei risultati ottenuti, i ragazzi sono molto professionali e in gamba, pronti a risolvere qualsiasi problema che si presenta."',
             photo: 'https://vittoriconsulting.b-cdn.net/partners/albertos-pizza.webp'
         },
         {
             name: 'Desert Miraje',
             role: 'Coach di crescita per donne',
             result: 'Struttura lancio e incremento di contatti per i suoi percorsi',
-            text: 'Con Valerio e il suo team mi sono trovata veramente bene, mi hanno capito e mi hanno aiutato a fare il mio primo lancio online, stra consigliati per altri professionisti che si vogliono affacciare sul digitale!',
+            text: '"Con Valerio e il suo team mi sono trovata veramente bene, mi hanno capito e mi hanno aiutato a fare il mio primo lancio online, stra consigliati per altri professionisti che si vogliono affacciare sul digitale!"',
             photo: 'https://vittoriconsulting.b-cdn.net/trusted/miraje.webp'
         },
         {
             name: 'Jacqueline Valdivia',
             role: 'Passito Spa Centro Estetico',
             result: '+20 nuovi clienti in solo 28 giorni per estetica avanzata',
-            text: 'Con Vittori Consulting mi sono trovata e mi sto trovando molto bene, sono molto disponibili e fin da subito mi hanno fatto correre a differenza di altre agenzie di marketing, stiamo raggiungendo risultati veramente incredibili che in 6 anni di attività non avevo mai raggiunto. Mi stanno arrivando nuovi clienti per l\'estetica avanzata ogni mese. Li consiglierei assolutamente a tutti!',
+            text: '"Con Vittori Consulting mi sono trovata e mi sto trovando molto bene, sono molto disponibili e fin da subito mi hanno fatto correre a differenza di altre agenzie di marketing, stiamo raggiungendo risultati veramente incredibili che in 6 anni di attività non avevo mai raggiunto. Mi stanno arrivando nuovi clienti per l\'estetica avanzata ogni mese. Li consiglierei assolutamente a tutti!"',
             photo: 'https://vittoriconsulting.b-cdn.net/trusted/jacqueline.webp'
         }
     ]
