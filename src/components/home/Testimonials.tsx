@@ -52,6 +52,16 @@ export default function Testimonials() {
         },
         {
             id: 2,
+            title: 'St Peter Photo',
+            result: '+6 servizi fotografici raggiunti in soli 30 giorni',
+            icon: 'trending',
+            src: 'https://iframe.mediadelivery.net/embed/510109/7a315d76-854f-4b1d-8b5c-430722150141?loop=false&muted=false&preload=true&responsive=true',
+            isIframe: true,
+            aspectRatio: '16/9',
+            description: 'Testimonianza di St Peter Photo'
+        },
+        {
+            id: 3,
             title: "Alberto's Pizza - Testimonianza",
             result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
             icon: 'eye',
