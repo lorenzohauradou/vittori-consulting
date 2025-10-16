@@ -93,7 +93,7 @@ export default function IPhoneCanvas({
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.3 }}
                 viewport={{ once: true, margin: "-50px" }}
                 className="relative"
             >
@@ -104,7 +104,7 @@ export default function IPhoneCanvas({
                         <motion.div
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
-                            transition={{ duration: 0.8, delay: 0.3 }}
+                            transition={{ duration: 0.4, delay: 0.1 }}
                             viewport={{ once: true, margin: "-50px" }}
                             className="relative w-full h-full bg-gradient-to-br from-blue-50 to-white rounded-[2.2rem] overflow-hidden"
                         >
@@ -121,9 +121,9 @@ export default function IPhoneCanvas({
 
                             <div className="absolute inset-0 pt-16 pb-8 px-4">
                                 <motion.div
-                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    initial={{ opacity: 0, scale: 0.95 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.6, delay: 0.5 }}
+                                    transition={{ duration: 0.3, delay: 0.15 }}
                                     viewport={{ once: true, margin: "-50px" }}
                                     className="w-full h-full rounded-2xl overflow-hidden relative"
                                 >
@@ -191,11 +191,11 @@ export default function IPhoneCanvas({
                                             {showVideo && (
                                                 <motion.div
                                                     animate={{
-                                                        scale: [1, 1.05, 1],
+                                                        scale: [1, 1.02, 1],
                                                         opacity: [0.8, 1, 0.8]
                                                     }}
                                                     transition={{
-                                                        duration: 3,
+                                                        duration: 4,
                                                         repeat: Infinity,
                                                         ease: "easeInOut"
                                                     }}
@@ -208,9 +208,9 @@ export default function IPhoneCanvas({
                                             )}
 
                                             <motion.div
-                                                initial={{ opacity: 0, y: 20 }}
+                                                initial={{ opacity: 0, y: 10 }}
                                                 whileInView={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.5, delay: 0.7 }}
+                                                transition={{ duration: 0.3, delay: 0.2 }}
                                                 viewport={{ once: true, margin: "-30px" }}
                                                 className="text-center"
                                             >

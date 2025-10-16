@@ -20,9 +20,6 @@ export default function About() {
     const containerRef = useRef<HTMLDivElement>(null)
     const { openModal } = useOptin()
 
-
-
-
     const teamMembers: TeamMember[] = [
         {
             name: 'Valerio Vittori',
