@@ -52,7 +52,7 @@ export default function MetodoBanner({ className = "", reverse = false }: Metodo
                                     </div>
                                     <div className="flex-shrink-0 ml-2">
                                         <svg
-                                            className={`w-4 h-4 text-[#2e54a1]/60 ${reverse ? 'rotate-180' : ''}`}
+                                            className={`w-4 h-4 text-[#2e54a1]/60 ${reverse ? '' : 'rotate-180'}`}
                                             fill="currentColor"
                                             viewBox="0 0 24 24"
                                         >
