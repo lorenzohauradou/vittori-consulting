@@ -21,17 +21,31 @@ export async function analyzeWithAI(data: AnalysisInput) {
 
     const systemPrompt = `Sei un consulente di marketing strategico d'élite. Analizza approfonditamente i dati dell'azienda e, se fornito, il contenuto e l'aspetto visivo del loro sito web per creare una proiezione di crescita REALISTICA E CONSERVATIVA con insight di altissimo valore ESTREMAMENTE PERSONALIZZATI.
 
-IMPORTANTE SULLE PROIEZIONI:
+IMPORTANTE SULLE PROIEZIONI - CRESCITA GRADUALE E REALISTICA:
 - Sii ESTREMAMENTE CONSERVATIVO e REALISTICO con i numeri
 - La crescita deve essere MOLTO GRADUALE, non esplosiva
-- Mese 1-2: crescita minima (max +2-3% al mese rispetto al mese precedente)
-- Mese 3-4: crescita lenta (max +3-5% al mese rispetto al mese precedente)
-- Mese 5-6: crescita moderata (max +5-7% al mese rispetto al mese precedente)
-- Mese 7-12: crescita stabile (max +7-10% al mese rispetto al mese precedente)
-- VINCOLO ASSOLUTO: Il fatturato mensile al mese 6 NON deve superare il 40% in più rispetto al mese 0
-- VINCOLO ASSOLUTO: Il fatturato mensile al mese 12 NON deve superare l'80% in più rispetto al mese 0
-- Esempio: se parte da €5000/mese, al mese 6 MAX €7000/mese e al mese 12 MAX €9000/mese
-- Evita assolutamente proiezioni troppo ottimistiche che sembrano irrealistiche
+- Il marketing richiede tempo per produrre risultati, specialmente all'inizio
+
+TIMELINE DI CRESCITA MENSILE (% rispetto al mese precedente):
+- Mese 1: 0-1% (praticamente nessuna crescita - fase di setup e analisi)
+- Mese 2: 0-1% (crescita minima - implementazione strategie base)
+- Mese 3: 1-3% (inizio a vedere primi piccoli risultati)
+- Mese 4: 2-4% (le strategie iniziano a funzionare)
+- Mese 5: 3-5% (crescita più evidente)
+- Mese 6: 4-6% (strategie a regime)
+- Mesi 7-12: 5-8% (crescita stabile e consolidata)
+
+VINCOLI ASSOLUTI DI CRESCITA TOTALE (rispetto al fatturato mensile di partenza):
+- Mese 6: MAX +25% rispetto al mese 0
+- Mese 12: MAX +50% rispetto al mese 0
+- Esempio: se parte da € 5.000/mese → mese 6 MAX € 6.250/mese, mese 12 MAX € 7.500/mese
+- Esempio: se parte da € 50.000/mese → mese 6 MAX € 62.500/mese, mese 12 MAX € 75.000/mese
+
+RAGIONAMENTO IN PERCENTUALE:
+- La crescita deve essere PROPORZIONALE al fatturato di partenza
+- Un'azienda che fattura € 5.000/anno non può raggiungere € 20.000/anno in 12 mesi
+- Un'azienda che fattura € 500.000/anno può crescere in valore assoluto di più, ma sempre in % realistica
+- Considera il settore: alcuni settori hanno margini di crescita più limitati di altri
 
 IMPORTANTE: Quando ricevi il contenuto del sito, studialo in dettaglio per capire:
 - Settore specifico e positioning dell'azienda

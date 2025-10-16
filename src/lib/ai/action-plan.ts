@@ -29,10 +29,16 @@ export async function generateActionPlan(data: ActionPlanInput): Promise<string[
 KNOWLEDGE BASE:
 ${knowledgeBase}
 
+TIMELINE REALISTICA - IMPORTANTE:
+- MESE 1-2: Focus su ANALISI, AUDIT e SETUP. Nessun risultato di fatturato atteso, solo preparazione
+- MESE 3-4: Inizio IMPLEMENTAZIONE strategie. Primi piccoli risultati visibili
+- MESE 5-6: Strategie A REGIME. Crescita più evidente
+- MESE 7-12: OTTIMIZZAZIONE e SCALING. Crescita stabile e consolidata
+
 REQUISITI PER OGNI AZIONE:
 - Descrizione dettagliata (3-5 frasi)
 - Timeline specifica (es: "Settimana 1-2", "Mese 1-3")
-- Risultati attesi misurabili
+- Risultati attesi misurabili E REALISTICI per la fase
 - Risorse necessarie
 - Basata SOLO sulle strategie del Metodo Vittori 360
 
@@ -41,7 +47,7 @@ Ogni azione deve seguire questo formato:
 "[FASE X - SETTIMANA/MESE Y] Titolo Azione: Descrizione completa dell'azione, includendo cosa fare esattamente, perché è importante per questo specifico cliente, quali metriche monitorare, e risultati attesi. [Risorse: tools/persone necessarie]"
 
 ESEMPIO:
-"[FASE 1 - SETTIMANA 1-2] Audit SEO Completo: Analisi approfondita del sito web utilizzando tools come SEMrush e Google Search Console. Identificare le keyword ad alto volume per il settore, analizzare i competitor diretti, verificare la struttura tecnica del sito (velocità, mobile-first, sitemap). Risultati attesi: lista prioritizzata di 20-30 keyword target, report tecnico con 10-15 criticità da risolvere. [Risorse: SEO specialist, budget tools € 100/mese]"
+"[FASE 1 - SETTIMANA 1-2] Audit SEO Completo: Analisi approfondita del sito web utilizzando tools come SEMrush e Google Search Console. Identificare le keyword ad alto volume per il settore, analizzare i competitor diretti, verificare la struttura tecnica del sito (velocità, mobile-first, sitemap). Questa fase è fondamentale per creare le basi solide della strategia. Risultati attesi: lista prioritizzata di 20-30 keyword target, report tecnico con 10-15 criticità da risolvere. [Risorse: SEO specialist, budget tools € 100/mese]"
 
 IMPORTANTE SULLA FORMATTAZIONE:
 - Quando scrivi importi in euro, usa SEMPRE uno spazio tra il simbolo e il numero: "€ 5.000" NON "€5.000"
@@ -93,20 +99,20 @@ Crea un piano d'azione personalizzato usando il Metodo Vittori 360 e le strategi
     } catch (error) {
         console.error('Action plan generation error:', error)
         return [
-            '[FASE 1 - SETTIMANA 1-2] Audit Completo: Analisi approfondita del sito web, analisi competitor, audit SEO tecnico e on-page. Identificare criticità tecniche, gap di contenuto e opportunità di posizionamento. Risultati attesi: documento con 15-20 raccomandazioni prioritizzate. [Risorse: SEO specialist, tools analisi]',
-            '[FASE 1 - SETTIMANA 3-4] Setup Tracking e Analytics: Implementazione completa di Google Analytics 4, Google Tag Manager, Meta Pixel e conversion tracking. Definire eventi chiave e obiettivi di conversione. Risultati attesi: dashboard personalizzata con KPI business. [Risorse: Developer, analytics specialist]',
-            '[FASE 2 - MESE 2] Ottimizzazione SEO: Correzione criticità tecniche, ottimizzazione titoli/meta, miglioramento velocità sito, implementazione schema markup. Creazione piano editoriale per content marketing. Risultati attesi: +30% velocità sito, 20 articoli pianificati. [Risorse: SEO specialist, copywriter]',
-            '[FASE 2 - MESE 2-3] Branding e Posizionamento: Definizione USP chiara, ottimizzazione brand identity, creazione linea grafica coerente per tutti i materiali. Sviluppo storytelling aziendale e tone of voice. Risultati attesi: brand guidelines complete, materiali brandizzati. [Risorse: Brand strategist, designer]',
-            '[FASE 3 - MESE 3-4] Setup Advertising: Creazione account pubblicitari Meta e Google Ads, struttura campagne per awareness e conversione, creazione creative set (5-10 varianti), setup audience targeting. Risultati attesi: 3 campagne pronte al lancio. [Risorse: Media buyer, designer]',
-            '[FASE 3 - MESE 4-5] Lancio Campagne Paid: Attivazione campagne Meta Ads (Facebook/Instagram) e Google Ads (Search/Display). Budget test iniziale € 1.000-2.000/mese. Testing A/B continuo su creative, copy, audience. Risultati attesi: ROAS 2:1 minimo primo mese. [Risorse: Media buyer, budget ads]',
-            '[FASE 4 - MESE 5-6] Content Marketing: Pubblicazione articoli blog SEO-optimized, creazione contenuti social (20-30 post/mese), newsletter mensile, video content per social. Risultati attesi: +50% traffico organico, 500+ nuovi follower. [Risorse: Copywriter, video maker]',
-            '[FASE 4 - MESE 6-7] Funnel Optimization: Analisi percorso utente, ottimizzazione landing pages, A/B testing CTA e form, implementazione lead magnet. Riduzione bounce rate e aumento conversion rate. Risultati attesi: +30% conversion rate. [Risorse: CRO specialist, copywriter]',
-            '[FASE 5 - MESE 7-8] Email Marketing Automation: Setup piattaforma email marketing, creazione sequenze automatiche (welcome, nurturing, recovery), segmentazione database. Risultati attesi: 3 funnel email attivi, 25% open rate. [Risorse: Email marketer, copywriter]',
-            '[FASE 5 - MESE 8-9] Social Media Expansion: Espansione presenza su LinkedIn/TikTok, collaborazioni con micro-influencer, UGC (User Generated Content) strategy. Risultati attesi: +1000 follower totali, 5 collaborazioni. [Risorse: Social media manager]',
-            '[FASE 6 - MESE 9-10] Remarketing Strategy: Implementazione campagne remarketing avanzate su Meta e Google, dynamic ads per prodotti/servizi visualizzati, lookalike audiences. Risultati attesi: ROAS 4:1 su remarketing. [Risorse: Media buyer]',
-            '[FASE 6 - MESE 10-11] Partnership e PR: Identificazione partner strategici, guest posting su blog settoriali, PR digitali, partecipazione eventi settore. Risultati attesi: 5 partnership attive, 10 menzioni brand. [Risorse: PR specialist]',
-            '[FASE 7 - MESE 11-12] Scale e Ottimizzazione: Aumento budget ads del 50-100%, scaling campagne performanti, automazione processi ripetitivi, ottimizzazione continua basata su dati. Risultati attesi: mantenimento ROAS, +100% traffico. [Risorse: Team completo]',
-            '[FASE 7 - MESE 12] Reporting e Strategia Futura: Report completo anno 1, analisi ROI dettagliata per canale, definizione strategia anno 2 basata su learnings. Risultati attesi: piano strategico 12 mesi successivi. [Risorse: Marketing strategist]'
+            '[FASE 1 - SETTIMANA 1-2] Audit Completo del Business: Analisi approfondita del sito web, analisi competitor, audit SEO tecnico e on-page. Identificare criticità tecniche, gap di contenuto e opportunità di posizionamento. Questa fase è cruciale per costruire fondamenta solide. Risultati attesi: documento dettagliato con 15-20 raccomandazioni prioritizzate e roadmap strategica. [Risorse: SEO specialist, tools analisi]',
+            '[FASE 1 - SETTIMANA 3-4] Setup Tracking e Analytics: Implementazione completa di Google Analytics 4, Google Tag Manager, Meta Pixel e conversion tracking. Definire eventi chiave e obiettivi di conversione. Fondamentale per misurare i risultati futuri. Risultati attesi: dashboard personalizzata con tutti i KPI business configurati. [Risorse: Developer, analytics specialist]',
+            '[FASE 1 - MESE 2] Ottimizzazione Tecnica SEO: Correzione criticità tecniche identificate, ottimizzazione titoli/meta description, miglioramento velocità sito, implementazione schema markup. Creazione piano editoriale per content marketing. Risultati attesi: +40% velocità sito, 20 articoli pianificati, fondamenta SEO solide. [Risorse: SEO specialist, copywriter]',
+            '[FASE 2 - MESE 2-3] Branding e Posizionamento: Definizione USP chiara, ottimizzazione brand identity, creazione linea grafica coerente per tutti i materiali. Sviluppo storytelling aziendale e tone of voice distintivo. Risultati attesi: brand guidelines complete, materiali di comunicazione brandizzati pronti. [Risorse: Brand strategist, designer]',
+            '[FASE 2 - MESE 3] Setup Campagne Advertising: Creazione account pubblicitari Meta e Google Ads, struttura campagne per awareness e conversione, creazione creative set (5-10 varianti), setup audience targeting avanzato. Risultati attesi: 3-4 campagne strutturate e pronte al lancio con test plan. [Risorse: Media buyer, designer]',
+            '[FASE 3 - MESE 4] Lancio Campagne Paid - Fase Test: Attivazione graduale campagne Meta Ads (Facebook/Instagram) e Google Ads (Search/Display). Budget test iniziale conservativo € 800-1.500/mese. Testing A/B continuo su creative, copy, audience. Risultati attesi: primi dati per ottimizzazione, ROAS minimo 1.5:1. [Risorse: Media buyer, budget ads]',
+            '[FASE 3 - MESE 5] Content Marketing Foundation: Pubblicazione primi articoli blog SEO-optimized, creazione contenuti social organici (15-20 post/mese), setup newsletter. Costruzione presenza digitale coerente. Risultati attesi: +20% traffico organico, 200-300 nuovi follower, engagement baseline. [Risorse: Copywriter, social media manager]',
+            '[FASE 4 - MESE 6] Funnel Optimization: Analisi percorso utente con heatmaps, ottimizzazione landing pages chiave, A/B testing su CTA e form, implementazione lead magnet. Risultati attesi: +20% conversion rate, riduzione -15% bounce rate. [Risorse: CRO specialist, copywriter]',
+            '[FASE 4 - MESE 7] Email Marketing Automation: Setup piattaforma email marketing professionale, creazione sequenze automatiche (welcome, nurturing, recovery cart), segmentazione database clienti. Risultati attesi: 3 funnel email attivi, 25% open rate, 3% CTR. [Risorse: Email marketer, copywriter]',
+            '[FASE 5 - MESE 8] Scale Campagne Advertising: Aumento graduale budget ads (+30-50%) su campagne performanti, implementazione remarketing avanzato, testing nuovi formati e audience lookalike. Risultati attesi: ROAS 2.5:1+, mantenimento costi per conversione. [Risorse: Media buyer, budget incrementale]',
+            '[FASE 5 - MESE 9-10] Social Media Expansion: Espansione presenza su canali secondari (LinkedIn/TikTok in base al settore), test collaborazioni con micro-influencer (2-3), implementazione UGC strategy. Risultati attesi: +600 follower totali, 3 collaborazioni attive. [Risorse: Social media manager, budget influencer]',
+            '[FASE 6 - MESE 10-11] Partnership Strategiche e PR: Identificazione e contatto partner strategici di settore, guest posting su blog/magazine settoriali (5-8 articoli), PR digitali, partecipazione eventi online/offline. Risultati attesi: 3-4 partnership attive, 8+ menzioni brand qualificate. [Risorse: PR specialist, budget eventi]',
+            '[FASE 6 - MESE 11] Ottimizzazione Avanzata: Analisi completa dati 11 mesi, ottimizzazione budget allocation tra canali, automazione processi ripetitivi, scaling verticale campagne top performer. Risultati attesi: ROI ottimizzato, efficienza operativa +30%. [Risorse: Team completo, marketing analyst]',
+            '[FASE 7 - MESE 12] Report Annuale e Pianificazione: Report completo anno 1 con ROI dettagliato per ogni canale, analisi cosa ha funzionato/cosa no, definizione strategia anno 2 basata su dati reali. Risultati attesi: piano strategico dettagliato 12 mesi successivi con budget allocation. [Risorse: Marketing strategist]'
         ]
     }
 }
