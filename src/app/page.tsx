@@ -26,7 +26,7 @@ export default function Home() {
       <Difference />
       <MetodoBanner />
       <About />
-      <MetodoBanner reverse />
+      <MetodoBanner reverse showTitle />
       <MissionVision />
       <Calendar />
       <Solution />

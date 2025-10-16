@@ -11,9 +11,10 @@ interface MetodoStep {
 interface MetodoBannerProps {
     className?: string
     reverse?: boolean
+    showTitle?: boolean
 }
 
-export default function MetodoBanner({ className = "", reverse = false }: MetodoBannerProps) {
+export default function MetodoBanner({ className = "", reverse = false, showTitle = false }: MetodoBannerProps) {
     const methodSteps: MetodoStep[] = [
         { name: "ANALISI", description: "Analizziamo il tuo business", number: 1 },
         { name: "ATTRAZIONE", description: "Attiriamo il target giusto", number: 2 },
@@ -26,6 +27,15 @@ export default function MetodoBanner({ className = "", reverse = false }: Metodo
 
     return (
         <div className={`py-8 bg-gray-50 overflow-hidden ${className}`}>
+            {showTitle && (
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-8">
+                        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
+                            METODO VITTORI 360°
+                        </h2>
+                    </div>
+                </div>
+            )}
             <div className="relative">
                 <div className={`metodo-scroll-track ${reverse ? 'metodo-reverse' : ''}`}>
                     <div className="metodo-scroll-content">
