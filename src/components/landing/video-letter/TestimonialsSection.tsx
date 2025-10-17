@@ -30,6 +30,15 @@ export default function TestimonialsSection() {
         },
         {
             id: 3,
+            title: 'Gelotti Gelateria',
+            result: '+100 clienti che tramite video sono passati in gelateria',
+            icon: 'trending',
+            src: 'https://iframe.mediadelivery.net/embed/510109/d1a41484-02fd-47a0-92c1-bb1c50ba2fd7?loop=false&muted=false&preload=true&responsive=true',
+            aspectRatio: '16/9',
+            description: 'Testimonianza Gelotti - +100 clienti grazie ai video'
+        },
+        {
+            id: 4,
             title: 'St Peter Photo',
             result: '+6 servizi fotografici raggiunti in soli 30 giorni',
             icon: 'trending',
