@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useOptin } from '@/contexts/OptinContext'
 import { TrendingUp, Eye } from 'lucide-react'
+import VideoIframeLazy from '@/components/ui/video-iframe-lazy'
 
 export default function Testimonials() {
     const { openModal, checkAuth } = useOptin()
@@ -45,7 +46,7 @@ export default function Testimonials() {
             title: 'Nicoletta - Scavolini Store Fiumicino',
             result: '+13.500€ di fatturato in 7 giorni',
             icon: 'trending',
-            src: 'https://iframe.mediadelivery.net/embed/510109/48aef447-75a3-4a7e-b28d-367506aaf14e?loop=false&muted=false&preload=true&responsive=true',
+            src: 'https://iframe.mediadelivery.net/embed/510109/48aef447-75a3-4a7e-b28d-367506aaf14e?loop=false&muted=false&preload=false&responsive=true',
             isIframe: true,
             aspectRatio: '16/9',
             description: 'Testimonianza di Nicoletta - Scavolini Store Fiumicino che ha ottenuto risultati straordinari'
@@ -55,7 +56,7 @@ export default function Testimonials() {
             title: 'St Peter Photo',
             result: '+6 servizi fotografici raggiunti in soli 30 giorni',
             icon: 'trending',
-            src: 'https://iframe.mediadelivery.net/embed/510109/7a315d76-854f-4b1d-8b5c-430722150141?loop=false&muted=false&preload=true&responsive=true',
+            src: 'https://iframe.mediadelivery.net/embed/510109/7a315d76-854f-4b1d-8b5c-430722150141?loop=false&muted=false&preload=false&responsive=true',
             isIframe: true,
             aspectRatio: '16/9',
             description: 'Testimonianza di St Peter Photo'
@@ -65,7 +66,7 @@ export default function Testimonials() {
             title: 'Gelotti Gelateria',
             result: '+100 clienti che tramite video sono passati in gelateria',
             icon: 'trending',
-            src: 'https://iframe.mediadelivery.net/embed/510109/d1a41484-02fd-47a0-92c1-bb1c50ba2fd7?loop=false&muted=false&preload=true&responsive=true',
+            src: 'https://iframe.mediadelivery.net/embed/510109/d1a41484-02fd-47a0-92c1-bb1c50ba2fd7?loop=false&muted=false&preload=false&responsive=true',
             isIframe: true,
             aspectRatio: '16/9',
             description: 'Testimonianza Gelotti - +100 clienti grazie ai video'
@@ -75,7 +76,7 @@ export default function Testimonials() {
             title: "Alberto's Pizza - Testimonianza",
             result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
             icon: 'eye',
-            src: 'https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=true&loop=true&muted=false&preload=true&responsive=true',
+            src: 'https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=false&loop=true&muted=false&preload=false&responsive=true',
             isIframe: true,
             aspectRatio: '9/16',
             description: 'Testimonianza di Daniele - Alberto\'s Pizza'
@@ -351,15 +352,11 @@ export default function Testimonials() {
                             className={getVideoContainerClasses(currentVideo.aspectRatio)}
                         >
                             {currentVideo.isIframe ? (
-                                <div className="relative w-full h-full bg-white rounded-2xl">
-                                    <iframe
-                                        src={currentVideo.src}
-                                        className="w-full h-full border-0 rounded-2xl pointer-events-auto"
-                                        allow="accelerometer; gyroscope; encrypted-media; picture-in-picture;"
-                                        allowFullScreen
-                                        title={currentVideo.title}
-                                    />
-                                </div>
+                                <VideoIframeLazy
+                                    src={currentVideo.src}
+                                    title={currentVideo.title}
+                                    aspectRatio={currentVideo.aspectRatio as '16/9' | '9/16'}
+                                />
                             ) : (
                                 <>
                                     <video

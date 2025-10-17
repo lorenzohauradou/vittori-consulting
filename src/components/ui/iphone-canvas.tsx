@@ -135,6 +135,7 @@ export default function IPhoneCanvas({
                                                 loop
                                                 muted
                                                 playsInline
+                                                preload="metadata"
                                                 onClick={toggleMute}
                                                 aria-label="Video dimostrativo del caso studio"
                                                 className="w-full h-full object-cover cursor-pointer"

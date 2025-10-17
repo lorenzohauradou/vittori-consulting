@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import CalendlyEmbed from '@/components/ui/calendly-embed'
+import CalendlyLazy from '@/components/ui/calendly-lazy'
 
 export default function Calendar() {
 
@@ -55,7 +55,7 @@ export default function Calendar() {
                                 </h4>
                             </div>
 
-                            <CalendlyEmbed />
+                            <CalendlyLazy />
 
                             <div className="text-center">
                                 <p className="text-lg sm:text-xl lg:text-2xl font-bold text-[#2e54a1] mb-2">
