@@ -7,7 +7,7 @@ import { useOptin } from '@/contexts/OptinContext'
 
 export default function Difference() {
     const containerRef = useRef<HTMLDivElement>(null)
-    const { openModal } = useOptin()
+    const { openModal, checkAuth } = useOptin()
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -180,7 +180,14 @@ export default function Difference() {
                             className="text-center"
                         >
                             <motion.button
-                                onClick={openModal}
+                                onClick={async () => {
+                                    const isAuth = await checkAuth()
+                                    if (isAuth) {
+                                        window.location.href = '/video-letter'
+                                    } else {
+                                        openModal('video-letter')
+                                    }
+                                }}
                                 whileHover={{
                                     scale: 1.05,
                                     boxShadow: "0 20px 40px rgba(46, 84, 161, 0.25)"

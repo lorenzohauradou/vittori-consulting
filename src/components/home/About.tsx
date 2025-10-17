@@ -18,7 +18,7 @@ interface TeamMember {
 
 export default function About() {
     const containerRef = useRef<HTMLDivElement>(null)
-    const { openModal } = useOptin()
+    const { openModal, checkAuth } = useOptin()
 
     const teamMembers: TeamMember[] = [
         {
@@ -185,7 +185,14 @@ export default function About() {
                                     NOI CI METTIAMO LA FACCIA … E TU?
                                 </h4>
                                 <button
-                                    onClick={openModal}
+                                    onClick={async () => {
+                                        const isAuth = await checkAuth()
+                                        if (isAuth) {
+                                            window.location.href = '/video-letter'
+                                        } else {
+                                            openModal('video-letter')
+                                        }
+                                    }}
                                     className="font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-xl bg-white text-[#2e54a1] border-2 border-white hover:scale-105"
                                 >
                                     INIZIA QUI

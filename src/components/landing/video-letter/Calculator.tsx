@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { Loader2, TrendingUp, Users, DollarSign, Download } from 'lucide-react'
+import { useOptin } from '@/contexts/OptinContext'
 
 interface FormData {
     businessSector: string
@@ -25,6 +26,9 @@ interface AIResults {
 }
 
 export default function Calculator() {
+    const { openModal, checkAuth } = useOptin()
+    const CALENDLY_URL = 'https://calendly.com/valerio-vittori/30min?hide_gdpr_banner=1'
+
     const businessSectors = [
         'Ristorante / Bar / Caffetteria',
         'E-commerce / Vendita Online',
@@ -473,6 +477,14 @@ export default function Calculator() {
                                 <GradientButton
                                     size="lg"
                                     className="text-xl px-12 py-6 shadow-2xl hover:scale-105 transition-transform w-full sm:w-auto"
+                                    onClick={async () => {
+                                        const isAuth = await checkAuth()
+                                        if (isAuth) {
+                                            window.location.href = CALENDLY_URL
+                                        } else {
+                                            openModal('calendly')
+                                        }
+                                    }}
                                 >
                                     Prenota Consulenza Gratuita →
                                 </GradientButton>

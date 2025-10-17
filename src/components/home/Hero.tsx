@@ -9,7 +9,7 @@ import { Mail, Phone, Linkedin, Facebook, Instagram } from 'lucide-react'
 
 export default function Hero() {
     const [currentPhase, setCurrentPhase] = useState(0)
-    const { openModal } = useOptin()
+    const { openModal, checkAuth } = useOptin()
     const videoRef = useRef<HTMLVideoElement>(null)
     const timeoutRef = useRef<NodeJS.Timeout | null>(null)
     const [isMuted, setIsMuted] = useState(true)
@@ -177,7 +177,14 @@ export default function Hero() {
                                 </motion.p>
 
                                 <motion.button
-                                    onClick={openModal}
+                                    onClick={async () => {
+                                        const isAuth = await checkAuth()
+                                        if (isAuth) {
+                                            window.location.href = '/video-letter'
+                                        } else {
+                                            openModal('video-letter')
+                                        }
+                                    }}
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     className="bg-white text-[#2e54a1] px-8 py-4 rounded-full font-bold text-lg hover:bg-white/95 transition-all duration-300 shadow-xl hover:shadow-2xl w-fit"

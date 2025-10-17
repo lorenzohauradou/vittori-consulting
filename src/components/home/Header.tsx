@@ -9,7 +9,7 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isVisible, setIsVisible] = useState(true)
     const [lastScrollY, setLastScrollY] = useState(0)
-    const { openModal } = useOptin()
+    const { openModal, checkAuth } = useOptin()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -73,7 +73,14 @@ export default function Header() {
                     </nav>
                     <div className="flex items-center space-x-4 ml-auto">
                         <button
-                            onClick={openModal}
+                            onClick={async () => {
+                                const isAuth = await checkAuth()
+                                if (isAuth) {
+                                    window.location.href = '/video-letter'
+                                } else {
+                                    openModal('video-letter')
+                                }
+                            }}
                             className="hidden lg:block bg-gradient-to-r from-[#2e54a1] to-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
                         >
                             INIZIA QUI
@@ -112,8 +119,13 @@ export default function Header() {
                             ))}
                             <div className="pt-4 pb-2">
                                 <button
-                                    onClick={() => {
-                                        openModal();
+                                    onClick={async () => {
+                                        const isAuth = await checkAuth()
+                                        if (isAuth) {
+                                            window.location.href = '/video-letter'
+                                        } else {
+                                            openModal('video-letter')
+                                        }
                                         setIsMenuOpen(false)
                                     }}
                                     className="w-full bg-gradient-to-r from-[#2e54a1] to-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300"

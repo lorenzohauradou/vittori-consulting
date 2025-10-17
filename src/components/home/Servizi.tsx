@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { useOptin } from '@/contexts/OptinContext'
 
 export default function Servizi() {
-    const { openModal } = useOptin()
+    const { openModal, checkAuth } = useOptin()
 
     const servizi = [
         {
@@ -143,7 +143,14 @@ export default function Servizi() {
 
                         <div>
                             <button
-                                onClick={openModal}
+                                onClick={async () => {
+                                    const isAuth = await checkAuth()
+                                    if (isAuth) {
+                                        window.location.href = '/video-letter'
+                                    } else {
+                                        openModal('video-letter')
+                                    }
+                                }}
                                 className="relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-gradient-to-r from-[#2e54a1] to-blue-600 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                             >
                                 <span className="relative z-10">INIZIA QUI</span>

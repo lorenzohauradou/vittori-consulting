@@ -2,8 +2,12 @@
 
 import React from 'react'
 import { GradientButton } from '@/components/ui/gradient-button'
+import { useOptin } from '@/contexts/OptinContext'
 
 export default function CTASection() {
+    const { openModal, checkAuth } = useOptin()
+    const CALENDLY_URL = 'https://calendly.com/valerio-vittori/30min?hide_gdpr_banner=1'
+
     return (
         <section className="relative py-20 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] overflow-hidden">
             <div className="absolute inset-0">
@@ -63,6 +67,14 @@ export default function CTASection() {
                             <GradientButton
                                 size="lg"
                                 className="text-lg sm:text-xl px-10 py-5 shadow-xl hover:shadow-2xl hover:scale-105 transition-all w-full sm:w-auto"
+                                onClick={async () => {
+                                    const isAuth = await checkAuth()
+                                    if (isAuth) {
+                                        window.location.href = CALENDLY_URL
+                                    } else {
+                                        openModal('calendly')
+                                    }
+                                }}
                             >
                                 Prenota subito la tua consulenza gratuita
                             </GradientButton>

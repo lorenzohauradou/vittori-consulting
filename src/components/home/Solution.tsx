@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { useOptin } from '@/contexts/OptinContext'
 
 export default function Solution() {
-    const { openModal } = useOptin()
+    const { openModal, checkAuth } = useOptin()
 
 
     const methodSteps = [
@@ -63,7 +63,14 @@ export default function Solution() {
                             </p>
 
                             <motion.button
-                                onClick={openModal}
+                                onClick={async () => {
+                                    const isAuth = await checkAuth()
+                                    if (isAuth) {
+                                        window.location.href = '/video-letter'
+                                    } else {
+                                        openModal('video-letter')
+                                    }
+                                }}
                                 whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
                                 whileTap={{ scale: 0.95 }}
                                 className="w-full bg-white text-[#2e54a1] font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 shadow-xl hover:shadow-2xl mb-4"

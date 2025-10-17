@@ -4,8 +4,12 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/gradient-button'
 import IPhoneCanvas from '@/components/ui/iphone-canvas'
+import { useOptin } from '@/contexts/OptinContext'
 
 export default function VeritaSection() {
+    const { openModal, checkAuth } = useOptin()
+    const CALENDLY_URL = 'https://calendly.com/valerio-vittori/30min?hide_gdpr_banner=1'
+
     return (
         <section className="relative py-24 lg:py-32 bg-gradient-to-br from-[#1e3a70] via-[#2e54a1] to-[#3d63b8] overflow-hidden">
             <div className="absolute inset-0">
@@ -150,6 +154,14 @@ export default function VeritaSection() {
                         <GradientButton
                             size="lg"
                             className="text-xl sm:text-2xl px-12 py-6 shadow-2xl"
+                            onClick={async () => {
+                                const isAuth = await checkAuth()
+                                if (isAuth) {
+                                    window.location.href = CALENDLY_URL
+                                } else {
+                                    openModal('calendly')
+                                }
+                            }}
                         >
                             Prenota subito la tua consulenza gratuita
                         </GradientButton>

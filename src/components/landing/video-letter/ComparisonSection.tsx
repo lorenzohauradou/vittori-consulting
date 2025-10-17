@@ -2,8 +2,12 @@
 
 import React from 'react'
 import { GradientButton } from '@/components/ui/gradient-button'
+import { useOptin } from '@/contexts/OptinContext'
 
 export default function ComparisonSection() {
+    const { openModal, checkAuth } = useOptin()
+    const CALENDLY_URL = 'https://calendly.com/valerio-vittori/30min?hide_gdpr_banner=1'
+
     const comparisons = [
         {
             category: 'Coinvolgimento',
@@ -151,6 +155,14 @@ export default function ComparisonSection() {
                     <GradientButton
                         size="lg"
                         className="text-xl px-12 py-6 shadow-2xl hover:scale-105 transition-transform"
+                        onClick={async () => {
+                            const isAuth = await checkAuth()
+                            if (isAuth) {
+                                window.location.href = CALENDLY_URL
+                            } else {
+                                openModal('calendly')
+                            }
+                        }}
                     >
                         Prenota subito la tua consulenza gratuita
                     </GradientButton>

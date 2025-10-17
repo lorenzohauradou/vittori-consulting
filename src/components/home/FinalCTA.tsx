@@ -4,7 +4,7 @@ import React from 'react'
 import { useOptin } from '@/contexts/OptinContext'
 
 export default function FinalCTA() {
-    const { openModal } = useOptin()
+    const { openModal, checkAuth } = useOptin()
 
     const negativePoints = [
         'Strategie improvvisate',
@@ -95,7 +95,14 @@ export default function FinalCTA() {
                         </p>
 
                         <button
-                            onClick={openModal}
+                            onClick={async () => {
+                                const isAuth = await checkAuth()
+                                if (isAuth) {
+                                    window.location.href = '/video-letter'
+                                } else {
+                                    openModal('video-letter')
+                                }
+                            }}
                             className="relative inline-flex items-center justify-center px-12 sm:px-16 py-6 sm:py-7 text-xl sm:text-2xl lg:text-3xl font-bold text-[#2e54a1] bg-white rounded-full shadow-2xl hover:scale-105 hover:shadow-[0_25px_50px_rgba(255,255,255,0.3)] active:scale-95 transition-all duration-300 overflow-hidden w-full sm:w-auto"
                         >
                             <span className="relative z-10 flex items-center gap-3">

@@ -10,7 +10,7 @@ import { useOptin } from '@/contexts/OptinContext'
 import Image from 'next/image'
 
 export function OptinModal() {
-    const { isOpen, closeModal } = useOptin()
+    const { isOpen, closeModal, redirectTarget } = useOptin()
     const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
 
@@ -20,6 +20,8 @@ export function OptinModal() {
         email: '',
         phone: ''
     })
+
+    const CALENDLY_URL = 'https://calendly.com/valerio-vittori/30min?hide_gdpr_banner=1'
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -46,15 +48,26 @@ export function OptinModal() {
                 }
             }
 
+            // Salva i dati in sessionStorage
             sessionStorage.setItem('userOptedIn', 'true')
             sessionStorage.setItem('userEmail', formData.email)
 
             closeModal()
-            router.push('/video-letter')
+
+            if (redirectTarget === 'calendly') {
+                window.location.href = CALENDLY_URL
+            } else {
+                router.push('/video-letter')
+            }
         } catch (error) {
             console.error('Error submitting form:', error)
             closeModal()
-            router.push('/video-letter')
+
+            if (redirectTarget === 'calendly') {
+                window.location.href = CALENDLY_URL
+            } else {
+                router.push('/video-letter')
+            }
         } finally {
             setIsLoading(false)
         }

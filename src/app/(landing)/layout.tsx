@@ -1,6 +1,5 @@
 import type React from 'react'
-import LandingHeader from '@/components/landing/shared/LandingHeader'
-import LandingFooter from '@/components/landing/shared/LandingFooter'
+import LandingLayoutClient from '@/components/landing/shared/LandingLayoutClient'
 import {
     createLocalBusinessSchema,
     createVideoSchema,
@@ -49,13 +48,9 @@ export default function LandingLayout({
                 }}
             />
 
-            <LandingHeader />
-            <main className="pt-16 lg:pt-20" role="main">
-                <article itemScope itemType="https://schema.org/WebPage">
-                    {children}
-                </article>
-            </main>
-            <LandingFooter />
+            <LandingLayoutClient>
+                {children}
+            </LandingLayoutClient>
         </>
     )
 }

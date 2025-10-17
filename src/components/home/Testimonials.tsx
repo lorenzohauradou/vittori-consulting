@@ -7,7 +7,7 @@ import { useOptin } from '@/contexts/OptinContext'
 import { TrendingUp, Eye } from 'lucide-react'
 
 export default function Testimonials() {
-    const { openModal } = useOptin()
+    const { openModal, checkAuth } = useOptin()
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0)
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
     const [isMuted, setIsMuted] = useState(true)
@@ -506,7 +506,14 @@ export default function Testimonials() {
 
                         <div className="flex justify-center items-center">
                             <motion.button
-                                onClick={openModal}
+                                onClick={async () => {
+                                    const isAuth = await checkAuth()
+                                    if (isAuth) {
+                                        window.location.href = '/video-letter'
+                                    } else {
+                                        openModal('video-letter')
+                                    }
+                                }}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.8 }}

@@ -4,15 +4,19 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { TrustedCustomers } from '@/components/ui/trusted-customers'
-import Image from "next/image";
+import Image from "next/image"
+import { useOptin } from '@/contexts/OptinContext'
 
 
 const words = ['più risultati!', 'più crescita!', 'più efficienza!', 'più visibilità!', 'più profitto!']
 
 export default function HeroVideo() {
+    const { openModal, checkAuth } = useOptin()
     const [currentWordIndex, setCurrentWordIndex] = useState(0)
     const [displayText, setDisplayText] = useState('')
     const [isDeleting, setIsDeleting] = useState(false)
+
+    const CALENDLY_URL = 'https://calendly.com/valerio-vittori/30min?hide_gdpr_banner=1'
 
     useEffect(() => {
         const currentWord = words[currentWordIndex]
@@ -183,6 +187,14 @@ export default function HeroVideo() {
                         <GradientButton
                             size="lg"
                             className="text-lg px-10 py-5 shadow-2xl hover:scale-105 transition-transform"
+                            onClick={async () => {
+                                const isAuth = await checkAuth()
+                                if (isAuth) {
+                                    window.location.href = CALENDLY_URL
+                                } else {
+                                    openModal('calendly')
+                                }
+                            }}
                         >
                             Prenota subito la tua consulenza gratuita
                         </GradientButton>

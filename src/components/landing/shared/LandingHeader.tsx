@@ -4,10 +4,13 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { GradientButton } from '@/components/ui/gradient-button'
 import Link from 'next/link'
+import { useOptin } from '@/contexts/OptinContext'
 
 export default function LandingHeader() {
+    const { openModal, checkAuth } = useOptin()
     const [isVisible, setIsVisible] = useState(true)
     const [lastScrollY, setLastScrollY] = useState(0)
+    const CALENDLY_URL = 'https://calendly.com/valerio-vittori/30min?hide_gdpr_banner=1'
 
     useEffect(() => {
         const handleScroll = () => {
@@ -28,9 +31,13 @@ export default function LandingHeader() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [lastScrollY])
 
-    const scrollToCTA = () => {
-        const heroSection = document.querySelector('section')
-        heroSection?.scrollIntoView({ behavior: 'smooth' })
+    const handleBooking = async () => {
+        const isAuth = await checkAuth()
+        if (isAuth) {
+            window.location.href = CALENDLY_URL
+        } else {
+            openModal('calendly')
+        }
     }
 
     return (
@@ -66,7 +73,7 @@ export default function LandingHeader() {
 
                         <GradientButton
                             size="md"
-                            onClick={scrollToCTA}
+                            onClick={handleBooking}
                             className="hidden sm:inline-flex"
                         >
                             Prenota Consulenza
@@ -74,7 +81,7 @@ export default function LandingHeader() {
 
                         <GradientButton
                             size="sm"
-                            onClick={scrollToCTA}
+                            onClick={handleBooking}
                             className="sm:hidden"
                         >
                             Prenota
