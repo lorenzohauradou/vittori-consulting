@@ -67,19 +67,19 @@ export default function TestimonialsSection() {
         },
         {
             id: 3,
-            name: 'Jacqueline Valdivia',
-            role: 'Passito Spa Centro Estetico',
-            result: '+20 nuovi clienti in solo 28 giorni per estetica avanzata',
-            text: '"Con Vittori Consulting mi sono trovata e mi sto trovando molto bene, sono molto disponibili e fin da subito mi hanno fatto correre a differenza di altre agenzie di marketing, stiamo raggiungendo risultati veramente incredibili che in 6 anni di attività non avevo mai raggiunto. Mi stanno arrivando nuovi clienti per l\'estetica avanzata ogni mese. Li consiglierei assolutamente a tutti!"',
-            photo: 'https://vittoriconsulting.b-cdn.net/trusted/jacqueline.webp'
-        },
-        {
-            id: 4,
             name: 'Daniele',
             role: 'Alberto\'s Pizza',
             result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
             text: '"Ho notato un grande cambiamento, in positivo, da quando lavoro con il team di Valerio. Sono rimasto veramente contento e soddisfatto dei risultati ottenuti, i ragazzi sono molto professionali e in gamba, pronti a risolvere qualsiasi problema che si presenta."',
             photo: 'https://vittoriconsulting.b-cdn.net/partners/albertos-pizza.webp'
+        },
+        {
+            id: 4,
+            name: 'Jacqueline Valdivia',
+            role: 'Passito Spa Centro Estetico',
+            result: '+20 nuovi clienti in solo 28 giorni per estetica avanzata',
+            text: '"Con Vittori Consulting mi sono trovata e mi sto trovando molto bene, sono molto disponibili e fin da subito mi hanno fatto correre a differenza di altre agenzie di marketing, stiamo raggiungendo risultati veramente incredibili che in 6 anni di attività non avevo mai raggiunto. Mi stanno arrivando nuovi clienti per l\'estetica avanzata ogni mese. Li consiglierei assolutamente a tutti!"',
+            photo: 'https://vittoriconsulting.b-cdn.net/trusted/jacqueline.webp'
         }
     ]
 
