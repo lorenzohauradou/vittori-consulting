@@ -136,30 +136,13 @@ export default function HeroVideo() {
 
                     <div className="w-full max-w-7xl mb-12">
                         <div className="relative aspect-[4/5] sm:aspect-[3/4] md:aspect-video bg-black/20 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm">
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="text-center">
-                                    <div className="w-20 h-20 mx-auto mb-4 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors cursor-pointer">
-                                        <svg
-                                            className="w-8 h-8 text-[#2e54a1] ml-1"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path d="M8 5v14l11-7z" />
-                                        </svg>
-                                    </div>
-                                    <p className="text-white text-lg font-semibold">
-                                        Guarda il Video
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* <video 
-                                className="w-full h-full object-cover"
-                                controls
-                                poster="/path-to-thumbnail.jpg"
-                            >
-                                <source src="/videos/vsl-video.mp4" type="video/mp4" />
-                            </video> */}
+                            <iframe
+                                src="https://iframe.mediadelivery.net/embed/510109/f6b465be-369f-4473-a68e-013d9686c023?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
+                                loading="lazy"
+                                style={{ border: 0, width: '100%', height: '100%' }}
+                                allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+                                allowFullScreen
+                            />
                         </div>
                     </div>
 
