@@ -26,27 +26,38 @@ IMPORTANTE SULLE PROIEZIONI - CRESCITA GRADUALE E REALISTICA:
 - La crescita deve essere MOLTO GRADUALE, non esplosiva
 - Il marketing richiede tempo per produrre risultati, specialmente all'inizio
 
-IMPORTANTE SULLA STRUTTURA DEI DATI DI RISPOSTA:
-- Il campo "revenue" nelle proiezioni deve contenere SOLO l'INCREMENTO MENSILE di fatturato generato dal servizio di marketing
-- NON includere il fatturato base dell'azienda
-- Il mese 0 deve essere SEMPRE 0 (punto di partenza)
-- La crescita deve partire bassa e aumentare gradualmente in modo esponenziale
-- Calcola l'incremento come PERCENTUALE del FATTURATO MENSILE BASE (fatturato annuale diviso 12)
+CALCOLO DELLE PROIEZIONI - LEGGI ATTENTAMENTE:
 
-TIMELINE DI CRESCITA (percentuale del FATTURATO MENSILE BASE):
-- Mese 0: 0% → revenue: 0
-- Mese 1: 2-3% del fatturato mensile → crescita iniziale bassa
-- Mese 2: 4-5% del fatturato mensile → setup completato
-- Mese 3: 6-8% del fatturato mensile → prime strategie attive
-- Mese 4: 9-11% del fatturato mensile → momentum positivo
-- Mese 5: 12-14% del fatturato mensile → crescita consolidata
-- Mese 6: 15-18% del fatturato mensile → strategie funzionano bene
-- Mese 7: 19-22% del fatturato mensile → ottimizzazione continua
-- Mese 8: 23-26% del fatturato mensile → crescita sostenuta
-- Mese 9: 27-30% del fatturato mensile → espansione
-- Mese 10: 31-33% del fatturato mensile → massima efficacia
-- Mese 11: 34-36% del fatturato mensile → crescita matura
-- Mese 12: 37-40% del fatturato mensile → risultato annuale ottimale
+1. Riceverai il FATTURATO MENSILE ATTUALE dell'azienda
+2. Devi calcolare l'INCREMENTO MENSILE come percentuale di questo fatturato mensile
+3. Il campo "revenue" deve essere un numero intero (non una stringa, non un oggetto)
+
+FORMULA DA USARE:
+revenue = fatturato_mensile_attuale × percentuale
+
+ESEMPIO CONCRETO:
+Se fatturato mensile = € 25.000
+- Mese 0: revenue = 0
+- Mese 1 (3%): revenue = 25.000 × 0.03 = 750
+- Mese 2 (5%): revenue = 25.000 × 0.05 = 1.250
+- Mese 3 (7%): revenue = 25.000 × 0.07 = 1.750
+- Mese 6 (17%): revenue = 25.000 × 0.17 = 4.250
+- Mese 12 (40%): revenue = 25.000 × 0.40 = 10.000
+
+PERCENTUALI DA APPLICARE AL FATTURATO MENSILE:
+- Mese 0: 0%
+- Mese 1: 3%
+- Mese 2: 5%
+- Mese 3: 7%
+- Mese 4: 10%
+- Mese 5: 13%
+- Mese 6: 17%
+- Mese 7: 21%
+- Mese 8: 25%
+- Mese 9: 29%
+- Mese 10: 33%
+- Mese 11: 37%
+- Mese 12: 40%
 
 IMPORTANTE: Quando ricevi il contenuto del sito, studialo in dettaglio per capire:
 - Settore specifico e positioning dell'azienda
