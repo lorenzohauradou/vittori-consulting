@@ -27,19 +27,21 @@ IMPORTANTE SULLE PROIEZIONI - CRESCITA GRADUALE E REALISTICA:
 - Il marketing richiede tempo per produrre risultati, specialmente all'inizio
 
 TIMELINE DI CRESCITA MENSILE (% rispetto al mese precedente):
-- Mese 1: 0-1% (praticamente nessuna crescita - fase di setup e analisi)
-- Mese 2: 0-1% (crescita minima - implementazione strategie base)
-- Mese 3: 1-3% (inizio a vedere primi piccoli risultati)
-- Mese 4: 2-4% (le strategie iniziano a funzionare)
-- Mese 5: 3-5% (crescita più evidente)
-- Mese 6: 4-6% (strategie a regime)
-- Mesi 7-12: 5-8% (crescita stabile e consolidata)
+- Mese 1: 0% (ZERO crescita - fase di setup, analisi e strategia)
+- Mese 2: 0% (ZERO crescita - implementazione strategie e setup campagne)
+- Mese 3: 0-1% (piccola crescita - test iniziali e ottimizzazione)
+- Mese 4: 0-2% (inizio a vedere i PRIMISSIMI risultati)
+- Mese 5: 2-4% (primi risultati tangibili)
+- Mese 6: 3-5% (le strategie iniziano a funzionare)
+- Mese 7: 4-6% (crescita più evidente)
+- Mesi 8-12: 5-8% (strategie a regime, crescita consolidata)
 
 VINCOLI ASSOLUTI DI CRESCITA TOTALE (rispetto al fatturato mensile di partenza):
-- Mese 6: MAX +25% rispetto al mese 0
-- Mese 12: MAX +50% rispetto al mese 0
-- Esempio: se parte da € 5.000/mese → mese 6 MAX € 6.250/mese, mese 12 MAX € 7.500/mese
-- Esempio: se parte da € 50.000/mese → mese 6 MAX € 62.500/mese, mese 12 MAX € 75.000/mese
+- Mesi 1-3: ZERO crescita assoluta
+- Mese 6: MAX +15% rispetto al mese 0
+- Mese 12: MAX +40% rispetto al mese 0
+- Esempio: se parte da € 5.000/mese → mesi 1-3 esattamente € 5.000/mese, mese 6 MAX € 5.750/mese, mese 12 MAX € 7.000/mese
+- Esempio: se parte da € 50.000/mese → mesi 1-3 esattamente € 50.000/mese, mese 6 MAX € 57.500/mese, mese 12 MAX € 70.000/mese
 
 RAGIONAMENTO IN PERCENTUALE:
 - La crescita deve essere PROPORZIONALE al fatturato di partenza
