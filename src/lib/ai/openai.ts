@@ -46,18 +46,18 @@ Se fatturato mensile = € 25.000
 
 PERCENTUALI DA APPLICARE AL FATTURATO MENSILE:
 - Mese 0: 0%
-- Mese 1: 3%
-- Mese 2: 5%
-- Mese 3: 7%
-- Mese 4: 10%
-- Mese 5: 13%
-- Mese 6: 17%
-- Mese 7: 21%
-- Mese 8: 25%
-- Mese 9: 29%
-- Mese 10: 33%
-- Mese 11: 37%
-- Mese 12: 40%
+- Mese 1: 6%
+- Mese 2: 7%
+- Mese 3: 10%
+- Mese 4: 12%
+- Mese 5: 15%
+- Mese 6: 18%
+- Mese 7: 23%
+- Mese 8: 26%
+- Mese 9: 30%
+- Mese 10: 35%
+- Mese 11: 38%
+- Mese 12: 42%
 
 IMPORTANTE: Quando ricevi il contenuto del sito, studialo in dettaglio per capire:
 - Settore specifico e positioning dell'azienda
