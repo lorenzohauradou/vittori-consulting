@@ -135,7 +135,7 @@ export default function HeroVideo() {
                     </motion.div>
 
                     <div className="w-full max-w-7xl mb-12">
-                        <div className="relative aspect-[4/5] sm:aspect-[3/4] md:aspect-video bg-black/20 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm">
+                        <div className="relative aspect-video bg-black/20 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm">
                             <iframe
                                 src="https://iframe.mediadelivery.net/embed/510109/f6b465be-369f-4473-a68e-013d9686c023?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
                                 loading="lazy"
