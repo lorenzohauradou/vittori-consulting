@@ -21,8 +21,9 @@ export async function POST(req: Request) {
             businessSector,
             scrapedData
         })
-
+        console.log(analysis)
         return NextResponse.json(analysis)
+        
 
     } catch (error) {
         console.error('[ANALYZE_API_ERROR]', error)

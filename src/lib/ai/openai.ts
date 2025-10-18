@@ -27,27 +27,26 @@ IMPORTANTE SULLE PROIEZIONI - CRESCITA GRADUALE E REALISTICA:
 - Il marketing richiede tempo per produrre risultati, specialmente all'inizio
 
 IMPORTANTE SULLA STRUTTURA DEI DATI DI RISPOSTA:
-- Il campo "revenue" nelle proiezioni deve contenere SOLO l'INCREMENTO di fatturato generato dal servizio di marketing
+- Il campo "revenue" nelle proiezioni deve contenere SOLO l'INCREMENTO MENSILE di fatturato generato dal servizio di marketing
+- NON includere il fatturato base dell'azienda
 - Il mese 0 deve essere SEMPRE 0 (punto di partenza)
-- La crescita deve essere ESPONENZIALE: ogni mese l'incremento deve essere maggiore del precedente
-- Esempio: se l'azienda fattura € 5.000/mese e prevedi +10% al mese 2:
-  * SBAGLIATO: {"month": 2, "revenue": 5500}
-  * CORRETTO: {"month": 2, "revenue": 500}
+- La crescita deve partire bassa e aumentare gradualmente in modo esponenziale
+- Calcola l'incremento come PERCENTUALE del FATTURATO MENSILE BASE (fatturato annuale diviso 12)
 
-TIMELINE DI CRESCITA ESPONENZIALE (percentuale del fatturato mensile BASE da aggiungere come INCREMENTO):
-- Mese 0: 0% → revenue: 0 (punto di partenza)
-- Mese 1: 0.5-1% → revenue: 0.5-1% del fatturato mensile base (primissime implementazioni, fase iniziale)
-- Mese 2: 2-3% → revenue: 2-3% del fatturato mensile base (setup completato, prime azioni)
-- Mese 3: 4-6% → revenue: 4-6% del fatturato mensile base (strategie iniziano a dare risultati)
-- Mese 4: 8-10% → revenue: 8-10% del fatturato mensile base (momentum positivo)
-- Mese 5: 12-15% → revenue: 12-15% del fatturato mensile base (crescita consolidata)
-- Mese 6: 18-22% → revenue: 18-22% del fatturato mensile base (strategie a pieno regime)
-- Mese 7: 24-28% → revenue: 24-28% del fatturato mensile base (ottimizzazione continua)
-- Mese 8: 30-35% → revenue: 30-35% del fatturato mensile base (crescita sostenuta)
-- Mese 9: 36-42% → revenue: 36-42% del fatturato mensile base (espansione)
-- Mese 10: 44-50% → revenue: 44-50% del fatturato mensile base (massima efficacia)
-- Mese 11: 52-58% → revenue: 52-58% del fatturato mensile base (crescita matura)
-- Mese 12: 60-70% → revenue: 60-70% del fatturato mensile base (risultato annuale ottimale)
+TIMELINE DI CRESCITA (percentuale del FATTURATO MENSILE BASE):
+- Mese 0: 0% → revenue: 0
+- Mese 1: 2-3% del fatturato mensile → crescita iniziale bassa
+- Mese 2: 4-5% del fatturato mensile → setup completato
+- Mese 3: 6-8% del fatturato mensile → prime strategie attive
+- Mese 4: 9-11% del fatturato mensile → momentum positivo
+- Mese 5: 12-14% del fatturato mensile → crescita consolidata
+- Mese 6: 15-18% del fatturato mensile → strategie funzionano bene
+- Mese 7: 19-22% del fatturato mensile → ottimizzazione continua
+- Mese 8: 23-26% del fatturato mensile → crescita sostenuta
+- Mese 9: 27-30% del fatturato mensile → espansione
+- Mese 10: 31-33% del fatturato mensile → massima efficacia
+- Mese 11: 34-36% del fatturato mensile → crescita matura
+- Mese 12: 37-40% del fatturato mensile → risultato annuale ottimale
 
 IMPORTANTE: Quando ricevi il contenuto del sito, studialo in dettaglio per capire:
 - Settore specifico e positioning dell'azienda
