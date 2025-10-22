@@ -21,10 +21,8 @@ export function OptinProvider({ children }: { children: ReactNode }) {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [redirectTarget, setRedirectTarget] = useState<RedirectTarget>('video-letter')
 
-    // Controlla se l'utente è autenticato
     const checkAuth = async (): Promise<boolean> => {
-        // Controlla prima sessionStorage (più veloce)
-        const hasOptedIn = sessionStorage.getItem('userOptedIn') === 'true'
+        const hasOptedIn = localStorage.getItem('userOptedIn') === 'true'
 
         if (hasOptedIn) {
             setIsAuthenticated(true)
@@ -37,20 +35,39 @@ export function OptinProvider({ children }: { children: ReactNode }) {
                 const isAuth = !!user
                 setIsAuthenticated(isAuth)
                 if (isAuth) {
-                    sessionStorage.setItem('userOptedIn', 'true')
+                    localStorage.setItem('userOptedIn', 'true')
                 }
                 return isAuth
             } catch (error) {
                 console.error('Error checking auth:', error)
+                setIsAuthenticated(false)
                 return false
             }
         }
 
+        setIsAuthenticated(false)
         return false
     }
 
     useEffect(() => {
         checkAuth()
+
+        if (supabase) {
+            const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+                const isAuth = !!session?.user
+                setIsAuthenticated(isAuth)
+
+                if (isAuth) {
+                    localStorage.setItem('userOptedIn', 'true')
+                } else if (event === 'SIGNED_OUT') {
+                    localStorage.removeItem('userOptedIn')
+                }
+            })
+
+            return () => {
+                subscription.unsubscribe()
+            }
+        }
     }, [])
 
     const openModal = (target: RedirectTarget = 'video-letter') => {

@@ -48,9 +48,8 @@ export function OptinModal() {
                 }
             }
 
-            // Salva i dati in sessionStorage
-            sessionStorage.setItem('userOptedIn', 'true')
-            sessionStorage.setItem('userEmail', formData.email)
+            localStorage.setItem('userOptedIn', 'true')
+            localStorage.setItem('userEmail', formData.email)
 
             closeModal()
 
