@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { Eye, TrendingUp } from 'lucide-react'
 
 export default function TestimonialsSection() {
-    const [currentIndex, setCurrentIndex] = useState(0)
+    const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0)
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
 
     const videoTestimonials = [
@@ -84,13 +84,14 @@ export default function TestimonialsSection() {
     ]
 
     const currentVideo = videoTestimonials[currentVideoIndex]
+    const currentTestimonial = testimonials[currentTestimonialIndex]
 
     const nextTestimonial = () => {
-        setCurrentIndex((prev) => (prev + 1 >= testimonials.length ? 0 : prev + 1))
+        setCurrentTestimonialIndex((prev) => (prev + 1) % testimonials.length)
     }
 
     const prevTestimonial = () => {
-        setCurrentIndex((prev) => (prev - 1 < 0 ? testimonials.length - 1 : prev - 1))
+        setCurrentTestimonialIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
     }
 
     const nextVideo = () => {
@@ -133,12 +134,13 @@ export default function TestimonialsSection() {
                     </p>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-12 mb-20">
+                {/* Desktop: Carosello testimonials */}
+                <div className="hidden lg:grid lg:grid-cols-2 gap-12 mb-20">
                     <motion.div
+                        key={currentTestimonialIndex}
                         initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.7 }}
-                        viewport={{ once: true }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
                         className="space-y-6"
                     >
                         <div className="flex items-center justify-between gap-4 mb-6">
@@ -159,8 +161,8 @@ export default function TestimonialsSection() {
                                         <div className="w-full h-full rounded-full bg-white p-[2px]">
                                             <div className="w-full h-full rounded-full overflow-hidden">
                                                 <Image
-                                                    src="https://vittoriconsulting.b-cdn.net/trusted/miraje.webp"
-                                                    alt="Desert Miraje - Coach di crescita per donne"
+                                                    src={currentTestimonial.photo}
+                                                    alt={`${currentTestimonial.name} - ${currentTestimonial.role}`}
                                                     width={56}
                                                     height={56}
                                                     className="w-full h-full object-cover"
@@ -170,35 +172,161 @@ export default function TestimonialsSection() {
                                     </div>
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-gray-900 text-base sm:text-lg">Desert Miraje</h4>
-                                    <p className="text-gray-600 text-sm">Coach di crescita per donne</p>
+                                    <h4 className="font-bold text-gray-900 text-base sm:text-lg">{currentTestimonial.name}</h4>
+                                    <p className="text-gray-600 text-sm">{currentTestimonial.role}</p>
                                 </div>
                             </div>
                         </div>
 
+                        <div className="inline-block bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-6 py-3 rounded-lg font-bold text-base shadow-md mb-4">
+                            {currentTestimonial.result}
+                        </div>
+
                         <p className="text-lg text-gray-700 leading-relaxed mb-6 italic">
-                            &quot;Con Valerio e il suo team mi sono trovata veramente bene, mi hanno capito e mi hanno aiutato a fare il mio primo lancio online, stra consigliati per altri professionisti che si vogliono affacciare sul digitale!&quot;
+                            {currentTestimonial.text}
                         </p>
-                        <div className="bg-white md:mt-26 rounded-2xl p-6 shadow-lg border border-gray-100">
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div className="text-2xl font-black text-[#2e54a1]">189+</div>
-                                    <p className="text-xs text-gray-600 mt-1">PMI trasformate</p>
+
+                        <div className="flex items-center gap-4 mt-6">
+                            <button
+                                onClick={prevTestimonial}
+                                className="w-12 h-12 rounded-full bg-white border-2 border-gray-300 hover:border-[#2e54a1] hover:bg-[#2e54a1] hover:text-white text-gray-600 transition-all duration-300 flex items-center justify-center shadow-md"
+                                aria-label="Testimonianza precedente"
+                            >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <span className="text-sm font-bold text-gray-600">
+                                {currentTestimonialIndex + 1}/{testimonials.length}
+                            </span>
+                            <button
+                                onClick={nextTestimonial}
+                                className="w-12 h-12 rounded-full bg-white border-2 border-gray-300 hover:border-[#2e54a1] hover:bg-[#2e54a1] hover:text-white text-gray-600 transition-all duration-300 flex items-center justify-center shadow-md"
+                                aria-label="Testimonianza successiva"
+                            >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </motion.div>
+
+                    {/* Box statistiche fisso a destra */}
+                    <div className="flex items-center justify-center">
+                        <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 w-full max-w-md">
+                            <div className="grid grid-cols-2 gap-6">
+                                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                                    <div className="text-3xl font-black text-[#2e54a1]">189+</div>
+                                    <p className="text-sm text-gray-600 mt-2">PMI trasformate</p>
                                 </div>
-                                <div className="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div className="text-2xl font-black text-[#2e54a1]">+150%</div>
-                                    <p className="text-xs text-gray-600 mt-1">fatturato medio</p>
+                                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                                    <div className="text-3xl font-black text-[#2e54a1]">+150%</div>
+                                    <p className="text-sm text-gray-600 mt-2">fatturato medio</p>
                                 </div>
-                                <div className="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div className="text-2xl font-black text-[#2e54a1]">5→50</div>
-                                    <p className="text-xs text-gray-600 mt-1">lead al mese</p>
+                                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                                    <div className="text-3xl font-black text-[#2e54a1]">5→50</div>
+                                    <p className="text-sm text-gray-600 mt-2">lead al mese</p>
                                 </div>
-                                <div className="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div className="text-2xl font-black text-[#2e54a1]">4:1</div>
-                                    <p className="text-xs text-gray-600 mt-1">ROI medio</p>
+                                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                                    <div className="text-3xl font-black text-[#2e54a1]">4:1</div>
+                                    <p className="text-sm text-gray-600 mt-2">ROI medio</p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                {/* Mobile: Scroll orizzontale testimonials */}
+                <div className="lg:hidden mb-12">
+                    <div className="overflow-x-auto pb-4 scrollbar-hide">
+                        <div className="flex gap-6 min-w-max px-4">
+                            {testimonials.map((testimonial, index) => (
+                                <motion.div
+                                    key={testimonial.id}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    viewport={{ once: true }}
+                                    className="flex-shrink-0 w-80 space-y-4"
+                                >
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="relative w-12 h-12 flex items-center justify-center">
+                                            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                                <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                                    <div className="w-full h-full rounded-full overflow-hidden">
+                                                        <Image
+                                                            src={testimonial.photo}
+                                                            alt={`${testimonial.name} - ${testimonial.role}`}
+                                                            width={48}
+                                                            height={48}
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 className="font-bold text-gray-900 text-lg">{testimonial.name}</h5>
+                                            <p className="text-sm text-gray-600">{testimonial.role}</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all">
+                                        <div className="flex items-center gap-1 mb-4">
+                                            {[...Array(5)].map((_, i) => (
+                                                <svg key={i} className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                            ))}
+                                        </div>
+
+                                        <div className="inline-block bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md mb-4">
+                                            {testimonial.result}
+                                        </div>
+
+                                        <blockquote className="text-gray-700 leading-relaxed text-base italic">
+                                            {testimonial.text}
+                                        </blockquote>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 mx-4 mt-8">
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="text-center p-3 bg-gray-50 rounded-lg">
+                                <div className="text-2xl font-black text-[#2e54a1]">189+</div>
+                                <p className="text-xs text-gray-600 mt-1">PMI trasformate</p>
+                            </div>
+                            <div className="text-center p-3 bg-gray-50 rounded-lg">
+                                <div className="text-2xl font-black text-[#2e54a1]">+150%</div>
+                                <p className="text-xs text-gray-600 mt-1">fatturato medio</p>
+                            </div>
+                            <div className="text-center p-3 bg-gray-50 rounded-lg">
+                                <div className="text-2xl font-black text-[#2e54a1]">5→50</div>
+                                <p className="text-xs text-gray-600 mt-1">lead al mese</p>
+                            </div>
+                            <div className="text-center p-3 bg-gray-50 rounded-lg">
+                                <div className="text-2xl font-black text-[#2e54a1]">4:1</div>
+                                <p className="text-xs text-gray-600 mt-1">ROI medio</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Video Carousel (Desktop e Mobile) */}
+                <div className="mb-12">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-8"
+                    >
+                        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 text-left md:text-center hidden md:block">
+                            Guarda cosa <br className='md:hidden block' /> dicono<br className='md:hidden block' /> i nostri clienti
+                        </h3>
                     </motion.div>
 
                     <motion.div
@@ -208,7 +336,7 @@ export default function TestimonialsSection() {
                         viewport={{ once: true }}
                         className="relative flex flex-col items-center gap-4"
                     >
-                        <div className="text-center">
+                        <div className="md:text-center text-left">
                             <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
                                 {currentVideo.title}
                             </h4>
@@ -251,7 +379,7 @@ export default function TestimonialsSection() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                                 </svg>
                             </button>
-                            <span className="text-sm font-bold text-gray-600">
+                            <span className="text-sm font-bold md:text-gray-600 text-white">
                                 {currentVideoIndex + 1}/{videoTestimonials.length}
                             </span>
                             <button
@@ -267,112 +395,17 @@ export default function TestimonialsSection() {
                     </motion.div>
                 </div>
 
-                <div className="mb-12">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
-                        className="space-y-8 md:grid md:grid-cols-3 md:gap-6 md:space-y-0"
+                <div className="md:text-center text-right">
+                    <a
+                        href="#calculator-section"
+                        aria-label="Vedi altri risultati e calcola la tua crescita"
+                        className="inline-flex items-center gap-2 md:text-gray-900 text-white font-bold hover:text-[#2e54a1] transition-colors"
                     >
-                        {testimonials.map((testimonial, index) => {
-                            // Su desktop mostra solo 3 testimonianze in base a currentIndex
-                            const isVisibleOnDesktop = index >= currentIndex && index < currentIndex + 3
-
-                            return (
-                                <motion.div
-                                    key={testimonial.id}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: (index - currentIndex) * 0.1 }}
-                                    viewport={{ once: true }}
-                                    className={`space-y-4 ${!isVisibleOnDesktop ? 'md:hidden' : ''}`}
-                                >
-                                    <div className="flex items-center gap-3">
-                                        <div className="relative w-12 h-12 flex items-center justify-center">
-                                            {testimonial.photo ? (
-                                                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
-                                                    <div className="w-full h-full rounded-full bg-white p-[2px]">
-                                                        <div className="w-full h-full rounded-full overflow-hidden">
-                                                            <Image
-                                                                src={testimonial.photo}
-                                                                alt={`${testimonial.name} - ${testimonial.role}`}
-                                                                width={48}
-                                                                height={48}
-                                                                className="w-full h-full object-cover"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ) : (
-                                                <div className="w-12 h-12 bg-[#2e54a1] rounded-full flex items-center justify-center flex-shrink-0">
-                                                    <span className="text-white font-bold text-lg">
-                                                        {testimonial.name.charAt(0)}
-                                                    </span>
-                                                </div>
-                                            )}
-                                        </div>
-                                        <div>
-                                            <h5 className="font-bold text-gray-900 text-lg">{testimonial.name}</h5>
-                                            <p className="text-sm text-gray-600">{testimonial.role.split(',')[1]?.trim() || testimonial.role}</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all relative">
-                                        <div className="absolute -top-2 left-6">
-                                            <svg className="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
-                                            </svg>
-                                        </div>
-
-                                        <div className="mb-3 pt-4">
-                                            <div className="inline-block bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md">
-                                                {testimonial.result}
-                                            </div>
-                                        </div>
-
-                                        <blockquote className="text-gray-700 leading-relaxed text-base italic">
-                                            {testimonial.text}
-                                        </blockquote>
-                                    </div>
-                                </motion.div>
-                            )
-                        })}
-                    </motion.div>
-
-                    <div className="flex items-center justify-between">
-                        <div className="hidden md:flex items-center gap-4 mt-4">
-                            <button
-                                onClick={prevTestimonial}
-                                aria-label="Testimonianze precedenti"
-                                className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-[#2e54a1] hover:text-[#2e54a1] transition-all"
-                            >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                </svg>
-                            </button>
-                            <button
-                                onClick={nextTestimonial}
-                                aria-label="Testimonianze successive"
-                                className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-[#2e54a1] hover:text-[#2e54a1] transition-all"
-                            >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <a
-                            href="#calculator-section"
-                            aria-label="Vedi altri risultati e calcola la tua crescita"
-                            className="inline-flex items-center gap-2 mt-6 md:mt-0 text-white md:text-gray-900 font-bold hover:text-[#2e54a1] transition-colors ml-auto md:ml-0"
-                        >
-                            <span>CALCOLA IL TUO POTENZIALE</span>
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                    </div>
+                        <span>CALCOLA IL TUO POTENZIALE</span>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </section>
