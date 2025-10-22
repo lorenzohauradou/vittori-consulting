@@ -45,6 +45,8 @@ export async function POST(req: Request) {
             actionPlan
         }
 
+        console.log(reportData)
+
         const pdfStream = await renderToBuffer(
             ReportDocument({ data: reportData })
         )

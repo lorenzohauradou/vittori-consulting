@@ -154,10 +154,11 @@ interface ReportData {
 }
 
 export const ReportDocument = ({ data }: { data: ReportData }) => {
-    const projection6MonthsAnnual = (data.projections[6]?.revenue || 0) * 12
-    const projection12MonthsAnnual = (data.projections[12]?.revenue || 0) * 12
-    const growth6M = ((projection6MonthsAnnual - data.currentRevenue) / data.currentRevenue * 100).toFixed(1)
-    const growth12M = ((projection12MonthsAnnual - data.currentRevenue) / data.currentRevenue * 100).toFixed(1)
+    const totalIncrease6M = data.projections.slice(0, 7).reduce((sum, p) => sum + p.revenue, 0)
+    const totalIncrease12M = data.projections.slice(0, 13).reduce((sum, p) => sum + p.revenue, 0)
+
+    const growth6M = ((totalIncrease6M / (data.currentRevenue / 12)) * 100).toFixed(1)
+    const growth12M = ((totalIncrease12M / (data.currentRevenue / 12)) * 100).toFixed(1)
 
     return (
         <Document>
@@ -197,13 +198,13 @@ export const ReportDocument = ({ data }: { data: ReportData }) => {
                     <View style={styles.projectionBox}>
                         <Text style={styles.projectionLabel}>Obiettivo 6 Mesi</Text>
                         <Text style={styles.projectionValue}>
-                            € {projection6MonthsAnnual.toLocaleString('it-IT')} ({growth6M > '0' ? '+' : ''}{growth6M}%)
+                            € {totalIncrease6M.toLocaleString('it-IT')} (+{growth6M}%)
                         </Text>
                     </View>
                     <View style={styles.projectionBox}>
                         <Text style={styles.projectionLabel}>Obiettivo 12 Mesi</Text>
                         <Text style={styles.projectionValue}>
-                            € {projection12MonthsAnnual.toLocaleString('it-IT')} ({growth12M > '0' ? '+' : ''}{growth12M}%)
+                            € {totalIncrease12M.toLocaleString('it-IT')} (+{growth12M}%)
                         </Text>
                     </View>
                 </View>
