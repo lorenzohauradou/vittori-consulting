@@ -323,7 +323,7 @@ function TeamCard({ member, index, isMobile }: {
                             <div className="w-full h-full rounded-full overflow-hidden">
                                 <Image
                                     src={
-                                        member.name === 'Lorenzo' ? "https://vittoriconsulting.b-cdn.net/team/lorenzo.png" :
+                                        member.name === 'Lorenzo' ? "https://vittoriconsulting.b-cdn.net/team/lorenzo.jpg" :
                                             member.name === 'Camilla' ? "https://vittoriconsulting.b-cdn.net/team/camilla.jpg" :
                                                 member.name === 'Valerio Vittori' ? "https://vittoriconsulting.b-cdn.net/team/valerio.png" :
                                                     "https://vittoriconsulting.b-cdn.net/team/nicole.jpg"
