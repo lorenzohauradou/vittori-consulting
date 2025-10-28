@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Eye, TrendingUp } from 'lucide-react'
@@ -8,16 +8,26 @@ import { Eye, TrendingUp } from 'lucide-react'
 export default function TestimonialsSection() {
     const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0)
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+    const [isMobile, setIsMobile] = useState(false)
 
-    const videoTestimonials = [
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+        checkMobile()
+        window.addEventListener('resize', checkMobile)
+        return () => window.removeEventListener('resize', checkMobile)
+    }, [])
+
+    const desktopVideoOrder = [
         {
             id: 1,
-            title: "Alberto's Pizza",
-            result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
-            icon: 'eye',
-            src: 'https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=true&loop=true&muted=false&preload=true&responsive=true',
-            aspectRatio: '9/16',
-            description: 'Testimonianza di Daniele - Alberto\'s Pizza'
+            title: 'Gelotti Gelateria',
+            result: '+100 clienti che tramite video sono passati in gelateria',
+            icon: 'trending',
+            src: 'https://iframe.mediadelivery.net/embed/510109/d1a41484-02fd-47a0-92c1-bb1c50ba2fd7?loop=false&muted=false&preload=true&responsive=true',
+            aspectRatio: '16/9',
+            description: 'Testimonianza Gelotti - +100 clienti grazie ai video'
         },
         {
             id: 2,
@@ -30,12 +40,51 @@ export default function TestimonialsSection() {
         },
         {
             id: 3,
+            title: 'St Peter Photo',
+            result: '+6 servizi fotografici raggiunti in soli 30 giorni',
+            icon: 'trending',
+            src: 'https://iframe.mediadelivery.net/embed/510109/7a315d76-854f-4b1d-8b5c-430722150141?loop=false&muted=false&preload=true&responsive=true',
+            aspectRatio: '16/9',
+            description: 'Testimonianza di St Peter Photo'
+        },
+        {
+            id: 4,
+            title: "Alberto's Pizza",
+            result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
+            icon: 'eye',
+            src: 'https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=true&loop=true&muted=false&preload=true&responsive=true',
+            aspectRatio: '9/16',
+            description: 'Testimonianza di Daniele - Alberto\'s Pizza'
+        }
+    ]
+
+    const mobileVideoOrder = [
+        {
+            id: 1,
+            title: "Alberto's Pizza",
+            result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
+            icon: 'eye',
+            src: 'https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=true&loop=true&muted=false&preload=true&responsive=true',
+            aspectRatio: '9/16',
+            description: 'Testimonianza di Daniele - Alberto\'s Pizza'
+        },
+        {
+            id: 2,
             title: 'Gelotti Gelateria',
             result: '+100 clienti che tramite video sono passati in gelateria',
             icon: 'trending',
             src: 'https://iframe.mediadelivery.net/embed/510109/d1a41484-02fd-47a0-92c1-bb1c50ba2fd7?loop=false&muted=false&preload=true&responsive=true',
             aspectRatio: '16/9',
             description: 'Testimonianza Gelotti - +100 clienti grazie ai video'
+        },
+        {
+            id: 3,
+            title: 'Nicoletta - Scavolini Store Fiumicino',
+            result: '+13.500€ di fatturato in 7 giorni',
+            icon: 'trending',
+            src: 'https://iframe.mediadelivery.net/embed/510109/48aef447-75a3-4a7e-b28d-367506aaf14e?loop=false&muted=false&preload=true&responsive=true',
+            aspectRatio: '16/9',
+            description: 'Testimonianza di Nicoletta - Scavolini Store Fiumicino'
         },
         {
             id: 4,
@@ -47,6 +96,8 @@ export default function TestimonialsSection() {
             description: 'Testimonianza di St Peter Photo'
         }
     ]
+
+    const videoTestimonials = isMobile ? mobileVideoOrder : desktopVideoOrder
 
     const testimonials = [
         {
@@ -80,6 +131,30 @@ export default function TestimonialsSection() {
             result: '+20 nuovi clienti in solo 28 giorni per estetica avanzata',
             text: '"Con Vittori Consulting mi sono trovata e mi sto trovando molto bene, sono molto disponibili e fin da subito mi hanno fatto correre a differenza di altre agenzie di marketing, stiamo raggiungendo risultati veramente incredibili che in 6 anni di attività non avevo mai raggiunto. Mi stanno arrivando nuovi clienti per l\'estetica avanzata ogni mese. Li consiglierei assolutamente a tutti!"',
             photo: 'https://vittoriconsulting.b-cdn.net/trusted/jacqueline.webp'
+        },
+        {
+            id: 5,
+            name: 'Ramona',
+            role: 'Ramona Beauty',
+            result: '5.000€ di Trattamenti Corpo venduti in 30 giorni',
+            text: '"Sono davvero soddisfatta dei risultati. In un solo mese ho venduto trattamenti per 5.000€ grazie alle strategie del team. Finalmente riesco a far conoscere i miei servizi alle persone giuste."',
+            photo: 'https://vittoriconsulting.b-cdn.net/trusted/ramona.webp'
+        },
+        {
+            id: 6,
+            name: 'Dr. Marco Bianchi',
+            role: 'Dental Clinic',
+            result: '26.800€ di Cure Dentali vendute in 30 giorni',
+            text: '"Collaborare con Valerio e il suo team è stata la scelta migliore per la mia clinica. In 30 giorni abbiamo generato oltre 26.000€ di fatturato con pazienti realmente interessati. Professionalità e risultati concreti."',
+            photo: 'https://vittoriconsulting.b-cdn.net/trusted/dental.webp'
+        },
+        {
+            id: 7,
+            name: 'Alessandro',
+            role: 'Machete Barber',
+            result: '10 Nuovi Franchising aperti in un anno',
+            text: '"Grazie al supporto di Vittori Consulting siamo passati da una singola barberia a un network di 10 franchising in solo un anno. Hanno creato una strategia vincente che ci ha permesso di crescere in modo sostenibile."',
+            photo: 'https://vittoriconsulting.b-cdn.net/trusted/machete.webp'
         }
     ]
 

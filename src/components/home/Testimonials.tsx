@@ -142,6 +142,27 @@ export default function Testimonials() {
             result: '+20 nuovi clienti in solo 28 giorni per estetica avanzata',
             text: '"Con Vittori Consulting mi sono trovata e mi sto trovando molto bene, sono molto disponibili e fin da subito mi hanno fatto correre a differenza di altre agenzie di marketing, stiamo raggiungendo risultati veramente incredibili che in 6 anni di attività non avevo mai raggiunto. Mi stanno arrivando nuovi clienti per l\'estetica avanzata ogni mese. Li consiglierei assolutamente a tutti!"',
             photo: 'https://vittoriconsulting.b-cdn.net/trusted/jacqueline.webp'
+        },
+        {
+            name: 'Ramona',
+            role: 'Ramona Beauty',
+            result: '5.000€ di Trattamenti Corpo venduti in 30 giorni',
+            text: '"Sono davvero soddisfatta dei risultati. In un solo mese ho venduto trattamenti per 5.000€ grazie alle strategie del team. Finalmente riesco a far conoscere i miei servizi alle persone giuste."',
+            photo: 'https://vittoriconsulting.b-cdn.net/trusted/ramona.webp'
+        },
+        {
+            name: 'Dr. Marco Bianchi',
+            role: 'Dental Clinic',
+            result: '26.800€ di Cure Dentali vendute in 30 giorni',
+            text: '"Collaborare con Valerio e il suo team è stata la scelta migliore per la mia clinica. In 30 giorni abbiamo generato oltre 26.000€ di fatturato con pazienti realmente interessati. Professionalità e risultati concreti."',
+            photo: 'https://vittoriconsulting.b-cdn.net/trusted/dental.webp'
+        },
+        {
+            name: 'Alessandro',
+            role: 'Machete Barber',
+            result: '10 Nuovi Franchising aperti in un anno',
+            text: '"Grazie al supporto di Vittori Consulting siamo passati da una singola barberia a un network di 10 franchising in solo un anno. Hanno creato una strategia vincente che ci ha permesso di crescere in modo sostenibile."',
+            photo: 'https://vittoriconsulting.b-cdn.net/trusted/machete.webp'
         }
     ]
 
