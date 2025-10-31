@@ -25,7 +25,7 @@ export default function TestimonialsSection() {
             title: 'Gelotti Gelateria',
             result: '+100 clienti che tramite video sono passati in gelateria',
             icon: 'trending',
-            src: 'https://iframe.mediadelivery.net/embed/510109/d1a41484-02fd-47a0-92c1-bb1c50ba2fd7?loop=false&muted=false&preload=true&responsive=true',
+            src: 'https://iframe.mediadelivery.net/embed/510109/d1a41484-02fd-47a0-92c1-bb1c50ba2fd7?autoplay=false&loop=false&muted=false&preload=true&responsive=true',
             aspectRatio: '16/9',
             description: 'Testimonianza Gelotti - +100 clienti grazie ai video'
         },
@@ -52,7 +52,7 @@ export default function TestimonialsSection() {
             title: "Alberto's Pizza",
             result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
             icon: 'eye',
-            src: 'https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=true&loop=true&muted=false&preload=true&responsive=true',
+            src: 'https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=false&loop=true&muted=false&preload=true&responsive=true',
             aspectRatio: '9/16',
             description: 'Testimonianza di Daniele - Alberto\'s Pizza'
         }
@@ -64,7 +64,7 @@ export default function TestimonialsSection() {
             title: "Alberto's Pizza",
             result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
             icon: 'eye',
-            src: 'https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=true&loop=true&muted=false&preload=true&responsive=true',
+            src: 'https://iframe.mediadelivery.net/embed/510109/cc26ce9d-560f-448e-a3ed-4f7eb1995b7e?autoplay=false&loop=true&muted=false&preload=true&responsive=true',
             aspectRatio: '9/16',
             description: 'Testimonianza di Daniele - Alberto\'s Pizza'
         },
@@ -431,7 +431,7 @@ export default function TestimonialsSection() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.4 }}
                             className={`relative w-full bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl overflow-hidden shadow-2xl ${currentVideo.aspectRatio === '9/16'
-                                ? 'max-w-[280px] sm:max-w-[320px] lg:max-w-[380px] aspect-[9/16]'
+                                ? 'max-w-[400px] sm:max-w-[450px] lg:max-w-[500px] aspect-[9/16] mx-auto'
                                 : 'max-w-full aspect-video'
                                 }`}
                         >
