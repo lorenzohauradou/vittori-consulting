@@ -48,6 +48,11 @@ export default function IPhoneCanvas({
     }
 
     useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.setAttribute('playsinline', 'true')
+            videoRef.current.setAttribute('webkit-playsinline', 'true')
+        }
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -135,6 +140,7 @@ export default function IPhoneCanvas({
                                                 loop
                                                 muted
                                                 playsInline
+                                                webkit-playsinline="true"
                                                 preload="metadata"
                                                 onClick={toggleMute}
                                                 aria-label="Video dimostrativo del caso studio"

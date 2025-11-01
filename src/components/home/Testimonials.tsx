@@ -17,6 +17,11 @@ export default function Testimonials() {
     const timeoutRef = React.useRef<NodeJS.Timeout | null>(null)
 
     React.useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.setAttribute('playsinline', 'true')
+            videoRef.current.setAttribute('webkit-playsinline', 'true')
+        }
+
         return () => {
             if (timeoutRef.current) {
                 clearTimeout(timeoutRef.current)
@@ -387,6 +392,7 @@ export default function Testimonials() {
                                         loop
                                         muted={isMuted}
                                         playsInline
+                                        webkit-playsinline="true"
                                         onClick={toggleMute}
                                         aria-label={currentVideo.description}
                                     >
