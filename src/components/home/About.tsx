@@ -250,7 +250,7 @@ function TeamCard({ member, index, isMobile }: {
                                         alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                                         width={200}
                                         height={200}
-                                        className="w-full h-full object-cover"
+                                        className={`w-full h-full object-cover ${member.name === 'Lorenzo' ? 'scale-120' : ''}`}
                                     />
                                 </div>
                             </div>
@@ -331,7 +331,7 @@ function TeamCard({ member, index, isMobile }: {
                                     alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                                     width={180}
                                     height={180}
-                                    className="w-full h-full object-cover"
+                                    className={`w-full h-full object-cover ${member.name === 'Lorenzo' ? 'scale-120' : ''}`}
                                 />
                             </div>
                         </div>
