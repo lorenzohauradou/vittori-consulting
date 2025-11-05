@@ -33,7 +33,7 @@ export default function About() {
             name: 'Lorenzo',
             role: 'Full Stack Developer',
             quote: 'Learn slow, fail fast, ship faster',
-            photo: 'https://vittoriconsulting.b-cdn.net/team/lorenzo.jpg',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/lorenzo1.png',
             position: 'center',
             delay: 0.2
         },
@@ -242,7 +242,7 @@ function TeamCard({ member, index, isMobile }: {
                                 <div className="w-full h-full rounded-full overflow-hidden">
                                     <Image
                                         src={
-                                            member.name === 'Lorenzo' ? "https://vittoriconsulting.b-cdn.net/team/lorenzo.jpg" :
+                                            member.name === 'Lorenzo' ? "https://vittoriconsulting.b-cdn.net/team/lorenzo1.png" :
                                                 member.name === 'Camilla' ? "https://vittoriconsulting.b-cdn.net/team/camilla.jpg" :
                                                     member.name === 'Valerio Vittori' ? "https://vittoriconsulting.b-cdn.net/team/valerio.png" :
                                                         "https://vittoriconsulting.b-cdn.net/team/nicole.jpg"
@@ -323,7 +323,7 @@ function TeamCard({ member, index, isMobile }: {
                             <div className="w-full h-full rounded-full overflow-hidden">
                                 <Image
                                     src={
-                                        member.name === 'Lorenzo' ? "https://vittoriconsulting.b-cdn.net/team/lorenzo.jpg" :
+                                        member.name === 'Lorenzo' ? "https://vittoriconsulting.b-cdn.net/team/lorenzo1.png" :
                                             member.name === 'Camilla' ? "https://vittoriconsulting.b-cdn.net/team/camilla.jpg" :
                                                 member.name === 'Valerio Vittori' ? "https://vittoriconsulting.b-cdn.net/team/valerio.png" :
                                                     "https://vittoriconsulting.b-cdn.net/team/nicole.jpg"
