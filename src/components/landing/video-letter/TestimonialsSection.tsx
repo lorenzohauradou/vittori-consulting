@@ -126,11 +126,11 @@ export default function TestimonialsSection() {
         },
         {
             id: 4,
-            name: 'Jacqueline Valdivia',
-            role: 'Passito Spa Centro Estetico',
-            result: '+20 nuovi clienti in solo 28 giorni per estetica avanzata',
-            text: '"Con Vittori Consulting mi sono trovata e mi sto trovando molto bene, sono molto disponibili e fin da subito mi hanno fatto correre a differenza di altre agenzie di marketing, stiamo raggiungendo risultati veramente incredibili che in 6 anni di attività non avevo mai raggiunto. Mi stanno arrivando nuovi clienti per l\'estetica avanzata ogni mese. Li consiglierei assolutamente a tutti!"',
-            photo: 'https://vittoriconsulting.b-cdn.net/trusted/jacqueline.webp'
+            name: 'Alessandro',
+            role: 'Machete Barber',
+            result: '10 Nuovi Franchising aperti in un anno',
+            text: '"Grazie al supporto di Vittori Consulting siamo passati da una singola barberia a un network di 10 franchising in solo un anno. Hanno creato una strategia vincente che ci ha permesso di crescere in modo sostenibile."',
+            photo: 'https://vittoriconsulting.b-cdn.net/trusted/machete.jpg'
         },
         {
             id: 5,
@@ -149,13 +149,14 @@ export default function TestimonialsSection() {
             photo: 'https://vittoriconsulting.b-cdn.net/trusted/dental.jpg'
         },
         {
-            id: 7,
-            name: 'Alessandro',
-            role: 'Machete Barber',
-            result: '10 Nuovi Franchising aperti in un anno',
-            text: '"Grazie al supporto di Vittori Consulting siamo passati da una singola barberia a un network di 10 franchising in solo un anno. Hanno creato una strategia vincente che ci ha permesso di crescere in modo sostenibile."',
-            photo: 'https://vittoriconsulting.b-cdn.net/trusted/machete.jpg'
+            id: 4,
+            name: 'Jacqueline Valdivia',
+            role: 'Passito Spa Centro Estetico',
+            result: '+20 nuovi clienti in solo 28 giorni per estetica avanzata',
+            text: '"Con Vittori Consulting mi sono trovata e mi sto trovando molto bene, sono molto disponibili e fin da subito mi hanno fatto correre a differenza di altre agenzie di marketing, stiamo raggiungendo risultati veramente incredibili che in 6 anni di attività non avevo mai raggiunto. Mi stanno arrivando nuovi clienti per l\'estetica avanzata ogni mese. Li consiglierei assolutamente a tutti!"',
+            photo: 'https://vittoriconsulting.b-cdn.net/trusted/jacqueline.webp'
         }
+
     ]
 
     const currentVideo = videoTestimonials[currentVideoIndex]
