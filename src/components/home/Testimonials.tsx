@@ -523,7 +523,7 @@ export default function Testimonials() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.7 }}
                             viewport={{ once: true }}
-                            className="text-lg sm:text-xl lg:text-2xl mb-8 text-white/95 lg:text-gray-700 drop-shadow-md max-w-2xl mx-auto leading-relaxed"
+                            className="text-lg sm:text-xl lg:text-2xl mb-8 text-white/95 lg:text-black drop-shadow-md max-w-2xl mx-auto leading-relaxed"
                         >
                             Scopri cosa dicono di noi i clienti che hanno già fatto il salto di qualità
                         </motion.p>
