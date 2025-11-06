@@ -149,7 +149,7 @@ export default function TestimonialsSection() {
             photo: 'https://vittoriconsulting.b-cdn.net/trusted/dental.jpg'
         },
         {
-            id: 4,
+            id: 7,
             name: 'Jacqueline Valdivia',
             role: 'Passito Spa Centro Estetico',
             result: '+20 nuovi clienti in solo 28 giorni per estetica avanzata',
