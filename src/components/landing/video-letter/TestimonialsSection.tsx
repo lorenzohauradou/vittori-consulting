@@ -211,13 +211,7 @@ export default function TestimonialsSection() {
 
                 {/* Desktop: Carosello testimonials */}
                 <div className="hidden lg:grid lg:grid-cols-2 gap-12 mb-20">
-                    <motion.div
-                        key={currentTestimonialIndex}
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="space-y-6"
-                    >
+                    <div className="space-y-6">
                         <div className="flex items-center justify-between gap-4 mb-6">
                             <div className="flex flex-col">
                                 <span className="text-6xl font-bold text-gray-900 mb-2">5.0</span>
@@ -230,7 +224,17 @@ export default function TestimonialsSection() {
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-3">
+                            <motion.div
+                                key={currentTestimonialIndex}
+                                initial={{ opacity: 0, scale: 0.9, filter: 'blur(4px)' }}
+                                animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                                exit={{ opacity: 0, scale: 0.9, filter: 'blur(4px)' }}
+                                transition={{
+                                    duration: 0.5,
+                                    ease: [0.4, 0.0, 0.2, 1]
+                                }}
+                                className="flex items-center gap-3"
+                            >
                                 <div className="relative w-14 h-14 flex items-center justify-center flex-shrink-0">
                                     <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
                                         <div className="w-full h-full rounded-full bg-white p-[2px]">
@@ -250,16 +254,45 @@ export default function TestimonialsSection() {
                                     <h4 className="font-bold text-gray-900 text-base sm:text-lg">{currentTestimonial.name}</h4>
                                     <p className="text-gray-600 text-sm">{currentTestimonial.role}</p>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
 
-                        <div className="inline-block bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-6 py-3 rounded-lg font-bold text-base shadow-md mb-4">
-                            {currentTestimonial.result}
-                        </div>
+                        <motion.div
+                            key={`content-${currentTestimonialIndex}`}
+                            initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+                            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                            exit={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
+                            transition={{
+                                duration: 0.6,
+                                ease: [0.4, 0.0, 0.2, 1]
+                            }}
+                        >
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.2,
+                                    ease: [0.4, 0.0, 0.2, 1]
+                                }}
+                                className="inline-block bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-6 py-3 rounded-lg font-bold text-base shadow-md mb-4"
+                            >
+                                {currentTestimonial.result}
+                            </motion.div>
 
-                        <p className="text-lg text-gray-700 leading-relaxed mb-6 italic">
-                            {currentTestimonial.text}
-                        </p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.35,
+                                    ease: [0.4, 0.0, 0.2, 1]
+                                }}
+                                className="text-lg text-gray-700 leading-relaxed mb-6 italic"
+                            >
+                                {currentTestimonial.text}
+                            </motion.p>
+                        </motion.div>
 
                         <div className="flex items-center gap-4 mt-6">
                             <button
@@ -284,7 +317,7 @@ export default function TestimonialsSection() {
                                 </svg>
                             </button>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Box statistiche fisso a destra */}
                     <div className="flex items-center justify-center">
