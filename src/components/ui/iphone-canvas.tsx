@@ -49,8 +49,17 @@ export default function IPhoneCanvas({
 
     useEffect(() => {
         if (videoRef.current) {
-            videoRef.current.setAttribute('playsinline', 'true')
-            videoRef.current.setAttribute('webkit-playsinline', 'true')
+            const video = videoRef.current
+            video.setAttribute('playsinline', 'true')
+            video.setAttribute('webkit-playsinline', 'true')
+            video.setAttribute('x-webkit-airplay', 'deny')
+            video.setAttribute('x5-playsinline', 'true')
+            video.setAttribute('x5-video-player-type', 'h5')
+            video.setAttribute('x5-video-player-fullscreen', 'false')
+            video.setAttribute('x5-video-orientation', 'portraint')
+
+            video.style.objectFit = 'cover'
+            video.disablePictureInPicture = true
         }
 
         const observer = new IntersectionObserver(
@@ -59,7 +68,12 @@ export default function IPhoneCanvas({
                     if (entry.isIntersecting) {
                         setIsVideoVisible(true)
                         if (videoRef.current && videoRef.current.paused) {
-                            videoRef.current.play().catch(console.error)
+                            const playPromise = videoRef.current.play()
+                            if (playPromise !== undefined) {
+                                playPromise.catch((error) => {
+                                    console.error('Video play failed:', error)
+                                })
+                            }
                         }
                     } else {
                         setIsVideoVisible(false)
@@ -141,10 +155,16 @@ export default function IPhoneCanvas({
                                                 muted
                                                 playsInline
                                                 webkit-playsinline="true"
+                                                x-webkit-airplay="deny"
+                                                x5-playsinline="true"
+                                                x5-video-player-type="h5"
+                                                x5-video-player-fullscreen="false"
+                                                x5-video-orientation="portraint"
                                                 preload="metadata"
                                                 onClick={toggleMute}
                                                 aria-label="Video dimostrativo del caso studio"
                                                 className="w-full h-full object-cover cursor-pointer"
+                                                style={{ objectFit: 'cover' }}
                                             >
                                                 <track kind="captions" />
                                             </video>
