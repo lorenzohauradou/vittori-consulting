@@ -50,20 +50,16 @@ export default function IPhoneCanvas({
     useEffect(() => {
         if (videoRef.current) {
             const video = videoRef.current
-            video.playsInline = true
-            video.setAttribute('playsinline', '')
-            video.setAttribute('webkit-playsinline', '')
+            video.setAttribute('playsinline', 'true')
+            video.setAttribute('webkit-playsinline', 'true')
+            video.setAttribute('x-webkit-airplay', 'deny')
+            video.setAttribute('x5-playsinline', 'true')
+            video.setAttribute('x5-video-player-type', 'h5')
+            video.setAttribute('x5-video-player-fullscreen', 'false')
+            video.setAttribute('x5-video-orientation', 'portraint')
+
+            video.style.objectFit = 'cover'
             video.disablePictureInPicture = true
-
-            video.addEventListener('webkitbeginfullscreen', (e) => {
-                e.preventDefault()
-                e.stopPropagation()
-            })
-
-            video.addEventListener('webkitendfullscreen', (e) => {
-                e.preventDefault()
-                e.stopPropagation()
-            })
         }
 
         const observer = new IntersectionObserver(
@@ -158,10 +154,17 @@ export default function IPhoneCanvas({
                                                 loop
                                                 muted
                                                 playsInline
+                                                webkit-playsinline="true"
+                                                x-webkit-airplay="deny"
+                                                x5-playsinline="true"
+                                                x5-video-player-type="h5"
+                                                x5-video-player-fullscreen="false"
+                                                x5-video-orientation="portraint"
                                                 preload="metadata"
                                                 onClick={toggleMute}
                                                 aria-label="Video dimostrativo del caso studio"
                                                 className="w-full h-full object-cover cursor-pointer"
+                                                style={{ objectFit: 'cover' }}
                                             >
                                                 <track kind="captions" />
                                             </video>
