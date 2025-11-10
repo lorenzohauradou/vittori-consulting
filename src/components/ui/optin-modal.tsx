@@ -22,6 +22,7 @@ export function OptinModal() {
     })
 
     const CALENDLY_URL = 'https://calendly.com/valerio-vittori/30min?hide_gdpr_banner=1'
+    const SITE_URL = process.env.NEXT_PUBLIC_URL || 'https://www.vittoriconsulting.it'
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -29,7 +30,7 @@ export function OptinModal() {
 
         try {
             if (supabase) {
-                const { error } = await supabase.auth.signUp({
+                const { data: authData, error: authError } = await supabase.auth.signUp({
                     email: formData.email,
                     password: Math.random().toString(36).slice(-12) + 'Aa1!',
                     options: {
@@ -39,12 +40,28 @@ export function OptinModal() {
                             phone: formData.phone,
                             full_name: `${formData.firstName} ${formData.lastName}`
                         },
-                        emailRedirectTo: `${window.location.origin}/video-letter`
+                        emailRedirectTo: `${SITE_URL}/video-letter`
                     }
                 })
 
-                if (error) {
-                    console.error('Error signing up:', error)
+                if (authError) {
+                    console.error('Error signing up:', authError)
+                }
+
+                if (authData?.user) {
+                    const { error: profileError } = await supabase.from('profiles').insert({
+                        id: authData.user.id,
+                        email: formData.email,
+                        first_name: formData.firstName,
+                        last_name: formData.lastName,
+                        phone: formData.phone,
+                        full_name: `${formData.firstName} ${formData.lastName}`,
+                        source: redirectTarget === 'calendly' ? 'calendly_optin' : 'video_letter_optin'
+                    })
+
+                    if (profileError) {
+                        console.error('Error creating profile:', profileError)
+                    }
                 }
             }
 
