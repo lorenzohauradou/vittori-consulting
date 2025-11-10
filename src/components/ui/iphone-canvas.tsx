@@ -50,16 +50,35 @@ export default function IPhoneCanvas({
     useEffect(() => {
         if (videoRef.current) {
             const video = videoRef.current
-            video.setAttribute('playsinline', 'true')
-            video.setAttribute('webkit-playsinline', 'true')
-            video.setAttribute('x-webkit-airplay', 'deny')
-            video.setAttribute('x5-playsinline', 'true')
-            video.setAttribute('x5-video-player-type', 'h5')
-            video.setAttribute('x5-video-player-fullscreen', 'false')
-            video.setAttribute('x5-video-orientation', 'portraint')
-
-            video.style.objectFit = 'cover'
+            video.playsInline = true
             video.disablePictureInPicture = true
+            video.setAttribute('playsinline', '')
+            video.setAttribute('webkit-playsinline', '')
+
+            const preventFullscreen = (e: Event) => {
+                e.preventDefault()
+                e.stopPropagation()
+                e.stopImmediatePropagation()
+                return false
+            }
+
+            video.addEventListener('webkitbeginfullscreen', preventFullscreen, { capture: true })
+            video.addEventListener('webkitendfullscreen', preventFullscreen, { capture: true })
+            video.addEventListener('webkitfullscreenchange', preventFullscreen, { capture: true })
+            video.addEventListener('fullscreenchange', preventFullscreen, { capture: true })
+
+            video.addEventListener('play', () => {
+                const videoElement = video as HTMLVideoElement & {
+                    webkitDisplayingFullscreen?: boolean
+                }
+                const doc = document as Document & {
+                    webkitFullscreenElement?: Element
+                }
+                if (videoElement.webkitDisplayingFullscreen || doc.webkitFullscreenElement === video) {
+                    video.pause()
+                    setTimeout(() => video.play(), 100)
+                }
+            })
         }
 
         const observer = new IntersectionObserver(
@@ -68,12 +87,14 @@ export default function IPhoneCanvas({
                     if (entry.isIntersecting) {
                         setIsVideoVisible(true)
                         if (videoRef.current && videoRef.current.paused) {
-                            const playPromise = videoRef.current.play()
-                            if (playPromise !== undefined) {
-                                playPromise.catch((error) => {
-                                    console.error('Video play failed:', error)
-                                })
-                            }
+                            setTimeout(() => {
+                                const playPromise = videoRef.current?.play()
+                                if (playPromise !== undefined) {
+                                    playPromise.catch((error) => {
+                                        console.error('Video play failed:', error)
+                                    })
+                                }
+                            }, 100)
                         }
                     } else {
                         setIsVideoVisible(false)
@@ -145,6 +166,12 @@ export default function IPhoneCanvas({
                                     transition={{ duration: 0.3, delay: 0.15 }}
                                     viewport={{ once: true, margin: "-50px" }}
                                     className="w-full h-full rounded-2xl overflow-hidden relative"
+                                    style={{
+                                        isolation: 'isolate',
+                                        contain: 'layout style paint',
+                                        position: 'relative',
+                                        overflow: 'hidden'
+                                    }}
                                 >
                                     {videoSrc ? (
                                         <>
@@ -154,17 +181,21 @@ export default function IPhoneCanvas({
                                                 loop
                                                 muted
                                                 playsInline
-                                                webkit-playsinline="true"
-                                                x-webkit-airplay="deny"
-                                                x5-playsinline="true"
-                                                x5-video-player-type="h5"
-                                                x5-video-player-fullscreen="false"
-                                                x5-video-orientation="portraint"
                                                 preload="metadata"
                                                 onClick={toggleMute}
+                                                onDoubleClick={(e) => {
+                                                    e.preventDefault()
+                                                    e.stopPropagation()
+                                                }}
                                                 aria-label="Video dimostrativo del caso studio"
                                                 className="w-full h-full object-cover cursor-pointer"
-                                                style={{ objectFit: 'cover' }}
+                                                style={{
+                                                    objectFit: 'cover',
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    maxWidth: '100%',
+                                                    maxHeight: '100%'
+                                                }}
                                             >
                                                 <track kind="captions" />
                                             </video>
