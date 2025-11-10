@@ -24,6 +24,11 @@ export function OptinModal() {
     const CALENDLY_URL = 'https://calendly.com/valerio-vittori/30min?hide_gdpr_banner=1'
     const SITE_URL = process.env.NEXT_PUBLIC_URL || 'https://www.vittoriconsulting.it'
 
+    const capitalizeFirst = (str: string) => {
+        if (!str) return str
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+    }
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setIsLoading(true)
@@ -151,7 +156,7 @@ export function OptinModal() {
                                                 placeholder="Nome"
                                                 required
                                                 value={formData.firstName}
-                                                onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                                                onChange={(e) => setFormData({ ...formData, firstName: capitalizeFirst(e.target.value) })}
                                                 className="h-11 rounded-xl border-gray-200 focus:border-[#2e54a1] transition-colors"
                                             />
                                         </div>
@@ -161,7 +166,7 @@ export function OptinModal() {
                                                 placeholder="Cognome"
                                                 required
                                                 value={formData.lastName}
-                                                onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                                                onChange={(e) => setFormData({ ...formData, lastName: capitalizeFirst(e.target.value) })}
                                                 className="h-11 rounded-xl border-gray-200 focus:border-[#2e54a1] transition-colors"
                                             />
                                         </div>
