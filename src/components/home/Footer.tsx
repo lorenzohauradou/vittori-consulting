@@ -18,10 +18,16 @@ export default function Footer() {
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target
+        const campiCapitalize = ['name', 'message']
         setFormData(prev => ({
             ...prev,
-            [name]: value
+            [name]: campiCapitalize.includes(name) ? capitalizeFirst(value) : value
         }))
+    }
+
+    const capitalizeFirst = (str: string) => {
+        if (!str) return str
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
     }
 
     const handleSubmit = async (e: React.FormEvent) => {
