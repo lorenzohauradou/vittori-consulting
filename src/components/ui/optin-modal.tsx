@@ -22,7 +22,6 @@ export function OptinModal() {
     })
 
     const CALENDLY_URL = 'https://calendly.com/valerio-vittori/30min?hide_gdpr_banner=1'
-    const PRODUCTION_URL = process.env.NEXT_PUBLIC_URL
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -30,7 +29,7 @@ export function OptinModal() {
 
         try {
             if (supabase) {
-                const { data: authData, error } = await supabase.auth.signUp({
+                const { error } = await supabase.auth.signUp({
                     email: formData.email,
                     password: Math.random().toString(36).slice(-12) + 'Aa1!',
                     options: {
@@ -40,23 +39,13 @@ export function OptinModal() {
                             phone: formData.phone,
                             full_name: `${formData.firstName} ${formData.lastName}`
                         },
-                        emailRedirectTo: `${PRODUCTION_URL}/video-letter`
+                        emailRedirectTo: `${window.location.origin}/video-letter`
                     }
                 })
 
                 if (error) {
                     console.error('Error signing up:', error)
                 }
-
-                await supabase.from('contacts').insert({
-                    email: formData.email,
-                    first_name: formData.firstName,
-                    last_name: formData.lastName,
-                    phone: formData.phone,
-                    full_name: `${formData.firstName} ${formData.lastName}`,
-                    source: redirectTarget === 'calendly' ? 'calendly_optin' : 'video_letter_optin',
-                    user_id: authData?.user?.id
-                })
             }
 
             localStorage.setItem('userOptedIn', 'true')
