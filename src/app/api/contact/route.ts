@@ -1,5 +1,6 @@
 import { Resend } from 'resend'
 import { NextResponse } from 'next/server'
+import { supabase } from '@/lib/supabase'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -12,6 +13,21 @@ export async function POST(request: Request) {
                 { error: 'Campi obbligatori mancanti' },
                 { status: 400 }
             )
+        }
+
+        if (supabase) {
+            const { error: dbError } = await supabase.from('footer').insert({
+                name,
+                email,
+                phone: phone || null,
+                company: company || null,
+                message,
+                source: 'footer_form'
+            })
+
+            if (dbError) {
+                console.error('Errore salvataggio database:', dbError)
+            }
         }
 
         const emailContent = `
