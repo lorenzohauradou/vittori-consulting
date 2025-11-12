@@ -31,7 +31,7 @@ export default function About() {
         },
         {
             name: 'Lorenzo',
-            role: 'Programmatore Web',
+            role: 'Sviluppatore Web',
             quote: 'Learn slow, fail fast, ship faster',
             photo: 'https://vittoriconsulting.b-cdn.net/team/lorenzo1.png',
             position: 'center',
