@@ -101,7 +101,10 @@ export default function Partners() {
                 </div>
 
                 <div className="relative overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-gray-50 before:to-transparent before:content-[''] after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-20 after:bg-gradient-to-l after:from-gray-50 after:to-transparent after:content-['']">
-                    <motion.div className="flex">
+                    <motion.div className="flex gap-8">
+                        <MarqueeItem speed={speedSpring}>
+                            {renderPartners()}
+                        </MarqueeItem>
                         <MarqueeItem speed={speedSpring}>
                             {renderPartners()}
                         </MarqueeItem>
