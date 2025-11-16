@@ -141,10 +141,16 @@ export function OptinModal() {
                                     </motion.div>
 
                                     <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                                        Scopri il Metodo Vittori 360
+                                        {redirectTarget === 'calendly'
+                                            ? 'Prenota la tua consulenza gratuita'
+                                            : 'Scopri il Metodo Vittori 360'
+                                        }
                                     </h2>
                                     <p className="text-gray-600 text-sm leading-relaxed">
-                                        Inserisci i tuoi dati per accedere al video esclusivo e scoprire come trasformare il tuo business
+                                        {redirectTarget === 'calendly'
+                                            ? 'Inserisci i tuoi dati per prenotare la tua consulenza gratuita con VittoriConsulting e trasformare il tuo business'
+                                            : 'Inserisci i tuoi dati per accedere al video esclusivo e scoprire come trasformare il tuo business'
+                                        }
                                     </p>
                                 </div>
 
@@ -202,6 +208,8 @@ export function OptinModal() {
                                                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                                                 <span>Caricamento...</span>
                                             </div>
+                                        ) : redirectTarget === 'calendly' ? (
+                                            'Prenota la Consulenza Gratuita'
                                         ) : (
                                             'Accedi al Video Esclusivo'
                                         )}
