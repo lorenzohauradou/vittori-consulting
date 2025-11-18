@@ -64,7 +64,7 @@ export default function About() {
         {
             name: 'Tommaso',
             role: 'Sales',
-            quote: 'Sales che ti elude ogni obiezione',
+            quote: 'Il sales che ti elude ogni obiezione',
             photo: 'https://vittoriconsulting.b-cdn.net/team/tommy.png',
             position: 'center',
             delay: 1.0
