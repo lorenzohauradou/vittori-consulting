@@ -60,6 +60,14 @@ export default function About() {
             photo: 'https://vittoriconsulting.b-cdn.net/team/gioele.png',
             position: 'bottom-right',
             delay: 0.8
+        },
+        {
+            name: 'Tommaso',
+            role: 'Sales',
+            quote: 'Sales che ti elude ogni obiezione',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/tommy.png',
+            position: 'center',
+            delay: 1.0
         }
     ]
 
