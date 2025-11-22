@@ -148,7 +148,7 @@ export default function About() {
                                     Siamo un team giovane e intraprendente, conosciamo il linguaggio dei Social e ci occupiamo di marketing a 360 gradi.
                                 </p>
                                 <p className="text-xl font-bold text-white">
-                                    Non lasciamo nulla al caso e né al cliente: seguiamo ogni fase con <span className="font-extrabold text-blue-200">RIGORE, TRASPARENZA E RESPONSABILITÀ!</span>
+                                    Non lasciamo nulla al caso: seguiamo ogni fase con <span className="font-extrabold text-blue-200">RIGORE, TRASPARENZA E RESPONSABILITÀ!</span>
                                 </p>
                             </div>
                         </div>
