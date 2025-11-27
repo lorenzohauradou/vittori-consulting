@@ -1,9 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Play, CheckCircle2, Target, RefreshCw, Brain, Zap } from 'lucide-react'
+import { ArrowRight, Play, Target, RefreshCw, Brain, Zap, GitBranch } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { OpenAIIcon, HubSpotIcon, SlackIcon, GmailIcon, WebhookIcon } from '@/components/icons/tech-icons'
 
 const CALENDLY_URL = 'https://calendly.com/valerio-vittori/30min?hide_gdpr_banner=1'
 
@@ -12,7 +13,7 @@ const workflowNodes = [
         id: 'trigger',
         type: 'Webhook',
         label: 'New Lead',
-        icon: '🔗',
+        Icon: WebhookIcon,
         color: '#9b59b6',
         x: 50,
         y: 120,
@@ -21,7 +22,7 @@ const workflowNodes = [
         id: 'ai',
         type: 'OpenAI',
         label: 'Qualify Lead',
-        icon: '🤖',
+        Icon: OpenAIIcon,
         color: '#10a37f',
         x: 220,
         y: 60,
@@ -30,7 +31,7 @@ const workflowNodes = [
         id: 'condition',
         type: 'IF',
         label: 'Score > 70?',
-        icon: '⚡',
+        Icon: GitBranch,
         color: '#f39c12',
         x: 390,
         y: 120,
@@ -39,7 +40,7 @@ const workflowNodes = [
         id: 'crm',
         type: 'HubSpot',
         label: 'Add to CRM',
-        icon: '📊',
+        Icon: HubSpotIcon,
         color: '#ff7a59',
         x: 560,
         y: 60,
@@ -48,7 +49,7 @@ const workflowNodes = [
         id: 'email',
         type: 'Gmail',
         label: 'Send Email',
-        icon: '✉️',
+        Icon: GmailIcon,
         color: '#ea4335',
         x: 560,
         y: 180,
@@ -57,7 +58,7 @@ const workflowNodes = [
         id: 'slack',
         type: 'Slack',
         label: 'Notify Team',
-        icon: '💬',
+        Icon: SlackIcon,
         color: '#4a154b',
         x: 730,
         y: 120,
@@ -74,6 +75,7 @@ const connections = [
 ]
 
 function WorkflowNode({ node, index }: { node: typeof workflowNodes[0], index: number }) {
+    const IconComponent = node.Icon
     return (
         <motion.div
             initial={{ scale: 0, opacity: 0 }}
@@ -93,7 +95,7 @@ function WorkflowNode({ node, index }: { node: typeof workflowNodes[0], index: n
                     />
                     <div className="p-3">
                         <div className="flex items-center gap-2 mb-1.5">
-                            <span className="text-lg">{node.icon}</span>
+                            <IconComponent className="w-4 h-4" style={{ color: node.color }} />
                             <span className="text-[9px] font-medium text-zinc-400 uppercase tracking-wider">
                                 {node.type}
                             </span>
@@ -260,19 +262,6 @@ export default function MvpN8N() {
                                 <WorkflowNode key={node.id} node={node} index={i} />
                             ))}
 
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 1.8 }}
-                                className="absolute bottom-4 left-4 flex items-center gap-2 px-3 py-2 bg-[#1a1a1c] border border-white/10 rounded-lg"
-                            >
-                                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                                <div>
-                                    <p className="text-[10px] text-zinc-400">Last execution</p>
-                                    <p className="text-xs font-medium text-white">2 min ago • 1.2s</p>
-                                </div>
-                            </motion.div>
 
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.9 }}
