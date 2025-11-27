@@ -268,7 +268,7 @@ export default function MvpN8N() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 1.9 }}
-                                className="absolute bottom-4 right-4 flex items-center gap-3 px-3 py-2 bg-[#1a1a1c] border border-white/10 rounded-lg"
+                                className="absolute hidden bottom-4 right-4 md:flex items-center gap-3 px-3 py-2 bg-[#1a1a1c] border border-white/10 rounded-lg"
                             >
                                 <div className="text-center">
                                     <p className="text-lg font-bold text-white">847</p>
