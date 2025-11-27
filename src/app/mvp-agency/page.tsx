@@ -55,9 +55,9 @@ export default function MvpAgencyPage() {
             <MvpHero />
             <StickyContact whatsappOnly />
             <MvpShowcase />
-            <MvpFeatures />
-            <MvpN8N />
             <MvpProcess />
+            <MvpN8N />
+            <MvpFeatures />
             {/* <MvpPricing />
             <MvpProjects /> */}
             <MvpFAQ />
