@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -14,6 +14,7 @@ export default function Header() {
     const [isPortalActive, setIsPortalActive] = useState(false)
     const { openModal, checkAuth } = useOptin()
     const router = useRouter()
+    const headerRef = useRef<HTMLElement>(null)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -33,6 +34,21 @@ export default function Header() {
         window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
     }, [lastScrollY])
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (isMenuOpen && headerRef.current && !headerRef.current.contains(event.target as Node)) {
+                setIsMenuOpen(false)
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside)
+        document.addEventListener('touchstart', handleClickOutside as EventListener)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+            document.removeEventListener('touchstart', handleClickOutside as EventListener)
+        }
+    }, [isMenuOpen])
 
     const handleMvpClick = () => {
         setIsMenuOpen(false)
@@ -58,6 +74,7 @@ export default function Header() {
             />
 
             <header
+                ref={headerRef}
                 className={`fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-transform duration-300 overflow-hidden ${isVisible ? 'translate-y-0' : '-translate-y-full'
                     }`}
             >

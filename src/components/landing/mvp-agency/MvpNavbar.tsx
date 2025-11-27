@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -20,6 +20,7 @@ export default function MvpNavbar() {
     const [lastScrollY, setLastScrollY] = useState(0)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
+    const headerRef = useRef<HTMLElement>(null)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -42,6 +43,21 @@ export default function MvpNavbar() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [lastScrollY])
 
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (isMobileMenuOpen && headerRef.current && !headerRef.current.contains(event.target as Node)) {
+                setIsMobileMenuOpen(false)
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside)
+        document.addEventListener('touchstart', handleClickOutside as EventListener)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+            document.removeEventListener('touchstart', handleClickOutside as EventListener)
+        }
+    }, [isMobileMenuOpen])
+
     const scrollToSection = (href: string) => {
         setIsMobileMenuOpen(false)
         const element = document.querySelector(href)
@@ -50,6 +66,7 @@ export default function MvpNavbar() {
 
     return (
         <header
+            ref={headerRef}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'
                 } ${isScrolled
                     ? 'bg-black/60 backdrop-blur-xl'

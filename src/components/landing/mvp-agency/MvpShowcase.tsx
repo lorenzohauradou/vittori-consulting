@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useRef, useEffect, useState } from 'react'
 import { MoveRight, CheckCircle2, Lightbulb, Palette, Rocket, Settings, Blocks } from 'lucide-react'
 import { NextJsIcon, PythonIcon, SupabaseIcon } from '@/components/icons/tech-icons'
 
@@ -45,44 +44,8 @@ const functionalities = [
 ]
 
 export default function MvpShowcase() {
-    const containerRef = useRef<HTMLDivElement>(null)
-    const [isPaused, setIsPaused] = useState(false)
-
-    useEffect(() => {
-        const container = containerRef.current
-        if (!container) return
-
-        let animationFrameId: number
-        let direction = 1
-        const speed = 0.5
-
-        const animate = () => {
-            if (isPaused) {
-                animationFrameId = requestAnimationFrame(animate)
-                return
-            }
-
-            if (container.scrollWidth <= container.clientWidth) {
-                animationFrameId = requestAnimationFrame(animate)
-                return
-            }
-
-            if (direction === 1 && container.scrollLeft >= container.scrollWidth - container.clientWidth - 1) {
-                direction = -1
-            } else if (direction === -1 && container.scrollLeft <= 0) {
-                direction = 1
-            }
-
-            container.scrollLeft += speed * direction
-            animationFrameId = requestAnimationFrame(animate)
-        }
-
-        animationFrameId = requestAnimationFrame(animate)
-        return () => cancelAnimationFrame(animationFrameId)
-    }, [isPaused])
-
     return (
-        <section className="relative border-y border-white/5 bg-white/[0.01] py-16">
+        <section className="relative border-y border-white/5 bg-white/[0.01] py-16 overflow-hidden">
             <div className="container mx-auto px-4">
                 <div className="mb-10 flex items-end justify-between">
                     <div className="max-w-md">
@@ -96,31 +59,39 @@ export default function MvpShowcase() {
                 </div>
             </div>
 
-            <div
-                ref={containerRef}
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
-                className="flex gap-4 overflow-x-auto px-4 pb-6 pt-2 scrollbar-hide"
-                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
-                {functionalities.map((func, index) => (
-                    <motion.div
-                        key={func.id}
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1, duration: 0.5 }}
-                        className="relative min-w-[280px] shrink-0 overflow-hidden rounded-xl border border-white/5 bg-white/[0.02] p-1 md:min-w-[340px]"
-                    >
-                        <div className="relative h-40 w-full overflow-hidden rounded-lg bg-black/20 p-6">
-                            <func.visual />
-                        </div>
-                        <div className="p-4">
-                            <h4 className="font-medium text-white text-sm">{func.title}</h4>
-                            <p className="mt-1 text-xs text-zinc-500">{func.description}</p>
-                        </div>
-                    </motion.div>
-                ))}
+            <div className="relative">
+                <motion.div
+                    className="flex gap-4 px-4 pb-6 pt-2"
+                    animate={{
+                        x: [0, -1200, 0],
+                    }}
+                    transition={{
+                        x: {
+                            duration: 30,
+                            repeat: Infinity,
+                            ease: "linear",
+                        },
+                    }}
+                >
+                    {[...functionalities, ...functionalities].map((func, index) => (
+                        <motion.div
+                            key={`${func.id}-${index}`}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: (index % functionalities.length) * 0.1, duration: 0.5 }}
+                            className="relative min-w-[280px] shrink-0 overflow-hidden rounded-xl border border-white/5 bg-white/[0.02] p-1 md:min-w-[340px]"
+                        >
+                            <div className="relative h-40 w-full overflow-hidden rounded-lg bg-black/20 p-6">
+                                <func.visual />
+                            </div>
+                            <div className="p-4">
+                                <h4 className="font-medium text-white text-sm">{func.title}</h4>
+                                <p className="mt-1 text-xs text-zinc-500">{func.description}</p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
             </div>
         </section>
     )
