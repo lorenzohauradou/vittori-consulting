@@ -10,6 +10,19 @@ interface PortalTransitionProps {
 }
 
 export function PortalTransition({ isActive, onComplete, label = 'MVP Agency' }: PortalTransitionProps) {
+    // Block body scroll when overlay is active
+    useEffect(() => {
+        if (isActive) {
+            document.documentElement.style.overflow = 'hidden'
+            document.body.style.overflow = 'hidden'
+
+            return () => {
+                document.documentElement.style.overflow = ''
+                document.body.style.overflow = ''
+            }
+        }
+    }, [isActive])
+
     useEffect(() => {
         if (isActive) {
             const timer = setTimeout(() => {
@@ -30,13 +43,13 @@ export function PortalTransition({ isActive, onComplete, label = 'MVP Agency' }:
                     transition={{ duration: 0.3 }}
                     className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0a0a0a]"
                     style={{
-                        width: '100vw',
-                        height: '100dvh',
-                        minHeight: '100vh',
+                        position: 'fixed',
                         top: 0,
                         left: 0,
-                        right: 0,
-                        bottom: 0,
+                        width: '100%',
+                        height: '100vh',
+                        margin: 0,
+                        padding: 0,
                     }}
                 >
                     <div className="relative flex flex-col items-center gap-8">
