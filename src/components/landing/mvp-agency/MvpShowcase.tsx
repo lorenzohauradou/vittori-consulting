@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useRef, useState, useEffect } from 'react'
 import { MoveRight, CheckCircle2, Lightbulb, Palette, Rocket, Settings, Blocks } from 'lucide-react'
 import { NextJsIcon, PythonIcon, SupabaseIcon } from '@/components/icons/tech-icons'
 
@@ -44,6 +45,26 @@ const functionalities = [
 ]
 
 export default function MvpShowcase() {
+    const containerRef = useRef<HTMLDivElement>(null)
+    const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 })
+
+    useEffect(() => {
+        const updateConstraints = () => {
+            if (containerRef.current) {
+                const containerWidth = containerRef.current.offsetWidth
+                const scrollWidth = containerRef.current.scrollWidth
+                setDragConstraints({
+                    left: -(scrollWidth - containerWidth),
+                    right: 0,
+                })
+            }
+        }
+
+        updateConstraints()
+        window.addEventListener('resize', updateConstraints)
+        return () => window.removeEventListener('resize', updateConstraints)
+    }, [])
+
     return (
         <section className="relative border-y border-white/5 bg-white/[0.01] py-16 overflow-hidden">
             <div className="container mx-auto px-4">
@@ -59,27 +80,21 @@ export default function MvpShowcase() {
                 </div>
             </div>
 
-            <div className="relative">
+            <div ref={containerRef} className="relative overflow-hidden cursor-grab active:cursor-grabbing">
                 <motion.div
                     className="flex gap-4 px-4 pb-6 pt-2"
-                    animate={{
-                        x: [0, -1200, 0],
-                    }}
-                    transition={{
-                        x: {
-                            duration: 30,
-                            repeat: Infinity,
-                            ease: "linear",
-                        },
-                    }}
+                    drag="x"
+                    dragConstraints={dragConstraints}
+                    dragElastic={0.1}
+                    dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
                 >
-                    {[...functionalities, ...functionalities].map((func, index) => (
+                    {functionalities.map((func, index) => (
                         <motion.div
-                            key={`${func.id}-${index}`}
+                            key={func.id}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: (index % functionalities.length) * 0.1, duration: 0.5 }}
+                            transition={{ delay: index * 0.5, duration: 0.5 }}
                             className="relative min-w-[280px] shrink-0 overflow-hidden rounded-xl border border-white/5 bg-white/[0.02] p-1 md:min-w-[340px]"
                         >
                             <div className="relative h-40 w-full overflow-hidden rounded-lg bg-black/20 p-6">
