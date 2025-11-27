@@ -32,7 +32,7 @@ export default function MvpCTA() {
                             alt="VittoriConsulting"
                             width={500}
                             height={500}
-                            className="mx-auto brightness-0 invert opacity-10"
+                            className="mx-auto brightness-0 invert opacity-30"
                         />
                     </motion.div>
 
