@@ -88,7 +88,7 @@ export default function MvpFooter() {
                         © {new Date().getFullYear()} Vittori Consulting. Tutti i diritti riservati.
                     </p>
                     <p className="text-[10px] sm:text-xs text-zinc-700">
-                        P.IVA 12345678901
+                        P.IVA 02463360566
                     </p>
                 </div>
             </div>
