@@ -10,15 +10,39 @@ interface PortalTransitionProps {
 }
 
 export function PortalTransition({ isActive, onComplete, label = 'MVP Agency' }: PortalTransitionProps) {
-    // Block body scroll when overlay is active
+    // Block ALL scrolling on mobile
     useEffect(() => {
         if (isActive) {
-            document.documentElement.style.overflow = 'hidden'
+            const scrollY = window.scrollY
+
+            // Lock the body in place
+            document.body.style.position = 'fixed'
+            document.body.style.top = `-${scrollY}px`
+            document.body.style.left = '0'
+            document.body.style.right = '0'
+            document.body.style.width = '100%'
             document.body.style.overflow = 'hidden'
+            document.documentElement.style.overflow = 'hidden'
+
+            // Prevent touch scrolling
+            const preventScroll = (e: TouchEvent) => {
+                e.preventDefault()
+            }
+
+            document.addEventListener('touchmove', preventScroll, { passive: false })
+            document.addEventListener('wheel', preventScroll as EventListener, { passive: false })
 
             return () => {
-                document.documentElement.style.overflow = ''
+                document.removeEventListener('touchmove', preventScroll)
+                document.removeEventListener('wheel', preventScroll as EventListener)
+                document.body.style.position = ''
+                document.body.style.top = ''
+                document.body.style.left = ''
+                document.body.style.right = ''
+                document.body.style.width = ''
                 document.body.style.overflow = ''
+                document.documentElement.style.overflow = ''
+                window.scrollTo(0, scrollY)
             }
         }
     }, [isActive])
@@ -46,11 +70,14 @@ export function PortalTransition({ isActive, onComplete, label = 'MVP Agency' }:
                         position: 'fixed',
                         top: 0,
                         left: 0,
-                        width: '100%',
+                        right: 0,
+                        bottom: 0,
+                        width: '100vw',
                         height: '100vh',
-                        margin: 0,
-                        padding: 0,
+                        touchAction: 'none',
+                        overscrollBehavior: 'none',
                     }}
+                    onTouchMove={(e) => e.preventDefault()}
                 >
                     <div className="relative flex flex-col items-center gap-8">
                         <motion.div
