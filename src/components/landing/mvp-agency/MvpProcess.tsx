@@ -93,7 +93,7 @@ export default function MvpProcess() {
                 >
                     <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-white/10 bg-white/[0.02]">
                         <span className="text-zinc-400 text-sm">Tempo totale:</span>
-                        <span className="text-lg font-semibold text-white">4-6 settimane</span>
+                        <span className="text-lg font-semibold text-white">3-6 settimane</span>
                     </div>
                 </motion.div>
             </div>

@@ -8,7 +8,7 @@ const features = [
     {
         icon: Rocket,
         title: 'Lancio Veloce',
-        description: 'MVP pronto in 4-6 settimane. Solo le funzionalità che contano. Il modo migliore per fare del sano Bootstrapping',
+        description: 'MVP pronto in 3-6 settimane. Solo le funzionalità che contano. Il modo migliore per fare del sano Bootstrapping',
     },
     {
         icon: Palette,

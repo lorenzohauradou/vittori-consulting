@@ -99,9 +99,9 @@ export default function MvpHero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2"
+                        className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2"
                     >
-                        Trasformiamo la tua visione in un Micro-SaaS funzionante in 4-6 settimane.
+                        Trasformiamo la tua visione in un Micro-SaaS funzionante in settimane, non mesi.
                         <span className="hidden sm:inline"><br /></span>
                         <span className="sm:hidden"> </span>
                         Design moderno, codice scalabile, lancia il tuo prodotto digitale!
@@ -160,7 +160,7 @@ export default function MvpHero() {
                         <div className="flex items-center gap-4 sm:gap-8 mt-2 sm:mt-4">
                             <div className="flex items-center gap-1.5 sm:gap-2">
                                 <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-zinc-600" />
-                                <span className="text-[11px] sm:text-xs text-zinc-500">4-6 settimane</span>
+                                <span className="text-[11px] sm:text-xs text-zinc-500">3-6 settimane</span>
                             </div>
                             <div className="w-px h-3 sm:h-4 bg-zinc-800" />
                             <div className="flex items-center gap-1.5 sm:gap-2">

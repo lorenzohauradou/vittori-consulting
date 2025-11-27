@@ -7,7 +7,7 @@ import { Plus, Minus } from 'lucide-react'
 const faqs = [
     {
         question: 'Quanto tempo ci vuole per sviluppare un MVP?',
-        answer: 'Dipende dalla complessità. Starter: 4-5 settimane. Growth: 6-8 settimane. Durante la discovery call analizziamo la tua idea e ti diamo una stima precisa'
+        answer: 'Dipende dalla complessità. Starter: 3-5 settimane. Growth: 6-8 settimane. Durante la discovery call analizziamo la tua idea e ti diamo una stima precisa'
     },
     {
         question: 'Cosa succede se ho bisogno di modifiche?',
