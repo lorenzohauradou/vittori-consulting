@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useEffect, useCallback } from 'react'
 import { MoveRight, CheckCircle2, Lightbulb, Palette, Rocket, Settings, Blocks } from 'lucide-react'
 import { NextJsIcon, PythonIcon, SupabaseIcon } from '@/components/icons/tech-icons'
 
@@ -45,28 +45,51 @@ const functionalities = [
 ]
 
 export default function MvpShowcase() {
-    const containerRef = useRef<HTMLDivElement>(null)
-    const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 })
+    const scrollRef = useRef<HTMLDivElement>(null)
+    const isPausedRef = useRef(false)
+    const directionRef = useRef(1)
+    const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+    const handleInteraction = useCallback(() => {
+        isPausedRef.current = true
+        if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current)
+        pauseTimeoutRef.current = setTimeout(() => {
+            isPausedRef.current = false
+        }, 3000)
+    }, [])
 
     useEffect(() => {
-        const updateConstraints = () => {
-            if (containerRef.current) {
-                const containerWidth = containerRef.current.offsetWidth
-                const scrollWidth = containerRef.current.scrollWidth
-                setDragConstraints({
-                    left: -(scrollWidth - containerWidth),
-                    right: 0,
-                })
+        const container = scrollRef.current
+        if (!container) return
+
+        let animationId: number
+
+        const animate = () => {
+            if (!isPausedRef.current && container) {
+                const maxScroll = container.scrollWidth - container.clientWidth
+
+                if (maxScroll > 0) {
+                    if (directionRef.current === 1 && container.scrollLeft >= maxScroll - 1) {
+                        directionRef.current = -1
+                    } else if (directionRef.current === -1 && container.scrollLeft <= 1) {
+                        directionRef.current = 1
+                    }
+                    container.scrollLeft += directionRef.current * 0.8
+                }
             }
+            animationId = requestAnimationFrame(animate)
         }
 
-        updateConstraints()
-        window.addEventListener('resize', updateConstraints)
-        return () => window.removeEventListener('resize', updateConstraints)
+        animationId = requestAnimationFrame(animate)
+
+        return () => {
+            cancelAnimationFrame(animationId)
+            if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current)
+        }
     }, [])
 
     return (
-        <section className="relative border-y border-white/5 bg-white/[0.01] py-16 overflow-hidden">
+        <section className="relative border-y border-white/5 bg-white/[0.01] py-16">
             <div className="container mx-auto px-4">
                 <div className="mb-10 flex items-end justify-between">
                     <div className="max-w-md">
@@ -80,33 +103,36 @@ export default function MvpShowcase() {
                 </div>
             </div>
 
-            <div ref={containerRef} className="relative overflow-hidden cursor-grab active:cursor-grabbing">
-                <motion.div
-                    className="flex gap-4 px-4 pb-6 pt-2"
-                    drag="x"
-                    dragConstraints={dragConstraints}
-                    dragElastic={0.1}
-                    dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
-                >
-                    {functionalities.map((func, index) => (
-                        <motion.div
-                            key={func.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.5, duration: 0.5 }}
-                            className="relative min-w-[280px] shrink-0 overflow-hidden rounded-xl border border-white/5 bg-white/[0.02] p-1 md:min-w-[340px]"
-                        >
-                            <div className="relative h-40 w-full overflow-hidden rounded-lg bg-black/20 p-6">
-                                <func.visual />
-                            </div>
-                            <div className="p-4">
-                                <h4 className="font-medium text-white text-sm">{func.title}</h4>
-                                <p className="mt-1 text-xs text-zinc-500">{func.description}</p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
+            <div
+                ref={scrollRef}
+                onTouchStart={handleInteraction}
+                onMouseDown={handleInteraction}
+                onWheel={handleInteraction}
+                className="flex gap-4 px-4 pb-6 pt-2 overflow-x-auto scrollbar-hide"
+                style={{
+                    WebkitOverflowScrolling: 'touch',
+                    scrollbarWidth: 'none',
+                    msOverflowStyle: 'none',
+                }}
+            >
+                {functionalities.map((func, index) => (
+                    <motion.div
+                        key={func.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.08, duration: 0.4 }}
+                        className="relative min-w-[280px] shrink-0 overflow-hidden rounded-xl border border-white/5 bg-white/[0.02] p-1 md:min-w-[340px]"
+                    >
+                        <div className="relative h-40 w-full overflow-hidden rounded-lg bg-black/20 p-6">
+                            <func.visual />
+                        </div>
+                        <div className="p-4">
+                            <h4 className="font-medium text-white text-sm">{func.title}</h4>
+                            <p className="mt-1 text-xs text-zinc-500">{func.description}</p>
+                        </div>
+                    </motion.div>
+                ))}
             </div>
         </section>
     )
