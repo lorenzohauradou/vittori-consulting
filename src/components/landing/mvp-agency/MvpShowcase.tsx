@@ -62,28 +62,28 @@ export default function MvpShowcase() {
         const container = scrollRef.current
         if (!container) return
 
-        let animationId: number
+        const interval = setInterval(() => {
+            if (isPausedRef.current || !container) return
 
-        const animate = () => {
-            if (!isPausedRef.current && container) {
-                const maxScroll = container.scrollWidth - container.clientWidth
+            const maxScroll = container.scrollWidth - container.clientWidth
+            if (maxScroll <= 0) return
 
-                if (maxScroll > 0) {
-                    if (directionRef.current === 1 && container.scrollLeft >= maxScroll - 1) {
-                        directionRef.current = -1
-                    } else if (directionRef.current === -1 && container.scrollLeft <= 1) {
-                        directionRef.current = 1
-                    }
-                    container.scrollLeft += directionRef.current * 0.8
-                }
+            const currentScroll = container.scrollLeft
+
+            if (directionRef.current === 1 && currentScroll >= maxScroll - 2) {
+                directionRef.current = -1
+            } else if (directionRef.current === -1 && currentScroll <= 2) {
+                directionRef.current = 1
             }
-            animationId = requestAnimationFrame(animate)
-        }
 
-        animationId = requestAnimationFrame(animate)
+            container.scrollTo({
+                left: currentScroll + directionRef.current,
+                behavior: 'auto'
+            })
+        }, 20)
 
         return () => {
-            cancelAnimationFrame(animationId)
+            clearInterval(interval)
             if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current)
         }
     }, [])
