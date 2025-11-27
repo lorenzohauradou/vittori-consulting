@@ -77,10 +77,10 @@ export default function MvpShowcase() {
             }
 
             container.scrollTo({
-                left: currentScroll + directionRef.current,
+                left: currentScroll + (directionRef.current * 1.5),
                 behavior: 'auto'
             })
-        }, 20)
+        }, 16)
 
         return () => {
             clearInterval(interval)
