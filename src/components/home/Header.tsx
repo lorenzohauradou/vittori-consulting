@@ -88,7 +88,7 @@ export default function Header() {
                                     width={300}
                                     height={300}
                                     priority
-                                    className="lg:w-[500px] lg:h-[500px] hover:opacity-90 transition-opacity duration-100"
+                                    className="hover:opacity-90 transition-opacity duration-100"
                                 />
                             </Link>
                         </div>
