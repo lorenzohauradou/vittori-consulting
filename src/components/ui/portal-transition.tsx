@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect } from 'react'
+import Image from 'next/image'
 
 interface PortalTransitionProps {
     isActive: boolean
@@ -51,7 +52,7 @@ export function PortalTransition({ isActive, onComplete, label = 'MVP Agency' }:
         if (isActive) {
             const timer = setTimeout(() => {
                 onComplete()
-            }, 1200)
+            }, 1100)
 
             return () => clearTimeout(timer)
         }
@@ -79,36 +80,37 @@ export function PortalTransition({ isActive, onComplete, label = 'MVP Agency' }:
                     }}
                     onTouchMove={(e) => e.preventDefault()}
                 >
-                    <div className="relative flex flex-col items-center gap-8">
+                    <div className="relative flex flex-col items-center gap-6">
                         <motion.div
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                            className="relative"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.4, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            <motion.div
-                                initial={{ width: 0 }}
-                                animate={{ width: 48 }}
-                                transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                                className="h-[1px] bg-gradient-to-r from-transparent via-[#2e54a1] to-transparent"
+                            <Image
+                                src="/images/logo/reverse.png"
+                                alt="Vittori Consulting"
+                                width={160}
+                                height={50}
+                                className="h-auto w-auto brightness-0 invert"
+                                priority
                             />
                         </motion.div>
+
+                        <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: 64 }}
+                            transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                            className="h-[1px] bg-gradient-to-r from-transparent via-[#2e54a1] to-transparent"
+                        />
 
                         <motion.p
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, delay: 0.3 }}
-                            className="text-[11px] tracking-[0.4em] uppercase text-zinc-500 font-medium"
+                            transition={{ duration: 0.4, delay: 0.6 }}
+                            className="text-[10px] tracking-[0.3em] uppercase text-zinc-600 font-medium"
                         >
                             {label}
                         </motion.p>
-
-                        <motion.div
-                            initial={{ scaleX: 0 }}
-                            animate={{ scaleX: 1 }}
-                            transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                            className="w-16 h-[1px] bg-gradient-to-r from-transparent via-zinc-700 to-transparent origin-center"
-                        />
                     </div>
                 </motion.div>
             )}
