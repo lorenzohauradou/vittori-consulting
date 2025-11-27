@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useRef, useEffect, useCallback } from 'react'
 import { MoveRight, CheckCircle2, Lightbulb, Palette, Rocket, Settings, Blocks } from 'lucide-react'
 import { NextJsIcon, PythonIcon, SupabaseIcon } from '@/components/icons/tech-icons'
 
@@ -45,51 +44,8 @@ const functionalities = [
 ]
 
 export default function MvpShowcase() {
-    const scrollRef = useRef<HTMLDivElement>(null)
-    const isPausedRef = useRef(false)
-    const directionRef = useRef(1)
-    const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-
-    const handleInteraction = useCallback(() => {
-        isPausedRef.current = true
-        if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current)
-        pauseTimeoutRef.current = setTimeout(() => {
-            isPausedRef.current = false
-        }, 3000)
-    }, [])
-
-    useEffect(() => {
-        const container = scrollRef.current
-        if (!container) return
-
-        const interval = setInterval(() => {
-            if (isPausedRef.current || !container) return
-
-            const maxScroll = container.scrollWidth - container.clientWidth
-            if (maxScroll <= 0) return
-
-            const currentScroll = container.scrollLeft
-
-            if (directionRef.current === 1 && currentScroll >= maxScroll - 2) {
-                directionRef.current = -1
-            } else if (directionRef.current === -1 && currentScroll <= 2) {
-                directionRef.current = 1
-            }
-
-            container.scrollTo({
-                left: currentScroll + (directionRef.current * 1.5),
-                behavior: 'auto'
-            })
-        }, 16)
-
-        return () => {
-            clearInterval(interval)
-            if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current)
-        }
-    }, [])
-
     return (
-        <section className="relative border-y border-white/5 bg-white/[0.01] py-16">
+        <section className="relative border-y border-white/5 bg-white/[0.01] py-16 overflow-hidden">
             <div className="container mx-auto px-4">
                 <div className="mb-10 flex items-end justify-between">
                     <div className="max-w-md">
@@ -103,37 +59,44 @@ export default function MvpShowcase() {
                 </div>
             </div>
 
-            <div
-                ref={scrollRef}
-                onTouchStart={handleInteraction}
-                onMouseDown={handleInteraction}
-                onWheel={handleInteraction}
-                className="flex gap-4 px-4 pb-6 pt-2 overflow-x-auto scrollbar-hide"
-                style={{
-                    WebkitOverflowScrolling: 'touch',
-                    scrollbarWidth: 'none',
-                    msOverflowStyle: 'none',
-                }}
-            >
-                {functionalities.map((func, index) => (
-                    <motion.div
-                        key={func.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.08, duration: 0.4 }}
-                        className="relative min-w-[280px] shrink-0 overflow-hidden rounded-xl border border-white/5 bg-white/[0.02] p-1 md:min-w-[340px]"
-                    >
-                        <div className="relative h-40 w-full overflow-hidden rounded-lg bg-black/20 p-6">
-                            <func.visual />
-                        </div>
-                        <div className="p-4">
-                            <h4 className="font-medium text-white text-sm">{func.title}</h4>
-                            <p className="mt-1 text-xs text-zinc-500">{func.description}</p>
-                        </div>
-                    </motion.div>
-                ))}
+            <div className="relative flex">
+                <div
+                    className="flex gap-4 px-4 pb-6 pt-2 animate-scroll hover:[animation-play-state:paused]"
+                    style={{
+                        animation: 'scroll 25s linear infinite alternate',
+                    }}
+                >
+                    {functionalities.map((func, index) => (
+                        <motion.div
+                            key={func.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.08, duration: 0.4 }}
+                            className="relative min-w-[280px] shrink-0 overflow-hidden rounded-xl border border-white/5 bg-white/[0.02] p-1 md:min-w-[340px]"
+                        >
+                            <div className="relative h-40 w-full overflow-hidden rounded-lg bg-black/20 p-6">
+                                <func.visual />
+                            </div>
+                            <div className="p-4">
+                                <h4 className="font-medium text-white text-sm">{func.title}</h4>
+                                <p className="mt-1 text-xs text-zinc-500">{func.description}</p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
+
+            <style jsx>{`
+                @keyframes scroll {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        transform: translateX(calc(-100% + 100vw - 32px));
+                    }
+                }
+            `}</style>
         </section>
     )
 }
