@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 
-type RedirectTarget = 'video-letter' | 'calendly'
+type RedirectTarget = 'video-letter' | 'calendly' | 'mvp-agency'
 
 interface OptinContextType {
     isOpen: boolean
