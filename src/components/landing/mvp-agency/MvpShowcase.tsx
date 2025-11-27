@@ -9,7 +9,7 @@ const functionalities = [
     {
         id: 'idea-to-mvp',
         title: 'Idea to MVP',
-        description: 'Trasformiamo la tua idea in un prodotto funzionante e scalabile',
+        description: 'Dalla tua idea a un prodotto concreto',
         visual: () => <IdeaToMvpVisual />,
     },
     {
