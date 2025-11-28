@@ -10,36 +10,38 @@ import { Mail, Phone, Linkedin, Facebook, Instagram } from 'lucide-react'
 export default function Hero() {
     const [currentPhase, setCurrentPhase] = useState(0)
     const { openModal, checkAuth } = useOptin()
-
-    const iframeRef = useRef<HTMLIFrameElement>(null)
+    const videoRef = useRef<HTMLVideoElement>(null)
     const timeoutRef = useRef<NodeJS.Timeout | null>(null)
-
     const [isMuted, setIsMuted] = useState(true)
     const [showAudioButton, setShowAudioButton] = useState(true)
-
-    const LIBRARY_ID = "510109"
-    const VIDEO_ID = "3c7e2de4-a8c3-4f2b-bd9f-1932b6e23f93"
-
-    const embedUrl = `https://iframe.mediadelivery.net/embed/${LIBRARY_ID}/${VIDEO_ID}?autoplay=true&loop=true&muted=true&preload=true&responsive=true&playsinline=true&disableIosPlayer=true`
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setCurrentPhase(prev => prev === 0 ? 1 : 0)
         }, currentPhase === 0 ? 2000 : 3000)
+
+        if (videoRef.current) {
+            videoRef.current.setAttribute('playsinline', 'true')
+            videoRef.current.setAttribute('webkit-playsinline', 'true')
+        }
+
         return () => clearTimeout(timer)
     }, [currentPhase])
 
+    useEffect(() => {
+        return () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current)
+            }
+        }
+    }, [])
+
     const toggleMute = () => {
-        const iframe = iframeRef.current
-        if (iframe && iframe.contentWindow) {
+        if (videoRef.current) {
+            videoRef.current.muted = !videoRef.current.muted
             const newMutedState = !isMuted
-
-            iframe.contentWindow.postMessage(
-                { method: 'setMuted', value: newMutedState },
-                '*'
-            )
-
             setIsMuted(newMutedState)
+
             setShowAudioButton(true)
 
             if (timeoutRef.current) {
@@ -104,7 +106,6 @@ export default function Hero() {
                     </div>
                 </div>
             </div>
-
             <div className="flex-1 flex items-center">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
                     <div className="grid lg:grid-cols-2 gap-16 items-center h-full">
@@ -234,20 +235,28 @@ export default function Hero() {
                                     className="w-96 h-96 lg:h-120 lg:w-120 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-white/10 relative cursor-pointer"
                                     onClick={toggleMute}
                                 >
-                                    <div className="w-full h-full relative bg-black">
-                                        <iframe
-                                            ref={iframeRef}
-                                            src={embedUrl}
-                                            loading="eager"
-                                            className="w-full h-full absolute inset-0 object-cover scale-[1.7] pointer-events-none"
-                                            style={{ border: 'none' }}
-                                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                            allowFullScreen={true}
-                                            title="Video presentazione Valerio Vittori"
-                                        />
-                                    </div>
+                                    <video
+                                        ref={videoRef}
+                                        className="w-full h-full object-cover pointer-events-none"
+                                        style={{ objectPosition: 'center 57%' }}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        webkit-playsinline="true"
+                                        controlsList="nodownload nofullscreen noremoteplayback"
+                                        disableRemotePlayback
+                                        x5-playsinline="true"
+                                        x5-video-player-type="h5"
+                                        x5-video-player-fullscreen="false"
+                                        aria-label="Video presentazione Valerio Vittori - VittoriConsulting"
+                                    >
+                                        <source src="https://vz-b2f9626e-b59.b-cdn.net/3c7e2de4-a8c3-4f2b-bd9f-1932b6e23f93/play_720p.mp4" type="video/mp4" />
+                                        <track kind="captions" />
+                                        Video presentazione di Valerio Vittori
+                                    </video>
 
-                                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 blur-xl -z-10 scale-110 pointer-events-none"></div>
+                                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 blur-xl -z-10 scale-110"></div>
                                 </motion.div>
 
                                 {showAudioButton && (

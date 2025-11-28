@@ -8,7 +8,6 @@ interface IPhoneCanvasProps {
     description?: string
     showVideo?: boolean
     videoSrc?: string
-    iframeSrc?: string
     className?: string
     hideAudioButton?: boolean
 }
@@ -18,7 +17,6 @@ export default function IPhoneCanvas({
     description = "Guarda come abbiamo trasformato questo business",
     showVideo = true,
     videoSrc,
-    iframeSrc,
     className = "",
     hideAudioButton = false
 }: IPhoneCanvasProps) {
@@ -130,9 +128,6 @@ export default function IPhoneCanvas({
         }
     }, [isVideoVisible])
 
-    const hasIframe = !!iframeSrc
-    const hasVideo = !!videoSrc
-
     return (
         <div ref={containerRef} className={`relative ${className}`}>
             <motion.div
@@ -165,26 +160,20 @@ export default function IPhoneCanvas({
                             </div>
 
                             <div className="absolute inset-0 pt-16 pb-8 px-4">
-                                <div
-                                    className="w-full h-full rounded-2xl overflow-hidden relative bg-black transform-gpu"
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.3, delay: 0.15 }}
+                                    viewport={{ once: true, margin: "-50px" }}
+                                    className="w-full h-full rounded-2xl overflow-hidden relative"
                                     style={{
-                                        WebkitMaskImage: '-webkit-radial-gradient(white, black)',
-                                        isolation: 'isolate'
+                                        isolation: 'isolate',
+                                        contain: 'layout style paint',
+                                        position: 'relative',
+                                        overflow: 'hidden'
                                     }}
                                 >
-                                    {hasIframe ? (
-                                        <div className="absolute inset-0 w-full h-full pointer-events-none">
-                                            <iframe
-                                                src={iframeSrc}
-                                                loading="lazy"
-                                                className="w-full h-full absolute inset-0 object-cover scale-[1.05]"
-                                                style={{ border: 'none', width: '100%', height: '100%' }}
-                                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                                allowFullScreen={true}
-                                                title="Video dimostrativo del caso studio"
-                                            />
-                                        </div>
-                                    ) : hasVideo ? (
+                                    {videoSrc ? (
                                         <>
                                             <video
                                                 ref={videoRef}
@@ -296,23 +285,35 @@ export default function IPhoneCanvas({
                                     )}
 
                                     <motion.div
-                                        animate={{ rotate: [0, 360] }}
-                                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                                        className="absolute top-4 right-4 w-8 h-8 border-2 border-white/30 rounded-full pointer-events-none z-10"
+                                        animate={{
+                                            rotate: [0, 360]
+                                        }}
+                                        transition={{
+                                            duration: 20,
+                                            repeat: Infinity,
+                                            ease: "linear"
+                                        }}
+                                        className="absolute top-4 right-4 w-8 h-8 border-2 border-white/30 rounded-full"
                                     />
                                     <motion.div
-                                        animate={{ rotate: [360, 0] }}
-                                        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                                        className="absolute bottom-4 left-4 w-6 h-6 border-2 border-white/20 rounded-full pointer-events-none z-10"
+                                        animate={{
+                                            rotate: [360, 0]
+                                        }}
+                                        transition={{
+                                            duration: 15,
+                                            repeat: Infinity,
+                                            ease: "linear"
+                                        }}
+                                        className="absolute bottom-4 left-4 w-6 h-6 border-2 border-white/20 rounded-full"
                                     />
-                                </div>
+                                </motion.div>
 
                                 <motion.div
                                     initial={{ opacity: 0, y: 10 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5, delay: 0.8 }}
                                     viewport={{ once: true, margin: "-30px" }}
-                                    className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-300 rounded-full z-20"
+                                    className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-300 rounded-full"
                                 />
                             </div>
                         </motion.div>
