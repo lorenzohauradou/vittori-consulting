@@ -25,7 +25,6 @@ export default function IPhoneCanvas({
     const timeoutRef = useRef<NodeJS.Timeout | null>(null)
     const [isMuted, setIsMuted] = useState(true)
     const [showAudioButton, setShowAudioButton] = useState(true)
-    const [isVideoVisible, setIsVideoVisible] = useState(false)
 
     const toggleMute = () => {
         if (videoRef.current) {
@@ -48,56 +47,47 @@ export default function IPhoneCanvas({
     }
 
     useEffect(() => {
-        if (videoRef.current) {
-            const video = videoRef.current
-            video.playsInline = true
-            video.disablePictureInPicture = true
-            video.setAttribute('playsinline', '')
-            video.setAttribute('webkit-playsinline', '')
+        const video = videoRef.current
+        if (video) {
+            // Impostiamo attributi critici via JS per sicurezza
+            video.setAttribute('playsinline', 'true')
+            video.setAttribute('webkit-playsinline', 'true')
+            video.setAttribute('x-webkit-airplay', 'allow')
 
+            // Forziamo mute e playsinline property
+            video.muted = true
+            video.playsInline = true
+
+            // Gestione aggressiva per prevenire il fullscreen di TikTok/iOS
             const preventFullscreen = (e: Event) => {
                 e.preventDefault()
-                e.stopPropagation()
-                e.stopImmediatePropagation()
-                return false
             }
 
-            video.addEventListener('webkitbeginfullscreen', preventFullscreen, { capture: true })
-            video.addEventListener('webkitendfullscreen', preventFullscreen, { capture: true })
-            video.addEventListener('webkitfullscreenchange', preventFullscreen, { capture: true })
-            video.addEventListener('fullscreenchange', preventFullscreen, { capture: true })
+            // Aggiungiamo listener specifici per WebKit
+            video.addEventListener('webkitbeginfullscreen', preventFullscreen)
 
-            video.addEventListener('play', () => {
-                const videoElement = video as HTMLVideoElement & {
-                    webkitDisplayingFullscreen?: boolean
-                }
-                const doc = document as Document & {
-                    webkitFullscreenElement?: Element
-                }
-                if (videoElement.webkitDisplayingFullscreen || doc.webkitFullscreenElement === video) {
-                    video.pause()
-                    setTimeout(() => video.play(), 100)
-                }
-            })
+            // Cleanup
+            return () => {
+                video.removeEventListener('webkitbeginfullscreen', preventFullscreen)
+            }
         }
+    }, [])
 
+    useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        setIsVideoVisible(true)
                         if (videoRef.current && videoRef.current.paused) {
-                            setTimeout(() => {
-                                const playPromise = videoRef.current?.play()
-                                if (playPromise !== undefined) {
-                                    playPromise.catch((error) => {
-                                        console.error('Video play failed:', error)
-                                    })
-                                }
-                            }, 100)
+                            // Piccola promise safe per evitare errori se il browser blocca l'autoplay
+                            const playPromise = videoRef.current.play()
+                            if (playPromise !== undefined) {
+                                playPromise.catch((error) => {
+                                    console.log('Autoplay prevented or interrupted:', error)
+                                })
+                            }
                         }
                     } else {
-                        setIsVideoVisible(false)
                         if (videoRef.current && !videoRef.current.paused) {
                             videoRef.current.pause()
                         }
@@ -122,11 +112,11 @@ export default function IPhoneCanvas({
         }
     }, [])
 
-    useEffect(() => {
-        if (videoRef.current && isVideoVisible) {
-            videoRef.current.play().catch(console.error)
-        }
-    }, [isVideoVisible])
+    // Definiamo gli attributi personalizzati in un oggetto tipizzato per evitare 'any'
+    const customVideoAttributes = {
+        "webkit-playsinline": "true",
+        "x-webkit-airplay": "allow"
+    } as Record<string, string>
 
     return (
         <div ref={containerRef} className={`relative ${className}`}>
@@ -170,7 +160,9 @@ export default function IPhoneCanvas({
                                         isolation: 'isolate',
                                         contain: 'layout style paint',
                                         position: 'relative',
-                                        overflow: 'hidden'
+                                        overflow: 'hidden',
+                                        // Fix per Safari/Webkit radius bug con video
+                                        WebkitMaskImage: '-webkit-radial-gradient(white, black)'
                                     }}
                                 >
                                     {videoSrc ? (
@@ -181,6 +173,8 @@ export default function IPhoneCanvas({
                                                 loop
                                                 muted
                                                 playsInline
+                                                {...customVideoAttributes}
+                                                disablePictureInPicture
                                                 preload="metadata"
                                                 onClick={toggleMute}
                                                 onDoubleClick={(e) => {
@@ -207,12 +201,6 @@ export default function IPhoneCanvas({
                                                     role="button"
                                                     tabIndex={0}
                                                     aria-label={isMuted ? "Clicca per attivare l'audio" : "Clicca per disattivare l'audio"}
-                                                    onKeyDown={(e) => {
-                                                        if (e.key === 'Enter' || e.key === ' ') {
-                                                            e.preventDefault()
-                                                            toggleMute()
-                                                        }
-                                                    }}
                                                 />
                                             )}
 
@@ -229,8 +217,6 @@ export default function IPhoneCanvas({
                                                     className="absolute top-4 right-4 w-10 h-10 bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/30 transition-all z-30 focus:outline-none focus:ring-2 focus:ring-white/50"
                                                     whileHover={{ scale: 1.1 }}
                                                     whileTap={{ scale: 0.95 }}
-                                                    aria-label={isMuted ? "Attiva audio" : "Disattiva audio"}
-                                                    title={isMuted ? "Attiva audio" : "Disattiva audio"}
                                                 >
                                                     {isMuted ? (
                                                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -287,7 +273,7 @@ export default function IPhoneCanvas({
                                             repeat: Infinity,
                                             ease: "linear"
                                         }}
-                                        className="absolute top-4 right-4 w-8 h-8 border-2 border-white/30 rounded-full"
+                                        className="absolute top-4 right-4 w-8 h-8 border-2 border-white/30 rounded-full pointer-events-none"
                                     />
                                     <motion.div
                                         animate={{
@@ -298,7 +284,7 @@ export default function IPhoneCanvas({
                                             repeat: Infinity,
                                             ease: "linear"
                                         }}
-                                        className="absolute bottom-4 left-4 w-6 h-6 border-2 border-white/20 rounded-full"
+                                        className="absolute bottom-4 left-4 w-6 h-6 border-2 border-white/20 rounded-full pointer-events-none"
                                     />
                                 </motion.div>
 
@@ -314,12 +300,13 @@ export default function IPhoneCanvas({
                     </div>
                 </div>
 
+                {/* Decorazioni esterne */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.9 }}
                     viewport={{ once: true, margin: "-50px" }}
-                    className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg"
+                    className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg pointer-events-none"
                 >
                     <motion.img
                         src="/images/icons/rocket.png"
@@ -342,7 +329,7 @@ export default function IPhoneCanvas({
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 1 }}
                     viewport={{ once: true, margin: "-50px" }}
-                    className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg"
+                    className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg pointer-events-none"
                 >
                     <motion.svg
                         animate={{
