@@ -8,6 +8,7 @@ interface IPhoneCanvasProps {
     description?: string
     showVideo?: boolean
     videoSrc?: string
+    iframeSrc?: string
     className?: string
     hideAudioButton?: boolean
 }
@@ -17,6 +18,7 @@ export default function IPhoneCanvas({
     description = "Guarda come abbiamo trasformato questo business",
     showVideo = true,
     videoSrc,
+    iframeSrc,
     className = "",
     hideAudioButton = false
 }: IPhoneCanvasProps) {
@@ -173,7 +175,16 @@ export default function IPhoneCanvas({
                                         overflow: 'hidden'
                                     }}
                                 >
-                                    {videoSrc ? (
+                                    {iframeSrc ? (
+                                        <iframe
+                                            src={iframeSrc}
+                                            className="w-full h-full object-cover"
+                                            style={{ border: 0 }}
+                                            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+                                            loading="lazy"
+                                            title="Video dimostrativo del caso studio"
+                                        />
+                                    ) : videoSrc ? (
                                         <>
                                             <video
                                                 ref={videoRef}
