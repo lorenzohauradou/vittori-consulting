@@ -5,11 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { CustomBackground } from '@/components/ui/custom-background'
 import { useOptin } from '@/contexts/OptinContext'
 import Link from 'next/link'
-import { Mail, Phone, Linkedin, Facebook, Instagram } from 'lucide-react'
+import { Mail, Phone, Linkedin, Facebook, Instagram, Play } from 'lucide-react'
 import Script from 'next/script'
+import Image from 'next/image'
 
-// BunnyCDN embed URL with disableIosPlayer for TikTok/iOS WebView compatibility
-const HERO_VIDEO_EMBED_URL = 'https://iframe.mediadelivery.net/embed/510109/3c7e2de4-a8c3-4f2b-bd9f-1932b6e23f93?autoplay=true&loop=true&muted=true&preload=true&responsive=true&playsinline=true&disableIosPlayer=true'
+// BunnyCDN embed URL - for normal browsers
+const HERO_VIDEO_EMBED_URL = 'https://iframe.mediadelivery.net/embed/510109/3c7e2de4-a8c3-4f2b-bd9f-1932b6e23f93?autoplay=true&loop=true&muted=true&preload=true&disableIosPlayer=true'
 
 // Type for BunnyCDN player.js
 interface BunnyPlayer {
@@ -17,7 +18,6 @@ interface BunnyPlayer {
     mute: () => void
     unmute: () => void
     play: () => void
-    getMuted: (callback: (muted: boolean) => void) => void
 }
 
 interface PlayerJS {
@@ -30,15 +30,24 @@ declare global {
     }
 }
 
+// Detect TikTok, Instagram, Facebook in-app browsers
+function isInAppBrowser(): boolean {
+    if (typeof window === 'undefined') return false
+    const ua = navigator.userAgent || navigator.vendor
+    return /TikTok|Instagram|FBAN|FBAV|Twitter|Line\//i.test(ua)
+}
+
 export default function Hero() {
     const [currentPhase, setCurrentPhase] = useState(0)
     const { openModal, checkAuth } = useOptin()
     const iframeRef = useRef<HTMLIFrameElement>(null)
     const playerRef = useRef<BunnyPlayer | null>(null)
-    const [isMuted, setIsMuted] = useState(true)
-    const [isPlayerReady, setIsPlayerReady] = useState(false)
-    const [showAudioButton, setShowAudioButton] = useState(true)
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+    const [isInApp, setIsInApp] = useState(false)
+    const [showVideo, setShowVideo] = useState(false)
+
+    useEffect(() => {
+        setIsInApp(isInAppBrowser())
+    }, [])
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -54,7 +63,6 @@ export default function Hero() {
                 const player = new window.playerjs.Player(iframeRef.current)
                 player.on('ready', () => {
                     playerRef.current = player
-                    setIsPlayerReady(true)
                     player.play()
                 })
             } catch (error) {
@@ -63,36 +71,24 @@ export default function Hero() {
         }
     }, [])
 
-    const toggleMute = useCallback(() => {
-        if (playerRef.current && isPlayerReady) {
-            if (isMuted) {
-                playerRef.current.unmute()
-                setIsMuted(false)
-                setShowAudioButton(true)
-                if (timeoutRef.current) clearTimeout(timeoutRef.current)
-                timeoutRef.current = setTimeout(() => setShowAudioButton(false), 2000)
-            } else {
-                playerRef.current.mute()
-                setIsMuted(true)
-                setShowAudioButton(true)
-                if (timeoutRef.current) clearTimeout(timeoutRef.current)
-            }
+    const handlePlayClick = () => {
+        if (isInApp) {
+            // In TikTok/IG browser, open video in new tab
+            window.open('https://iframe.mediadelivery.net/embed/510109/3c7e2de4-a8c3-4f2b-bd9f-1932b6e23f93?autoplay=true', '_blank')
+        } else {
+            setShowVideo(true)
         }
-    }, [isMuted, isPlayerReady])
-
-    useEffect(() => {
-        return () => {
-            if (timeoutRef.current) clearTimeout(timeoutRef.current)
-        }
-    }, [])
+    }
 
     return (
         <>
-            <Script
-                src="https://assets.mediadelivery.net/playerjs/player-0.1.0.min.js"
-                strategy="afterInteractive"
-                onLoad={initPlayer}
-            />
+            {!isInApp && (
+                <Script
+                    src="https://assets.mediadelivery.net/playerjs/player-0.1.0.min.js"
+                    strategy="afterInteractive"
+                    onLoad={initPlayer}
+                />
+            )}
             <CustomBackground variant="hero" className="min-h-screen flex flex-col pt-16 pb-46 lg:pb-0">
                 <div className="bg-white/95 hidden md:block backdrop-blur-sm border-b max-w-4xl mx-auto rounded-3xl border-white/20 shadow-sm mt-16">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -268,53 +264,56 @@ export default function Hero() {
                                         initial={{ opacity: 0, scale: 0.8 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         transition={{ duration: 0.8, delay: 0.5 }}
-                                        className="w-96 h-96 lg:h-120 lg:w-120 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-black relative cursor-pointer"
-                                        onClick={toggleMute}
+                                        className="w-96 h-96 lg:h-120 lg:w-120 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-black relative"
                                     >
-                                        <iframe
-                                            ref={iframeRef}
-                                            src={HERO_VIDEO_EMBED_URL}
-                                            loading="lazy"
-                                            className="w-full h-full absolute inset-0 scale-[2] pointer-events-none"
-                                            style={{
-                                                border: 'none',
-                                                objectPosition: 'center 57%'
-                                            }}
-                                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                            allowFullScreen={true}
-                                            title="Video presentazione Valerio Vittori - VittoriConsulting"
-                                        />
+                                        {isInApp || !showVideo ? (
+                                            // Static thumbnail with play button for in-app browsers or before video loads
+                                            <div
+                                                className="w-full h-full relative cursor-pointer group"
+                                                onClick={handlePlayClick}
+                                            >
+                                                <Image
+                                                    src="https://vittoriconsulting.b-cdn.net/team/valerio.png"
+                                                    alt="Valerio Vittori - VittoriConsulting"
+                                                    fill
+                                                    className="object-cover object-top"
+                                                    priority
+                                                />
+                                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                                                    <motion.div
+                                                        animate={{ scale: [1, 1.1, 1] }}
+                                                        transition={{ duration: 2, repeat: Infinity }}
+                                                        className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-2xl"
+                                                    >
+                                                        <Play className="w-10 h-10 text-[#2e54a1] ml-1" fill="currentColor" />
+                                                    </motion.div>
+                                                </div>
+                                                {isInApp && (
+                                                    <div className="absolute bottom-4 left-0 right-0 text-center">
+                                                        <span className="bg-white/90 text-[#2e54a1] px-3 py-1 rounded-full text-sm font-medium">
+                                                            Tocca per vedere il video
+                                                        </span>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ) : (
+                                            // Video iframe for normal browsers
+                                            <div className="absolute inset-[-50%] w-[200%] h-[200%] flex items-center justify-center">
+                                                <iframe
+                                                    ref={iframeRef}
+                                                    src={HERO_VIDEO_EMBED_URL}
+                                                    loading="eager"
+                                                    className="w-full h-full"
+                                                    style={{ border: 'none' }}
+                                                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                                                    allowFullScreen={false}
+                                                    title="Video presentazione Valerio Vittori - VittoriConsulting"
+                                                />
+                                            </div>
+                                        )}
 
                                         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 blur-xl -z-10 scale-110"></div>
                                     </motion.div>
-
-                                    {showAudioButton && isPlayerReady && (
-                                        <motion.button
-                                            initial={{ opacity: 0, scale: 0.8 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            exit={{ opacity: 0, scale: 0.8 }}
-                                            transition={{ duration: 0.3 }}
-                                            onClick={(e) => {
-                                                e.stopPropagation()
-                                                toggleMute()
-                                            }}
-                                            className="absolute top-8 right-8 w-14 h-14 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center text-[#2e54a1] hover:bg-white transition-all z-30 focus:outline-none focus:ring-2 focus:ring-[#2e54a1]/50 shadow-xl border-2 border-[#2e54a1]/20"
-                                            whileHover={{ scale: 1.1 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            aria-label={isMuted ? "Attiva audio" : "Disattiva audio"}
-                                            title={isMuted ? "Attiva audio" : "Disattiva audio"}
-                                        >
-                                            {isMuted ? (
-                                                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
-                                                </svg>
-                                            ) : (
-                                                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                                                </svg>
-                                            )}
-                                        </motion.button>
-                                    )}
 
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}

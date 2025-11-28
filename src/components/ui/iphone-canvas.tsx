@@ -1,14 +1,22 @@
 'use client'
 
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { Play } from 'lucide-react'
 
 // BunnyCDN library ID for video embeds
 const BUNNY_LIBRARY_ID = '510109'
 
 // Helper to build BunnyCDN embed URL with iOS WebView compatibility
 function buildBunnyEmbedUrl(videoId: string): string {
-    return `https://iframe.mediadelivery.net/embed/${BUNNY_LIBRARY_ID}/${videoId}?autoplay=true&loop=true&muted=true&preload=true&responsive=true&playsinline=true&disableIosPlayer=true`
+    return `https://iframe.mediadelivery.net/embed/${BUNNY_LIBRARY_ID}/${videoId}?autoplay=true&loop=true&muted=true&preload=true&disableIosPlayer=true`
+}
+
+// Detect TikTok, Instagram, Facebook in-app browsers
+function isInAppBrowser(): boolean {
+    if (typeof window === 'undefined') return false
+    const ua = navigator.userAgent || navigator.vendor
+    return /TikTok|Instagram|FBAN|FBAV|Twitter|Line\//i.test(ua)
 }
 
 interface IPhoneCanvasProps {
@@ -28,6 +36,26 @@ export default function IPhoneCanvas({
     className = "",
 }: IPhoneCanvasProps) {
     const containerRef = useRef<HTMLDivElement>(null)
+    const [isInApp, setIsInApp] = useState(false)
+    const [showIframe, setShowIframe] = useState(false)
+
+    useEffect(() => {
+        const inApp = isInAppBrowser()
+        setIsInApp(inApp)
+        // On normal browsers, auto-show the video
+        if (!inApp && videoId) {
+            setShowIframe(true)
+        }
+    }, [videoId])
+
+    const handlePlayClick = () => {
+        if (isInApp && videoId) {
+            // In TikTok/IG browser, open video in new tab
+            window.open(`https://iframe.mediadelivery.net/embed/${BUNNY_LIBRARY_ID}/${videoId}?autoplay=true`, '_blank')
+        } else {
+            setShowIframe(true)
+        }
+    }
 
     return (
         <div ref={containerRef} className={`relative ${className}`}>
@@ -72,24 +100,38 @@ export default function IPhoneCanvas({
                                         contain: 'layout style paint',
                                         position: 'relative',
                                         overflow: 'hidden',
-                                        // Fix per Safari/Webkit radius bug con video
                                         WebkitMaskImage: '-webkit-radial-gradient(white, black)'
                                     }}
                                 >
                                     {videoId ? (
                                         <div className="relative w-full h-full bg-black">
-                                            <iframe
-                                                src={buildBunnyEmbedUrl(videoId)}
-                                                loading="lazy"
-                                                className="w-full h-full absolute inset-0"
-                                                style={{
-                                                    border: 'none',
-                                                    objectFit: 'cover'
-                                                }}
-                                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                                allowFullScreen={true}
-                                                title="Video dimostrativo del caso studio"
-                                            />
+                                            {isInApp || !showIframe ? (
+                                                // Static thumbnail with play button for in-app browsers
+                                                <div
+                                                    className="w-full h-full relative cursor-pointer group bg-gradient-to-br from-[#2e54a1] to-blue-600 flex flex-col items-center justify-center"
+                                                    onClick={handlePlayClick}
+                                                >
+                                                    <motion.div
+                                                        animate={{ scale: [1, 1.1, 1] }}
+                                                        transition={{ duration: 2, repeat: Infinity }}
+                                                        className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-2xl mb-4"
+                                                    >
+                                                        <Play className="w-8 h-8 text-[#2e54a1] ml-1" fill="currentColor" />
+                                                    </motion.div>
+                                                    <p className="text-white text-sm font-medium">Tocca per vedere</p>
+                                                </div>
+                                            ) : (
+                                                // Video iframe for normal browsers
+                                                <iframe
+                                                    src={buildBunnyEmbedUrl(videoId)}
+                                                    loading="lazy"
+                                                    className="w-full h-full absolute inset-0"
+                                                    style={{ border: 'none' }}
+                                                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                                                    allowFullScreen={false}
+                                                    title="Video dimostrativo del caso studio"
+                                                />
+                                            )}
                                         </div>
                                     ) : (
                                         <div className="w-full h-full bg-gradient-to-br from-[#2e54a1] to-blue-600 flex flex-col items-center justify-center">
