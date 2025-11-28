@@ -244,6 +244,11 @@ export default function Hero() {
                                         muted
                                         playsInline
                                         webkit-playsinline="true"
+                                        controlsList="nodownload nofullscreen noremoteplayback"
+                                        disableRemotePlayback
+                                        x5-playsinline="true"
+                                        x5-video-player-type="h5"
+                                        x5-video-player-fullscreen="false"
                                         aria-label="Video presentazione Valerio Vittori - VittoriConsulting"
                                     >
                                         <source src="https://vz-b2f9626e-b59.b-cdn.net/3c7e2de4-a8c3-4f2b-bd9f-1932b6e23f93/play_720p.mp4" type="video/mp4" />

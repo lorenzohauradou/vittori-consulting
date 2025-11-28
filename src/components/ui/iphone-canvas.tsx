@@ -196,6 +196,12 @@ export default function IPhoneCanvas({
                                                     maxWidth: '100%',
                                                     maxHeight: '100%'
                                                 }}
+                                                controlsList="nodownload nofullscreen noremoteplayback"
+                                                disableRemotePlayback
+                                                x5-playsinline="true"
+                                                x5-video-player-type="h5"
+                                                x5-video-player-fullscreen="false"
+                                                webkit-playsinline="true"
                                             >
                                                 <track kind="captions" />
                                             </video>
