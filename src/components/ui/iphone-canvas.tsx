@@ -1,13 +1,21 @@
 'use client'
 
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
+
+// BunnyCDN library ID for video embeds
+const BUNNY_LIBRARY_ID = '510109'
+
+// Helper to build BunnyCDN embed URL with iOS WebView compatibility
+function buildBunnyEmbedUrl(videoId: string): string {
+    return `https://iframe.mediadelivery.net/embed/${BUNNY_LIBRARY_ID}/${videoId}?autoplay=true&loop=true&muted=true&preload=true&responsive=true&playsinline=true&disableIosPlayer=true`
+}
 
 interface IPhoneCanvasProps {
     title?: string
     description?: string
     showVideo?: boolean
-    videoSrc?: string
+    videoId?: string
     className?: string
     hideAudioButton?: boolean
 }
@@ -16,107 +24,10 @@ export default function IPhoneCanvas({
     title = "Success Story",
     description = "Guarda come abbiamo trasformato questo business",
     showVideo = true,
-    videoSrc,
+    videoId,
     className = "",
-    hideAudioButton = false
 }: IPhoneCanvasProps) {
-    const videoRef = useRef<HTMLVideoElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null)
-    const [isMuted, setIsMuted] = useState(true)
-    const [showAudioButton, setShowAudioButton] = useState(true)
-
-    const toggleMute = () => {
-        if (videoRef.current) {
-            videoRef.current.muted = !videoRef.current.muted
-            const newMutedState = !isMuted
-            setIsMuted(newMutedState)
-
-            setShowAudioButton(true)
-
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current)
-            }
-
-            if (!newMutedState) {
-                timeoutRef.current = setTimeout(() => {
-                    setShowAudioButton(false)
-                }, 2000)
-            }
-        }
-    }
-
-    useEffect(() => {
-        const video = videoRef.current
-        if (video) {
-            // Impostiamo attributi critici via JS per sicurezza
-            video.setAttribute('playsinline', 'true')
-            video.setAttribute('webkit-playsinline', 'true')
-            video.setAttribute('x-webkit-airplay', 'allow')
-
-            // Forziamo mute e playsinline property
-            video.muted = true
-            video.playsInline = true
-
-            // Gestione aggressiva per prevenire il fullscreen di TikTok/iOS
-            const preventFullscreen = (e: Event) => {
-                e.preventDefault()
-            }
-
-            // Aggiungiamo listener specifici per WebKit
-            video.addEventListener('webkitbeginfullscreen', preventFullscreen)
-
-            // Cleanup
-            return () => {
-                video.removeEventListener('webkitbeginfullscreen', preventFullscreen)
-            }
-        }
-    }, [])
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        if (videoRef.current && videoRef.current.paused) {
-                            // Piccola promise safe per evitare errori se il browser blocca l'autoplay
-                            const playPromise = videoRef.current.play()
-                            if (playPromise !== undefined) {
-                                playPromise.catch((error) => {
-                                    console.log('Autoplay prevented or interrupted:', error)
-                                })
-                            }
-                        }
-                    } else {
-                        if (videoRef.current && !videoRef.current.paused) {
-                            videoRef.current.pause()
-                        }
-                    }
-                })
-            },
-            {
-                threshold: 0.3,
-                rootMargin: '0px'
-            }
-        )
-
-        if (containerRef.current) {
-            observer.observe(containerRef.current)
-        }
-
-        return () => {
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current)
-            }
-            observer.disconnect()
-        }
-    }, [])
-
-    // Definiamo gli attributi personalizzati in un oggetto tipizzato per evitare 'any'
-    const customVideoAttributes = {
-        "webkit-playsinline": "true",
-        "x-webkit-airplay": "allow"
-    } as Record<string, string>
 
     return (
         <div ref={containerRef} className={`relative ${className}`}>
@@ -165,71 +76,21 @@ export default function IPhoneCanvas({
                                         WebkitMaskImage: '-webkit-radial-gradient(white, black)'
                                     }}
                                 >
-                                    {videoSrc ? (
-                                        <>
-                                            <video
-                                                ref={videoRef}
-                                                src={videoSrc}
-                                                loop
-                                                muted
-                                                playsInline
-                                                {...customVideoAttributes}
-                                                disablePictureInPicture
-                                                preload="metadata"
-                                                onClick={toggleMute}
-                                                onDoubleClick={(e) => {
-                                                    e.preventDefault()
-                                                    e.stopPropagation()
-                                                }}
-                                                aria-label="Video dimostrativo del caso studio"
-                                                className="w-full h-full object-cover cursor-pointer"
+                                    {videoId ? (
+                                        <div className="relative w-full h-full bg-black">
+                                            <iframe
+                                                src={buildBunnyEmbedUrl(videoId)}
+                                                loading="lazy"
+                                                className="w-full h-full absolute inset-0"
                                                 style={{
-                                                    objectFit: 'cover',
-                                                    width: '100%',
-                                                    height: '100%',
-                                                    maxWidth: '100%',
-                                                    maxHeight: '100%'
+                                                    border: 'none',
+                                                    objectFit: 'cover'
                                                 }}
-                                            >
-                                                <track kind="captions" />
-                                            </video>
-
-                                            {!hideAudioButton && (
-                                                <div
-                                                    className="absolute inset-0 bg-black/0 hover:bg-black/5 transition-all duration-300 cursor-pointer"
-                                                    onClick={toggleMute}
-                                                    role="button"
-                                                    tabIndex={0}
-                                                    aria-label={isMuted ? "Clicca per attivare l'audio" : "Clicca per disattivare l'audio"}
-                                                />
-                                            )}
-
-                                            {!hideAudioButton && showAudioButton && (
-                                                <motion.button
-                                                    initial={{ opacity: 0, scale: 0.8 }}
-                                                    animate={{ opacity: 1, scale: 1 }}
-                                                    exit={{ opacity: 0, scale: 0.8 }}
-                                                    transition={{ duration: 0.3 }}
-                                                    onClick={(e) => {
-                                                        e.stopPropagation()
-                                                        toggleMute()
-                                                    }}
-                                                    className="absolute top-4 right-4 w-10 h-10 bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/30 transition-all z-30 focus:outline-none focus:ring-2 focus:ring-white/50"
-                                                    whileHover={{ scale: 1.1 }}
-                                                    whileTap={{ scale: 0.95 }}
-                                                >
-                                                    {isMuted ? (
-                                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                                            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
-                                                        </svg>
-                                                    ) : (
-                                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                                                        </svg>
-                                                    )}
-                                                </motion.button>
-                                            )}
-                                        </>
+                                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                                allowFullScreen={true}
+                                                title="Video dimostrativo del caso studio"
+                                            />
+                                        </div>
                                     ) : (
                                         <div className="w-full h-full bg-gradient-to-br from-[#2e54a1] to-blue-600 flex flex-col items-center justify-center">
                                             {showVideo && (
