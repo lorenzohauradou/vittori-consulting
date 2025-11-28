@@ -127,7 +127,7 @@ export default function About() {
                 <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-16 items-center mb-24">
                     <div className="relative z-10 flex justify-center lg:justify-start md:pl-16 lg:ml-16 md:ml-10">
                         <IPhoneCanvas
-                            iframeSrc="https://iframe.mediadelivery.net/embed/510109/5d4b16bc-77cd-42b6-9ecf-b2a8b6e31f9e?autoplay=true&loop=true&muted=true&preload=true&responsive=true&disableIosPlayer=true&playsinline=true"
+                            iframeSrc="https://iframe.mediadelivery.net/embed/510109/5d4b16bc-77cd-42b6-9ecf-b2a8b6e31f9e?autoplay=true&loop=true&muted=true&preload=true&responsive=true&playsinline=true&disableIosPlayer=true"
                         />
                     </div>
                     <div className="relative z-10">

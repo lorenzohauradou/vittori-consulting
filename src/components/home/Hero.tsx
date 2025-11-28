@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CustomBackground } from '@/components/ui/custom-background'
 import { useOptin } from '@/contexts/OptinContext'
@@ -11,13 +11,48 @@ export default function Hero() {
     const [currentPhase, setCurrentPhase] = useState(0)
     const { openModal, checkAuth } = useOptin()
 
+    const iframeRef = useRef<HTMLIFrameElement>(null)
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+    const [isMuted, setIsMuted] = useState(true)
+    const [showAudioButton, setShowAudioButton] = useState(true)
+
+    const LIBRARY_ID = "510109"
+    const VIDEO_ID = "3c7e2de4-a8c3-4f2b-bd9f-1932b6e23f93"
+
+    const embedUrl = `https://iframe.mediadelivery.net/embed/${LIBRARY_ID}/${VIDEO_ID}?autoplay=true&loop=true&muted=true&preload=true&responsive=true&playsinline=true&disableIosPlayer=true`
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setCurrentPhase(prev => prev === 0 ? 1 : 0)
         }, currentPhase === 0 ? 2000 : 3000)
-
         return () => clearTimeout(timer)
     }, [currentPhase])
+
+    const toggleMute = () => {
+        const iframe = iframeRef.current
+        if (iframe && iframe.contentWindow) {
+            const newMutedState = !isMuted
+
+            iframe.contentWindow.postMessage(
+                { method: 'setMuted', value: newMutedState },
+                '*'
+            )
+
+            setIsMuted(newMutedState)
+            setShowAudioButton(true)
+
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current)
+            }
+
+            if (!newMutedState) {
+                timeoutRef.current = setTimeout(() => {
+                    setShowAudioButton(false)
+                }, 2000)
+            }
+        }
+    }
 
     return (
         <CustomBackground variant="hero" className="min-h-screen flex flex-col pt-16 pb-46 lg:pb-0">
@@ -69,6 +104,7 @@ export default function Hero() {
                     </div>
                 </div>
             </div>
+
             <div className="flex-1 flex items-center">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
                     <div className="grid lg:grid-cols-2 gap-16 items-center h-full">
@@ -195,19 +231,52 @@ export default function Hero() {
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.8, delay: 0.5 }}
-                                    className="w-96 h-96 lg:h-120 lg:w-120 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-white/10 relative"
+                                    className="w-96 h-96 lg:h-120 lg:w-120 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-white/10 relative cursor-pointer"
+                                    onClick={toggleMute}
                                 >
-                                    <iframe
-                                        src="https://iframe.mediadelivery.net/embed/510109/3c7e2de4-a8c3-4f2b-bd9f-1932b6e23f93?autoplay=true&loop=true&muted=true&preload=true&responsive=true&disableIosPlayer=true&playsinline=true"
-                                        className="w-full h-full object-cover pointer-events-auto scale-150"
-                                        style={{ border: 0 }}
-                                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
-                                        loading="lazy"
-                                        title="Video presentazione Valerio Vittori - VittoriConsulting"
-                                    />
+                                    <div className="w-full h-full relative bg-black">
+                                        <iframe
+                                            ref={iframeRef}
+                                            src={embedUrl}
+                                            loading="eager"
+                                            className="w-full h-full absolute inset-0 object-cover scale-[1.7] pointer-events-none"
+                                            style={{ border: 'none' }}
+                                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                            allowFullScreen={true}
+                                            title="Video presentazione Valerio Vittori"
+                                        />
+                                    </div>
 
-                                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 blur-xl -z-10 scale-110"></div>
+                                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 blur-xl -z-10 scale-110 pointer-events-none"></div>
                                 </motion.div>
+
+                                {showAudioButton && (
+                                    <motion.button
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.8 }}
+                                        transition={{ duration: 0.3 }}
+                                        onClick={(e) => {
+                                            e.stopPropagation()
+                                            toggleMute()
+                                        }}
+                                        className="absolute top-8 right-8 w-14 h-14 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center text-[#2e54a1] hover:bg-white transition-all z-30 focus:outline-none focus:ring-2 focus:ring-[#2e54a1]/50 shadow-xl border-2 border-[#2e54a1]/20"
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        aria-label={isMuted ? "Attiva audio" : "Disattiva audio"}
+                                        title={isMuted ? "Attiva audio" : "Disattiva audio"}
+                                    >
+                                        {isMuted ? (
+                                            <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+                                            </svg>
+                                        ) : (
+                                            <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                                            </svg>
+                                        )}
+                                    </motion.button>
+                                )}
 
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
