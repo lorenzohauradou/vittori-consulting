@@ -44,13 +44,13 @@ function TypewriterText() {
 
     return (
         <span className="inline-flex items-baseline">
-            <span className="bg-gradient-to-r from-[#4a7dd4] via-[#6b9aed] to-[#4a7dd4] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#2e54a1] via-[#4a7dd4] to-[#2e54a1] bg-clip-text text-transparent">
                 un prodotto {currentText}
             </span>
             <motion.span
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-                className="ml-1 inline-block w-[3px] sm:w-1 h-[0.9em] bg-[#4a7dd4] translate-y-[0.1em]"
+                className="ml-1 inline-block w-[3px] sm:w-1 h-[0.9em] bg-[#2e54a1] translate-y-[0.1em]"
             />
         </span>
     )
@@ -80,7 +80,7 @@ export default function MvpHero() {
                         transition={{ duration: 0.5 }}
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-8"
                     >
-                        <Code2 className="w-4 h-4 text-[#4a7dd4]" />
+                        <Code2 className="w-4 h-4 text-[#2e54a1]" />
                         <span className="text-sm text-zinc-400">MVP Development Agency</span>
                     </motion.div>
 

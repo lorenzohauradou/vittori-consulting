@@ -181,7 +181,7 @@ function IdeaToMvpVisual() {
                 <motion.div
                     animate={{ scale: [0, 1.2, 1], opacity: [0, 1, 1] }}
                     transition={{ delay: 1.8, duration: 0.4, repeat: Infinity, repeatDelay: 2.6 }}
-                    className="absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/90"
+                    className="absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#2e54a1]/90"
                 >
                     <CheckCircle2 className="h-2.5 w-2.5 text-white" />
                 </motion.div>
@@ -298,9 +298,9 @@ function LaunchReadyVisual() {
                     repeat: Infinity,
                     ease: "easeInOut"
                 }}
-                className="flex h-14 w-14 items-center justify-center rounded-xl border border-emerald-500/20 bg-emerald-500/10"
+                className="flex h-14 w-14 items-center justify-center rounded-xl border border-[#2e54a1]/20 bg-[#2e54a1]/10"
             >
-                <Rocket className="h-6 w-6 text-emerald-400" />
+                <Rocket className="h-6 w-6 text-[#2e54a1]" />
             </motion.div>
         </div>
     )

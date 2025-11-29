@@ -74,7 +74,7 @@ export default function MvpProcess() {
                     <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-white/5 md:block">
                         <motion.div
                             style={{ height: lineHeight }}
-                            className="absolute top-0 w-full bg-gradient-to-b from-zinc-500 via-zinc-600 to-transparent opacity-50"
+                            className="absolute top-0 w-full bg-gradient-to-b from-[#2e54a1] via-[#4a7dd4] to-transparent opacity-50"
                         />
                     </div>
 
@@ -133,7 +133,7 @@ function StepCard({ step, index }: { step: typeof steps[0], index: number }) {
                     index % 2 === 0 ? "md:items-end" : "md:items-start"
                 )}>
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 border border-white/10">
-                        <step.icon className="h-4 w-4 text-zinc-400" />
+                        <step.icon className="h-4 w-4 text-[#2e54a1]" />
                     </div>
                     <div className="space-y-2">
                         <div className={cn(
@@ -156,7 +156,7 @@ function StepCard({ step, index }: { step: typeof steps[0], index: number }) {
             <div className="absolute left-4 top-0 hidden -translate-x-1/2 md:left-1/2 md:flex">
                 <motion.div
                     style={{ scale: scrollYProgress, opacity: scrollYProgress }}
-                    className="h-3 w-3 rounded-full border-2 border-[#0a0a0a] bg-zinc-500"
+                    className="h-3 w-3 rounded-full border-2 border-[#0a0a0a] bg-[#2e54a1]"
                 />
             </div>
 
