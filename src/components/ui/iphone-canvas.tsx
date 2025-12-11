@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useState, useEffect, useCallback } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 interface IPhoneCanvasProps {
@@ -8,9 +8,6 @@ interface IPhoneCanvasProps {
     description?: string
     showVideo?: boolean
     videoSrc?: string
-    // Bunny Stream iframe embed URL (use this instead of videoSrc for TikTok in-app browser compatibility)
-    // Format: https://iframe.mediadelivery.net/embed/{libraryId}/{videoId}
-    bunnyEmbedUrl?: string
     className?: string
     hideAudioButton?: boolean
 }
@@ -20,60 +17,18 @@ export default function IPhoneCanvas({
     description = "Guarda come abbiamo trasformato questo business",
     showVideo = true,
     videoSrc,
-    bunnyEmbedUrl,
     className = "",
     hideAudioButton = false
 }: IPhoneCanvasProps) {
     const videoRef = useRef<HTMLVideoElement>(null)
-    const iframeRef = useRef<HTMLIFrameElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
     const timeoutRef = useRef<NodeJS.Timeout | null>(null)
     const [isMuted, setIsMuted] = useState(true)
     const [showAudioButton, setShowAudioButton] = useState(true)
     const [isVideoVisible, setIsVideoVisible] = useState(false)
 
-    // Use iframe if bunnyEmbedUrl is provided (for TikTok in-app browser compatibility)
-    const useIframe = !!bunnyEmbedUrl
-
-    // Build iframe URL with necessary parameters
-    const getIframeSrc = useCallback(() => {
-        if (!bunnyEmbedUrl) return ''
-        const url = new URL(bunnyEmbedUrl)
-        url.searchParams.set('autoplay', 'true')
-        url.searchParams.set('loop', 'true')
-        url.searchParams.set('muted', 'true')
-        url.searchParams.set('preload', 'true')
-        url.searchParams.set('disableIosPlayer', 'true')
-        url.searchParams.set('responsive', 'false')
-        return url.toString()
-    }, [bunnyEmbedUrl])
-
-    // Send postMessage to Bunny iframe player
-    const sendIframeMessage = useCallback((command: string, value?: number) => {
-        if (iframeRef.current?.contentWindow) {
-            const message = value !== undefined
-                ? { event: command, value }
-                : { event: command }
-            iframeRef.current.contentWindow.postMessage(JSON.stringify(message), '*')
-        }
-    }, [])
-
     const toggleMute = () => {
-        if (useIframe) {
-            const newMutedState = !isMuted
-            setIsMuted(newMutedState)
-            sendIframeMessage(newMutedState ? 'mute' : 'unmute')
-
-            setShowAudioButton(true)
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current)
-            }
-            if (!newMutedState) {
-                timeoutRef.current = setTimeout(() => {
-                    setShowAudioButton(false)
-                }, 2000)
-            }
-        } else if (videoRef.current) {
+        if (videoRef.current) {
             videoRef.current.muted = !videoRef.current.muted
             const newMutedState = !isMuted
             setIsMuted(newMutedState)
@@ -93,8 +48,7 @@ export default function IPhoneCanvas({
     }
 
     useEffect(() => {
-        // Only set up video element handlers if not using iframe
-        if (!useIframe && videoRef.current) {
+        if (videoRef.current) {
             const video = videoRef.current
             video.playsInline = true
             video.disablePictureInPicture = true
@@ -132,7 +86,7 @@ export default function IPhoneCanvas({
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         setIsVideoVisible(true)
-                        if (!useIframe && videoRef.current && videoRef.current.paused) {
+                        if (videoRef.current && videoRef.current.paused) {
                             setTimeout(() => {
                                 const playPromise = videoRef.current?.play()
                                 if (playPromise !== undefined) {
@@ -141,15 +95,11 @@ export default function IPhoneCanvas({
                                     })
                                 }
                             }, 100)
-                        } else if (useIframe) {
-                            sendIframeMessage('play')
                         }
                     } else {
                         setIsVideoVisible(false)
-                        if (!useIframe && videoRef.current && !videoRef.current.paused) {
+                        if (videoRef.current && !videoRef.current.paused) {
                             videoRef.current.pause()
-                        } else if (useIframe) {
-                            sendIframeMessage('pause')
                         }
                     }
                 })
@@ -170,13 +120,13 @@ export default function IPhoneCanvas({
             }
             observer.disconnect()
         }
-    }, [useIframe, sendIframeMessage])
+    }, [])
 
     useEffect(() => {
-        if (!useIframe && videoRef.current && isVideoVisible) {
+        if (videoRef.current && isVideoVisible) {
             videoRef.current.play().catch(console.error)
         }
-    }, [isVideoVisible, useIframe])
+    }, [isVideoVisible])
 
     return (
         <div ref={containerRef} className={`relative ${className}`}>
@@ -223,58 +173,38 @@ export default function IPhoneCanvas({
                                         overflow: 'hidden'
                                     }}
                                 >
-                                    {(videoSrc || bunnyEmbedUrl) ? (
+                                    {videoSrc ? (
                                         <>
-                                            {useIframe ? (
-                                                // Bunny Stream iframe embed - compatible with TikTok in-app browser
-                                                <iframe
-                                                    ref={iframeRef}
-                                                    src={getIframeSrc()}
-                                                    loading="lazy"
-                                                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                                                    allowFullScreen={false}
-                                                    className="w-full h-full border-0"
-                                                    style={{
-                                                        width: '100%',
-                                                        height: '100%',
-                                                        objectFit: 'cover',
-                                                        pointerEvents: 'none'
-                                                    }}
-                                                    title="Video dimostrativo del caso studio"
-                                                />
-                                            ) : (
-                                                // Direct video element - may have issues in TikTok in-app browser
-                                                <video
-                                                    ref={videoRef}
-                                                    src={videoSrc}
-                                                    loop
-                                                    muted
-                                                    playsInline
-                                                    preload="metadata"
-                                                    onClick={toggleMute}
-                                                    onDoubleClick={(e) => {
-                                                        e.preventDefault()
-                                                        e.stopPropagation()
-                                                    }}
-                                                    aria-label="Video dimostrativo del caso studio"
-                                                    className="w-full h-full object-cover cursor-pointer"
-                                                    style={{
-                                                        objectFit: 'cover',
-                                                        width: '100%',
-                                                        height: '100%',
-                                                        maxWidth: '100%',
-                                                        maxHeight: '100%'
-                                                    }}
-                                                    controlsList="nodownload nofullscreen noremoteplayback"
-                                                    disableRemotePlayback
-                                                    x5-playsinline="true"
-                                                    x5-video-player-type="h5"
-                                                    x5-video-player-fullscreen="false"
-                                                    webkit-playsinline="true"
-                                                >
-                                                    <track kind="captions" />
-                                                </video>
-                                            )}
+                                            <video
+                                                ref={videoRef}
+                                                src={videoSrc}
+                                                loop
+                                                muted
+                                                playsInline
+                                                preload="metadata"
+                                                onClick={toggleMute}
+                                                onDoubleClick={(e) => {
+                                                    e.preventDefault()
+                                                    e.stopPropagation()
+                                                }}
+                                                aria-label="Video dimostrativo del caso studio"
+                                                className="w-full h-full object-cover cursor-pointer"
+                                                style={{
+                                                    objectFit: 'cover',
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    maxWidth: '100%',
+                                                    maxHeight: '100%'
+                                                }}
+                                                controlsList="nodownload nofullscreen noremoteplayback"
+                                                disableRemotePlayback
+                                                x5-playsinline="true"
+                                                x5-video-player-type="h5"
+                                                x5-video-player-fullscreen="false"
+                                                webkit-playsinline="true"
+                                            >
+                                                <track kind="captions" />
+                                            </video>
 
                                             {!hideAudioButton && (
                                                 <div

@@ -212,7 +212,7 @@ export default function Difference() {
                     </div>
 
                     <div className="relative z-10 flex justify-center lg:justify-end">
-                        <IPhoneCanvas bunnyEmbedUrl="https://iframe.mediadelivery.net/embed/510109/0eb84004-f16b-48cb-a1b4-33b415d99bb5" hideAudioButton={true} />
+                        <IPhoneCanvas videoSrc="https://vz-b2f9626e-b59.b-cdn.net/0eb84004-f16b-48cb-a1b4-33b415d99bb5/play_720p.mp4" hideAudioButton={true} />
                     </div>
                 </div>
             </div>

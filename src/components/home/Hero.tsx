@@ -1,38 +1,29 @@
 'use client'
 
-import React, { useState, useEffect, useRef, useCallback } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CustomBackground } from '@/components/ui/custom-background'
 import { useOptin } from '@/contexts/OptinContext'
 import Link from 'next/link'
 import { Mail, Phone, Linkedin, Facebook, Instagram } from 'lucide-react'
 
-// Bunny Stream embed URL for TikTok in-app browser compatibility
-const BUNNY_EMBED_URL = 'https://iframe.mediadelivery.net/embed/510109/3c7e2de4-a8c3-4f2b-bd9f-1932b6e23f93'
-
 export default function Hero() {
     const [currentPhase, setCurrentPhase] = useState(0)
     const { openModal, checkAuth } = useOptin()
-    const iframeRef = useRef<HTMLIFrameElement>(null)
+    const videoRef = useRef<HTMLVideoElement>(null)
     const timeoutRef = useRef<NodeJS.Timeout | null>(null)
     const [isMuted, setIsMuted] = useState(true)
     const [showAudioButton, setShowAudioButton] = useState(true)
-
-    // Build iframe URL with necessary parameters
-    const iframeSrc = `${BUNNY_EMBED_URL}?autoplay=true&loop=true&muted=true&preload=true&disableIosPlayer=true&responsive=false`
-
-    // Send postMessage to Bunny iframe player
-    const sendIframeMessage = useCallback((command: string) => {
-        if (iframeRef.current?.contentWindow) {
-            const message = { event: command }
-            iframeRef.current.contentWindow.postMessage(JSON.stringify(message), '*')
-        }
-    }, [])
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setCurrentPhase(prev => prev === 0 ? 1 : 0)
         }, currentPhase === 0 ? 2000 : 3000)
+
+        if (videoRef.current) {
+            videoRef.current.setAttribute('playsinline', 'true')
+            videoRef.current.setAttribute('webkit-playsinline', 'true')
+        }
 
         return () => clearTimeout(timer)
     }, [currentPhase])
@@ -46,20 +37,22 @@ export default function Hero() {
     }, [])
 
     const toggleMute = () => {
-        const newMutedState = !isMuted
-        setIsMuted(newMutedState)
-        sendIframeMessage(newMutedState ? 'mute' : 'unmute')
+        if (videoRef.current) {
+            videoRef.current.muted = !videoRef.current.muted
+            const newMutedState = !isMuted
+            setIsMuted(newMutedState)
 
-        setShowAudioButton(true)
+            setShowAudioButton(true)
 
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current)
-        }
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current)
+            }
 
-        if (!newMutedState) {
-            timeoutRef.current = setTimeout(() => {
-                setShowAudioButton(false)
-            }, 2000)
+            if (!newMutedState) {
+                timeoutRef.current = setTimeout(() => {
+                    setShowAudioButton(false)
+                }, 2000)
+            }
         }
     }
 
@@ -242,22 +235,26 @@ export default function Hero() {
                                     className="w-96 h-96 lg:h-120 lg:w-120 rounded-full overflow-hidden shadow-2xl border-8 border-[#2e54a1] backdrop-blur-sm bg-white/10 relative cursor-pointer"
                                     onClick={toggleMute}
                                 >
-                                    <iframe
-                                        ref={iframeRef}
-                                        src={iframeSrc}
-                                        loading="eager"
-                                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                                        allowFullScreen={false}
-                                        className="w-full h-full pointer-events-none"
-                                        style={{
-                                            objectFit: 'cover',
-                                            objectPosition: 'center 57%',
-                                            border: 'none',
-                                            transform: 'scale(1.5)',
-                                            transformOrigin: 'center center'
-                                        }}
-                                        title="Video presentazione Valerio Vittori - VittoriConsulting"
-                                    />
+                                    <video
+                                        ref={videoRef}
+                                        className="w-full h-full object-cover pointer-events-none"
+                                        style={{ objectPosition: 'center 57%' }}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        webkit-playsinline="true"
+                                        controlsList="nodownload nofullscreen noremoteplayback"
+                                        disableRemotePlayback
+                                        x5-playsinline="true"
+                                        x5-video-player-type="h5"
+                                        x5-video-player-fullscreen="false"
+                                        aria-label="Video presentazione Valerio Vittori - VittoriConsulting"
+                                    >
+                                        <source src="https://vz-b2f9626e-b59.b-cdn.net/3c7e2de4-a8c3-4f2b-bd9f-1932b6e23f93/play_720p.mp4" type="video/mp4" />
+                                        <track kind="captions" />
+                                        Video presentazione di Valerio Vittori
+                                    </video>
 
                                     <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 blur-xl -z-10 scale-110"></div>
                                 </motion.div>
