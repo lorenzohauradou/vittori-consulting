@@ -81,6 +81,7 @@ export default function IPhoneCanvas({
             })
         }
 
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
