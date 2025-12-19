@@ -78,6 +78,16 @@ export default function Testimonials() {
         },
         {
             id: 4,
+            title: 'Dott.ssa Linda Rastrelli - Podologa',
+            result: '+20 visite prese in 27 giorni',
+            icon: 'trending',
+            src: 'https://iframe.mediadelivery.net/embed/510109/2c24d52b-0d93-4449-bea4-8e1978ef59f3?loop=false&muted=false&preload=false&responsive=true',
+            isIframe: true,
+            aspectRatio: '16/9',
+            description: 'Testimonianza Dott.ssa Linda Rastrelli - Podologa'
+        },
+        {
+            id: 5,
             title: "Alberto's Pizza - Testimonianza",
             result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
             icon: 'eye',
