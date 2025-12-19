@@ -101,7 +101,7 @@ export default function TestimonialsSection() {
             result: '+20 visite prese in 27 giorni',
             icon: 'trending',
             src: 'https://iframe.mediadelivery.net/embed/510109/2c24d52b-0d93-4449-bea4-8e1978ef59f3?loop=false&muted=false&preload=true&responsive=true',
-            aspectRatio: '16/9',
+            aspectRatio: '9/16',
             description: 'Testimonianza Dott.ssa Linda Rastrelli - Podologa'
         },
         {
