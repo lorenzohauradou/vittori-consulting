@@ -72,7 +72,7 @@ export default function Partners() {
                     }
                 }
                 .animate-marquee {
-                    animation: marquee 40s linear infinite;
+                    animation: marquee 10s linear infinite;
                     will-change: transform;
                 }
             `}</style>
