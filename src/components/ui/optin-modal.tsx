@@ -22,7 +22,6 @@ export function OptinModal() {
     })
 
     const CALENDLY_URL = 'https://calendly.com/valerio-vittori/30min?hide_gdpr_banner=1'
-    const SITE_URL = process.env.NEXT_PUBLIC_URL || 'https://www.vittoriconsulting.it'
 
     const capitalizeFirst = (str: string) => {
         if (!str) return str
@@ -35,38 +34,18 @@ export function OptinModal() {
 
         try {
             if (supabase) {
-                const { data: authData, error: authError } = await supabase.auth.signUp({
+                // Insert directly into profiles without auth (avoids email confirmation issues)
+                const { error: profileError } = await supabase.from('profiles').insert({
                     email: formData.email,
-                    password: Math.random().toString(36).slice(-12) + 'Aa1!',
-                    options: {
-                        data: {
-                            first_name: formData.firstName,
-                            last_name: formData.lastName,
-                            phone: formData.phone,
-                            full_name: `${formData.firstName} ${formData.lastName}`
-                        },
-                        emailRedirectTo: `${SITE_URL}/video-letter`
-                    }
+                    first_name: formData.firstName,
+                    last_name: formData.lastName,
+                    phone: formData.phone,
+                    full_name: `${formData.firstName} ${formData.lastName}`,
+                    source: redirectTarget === 'calendly' ? 'calendly_optin' : 'video_letter_optin'
                 })
 
-                if (authError) {
-                    console.error('Error signing up:', authError)
-                }
-
-                if (authData?.user) {
-                    const { error: profileError } = await supabase.from('profiles').insert({
-                        id: authData.user.id,
-                        email: formData.email,
-                        first_name: formData.firstName,
-                        last_name: formData.lastName,
-                        phone: formData.phone,
-                        full_name: `${formData.firstName} ${formData.lastName}`,
-                        source: redirectTarget === 'calendly' ? 'calendly_optin' : 'video_letter_optin'
-                    })
-
-                    if (profileError) {
-                        console.error('Error creating profile:', profileError)
-                    }
+                if (profileError) {
+                    console.error('Error saving profile:', profileError)
                 }
             }
 
