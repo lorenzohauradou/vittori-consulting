@@ -59,7 +59,7 @@ export default function Testimonials() {
         {
             id: 2,
             title: 'St Peter Photo',
-            result: '+6 servizi fotografici raggiunti in soli 30 giorni',
+            result: '+16 servizi fotografici raggiunti in soli 30 giorni',
             icon: 'trending',
             src: 'https://iframe.mediadelivery.net/embed/510109/7a315d76-854f-4b1d-8b5c-430722150141?loop=false&muted=false&preload=false&responsive=true',
             isIframe: true,
