@@ -13,6 +13,7 @@ const partners = [
     { name: 'Il Capriccio Pizzeria', logo: 'https://vittoriconsulting.b-cdn.net/partners/capriccio.webp' },
     { name: 'Ami School', logo: 'https://vittoriconsulting.b-cdn.net/partners/amischool.webp' },
     { name: 'Summer Fest', logo: 'https://vittoriconsulting.b-cdn.net/partners/summer.webp' },
+    { name: 'Case in Rete', logo: 'https://vittoriconsulting.b-cdn.net/partners/caseinrete.jpg' },
     { name: 'HeroCraft', logo: 'https://vittoriconsulting.b-cdn.net/partners/herocraft.webp' },
 ];
 
