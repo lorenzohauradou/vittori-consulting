@@ -1,117 +1,211 @@
-'use client'
+"use client"
 
-import { motion } from 'framer-motion'
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowUpRight, Github } from "lucide-react"
 
-const projects = [
-    {
-        icon: '🚀',
-        title: 'SaaSMetrics',
-        description: 'Dashboard analytics per startup SaaS con metriche MRR, churn e cohort analysis.',
-        year: '2024',
-        stats: '500+ utenti',
-        status: 'Live',
-        statusColor: 'emerald'
-    },
-    {
-        icon: '📅',
-        title: 'BookingFlow',
-        description: 'Sistema di prenotazioni per professionisti con pagamenti Stripe e sync calendario.',
-        year: '2024',
-        stats: '€50k GMV',
-        status: 'Live',
-        statusColor: 'emerald'
-    },
-    {
-        icon: '🛒',
-        title: 'MarketHub',
-        description: 'Marketplace B2B con matching AI, chat integrata e sistema di recensioni.',
-        year: '2023',
-        stats: '1.2k transazioni',
-        status: 'Acquired',
-        statusColor: 'amber'
-    }
-]
+export default function Projects() {
+    const ref = useRef<HTMLDivElement>(null)
+    const scrollRef = useRef<HTMLDivElement>(null)
+    const isInView = useInView(ref, { once: true, amount: 0.1 })
 
-export default function MvpProjects() {
+    const projects = [
+        {
+            title: "Appuntoai",
+            description: "Trasforma ore di lezioni audio/video in trascrizioni, mappe mentali, quiz e interrogazioni AI",
+            media: { type: "image" as const, src: "https://vittoriconsulting.b-cdn.net/mvp/appuntoai.webp" },
+            tags: ["SaaS", "Next.js", "Python", "Live Kit", "Groq"],
+            link: "https://appuntoai.com",
+            status: "Attivo",
+            statusEmoji: "🚴",
+        },
+        {
+            title: "Swipe Carousel",
+            description: "Trasforma i caroselli dei competitor nel tuo stile unico usando l'AI",
+            media: { type: "video" as const, src: "https://vz-b2f9626e-b59.b-cdn.net/5b535d49-339c-4b14-b0af-fb4f85a68759/play_720p.mp4" },
+            tags: ["SaaS", "Next.js", "Python", "AI"],
+            link: "https://swipecarousel.com",
+            status: "Attivo",
+            statusEmoji: "🚴",
+        },
+        {
+            title: "Vittori Consulting",
+            description: "Sito web agenzia marketing con design moderno e animazioni fluide",
+            media: { type: "image" as const, src: "https://vittoriconsulting.b-cdn.net/mvp/vittori.webp" },
+            tags: ["Next.js", "Tailwind", "Framer"],
+            link: "https://vittoriconsulting.it",
+            github: "https://github.com/lorenzohauradou/vittoriconsulting",
+            status: "Completato",
+            statusEmoji: "🚀",
+        },
+        {
+            title: "Waibe",
+            description: "Trasforma i tuoi selfie in viaggi nel tempo attraverso la storia",
+            media: { type: "image" as const, src: "https://vittoriconsulting.b-cdn.net/mvp/waibe1.webp" },
+            tags: ["Next.js", "Python", "AI"],
+            link: "https://waibe.app",
+            status: "Gratis",
+        },
+        {
+            title: "OsFlumen",
+            description: "Sito web per olio d'oliva italiano",
+            media: { type: "image" as const, src: "https://vittoriconsulting.b-cdn.net/mvp/OsFlumen1.webp" },
+            tags: ["React", "Tailwind"],
+            link: "https://osflumen.com",
+            github: "https://github.com/lorenzohauradou/osflumen",
+            status: "Completato",
+            statusEmoji: "🚀",
+        },
+        {
+            title: "MagicBox Roma",
+            description: "Sito web azienda di imballaggi e spedizioni con form di contatto integrato",
+            media: { type: "image" as const, src: "https://vittoriconsulting.b-cdn.net/mvp/magicboxroma.webp" },
+            tags: ["Next.js", "Tailwind", "Resend"],
+            link: "https://magicboxroma.it",
+            github: "https://github.com/lorenzohauradou/magicboxroma",
+            status: "Completato",
+            statusEmoji: "🚀",
+        },
+    ]
+
     return (
-        <section id="projects" className="relative py-24 sm:py-32">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <section id="projects" className="py-24 relative overflow-hidden" ref={ref}>
+            <div className="relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5 }}
+                    className="max-w-5xl mx-auto px-6 mb-10"
                 >
-                    <span className="inline-block px-3 py-1 text-[10px] font-medium uppercase tracking-widest text-zinc-500 border border-zinc-800 rounded-full mb-6">
-                        Portfolio
-                    </span>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                        Progetti recenti
-                    </h2>
-                    <p className="text-zinc-400 max-w-lg mx-auto">
-                        MVP lanciati per i nostri clienti
-                    </p>
+                    <h2 className="text-2xl font-medium tracking-tight text-white">Alcuni Progetti</h2>
                 </motion.div>
 
-                <div className="space-y-4">
-                    {projects.map((project, i) => (
-                        <motion.div
-                            key={project.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className="group relative"
-                        >
-                            <div className="relative p-6 rounded-2xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/[0.06] hover:border-white/[0.12] transition-all duration-300 hover:bg-white/[0.04]">
-                                <div className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/[0.05] flex items-center justify-center text-2xl">
-                                        {project.icon}
-                                    </div>
+                <div className="relative">
+                    <div className="absolute left-0 top-0 bottom-0 w-6 md:w-16 bg-gradient-to-r from-[#09090b] to-transparent z-10 pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-6 md:w-16 bg-gradient-to-l from-[#09090b] to-transparent z-10 pointer-events-none" />
 
-                                    <div className="flex-1 min-w-0">
-                                        <div className="flex items-center gap-3 mb-2">
-                                            <h3 className="text-lg font-semibold text-white group-hover:text-[#4a7dd4] transition-colors">
-                                                {project.title}
-                                            </h3>
-                                            <span className={`px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded-full ${project.statusColor === 'emerald'
-                                                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                                                : 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-                                                }`}>
-                                                {project.status}
-                                            </span>
+                    <div
+                        ref={scrollRef}
+                        className="flex gap-5 overflow-x-auto pb-4 px-6 md:px-16 scrollbar-hide scroll-smooth snap-x snap-mandatory"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
+                        {projects.map((project, index) => (
+                            <motion.div
+                                key={project.title}
+                                initial={{ opacity: 0, x: 40 }}
+                                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                                transition={{ duration: 0.5, delay: index * 0.08 }}
+                                className="flex-shrink-0 w-[320px] md:w-[380px] snap-start"
+                            >
+                                <Link
+                                    href={project.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group block h-full"
+                                >
+                                    <article className="bg-white/[0.02] border border-white/5 rounded-xl overflow-hidden h-full hover:bg-white/[0.04] transition-colors">
+                                        <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
+                                            {project.media.type === "video" ? (
+                                                <video
+                                                    src={project.media.src}
+                                                    autoPlay
+                                                    loop
+                                                    muted
+                                                    playsInline
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                />
+                                            ) : (
+                                                <Image
+                                                    src={project.media.src}
+                                                    alt={project.title}
+                                                    fill
+                                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                                />
+                                            )}
                                         </div>
 
-                                        <p className="text-sm text-zinc-400 mb-4 leading-relaxed">
-                                            {project.description}
-                                        </p>
+                                        <div className="p-5">
+                                            <div className="flex items-start justify-between gap-4 mb-2">
+                                                <h3 className="font-medium text-white group-hover:text-zinc-300 transition-colors">
+                                                    {project.title}
+                                                </h3>
+                                                <ArrowUpRight className="h-4 w-4 flex-shrink-0 text-zinc-500 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
+                                            </div>
 
-                                        <div className="flex items-center gap-4 text-xs text-zinc-500">
-                                            <span className="flex items-center gap-1.5">
-                                                <span className="text-zinc-600">📅</span>
-                                                {project.year}
-                                            </span>
-                                            <span className="w-1 h-1 rounded-full bg-zinc-700" />
-                                            <span className="flex items-center gap-1.5">
-                                                <span className="text-zinc-600">📊</span>
-                                                {project.stats}
-                                            </span>
+                                            <p className="text-sm text-zinc-500 mb-4 line-clamp-2">
+                                                {project.description}
+                                            </p>
+
+                                            <div className="flex items-center justify-between">
+                                                <div className="flex flex-wrap gap-1.5">
+                                                    {project.tags.slice(0, 3).map((tag) => (
+                                                        <span
+                                                            key={tag}
+                                                            className="text-xs text-zinc-500 bg-white/5 px-2 py-0.5 rounded-md"
+                                                        >
+                                                            {tag}
+                                                        </span>
+                                                    ))}
+                                                    {project.tags.length > 3 && (
+                                                        <span className="text-xs text-zinc-500">
+                                                            +{project.tags.length - 3}
+                                                        </span>
+                                                    )}
+                                                </div>
+
+                                                <div className="flex items-center gap-2">
+                                                    {project.github && (
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.preventDefault()
+                                                                e.stopPropagation()
+                                                                window.open(project.github, "_blank")
+                                                            }}
+                                                            className="p-1.5 rounded-full hover:bg-white/10 transition-colors"
+                                                            aria-label="Vedi codice sorgente"
+                                                        >
+                                                            <Github className="h-4 w-4 text-zinc-500" />
+                                                        </button>
+                                                    )}
+
+                                                    <span className={`text-xs font-medium px-2 py-0.5 rounded-md flex items-center gap-1 ${project.status === "Attivo"
+                                                        ? "bg-green-500/10 text-green-400"
+                                                        : project.status === "Gratis"
+                                                            ? "bg-blue-500/10 text-blue-400"
+                                                            : "bg-white/5 text-zinc-500"
+                                                        }`}>
+                                                        {project.statusEmoji && <span>{project.status} </span>}
+                                                        {project.statusEmoji}
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                                    </article>
+                                </Link>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
 
-                <motion.p
+                <motion.div
                     initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    className="text-center text-zinc-600 text-sm mt-10"
+                    animate={isInView ? { opacity: 1 } : {}}
+                    transition={{ delay: 0.6 }}
+                    className="mt-10 text-center"
                 >
-                    + altri progetti in sviluppo
-                </motion.p>
+                    <a
+                        href="https://github.com/lorenzohauradou"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-white transition-colors group"
+                    >
+                        <Github className="h-4 w-4" />
+                        Vedi altri progetti su GitHub
+                        <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                </motion.div>
             </div>
         </section>
     )

@@ -7,7 +7,7 @@ import {
     MvpProcess,
     // MvpPricing,
     MvpN8N,
-    // MvpProjects,
+    MvpProjects,
     MvpFAQ,
     MvpCTA,
     MvpFooter
@@ -57,9 +57,9 @@ export default function MvpAgencyPage() {
             <MvpShowcase />
             <MvpProcess />
             <MvpN8N />
+            <MvpProjects />
             <MvpFeatures />
-            {/* <MvpPricing />
-            <MvpProjects /> */}
+            {/* <MvpPricing />*/}
             <MvpFAQ />
             <MvpCTA />
             <MvpFooter />
