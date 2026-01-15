@@ -441,8 +441,8 @@ export default function Calculator() {
                                             stroke="#6b7280"
                                         />
                                         <Tooltip
-                                            formatter={(value: number) => formatCurrency(value)}
-                                            labelFormatter={(label: string | number) => `Mese ${label}`}
+                                            formatter={(value) => formatCurrency(Number(value) || 0)}
+                                            labelFormatter={(label) => `Mese ${label}`}
                                             contentStyle={{ borderRadius: '12px', border: '2px solid #2e54a1' }}
                                         />
                                         <Line
