@@ -518,27 +518,30 @@ export default function Testimonials() {
                     viewport={{ once: true, margin: "-50px" }}
                     className="text-center"
                 >
-                    <div className="bg-white/15 backdrop-blur-md rounded-3xl p-8 lg:p-12 border border-white/30 shadow-2xl">
-                        <motion.h4
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.6, delay: 0.6 }}
-                            viewport={{ once: true }}
-                            className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-white lg:text-[#2e54a1] drop-shadow-lg"
-                        >
-                            Vuoi vedere altre testimonianze?
-                        </motion.h4>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.7 }}
-                            viewport={{ once: true }}
-                            className="text-lg sm:text-xl lg:text-2xl mb-8 text-white/95 lg:text-black drop-shadow-md max-w-2xl mx-auto leading-relaxed"
-                        >
-                            Scopri cosa dicono di noi i clienti che hanno già fatto il salto di qualità
-                        </motion.p>
+                    <div className="relative bg-gradient-to-br from-white to-blue-50/80 rounded-3xl p-8 lg:p-12 border border-[#2e54a1]/10 shadow-2xl overflow-hidden">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#2e54a1]/10 to-transparent rounded-full blur-3xl" />
+                        <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-[#3d6bc9]/10 to-transparent rounded-full blur-2xl" />
 
-                        <div className="flex justify-center items-center">
+                        <div className="relative z-10">
+                            <motion.h4
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.6, delay: 0.6 }}
+                                viewport={{ once: true }}
+                                className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-[#2e54a1]"
+                            >
+                                Vuoi vedere altre testimonianze?
+                            </motion.h4>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.7 }}
+                                viewport={{ once: true }}
+                                className="text-lg sm:text-xl mb-8 text-gray-600 max-w-2xl mx-auto leading-relaxed"
+                            >
+                                Scopri cosa dicono di noi i clienti che hanno già fatto il salto di qualità
+                            </motion.p>
+
                             <motion.button
                                 onClick={async () => {
                                     const isAuth = await checkAuth()
@@ -553,14 +556,14 @@ export default function Testimonials() {
                                 transition={{ duration: 0.6, delay: 0.8 }}
                                 viewport={{ once: true }}
                                 whileHover={{
-                                    scale: 1.05,
-                                    boxShadow: "0 20px 40px rgba(255, 255, 255, 0.3)"
+                                    scale: 1.03,
+                                    boxShadow: "0 20px 40px rgba(46, 84, 161, 0.25)"
                                 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="relative inline-flex items-center justify-center px-8 lg:px-10 py-4 lg:py-5 text-lg lg:text-xl font-bold text-[#2e54a1] bg-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group overflow-hidden border-2 border-white/50"
+                                whileTap={{ scale: 0.97 }}
+                                className="relative inline-flex items-center justify-center px-8 lg:px-10 py-4 lg:py-5 text-lg lg:text-xl font-bold text-white bg-gradient-to-r from-[#2e54a1] to-[#3d6bc9] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden border border-[#2e54a1]/20"
                             >
                                 <motion.div
-                                    className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/20 to-transparent"
+                                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
                                     animate={{
                                         x: ['-100%', '100%']
                                     }}
