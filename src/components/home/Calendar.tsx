@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import CalendlyLazy from '@/components/ui/calendly-lazy'
+import CustomCalendar from '@/components/ui/custom-calendar'
 
 export default function Calendar() {
 
@@ -44,27 +44,25 @@ export default function Calendar() {
                         </h3>
                     </div>
 
-                    <div className="max-w-5xl mx-auto mb-12 sm:mb-16">
-                        <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl border border-gray-200">
-                            <div className="text-center mb-6 sm:mb-8">
-                                <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed mb-4">
-                                    Abbiamo creato un <span className="font-bold text-[#2e54a1]">METODO</span> che sta già ribaltando i numeri di imprenditori che, come te, erano fermi e bloccati da mesi (se non anni)… e che ora ci ringraziano!
-                                </p>
-                                <h4 className="text-2xl sm:text-3xl font-bold text-[#2e54a1]">
-                                    Prenota la Tua Call Strategica
-                                </h4>
-                            </div>
+                    <div className="max-w-xl mx-auto mb-12 sm:mb-16">
+                        <div className="text-center mb-6 sm:mb-8">
+                            <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed mb-4">
+                                Abbiamo creato un <span className="font-bold text-[#2e54a1]">METODO</span> che sta già ribaltando i numeri di imprenditori che, come te, erano fermi e bloccati da mesi (se non anni)… e che ora ci ringraziano!
+                            </p>
+                            <h4 className="text-2xl sm:text-3xl font-bold text-[#2e54a1] mb-8">
+                                Prenota la Tua Call Strategica
+                            </h4>
+                        </div>
 
-                            <CalendlyLazy />
+                        <CustomCalendar />
 
-                            <div className="text-center">
-                                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-[#2e54a1] mb-2">
-                                    Ora tocca a te!
-                                </p>
-                                <p className="text-base sm:text-lg text-gray-600">
-                                    Smetti di perdere tempo e scopri la soluzione che ti farà scalare il tuo business!
-                                </p>
-                            </div>
+                        <div className="text-center mt-8">
+                            <p className="text-lg sm:text-xl lg:text-2xl font-bold text-[#2e54a1] mb-2">
+                                Ora tocca a te!
+                            </p>
+                            <p className="text-base sm:text-lg text-gray-600">
+                                Smetti di perdere tempo e scopri la soluzione che ti farà scalare il tuo business!
+                            </p>
                         </div>
                     </div>
                 </div>
