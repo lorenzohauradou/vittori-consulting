@@ -83,8 +83,8 @@ export default function Projects() {
                 </motion.div>
 
                 <div className="relative">
-                    <div className="absolute left-0 top-0 bottom-0 w-6 md:w-16 bg-gradient-to-r from-[#09090b] to-transparent z-10 pointer-events-none" />
-                    <div className="absolute right-0 top-0 bottom-0 w-6 md:w-16 bg-gradient-to-l from-[#09090b] to-transparent z-10 pointer-events-none" />
+                    <div className="absolute left-0 top-0 bottom-0 w-6 md:w-16 bg-linear-to-r from-[#09090b] to-transparent z-10 pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-6 md:w-16 bg-linear-to-l from-[#09090b] to-transparent z-10 pointer-events-none" />
 
                     <div
                         ref={scrollRef}
@@ -97,7 +97,7 @@ export default function Projects() {
                                 initial={{ opacity: 0, x: 40 }}
                                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                                className="flex-shrink-0 w-[320px] md:w-[380px] snap-start"
+                                className="shrink-0 w-[320px] md:w-[380px] snap-start"
                             >
                                 <Link
                                     href={project.link}
@@ -105,8 +105,8 @@ export default function Projects() {
                                     rel="noopener noreferrer"
                                     className="group block h-full"
                                 >
-                                    <article className="bg-white/[0.02] border border-white/5 rounded-xl overflow-hidden h-full hover:bg-white/[0.04] transition-colors">
-                                        <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
+                                    <article className="bg-white/2 border border-white/5 rounded-xl overflow-hidden h-full hover:bg-white/4 transition-colors">
+                                        <div className="relative aspect-16/10 overflow-hidden bg-zinc-900">
                                             {project.media.type === "video" ? (
                                                 <video
                                                     src={project.media.src}
@@ -131,7 +131,7 @@ export default function Projects() {
                                                 <h3 className="font-medium text-white group-hover:text-zinc-300 transition-colors">
                                                     {project.title}
                                                 </h3>
-                                                <ArrowUpRight className="h-4 w-4 flex-shrink-0 text-zinc-500 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
+                                                <ArrowUpRight className="h-4 w-4 shrink-0 text-zinc-500 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
                                             </div>
 
                                             <p className="text-sm text-zinc-500 mb-4 line-clamp-2">
