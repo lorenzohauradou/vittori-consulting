@@ -20,7 +20,7 @@ export default function FinalCTA() {
     ]
 
     return (
-        <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70]">
+        <section className="relative py-20 lg:py-32 overflow-hidden bg-linear-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70]">
             <div className="absolute inset-0">
                 <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
@@ -39,7 +39,7 @@ export default function FinalCTA() {
                                 key={index}
                                 className="flex items-center gap-6 group"
                             >
-                                <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border-2 border-red-400/30 flex items-center justify-center flex-shrink-0 group-hover:border-red-400/50 transition-all duration-300">
+                                <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border-2 border-red-400/30 flex items-center justify-center shrink-0 group-hover:border-red-400/50 transition-all duration-300">
                                     <span className="text-3xl">❌</span>
                                 </div>
                                 <p className="text-xl sm:text-2xl lg:text-3xl text-white font-bold text-left">
@@ -55,7 +55,7 @@ export default function FinalCTA() {
                         <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
                             Il Marketing Non È Spesa.
                             <br />
-                            <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">
+                            <span className="bg-linear-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">
                                 È la Chiave al Tuo Successo.
                             </span>
                         </h3>
@@ -67,7 +67,7 @@ export default function FinalCTA() {
 
                 <div className="mb-20">
                     <p className="text-2xl sm:text-3xl lg:text-4xl text-white font-bold text-center mb-16">
-                        Con <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">VittoriConsulting</span> ottieni:
+                        Con <span className="bg-linear-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">VittoriConsulting</span> ottieni:
                     </p>
 
                     <div className="max-w-4xl mx-auto space-y-6">
@@ -76,7 +76,7 @@ export default function FinalCTA() {
                                 key={index}
                                 className="flex items-center gap-6 bg-white/95 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border-2 border-green-400/30 shadow-xl hover:border-green-400/50 hover:scale-105 hover:translate-x-2 transition-all duration-300 group"
                             >
-                                <div className="text-4xl flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                                <div className="text-4xl shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
                                     ✅
                                 </div>
                                 <div className="text-left flex-1">

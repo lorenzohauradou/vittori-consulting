@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function MissionVision() {
     return (
-        <section className="relative py-16 sm:py-24 lg:py-40 overflow-hidden bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#4f75c7]">
+        <section className="relative py-16 sm:py-24 lg:py-40 overflow-hidden bg-linear-to-br from-[#2e54a1] via-[#3d63b8] to-[#4f75c7]">
             <div className="absolute inset-0 opacity-10">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.08)_0%,transparent_50%)]"></div>
@@ -50,8 +50,8 @@ export default function MissionVision() {
                         </div>
 
                         <div className="flex items-center gap-5 mb-6 pb-6 border-b-2 border-gray-100">
-                            <div className="flex-shrink-0">
-                                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-[#2e54a1] to-[#4f75c7] rounded-2xl flex items-center justify-center">
+                            <div className="shrink-0">
+                                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-linear-to-br from-[#2e54a1] to-[#4f75c7] rounded-2xl flex items-center justify-center">
                                     <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
@@ -115,8 +115,8 @@ export default function MissionVision() {
                         </div>
 
                         <div className="flex items-center gap-5 mb-6 pb-6 border-b-2 border-gray-100">
-                            <div className="flex-shrink-0">
-                                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-[#4f75c7] to-[#2e54a1] rounded-2xl flex items-center justify-center">
+                            <div className="shrink-0">
+                                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-linear-to-br from-[#4f75c7] to-[#2e54a1] rounded-2xl flex items-center justify-center">
                                     <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />

@@ -80,7 +80,7 @@ export default function Header() {
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center h-16 lg:h-20">
-                        <div className="flex-shrink-0">
+                        <div className="shrink-0">
                             <Link href="/" aria-label="Vai alla homepage Vittori Consulting" className="w-72 lg:w-100 flex items-center justify-center">
                                 <Image
                                     src="https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp"
@@ -124,7 +124,7 @@ export default function Header() {
                                         openModal('video-letter')
                                     }
                                 }}
-                                className="hidden lg:block bg-gradient-to-r from-[#2e54a1] to-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
+                                className="hidden lg:block bg-linear-to-r from-[#2e54a1] to-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
                             >
                                 INIZIA QUI
                             </button>
@@ -180,7 +180,7 @@ export default function Header() {
                                             }
                                             setIsMenuOpen(false)
                                         }}
-                                        className="w-full bg-gradient-to-r from-[#2e54a1] to-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
+                                        className="w-full bg-linear-to-r from-[#2e54a1] to-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
                                     >
                                         INIZIA QUI
                                     </button>

@@ -197,8 +197,8 @@ export default function Testimonials() {
             <div className="lg:hidden absolute inset-0">
                 <div className="absolute top-20 right-20 w-32 h-32 bg-blue-100/20 rounded-full opacity-60 animate-pulse"></div>
                 <div className="absolute bottom-20 left-20 w-24 h-24 bg-blue-200/25 rounded-full opacity-50 animate-pulse delay-1000"></div>
-                <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-blue-100/15 to-transparent rounded-full blur-3xl"></div>
-                <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-l from-blue-200/20 to-transparent rounded-full blur-2xl"></div>
+                <div className="absolute top-1/4 left-0 w-96 h-96 bg-linear-to-r from-blue-100/15 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-linear-to-l from-blue-200/20 to-transparent rounded-full blur-2xl"></div>
                 <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
                 <div className="absolute top-1/3 right-1/4 w-8 h-8 bg-blue-300/40 rounded-full opacity-70 animate-bounce delay-500"></div>
                 <div className="absolute bottom-1/3 left-1/3 w-6 h-6 bg-blue-400/30 rounded-full opacity-60 animate-bounce delay-1500"></div>
@@ -206,16 +206,16 @@ export default function Testimonials() {
             </div>
 
             <div className="hidden lg:block absolute inset-0">
-                <div className="absolute inset-y-0 left-0 w-4/2 md:w-3/5 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#4f75c7] transform -skew-x-12 origin-top-left"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-white/10"></div>
-                <div className="absolute top-20 right-20 w-20 h-20 bg-gradient-to-br from-blue-100/30 to-blue-200/20 rounded-full opacity-60 animate-pulse"></div>
-                <div className="absolute bottom-20 right-32 w-16 h-16 bg-gradient-to-br from-blue-200/25 to-indigo-200/15 rounded-full opacity-50 animate-pulse delay-1000"></div>
-                <div className="absolute top-1/4 right-0 w-80 h-80 bg-gradient-to-l from-blue-100/15 via-blue-50/10 to-transparent rounded-full blur-3xl"></div>
-                <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-tl from-indigo-100/10 to-transparent rounded-full blur-2xl"></div>
+                <div className="absolute inset-y-0 left-0 w-4/2 md:w-3/5 bg-linear-to-br from-[#2e54a1] via-[#3d63b8] to-[#4f75c7] transform -skew-x-12 origin-top-left"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/5 to-white/10"></div>
+                <div className="absolute top-20 right-20 w-20 h-20 bg-linear-to-br from-blue-100/30 to-blue-200/20 rounded-full opacity-60 animate-pulse"></div>
+                <div className="absolute bottom-20 right-32 w-16 h-16 bg-linear-to-br from-blue-200/25 to-indigo-200/15 rounded-full opacity-50 animate-pulse delay-1000"></div>
+                <div className="absolute top-1/4 right-0 w-80 h-80 bg-linear-to-l from-blue-100/15 via-blue-50/10 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-linear-to-tl from-indigo-100/10 to-transparent rounded-full blur-2xl"></div>
                 <div className="absolute inset-0 bg-grid-pattern opacity-3"></div>
-                <div className="absolute top-1/3 right-1/4 w-6 h-6 bg-gradient-to-br from-blue-400/60 to-blue-500/40 rounded-full opacity-70 animate-bounce delay-500"></div>
-                <div className="absolute bottom-1/3 left-1/3 w-4 h-4 bg-gradient-to-br from-indigo-400/50 to-purple-400/30 rounded-full opacity-60 animate-bounce delay-1500"></div>
-                <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-gradient-to-br from-blue-300/40 to-cyan-300/20 rounded-full opacity-50 animate-bounce delay-2000"></div>
+                <div className="absolute top-1/3 right-1/4 w-6 h-6 bg-linear-to-br from-blue-400/60 to-blue-500/40 rounded-full opacity-70 animate-bounce delay-500"></div>
+                <div className="absolute bottom-1/3 left-1/3 w-4 h-4 bg-linear-to-br from-indigo-400/50 to-purple-400/30 rounded-full opacity-60 animate-bounce delay-1500"></div>
+                <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-linear-to-br from-blue-300/40 to-cyan-300/20 rounded-full opacity-50 animate-bounce delay-2000"></div>
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -233,7 +233,7 @@ export default function Testimonials() {
                         <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-100 mb-4 drop-shadow-lg">
                             Parlano i Fatti:
                         </h3>
-                        <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full shadow-lg"></div>
+                        <div className="absolute -bottom-1 left-0 right-0 h-1 bg-linear-to-r from-blue-100 to-blue-200 rounded-full shadow-lg"></div>
                     </div>
                     <p className="text-lg sm:text-xl lg:text-2xl text-white max-w-4xl leading-relaxed drop-shadow-md">
                         Già <span className="font-bold text-blue-100 bg-blue-900/30 px-2 py-1 rounded-lg">+189 attività</span> hanno fatto il salto di qualità
@@ -268,7 +268,7 @@ export default function Testimonials() {
                         >
                             <div className="flex items-center gap-3">
                                 <div className="relative w-16 h-16 flex items-center justify-center">
-                                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                    <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
                                         <div className="w-full h-full rounded-full bg-white p-[2px]">
                                             <div className="w-full h-full rounded-full overflow-hidden">
                                                 <Image
@@ -298,7 +298,7 @@ export default function Testimonials() {
                                 </div>
 
                                 <div className="mb-3 pt-4">
-                                    <div className="inline-block bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md">
+                                    <div className="inline-block bg-linear-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md">
                                         {currentReview.result}
                                     </div>
                                 </div>
@@ -345,7 +345,7 @@ export default function Testimonials() {
                                 <h4 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-[#2e54a1] mb-2">
                                     {currentVideo.title}
                                 </h4>
-                                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md">
+                                <div className="inline-flex items-center gap-2 bg-linear-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md">
                                     {currentVideo.icon === 'trending' ? (
                                         <TrendingUp className="w-4 h-4" />
                                     ) : (
@@ -468,7 +468,7 @@ export default function Testimonials() {
                             <div key={review.name} className="space-y-4">
                                 <div className={`flex items-center gap-3 ${index > 0 ? 'mt-8' : ''}`}>
                                     <div className="relative w-16 h-16 flex items-center justify-center">
-                                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                        <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
                                             <div className="w-full h-full rounded-full bg-white p-[2px]">
                                                 <div className="w-full h-full rounded-full overflow-hidden">
                                                     <Image
@@ -497,7 +497,7 @@ export default function Testimonials() {
                                     </div>
 
                                     <div className="mb-3 pt-4">
-                                        <div className="inline-block bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md">
+                                        <div className="inline-block bg-linear-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md">
                                             {review.result}
                                         </div>
                                     </div>
@@ -518,9 +518,9 @@ export default function Testimonials() {
                     viewport={{ once: true, margin: "-50px" }}
                     className="text-center"
                 >
-                    <div className="relative bg-gradient-to-br from-white to-blue-50/80 rounded-3xl p-8 lg:p-12 border border-[#2e54a1]/10 shadow-2xl overflow-hidden">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#2e54a1]/10 to-transparent rounded-full blur-3xl" />
-                        <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-[#3d6bc9]/10 to-transparent rounded-full blur-2xl" />
+                    <div className="relative bg-linear-to-br from-white to-blue-50/80 rounded-3xl p-8 lg:p-12 border border-[#2e54a1]/10 shadow-2xl overflow-hidden">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-linear-to-bl from-[#2e54a1]/10 to-transparent rounded-full blur-3xl" />
+                        <div className="absolute bottom-0 left-0 w-48 h-48 bg-linear-to-tr from-[#3d6bc9]/10 to-transparent rounded-full blur-2xl" />
 
                         <div className="relative z-10">
                             <motion.h4
@@ -560,10 +560,10 @@ export default function Testimonials() {
                                     boxShadow: "0 20px 40px rgba(46, 84, 161, 0.25)"
                                 }}
                                 whileTap={{ scale: 0.97 }}
-                                className="relative inline-flex items-center justify-center px-8 lg:px-10 py-4 lg:py-5 text-lg lg:text-xl font-bold text-white bg-gradient-to-r from-[#2e54a1] to-[#3d6bc9] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden border border-[#2e54a1]/20"
+                                className="relative inline-flex items-center justify-center px-8 lg:px-10 py-4 lg:py-5 text-lg lg:text-xl font-bold text-white bg-linear-to-r from-[#2e54a1] to-[#3d6bc9] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden border border-[#2e54a1]/20"
                             >
                                 <motion.div
-                                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                                    className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent"
                                     animate={{
                                         x: ['-100%', '100%']
                                     }}

@@ -63,7 +63,7 @@ export default function Difference() {
                     style={{ y: y2 }}
                     className="absolute bottom-32 left-32 w-8 h-8 bg-blue-200 rounded-full opacity-40 animate-pulse delay-1000"
                 />
-                <div className="absolute top-1/4 left-0 w-64 h-64 bg-gradient-to-r from-blue-100/20 to-transparent rounded-full blur-2xl"></div>
+                <div className="absolute top-1/4 left-0 w-64 h-64 bg-linear-to-r from-blue-100/20 to-transparent rounded-full blur-2xl"></div>
 
                 <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
@@ -98,7 +98,7 @@ export default function Difference() {
                                         whileInView={{ scaleX: 1 }}
                                         transition={{ duration: 0.8, delay: 0.3 }}
                                         viewport={{ once: true }}
-                                        className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#2e54a1] to-blue-600 rounded-full origin-left"
+                                        className="absolute -bottom-2 left-0 right-0 h-1 bg-linear-to-r from-[#2e54a1] to-blue-600 rounded-full origin-left"
                                     />
                                 </span>
                             </h3>
@@ -116,7 +116,7 @@ export default function Difference() {
                                     Le altre agenzie ti promettono milioni di visualizzazioni e followers
                                 </p>
                                 <p className="text-2xl font-bold text-gray-900">
-                                    Noi trasformiamo la visibilità in <span className="bg-gradient-to-r from-[#2e54a1] to-blue-600 bg-clip-text text-transparent font-extrabold">FATTURATO</span>
+                                    Noi trasformiamo la visibilità in <span className="bg-linear-to-r from-[#2e54a1] to-blue-600 bg-clip-text text-transparent font-extrabold">FATTURATO</span>
                                 </p>
                             </div>
                         </motion.div>
@@ -148,7 +148,7 @@ export default function Difference() {
                                         viewport={{ once: true, margin: "-30px" }}
                                         className="group flex items-center gap-6 p-6 bg-white/70 backdrop-blur-sm rounded-2xl border border-white/50 shadow-lg hover:shadow-xl hover:bg-white/80 transition-all duration-500"
                                     >
-                                        <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[#2e54a1]/10 to-blue-100/50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                        <div className="shrink-0 w-16 h-16 bg-linear-to-br from-[#2e54a1]/10 to-blue-100/50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                             {feature.icon}
                                         </div>
                                         <div className="flex-1">
@@ -193,10 +193,10 @@ export default function Difference() {
                                     boxShadow: "0 20px 40px rgba(46, 84, 161, 0.25)"
                                 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-gradient-to-r from-[#2e54a1] to-blue-600 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 group overflow-hidden"
+                                className="relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-linear-to-r from-[#2e54a1] to-blue-600 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 group overflow-hidden"
                             >
                                 <motion.div
-                                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                                    className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent"
                                     animate={{
                                         x: ['-100%', '100%']
                                     }}

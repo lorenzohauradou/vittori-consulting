@@ -65,13 +65,13 @@ export default function Servizi() {
     ]
 
     return (
-        <section id="servizi" className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50">
+        <section id="servizi" className="relative py-24 overflow-hidden bg-linear-to-b from-white to-blue-50">
             <div className="absolute inset-0">
                 <div className="absolute inset-y-0 right-0 w-1/4 bg-[#2e54a1] transform skew-x-12 origin-top-right"></div>
 
                 <div className="absolute top-20 left-20 w-12 h-12 bg-blue-100 rounded-full opacity-30 animate-pulse" />
                 <div className="absolute bottom-32 left-32 w-8 h-8 bg-blue-200 rounded-full opacity-40 animate-pulse delay-1000" />
-                <div className="absolute top-1/4 left-0 w-64 h-64 bg-gradient-to-r from-blue-100/20 to-transparent rounded-full blur-2xl"></div>
+                <div className="absolute top-1/4 left-0 w-64 h-64 bg-linear-to-r from-blue-100/20 to-transparent rounded-full blur-2xl"></div>
 
                 <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
@@ -93,7 +93,7 @@ export default function Servizi() {
                         >
                             <div className="flex flex-col h-full">
                                 <div className="flex items-start gap-4 mb-4">
-                                    <div className="flex-shrink-0 w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-[#2e54a1]/10 to-blue-100/50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <div className="shrink-0 w-14 h-14 lg:w-16 lg:h-16 bg-linear-to-br from-[#2e54a1]/10 to-blue-100/50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                         {servizio.icon}
                                     </div>
                                     <div className="flex-1 min-w-0">
@@ -125,7 +125,7 @@ export default function Servizi() {
 
                         <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mb-6 lg:mb-8">
                             <div className="flex items-center gap-4 lg:gap-6">
-                                <div className="flex-shrink-0">
+                                <div className="shrink-0">
                                     <svg className="w-8 h-8 lg:w-10 lg:h-10 text-[#2e54a1]" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                                     </svg>
@@ -151,7 +151,7 @@ export default function Servizi() {
                                         openModal('video-letter')
                                     }
                                 }}
-                                className="relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-gradient-to-r from-[#2e54a1] to-blue-600 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                                className="relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-linear-to-r from-[#2e54a1] to-blue-600 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                             >
                                 <span className="relative z-10">INIZIA QUI</span>
                             </button>

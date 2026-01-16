@@ -137,7 +137,7 @@ export default function Hero() {
                                                     initial={{ scaleX: 0 }}
                                                     animate={{ scaleX: 1 }}
                                                     transition={{ duration: 0.8, delay: 0.3 }}
-                                                    className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-white to-blue-200 rounded-full origin-left"
+                                                    className="absolute -bottom-2 left-0 right-0 h-1 bg-linear-to-r from-white to-blue-200 rounded-full origin-left"
                                                 />
                                             </motion.span>
                                         )}
@@ -256,7 +256,7 @@ export default function Hero() {
                                         Video presentazione di Valerio Vittori
                                     </video>
 
-                                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 blur-xl -z-10 scale-110"></div>
+                                    <div className="absolute inset-0 rounded-full bg-linear-to-r from-blue-400/20 to-blue-600/20 blur-xl -z-10 scale-110"></div>
                                 </motion.div>
 
                                 {showAudioButton && (

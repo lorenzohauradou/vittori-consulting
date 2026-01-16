@@ -6,22 +6,22 @@ import CustomCalendar from '@/components/ui/custom-calendar'
 export default function Calendar() {
 
     return (
-        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20">
+        <section className="relative py-24 overflow-hidden bg-linear-to-br from-blue-50/30 via-white to-blue-50/20">
             <div className="absolute inset-0">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#2e54a1]/5 via-transparent to-blue-100/10"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-50/20 via-transparent to-[#2e54a1]/5"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-[#2e54a1]/5 via-transparent to-blue-100/10"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-blue-50/20 via-transparent to-[#2e54a1]/5"></div>
 
-                <div className="absolute top-20 right-20 w-32 h-32 border border-[#2e54a1]/15 rounded-full bg-gradient-to-br from-blue-100/20 to-transparent" />
-                <div className="absolute bottom-32 left-20 w-24 h-24 border border-[#2e54a1]/20 rounded-full bg-gradient-to-br from-[#2e54a1]/10 to-transparent" />
+                <div className="absolute top-20 right-20 w-32 h-32 border border-[#2e54a1]/15 rounded-full bg-linear-to-br from-blue-100/20 to-transparent" />
+                <div className="absolute bottom-32 left-20 w-24 h-24 border border-[#2e54a1]/20 rounded-full bg-linear-to-br from-[#2e54a1]/10 to-transparent" />
 
-                <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-[#2e54a1]/8 via-blue-100/15 to-transparent rounded-full blur-3xl"></div>
-                <div className="absolute bottom-1/3 left-0 w-80 h-80 bg-gradient-to-r from-blue-200/20 via-[#2e54a1]/5 to-transparent rounded-full blur-2xl"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-br from-blue-100/10 via-[#2e54a1]/3 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute top-1/4 right-0 w-96 h-96 bg-linear-to-l from-[#2e54a1]/8 via-blue-100/15 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/3 left-0 w-80 h-80 bg-linear-to-r from-blue-200/20 via-[#2e54a1]/5 to-transparent rounded-full blur-2xl"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-linear-to-br from-blue-100/10 via-[#2e54a1]/3 to-transparent rounded-full blur-3xl"></div>
 
                 <div className="absolute inset-0 opacity-[0.03]">
-                    <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-gradient-to-br from-[#2e54a1] to-blue-600 rounded-full animate-pulse"></div>
-                    <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-gradient-to-br from-blue-500 to-[#2e54a1] rounded-full animate-pulse delay-1000"></div>
-                    <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-gradient-to-br from-[#2e54a1] to-indigo-500 rounded-full animate-pulse delay-2000"></div>
+                    <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-linear-to-br from-[#2e54a1] to-blue-600 rounded-full animate-pulse"></div>
+                    <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-linear-to-br from-blue-500 to-[#2e54a1] rounded-full animate-pulse delay-1000"></div>
+                    <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-linear-to-br from-[#2e54a1] to-indigo-500 rounded-full animate-pulse delay-2000"></div>
                     <div className="absolute top-2/3 right-1/4 w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping delay-3000"></div>
                     <div className="absolute bottom-1/4 right-2/3 w-1 h-1 bg-[#2e54a1] rounded-full animate-ping delay-4000"></div>
                 </div>
@@ -39,7 +39,7 @@ export default function Calendar() {
                             <br />
                             <span className="relative">
                                 Incassare
-                                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#2e54a1] to-blue-600 rounded-full origin-left" />
+                                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-linear-to-r from-[#2e54a1] to-blue-600 rounded-full origin-left" />
                             </span>
                         </h3>
                     </div>
