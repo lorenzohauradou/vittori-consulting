@@ -233,7 +233,7 @@ export default function CustomCalendar() {
                                 className={`
                                     py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-200
                                     ${selectedTime === time
-                                        ? 'bg-gradient-to-br from-[#2e54a1] to-[#3d6bc9] text-white shadow-lg shadow-[#2e54a1]/25'
+                                        ? 'bg-linear-to-br from-[#2e54a1] to-[#3d6bc9] text-white shadow-lg shadow-[#2e54a1]/25'
                                         : 'bg-gray-50 text-gray-700 hover:bg-[#2e54a1]/10 hover:text-[#2e54a1] border border-gray-200 hover:border-[#2e54a1]/30'
                                     }
                                 `}
@@ -323,7 +323,7 @@ export default function CustomCalendar() {
                 <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-4 bg-gradient-to-r from-[#2e54a1] to-[#3d6bc9] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#2e54a1]/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 group"
+                    className="w-full py-4 bg-linear-to-r from-[#2e54a1] to-[#3d6bc9] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#2e54a1]/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 group"
                 >
                     {submitting ? (
                         <>
@@ -345,7 +345,7 @@ export default function CustomCalendar() {
         return (
             <div className="text-center py-6">
                 <div className="relative w-20 h-20 mx-auto mb-6">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#2e54a1]/20 to-[#3d6bc9]/20 rounded-full animate-pulse" />
+                    <div className="absolute inset-0 bg-linear-to-br from-[#2e54a1]/20 to-[#3d6bc9]/20 rounded-full animate-pulse" />
                     <div className="absolute inset-1 bg-white rounded-full shadow-lg flex items-center justify-center">
                         <Image
                             src="/images/logo/logo-circle.webp"
@@ -355,7 +355,7 @@ export default function CustomCalendar() {
                             className="rounded-full"
                         />
                     </div>
-                    <div className="absolute -bottom-1 -right-1 w-7 h-7 bg-gradient-to-br from-[#2e54a1] to-[#3d6bc9] rounded-full flex items-center justify-center shadow-lg">
+                    <div className="absolute -bottom-1 -right-1 w-7 h-7 bg-linear-to-br from-[#2e54a1] to-[#3d6bc9] rounded-full flex items-center justify-center shadow-lg">
                         <CalendarCheck className="w-4 h-4 text-white" />
                     </div>
                 </div>
@@ -370,7 +370,7 @@ export default function CustomCalendar() {
                     A breve riceverai una email con i dettagli
                 </p> */}
 
-                <div className="bg-gradient-to-br from-[#2e54a1]/5 to-[#3d6bc9]/10 rounded-2xl p-5 mb-6 border border-[#2e54a1]/10">
+                <div className="bg-linear-to-br from-[#2e54a1]/5 to-[#3d6bc9]/10 rounded-2xl p-5 mb-6 border border-[#2e54a1]/10">
                     <div className="flex items-center justify-center gap-3 mb-3">
                         <Calendar className="w-5 h-5 text-[#2e54a1]" />
                         <p className="font-semibold text-gray-900 capitalize">
@@ -401,7 +401,7 @@ export default function CustomCalendar() {
     return (
         <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
             {/* Header with steps */}
-            <div className="bg-gradient-to-r from-[#2e54a1] via-[#3458a8] to-[#3d6bc9] p-4 sm:p-5">
+            <div className="bg-linear-to-r from-[#2e54a1] via-[#3458a8] to-[#3d6bc9] p-4 sm:p-5">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         {step !== 'date' && step !== 'success' ? (
