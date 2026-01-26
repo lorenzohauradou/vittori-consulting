@@ -240,7 +240,7 @@ function TeamCard({ member, index, isMobile }: {
                                 alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                                 width={200}
                                 height={200}
-                                className={`w-full h-full object-cover ${member.name === 'Lorenzo' ? 'scale-125' : ''} ${member.name === 'Edoardo' ? 'scale-[2.5]' : ''}`}
+                                className={`w-full h-full object-cover ${member.name === 'Lorenzo' ? 'scale-125' : ''} ${member.name === 'Edoardo' ? 'scale-150' : ''}`}
                                 style={
                                     member.name === 'Gioele' ? { objectPosition: 'center 10%' } :
                                         member.name === 'Lorenzo' ? { objectPosition: 'center 70%' } :
