@@ -68,6 +68,14 @@ export default function About() {
             photo: 'https://vittoriconsulting.b-cdn.net/team/tommy.png',
             position: 'center',
             delay: 1.0
+        },
+        {
+            name: 'Edoardo',
+            role: 'Video Maker',
+            quote: 'Lo stato dell\'arte del video making',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/fotografo.png',
+            position: 'center',
+            delay: 1.2
         }
     ]
 
