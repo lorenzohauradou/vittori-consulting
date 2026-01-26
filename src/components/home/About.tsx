@@ -244,7 +244,7 @@ function TeamCard({ member, index, isMobile }: {
                                 style={
                                     member.name === 'Gioele' ? { objectPosition: 'center 10%' } :
                                         member.name === 'Lorenzo' ? { objectPosition: 'center 70%' } :
-                                            member.name === 'Edoardo' ? { objectPosition: 'center 10%' } :
+                                            member.name === 'Edoardo' ? { objectPosition: 'center 35%' } :
                                                 undefined
                                 }
                             />
@@ -315,7 +315,7 @@ function TeamCard({ member, index, isMobile }: {
                             style={
                                 member.name === 'Gioele' ? { objectPosition: 'center 10%' } :
                                     member.name === 'Lorenzo' ? { objectPosition: 'center 70%' } :
-                                        member.name === 'Edoardo' ? { objectPosition: 'center 10%' } :
+                                        member.name === 'Edoardo' ? { objectPosition: 'center 35%' } :
                                             undefined
                             }
                         />
