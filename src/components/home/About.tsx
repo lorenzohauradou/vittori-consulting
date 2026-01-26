@@ -311,11 +311,11 @@ function TeamCard({ member, index, isMobile }: {
                             alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                             width={180}
                             height={180}
-                            className={`w-full h-full object-cover ${member.name === 'Lorenzo' ? 'scale-125' : ''} ${member.name === 'Edoardo' ? 'scale-125' : ''}`}
+                            className={`w-full h-full object-cover ${member.name === 'Lorenzo' ? 'scale-125' : ''} ${member.name === 'Edoardo' ? 'scale-150' : ''}`}
                             style={
                                 member.name === 'Gioele' ? { objectPosition: 'center 10%' } :
                                     member.name === 'Lorenzo' ? { objectPosition: 'center 70%' } :
-                                        member.name === 'Edoardo' ? { objectPosition: 'center 20%' } :
+                                        member.name === 'Edoardo' ? { objectPosition: 'center 10%' } :
                                             undefined
                             }
                         />
