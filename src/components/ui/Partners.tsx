@@ -3,7 +3,8 @@ import styles from "./Partners.module.css";
 
 const partners = [
     { name: 'Magic Box Roma', logo: 'https://vittoriconsulting.b-cdn.net/partners/logo-magic-box-roma.webp' },
-    { name: 'Broker Associati', logo: 'https://vittoriconsulting.b-cdn.net/partners/broker-associati.svg' },
+    { name: 'Molioni', logo: 'https://vittoriconsulting.b-cdn.net/partners/molioni.png' },
+    { name: 'Il Conte Birillo', logo: 'https://vittoriconsulting.b-cdn.net/partners/brillo.jpg' },
     { name: 'Alberto\'s Pizza', logo: 'https://vittoriconsulting.b-cdn.net/partners/albertos-pizza.webp' },
     { name: 'St. Peter Photo', logo: 'https://vittoriconsulting.b-cdn.net/partners/st-peter-photo.webp' },
     { name: 'Gelotti', logo: 'https://vittoriconsulting.b-cdn.net/partners/gelotti.webp' },
