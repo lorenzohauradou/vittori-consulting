@@ -42,8 +42,8 @@ export function TrustedCustomers({
                             }}
                             className="relative"
                         >
-                            <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full border-4 border-white/30 backdrop-blur-sm bg-gradient-to-br from-white/20 to-white/10 overflow-hidden shadow-xl hover:scale-110 transition-transform cursor-pointer">
-                                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#2e54a1] to-[#4f75c7]">
+                            <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full border-4 border-white/30 backdrop-blur-sm bg-linear-to-br from-white/20 to-white/10 overflow-hidden shadow-xl hover:scale-110 transition-transform cursor-pointer">
+                                <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-[#2e54a1] to-[#4f75c7]">
                                     <span className="text-white font-bold text-lg">
                                         {customer.name.charAt(0)}
                                     </span>
