@@ -2,6 +2,7 @@ import type React from "react"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Analytics } from "@vercel/analytics/next"
+import { GoogleAnalytics } from "@next/third-parties/google"
 import { defaultMetadata, createOrganizationSchema, createWebsiteSchema, createLocalBusinessSchema, createAggregateRatingSchema } from "@/lib/metadata"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
@@ -52,7 +53,10 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-background font-sans overflow-x-hidden">
         <main>{children}</main>
+
         <Analytics />
+
+        <GoogleAnalytics gaId="G-H33QT7GG2L" />
       </body>
     </html>
   )
