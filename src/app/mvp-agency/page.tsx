@@ -14,6 +14,8 @@ import {
 } from '@/components/landing/mvp-agency'
 import StickyContact from '@/components/ui/sticky-contact'
 
+const baseUrl = 'https://vittoriconsulting.it'
+
 export const metadata: Metadata = {
     title: 'MVP Agency | Sviluppo web-app e Micro-SaaS in 4-6 Settimane',
     description: 'Trasformiamo la tua idea in un prodotto digitale funzionante. Sviluppo MVP, Micro-SaaS e app con Next.js, React, Python, Supabase. Lancia in settimane, non mesi.',
@@ -35,6 +37,31 @@ export const metadata: Metadata = {
     authors: [{ name: 'Vittori Consulting' }],
     creator: 'Vittori Consulting',
     publisher: 'Vittori Consulting',
+    alternates: {
+        canonical: `${baseUrl}/mvp-agency`,
+    },
+    openGraph: {
+        title: 'MVP Agency | Sviluppo web-app e Micro-SaaS in 4-6 Settimane',
+        description: 'Trasformiamo la tua idea in un prodotto digitale funzionante. Lancia in settimane, non mesi.',
+        url: `${baseUrl}/mvp-agency`,
+        type: 'website',
+        siteName: 'VittoriConsulting',
+        locale: 'it_IT',
+        images: [
+            {
+                url: 'https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp',
+                width: 1200,
+                height: 630,
+                alt: 'MVP Agency - VittoriConsulting',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'MVP Agency | Sviluppo web-app e Micro-SaaS in 4-6 Settimane',
+        description: 'Trasformiamo la tua idea in un prodotto digitale funzionante. Lancia in settimane, non mesi.',
+        images: ['https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp'],
+    },
     robots: {
         index: true,
         follow: true,

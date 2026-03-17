@@ -11,7 +11,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#000000',
     icons: [
       { 
-        src: '/images/logo/logo-circle.webp',
+        src: 'https://vittoriconsulting.b-cdn.net/logos/logo-circle.webp',
         sizes: 'any',
         type: 'image/webp',
       },

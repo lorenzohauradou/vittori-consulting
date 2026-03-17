@@ -1,16 +1,53 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 
+const baseUrl = 'https://vittoriconsulting.it'
+
 export const metadata: Metadata = {
     title: "Testimonianza VC Arreda | VittoriConsulting",
     description:
         "Scopri come VC Arreda ha ottenuto risultati straordinari con VittoriConsulting. +13.500€ di fatturato in 7 giorni.",
+    alternates: {
+        canonical: `${baseUrl}/vc-arreda-testimonianza`,
+    },
+    openGraph: {
+        title: 'Testimonianza VC Arreda | VittoriConsulting',
+        description: 'Scopri come VC Arreda ha ottenuto risultati straordinari con VittoriConsulting. +13.500€ di fatturato in 7 giorni.',
+        url: `${baseUrl}/vc-arreda-testimonianza`,
+        type: 'website',
+        siteName: 'VittoriConsulting',
+        locale: 'it_IT',
+        images: [
+            {
+                url: 'https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp',
+                width: 1200,
+                height: 630,
+                alt: 'VC Arreda Testimonianza - VittoriConsulting',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Testimonianza VC Arreda | VittoriConsulting',
+        description: '+13.500€ di fatturato in 7 giorni con VittoriConsulting.',
+        images: ['https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp'],
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
 }
 
 export default function VcArredaTestimonianza() {
     return (
         <main className="min-h-screen flex flex-col" style={{ backgroundColor: "#b7131b" }}>
-            {/* Header */}
             <header className="px-8 pt-8 pb-6 sm:px-12 sm:pt-10 flex justify-center">
                 <Image
                     src="https://vittoriconsulting.b-cdn.net/partners/vc-arreda-logo.jpg"

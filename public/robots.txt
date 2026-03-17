@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
-
-# Disallow admin and API routes
 Disallow: /api/
 
-# Sitemap location
 Sitemap: https://vittoriconsulting.it/sitemap.xml
+
+# LLM info
+# https://vittoriconsulting.it/llm.txt

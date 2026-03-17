@@ -46,7 +46,7 @@ export const defaultMetadata: Metadata = {
     siteName: 'VittoriConsulting',
     images: [
       {
-        url: '/images/logo/logo-extend.webp',
+        url: 'https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp',
         width: 1200,
         height: 630,
         alt: 'VittoriConsulting - Agenzia Marketing Roma',
@@ -58,7 +58,7 @@ export const defaultMetadata: Metadata = {
     title: 'VittoriConsulting - Marketing a 360° per Imprenditori Romani',
     description:
       'Trasforma il tuo business con il Metodo Vittori 360: marketing strategico, branding e performance per PMI romane. 189+ clienti hanno già fatto il salto. Consulenza gratuita disponibile.',
-    images: ['/images/logo/logo-extend.webp'],
+    images: ['https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp'],
     site: '@vittoriconsulting',
     creator: '@valeriovittori',
   },
@@ -75,7 +75,7 @@ export const defaultMetadata: Metadata = {
   },
   icons: {
     icon: '/favicon.ico',
-    apple: '/images/logo/logo-circle.webp',
+    apple: 'https://vittoriconsulting.b-cdn.net/logos/logo-circle.webp',
   },
   verification: {
     // google: 'your-google-verification-code',
@@ -90,7 +90,7 @@ export function createOrganizationSchema() {
     name: 'VittoriConsulting',
     alternateName: 'Vittori Consulting',
     url: baseUrl,
-    logo: `${baseUrl}/images/logo/logo.webp`,
+    logo: 'https://vittoriconsulting.b-cdn.net/logos/logo.webp',
     description: 'Agenzia di marketing a 360° per imprenditori romani. Specializzati in marketing strategico, branding e performance.',
     foundingDate: '2015',
     founder: {
@@ -106,7 +106,7 @@ export function createOrganizationSchema() {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+39-340-128-7852',
+      telephone: '+39-351-370-8950',
       email: 'info@vittoriconsulting.it',
       contactType: 'Customer Service',
       areaServed: 'IT',
@@ -135,15 +135,9 @@ export function createWebsiteSchema() {
     url: baseUrl,
     description: 'Marketing a 360° per Imprenditori Romani',
     inLanguage: 'it-IT',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${baseUrl}/?s={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
-    about: {
-      '@type': 'Thing',
-      name: 'Marketing Consulting Services',
-      description: 'Servizi di consulenza marketing per PMI',
+    publisher: {
+      '@type': 'Organization',
+      name: 'VittoriConsulting',
     },
   }
 }
@@ -171,9 +165,9 @@ export function createLocalBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'VittoriConsulting',
-    image: `${baseUrl}/images/logo/logo.webp`,
+    image: 'https://vittoriconsulting.b-cdn.net/logos/logo.webp',
     url: baseUrl,
-    telephone: '+393401287852',
+    telephone: '+393513708950',
     email: 'info@vittoriconsulting.it',
     address: {
       '@type': 'PostalAddress',
@@ -203,7 +197,7 @@ export function createVideoSchema(videoUrl?: string) {
     '@type': 'VideoObject',
     name: 'Marketing a 360° per Imprenditori - VittoriConsulting',
     description: 'Scopri come oltre 180 imprenditori hanno trasformato il loro business con il Metodo Vittori 360.',
-    thumbnailUrl: `${baseUrl}/images/logo/logo-extend.webp`,
+    thumbnailUrl: 'https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp',
     uploadDate: new Date().toISOString(),
     contentUrl: videoUrl || `${baseUrl}/video-letter`,
     embedUrl: videoUrl || `${baseUrl}/video-letter`,

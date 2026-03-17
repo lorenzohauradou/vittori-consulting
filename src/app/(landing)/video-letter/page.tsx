@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         type: 'website',
         images: [
             {
-                url: '/images/logo/logo-extend.webp',
+                url: 'https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp',
                 width: 1200,
                 height: 630,
                 alt: 'VittoriConsulting - Marketing 360',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Marketing a 360° per Imprenditori | VittoriConsulting',
         description: 'Oltre 180 imprenditori hanno già trasformato il loro business.',
-        images: ['/images/logo/logo-extend.webp'],
+        images: ['https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp'],
     },
 }
 
