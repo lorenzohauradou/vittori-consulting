@@ -33,10 +33,6 @@
     perspective: 1000px;
 }
 
-.marqueeTrack:hover {
-    animation-play-state: paused;
-}
-
 @keyframes scroll {
     0% {
         transform: translate3d(0, 0, 0);
