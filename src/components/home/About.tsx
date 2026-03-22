@@ -16,6 +16,29 @@ interface TeamMember {
     delay: number
 }
 
+function teamPhotoStyle(memberName: string): React.CSSProperties | undefined {
+    if (memberName === 'Gioele') return { objectPosition: 'center 10%' }
+    if (memberName === 'Lorenzo') return { objectPosition: 'center 70%' }
+    if (memberName === 'Edoardo') return { objectPosition: 'center 35%' }
+    if (memberName === 'Veronica') {
+        return {
+            objectPosition: 'center 2%',
+            transform: 'translateY(-40%) scale(1.80)',
+        }
+    }
+    if (memberName === 'Tommaso') {
+        return {
+            objectPosition: 'center 70%',
+        }
+    }
+    return undefined
+}
+
+function teamPhotoClassName(memberName: string) {
+    const scale125 = memberName === 'Lorenzo' || memberName === 'Edoardo'
+    return `w-full h-full object-cover ${scale125 ? 'scale-125' : ''}`
+}
+
 export default function About() {
     const containerRef = useRef<HTMLDivElement>(null)
     const { openModal, checkAuth } = useOptin()
@@ -65,7 +88,7 @@ export default function About() {
             name: 'Tommaso',
             role: 'Sales',
             quote: 'Il sales che ti elude ogni obiezione',
-            photo: 'https://vittoriconsulting.b-cdn.net/team/tommy.png',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/no-bg-tommi.jpeg',
             position: 'center',
             delay: 1.0
         },
@@ -73,7 +96,15 @@ export default function About() {
             name: 'Edoardo',
             role: 'Video Maker',
             quote: 'Trasforma le idee in video che parlano da soli',
-            photo: 'https://vittoriconsulting.b-cdn.net/team/fotografo.png',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/no-bg-edo.jpeg',
+            position: 'center',
+            delay: 1.2
+        },
+        {
+            name: 'Veronica',
+            role: 'Social Creator',
+            quote: 'Il mio mestiere è creare contenuti che raccontano la tua storia',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/no-bg-veronica.jpeg',
             position: 'center',
             delay: 1.2
         }
@@ -104,17 +135,18 @@ export default function About() {
                     </p>
                 </div>
 
-                <div className="hidden lg:block mb-24">
-                    <div className="flex gap-4 justify-between">
-                        {teamMembers.map((member, index) => (
+                <div className="hidden lg:block mb-24 relative overflow-visible">
+                    <div className="marquee-track flex gap-6" style={{ width: 'fit-content' }}>
+                        {[...teamMembers, ...teamMembers].map((member, idx) => (
                             <TeamCard
-                                key={member.name}
+                                key={`${member.name}-${idx}`}
                                 member={member}
-                                index={index}
+                                index={idx}
                                 isMobile={false}
                             />
                         ))}
                     </div>
+
                 </div>
 
                 <div className="lg:hidden mb-24">
@@ -234,19 +266,14 @@ function TeamCard({ member, index, isMobile }: {
             <div className="w-full h-96 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
                 <div className="relative w-36 h-36 mb-6 flex items-center justify-center">
                     <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[5px]">
-                        <div className="w-full h-full rounded-full overflow-hidden">
+                        <div className="w-full h-full rounded-full overflow-hidden bg-white">
                             <Image
                                 src={member.photo}
                                 alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                                 width={200}
                                 height={200}
-                                className={`w-full h-full object-cover ${member.name === 'Lorenzo' ? 'scale-125' : ''} ${member.name === 'Edoardo' ? 'scale-125' : ''}`}
-                                style={
-                                    member.name === 'Gioele' ? { objectPosition: 'center 10%' } :
-                                        member.name === 'Lorenzo' ? { objectPosition: 'center 70%' } :
-                                            member.name === 'Edoardo' ? { objectPosition: 'center 35%' } :
-                                                undefined
-                                }
+                                className={teamPhotoClassName(member.name)}
+                                style={teamPhotoStyle(member.name)}
                             />
                         </div>
                     </div>
@@ -305,19 +332,14 @@ function TeamCard({ member, index, isMobile }: {
         <div className="w-full h-80 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
             <div className="relative w-32 h-32 mb-4 flex items-center justify-center">
                 <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[4px]">
-                    <div className="w-full h-full rounded-full overflow-hidden">
+                    <div className="w-full h-full rounded-full overflow-hidden bg-white">
                         <Image
                             src={member.photo}
                             alt={`${member.name} - ${member.role} VittoriConsulting Marketing Roma`}
                             width={180}
                             height={180}
-                            className={`w-full h-full object-cover ${member.name === 'Lorenzo' ? 'scale-125' : ''} ${member.name === 'Edoardo' ? 'scale-125' : ''}`}
-                            style={
-                                member.name === 'Gioele' ? { objectPosition: 'center 10%' } :
-                                    member.name === 'Lorenzo' ? { objectPosition: 'center 70%' } :
-                                        member.name === 'Edoardo' ? { objectPosition: 'center 35%' } :
-                                            undefined
-                            }
+                            className={teamPhotoClassName(member.name)}
+                            style={teamPhotoStyle(member.name)}
                         />
                     </div>
                 </div>
@@ -338,23 +360,7 @@ function TeamCard({ member, index, isMobile }: {
     )
 
     return (
-        <motion.div
-            initial={{
-                opacity: 0,
-                x: -150
-            }}
-            whileInView={{
-                opacity: 1,
-                x: 0
-            }}
-            transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-                ease: "easeOut"
-            }}
-            viewport={{ once: true }}
-            className="flex-1 max-w-[18%]"
-        >
+        <div className="shrink-0 w-[280px]">
             {member.name === 'Lorenzo' ? (
                 <a
                     href="https://lollo.me"
@@ -367,6 +373,6 @@ function TeamCard({ member, index, isMobile }: {
             ) : (
                 CardContent
             )}
-        </motion.div>
+        </div>
     )
 }
