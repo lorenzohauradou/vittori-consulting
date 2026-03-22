@@ -24,7 +24,7 @@ export default function Home() {
       <Hero />
       <Partners />
       <Difference />
-      <MetodoBanner reverse />
+      <MetodoBanner reverse showTitle />
       <About />
       <MetodoBanner reverse showTitle />
       <MissionVision />
