@@ -17,7 +17,7 @@ interface TeamMember {
 }
 
 function teamPhotoStyle(memberName: string): React.CSSProperties | undefined {
-    if (memberName === 'Gioele') return { objectPosition: 'center 10%' }
+    if (memberName === 'Gioele') return { objectPosition: 'center 70%', transform: 'scale(1.25)' }
     if (memberName === 'Lorenzo') return { objectPosition: 'center 70%' }
     if (memberName === 'Edoardo') return { objectPosition: 'center 35%' }
     if (memberName === 'Veronica') {
@@ -80,7 +80,7 @@ export default function About() {
             name: 'Gioele',
             role: 'Media Buyer',
             quote: 'L\'alchimista delle Conversioni',
-            photo: 'https://vittoriconsulting.b-cdn.net/team/gioele.png',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/no-bg-gioele.jpg',
             position: 'bottom-right',
             delay: 0.8
         },
