@@ -28,7 +28,7 @@ function teamPhotoStyle(memberName: string): React.CSSProperties | undefined {
     }
     if (memberName === 'Tommaso') {
         return {
-            objectPosition: 'center 70%',
+            objectPosition: 'center 70%', transform: 'scale(1.25)',
         }
     }
     return undefined
