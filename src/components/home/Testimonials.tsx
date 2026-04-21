@@ -51,7 +51,7 @@ export default function Testimonials() {
             title: 'Nicoletta - Scavolini Store Fiumicino',
             result: '+13.500€ di fatturato in 7 giorni',
             icon: 'trending',
-            src: 'https://iframe.mediadelivery.net/embed/510109/48aef447-75a3-4a7e-b28d-367506aaf14e?loop=false&muted=false&preload=false&responsive=true',
+            src: 'https://iframe.mediadelivery.net/embed/510109/16665a5f-c27b-4dc8-a206-bf3cf4686c8f?loop=false&muted=false&preload=false&responsive=true',
             isIframe: true,
             aspectRatio: '16/9',
             description: 'Testimonianza di Nicoletta - Scavolini Store Fiumicino che ha ottenuto risultati straordinari'

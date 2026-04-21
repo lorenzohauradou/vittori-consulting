@@ -34,7 +34,7 @@ export default function TestimonialsSection() {
             title: 'Nicoletta - Scavolini Store Fiumicino',
             result: '+13.500€ di fatturato in 7 giorni',
             icon: 'trending',
-            src: 'https://iframe.mediadelivery.net/embed/510109/48aef447-75a3-4a7e-b28d-367506aaf14e?loop=false&muted=false&preload=true&responsive=true',
+            src: 'https://iframe.mediadelivery.net/embed/510109/16665a5f-c27b-4dc8-a206-bf3cf4686c8f?loop=false&muted=false&preload=true&responsive=true',
             aspectRatio: '16/9',
             description: 'Testimonianza di Nicoletta - Scavolini Store Fiumicino'
         },
@@ -197,13 +197,13 @@ export default function TestimonialsSection() {
     }
 
     return (
-        <section className="relative py-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+        <section className="relative py-20 bg-linear-to-b from-gray-50 to-white overflow-hidden">
             <div className="absolute inset-0">
-                <div className="absolute md:hidden -bottom-20 -right-60 w-4/5 h-600 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] transform -skew-x-12"></div>
+                <div className="absolute md:hidden -bottom-20 -right-60 w-4/5 h-600 bg-linear-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] transform -skew-x-12"></div>
 
                 <div className="absolute top-20 right-20 w-12 h-12 bg-blue-100 rounded-full opacity-30 animate-pulse" />
                 <div className="absolute bottom-24 right-26 w-8 h-8 bg-blue-200 rounded-full opacity-40 animate-pulse delay-1000" />
-                <div className="absolute top-1/4 right-0 w-64 h-64 bg-gradient-to-l from-blue-100/20 to-transparent rounded-full blur-2xl"></div>
+                <div className="absolute top-1/4 right-0 w-64 h-64 bg-linear-to-l from-blue-100/20 to-transparent rounded-full blur-2xl"></div>
 
                 <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
@@ -254,8 +254,8 @@ export default function TestimonialsSection() {
                                 }}
                                 className="flex items-center gap-3"
                             >
-                                <div className="relative w-14 h-14 flex items-center justify-center flex-shrink-0">
-                                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                <div className="relative w-14 h-14 flex items-center justify-center shrink-0">
+                                    <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
                                         <div className="w-full h-full rounded-full bg-white p-[2px]">
                                             <div className="w-full h-full rounded-full overflow-hidden">
                                                 <Image
@@ -294,7 +294,7 @@ export default function TestimonialsSection() {
                                     delay: 0.2,
                                     ease: [0.4, 0.0, 0.2, 1]
                                 }}
-                                className="inline-block bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-6 py-3 rounded-lg font-bold text-base shadow-md mb-4"
+                                className="inline-block bg-linear-to-r from-[#2e54a1] to-[#4f75c7] text-white px-6 py-3 rounded-lg font-bold text-base shadow-md mb-4"
                             >
                                 {currentTestimonial.result}
                             </motion.div>
@@ -374,11 +374,11 @@ export default function TestimonialsSection() {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     viewport={{ once: true }}
-                                    className="flex-shrink-0 w-80 space-y-4"
+                                    className="shrink-0 w-80 space-y-4"
                                 >
                                     <div className="flex items-center gap-3 mb-4">
                                         <div className="relative w-12 h-12 flex items-center justify-center">
-                                            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
+                                            <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
                                                 <div className="w-full h-full rounded-full bg-white p-[2px]">
                                                     <div className="w-full h-full rounded-full overflow-hidden">
                                                         <Image
@@ -407,7 +407,7 @@ export default function TestimonialsSection() {
                                             ))}
                                         </div>
 
-                                        <div className="inline-block bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md mb-4">
+                                        <div className="inline-block bg-linear-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md mb-4">
                                             {testimonial.result}
                                         </div>
 
@@ -467,7 +467,7 @@ export default function TestimonialsSection() {
                             <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
                                 {currentVideo.title}
                             </h4>
-                            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md">
+                            <div className="inline-flex items-center gap-2 bg-linear-to-r from-[#2e54a1] to-[#4f75c7] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md">
                                 {currentVideo.icon === 'trending' ? (
                                     <TrendingUp className="w-4 h-4" />
                                 ) : (
@@ -482,8 +482,8 @@ export default function TestimonialsSection() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.4 }}
-                            className={`relative w-full bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl overflow-hidden shadow-2xl ${currentVideo.aspectRatio === '9/16'
-                                ? 'max-w-[400px] sm:max-w-[450px] lg:max-w-[500px] aspect-[9/16] mx-auto'
+                            className={`relative w-full bg-linear-to-br from-gray-200 to-gray-300 rounded-2xl overflow-hidden shadow-2xl ${currentVideo.aspectRatio === '9/16'
+                                ? 'max-w-[400px] sm:max-w-[450px] lg:max-w-[500px] aspect-9/16 mx-auto'
                                 : 'max-w-full aspect-video'
                                 }`}
                         >
