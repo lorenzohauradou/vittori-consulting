@@ -32,7 +32,7 @@ export default function TestimonialsSection() {
         {
             id: 2,
             title: 'Nicoletta - Scavolini Store Fiumicino',
-            result: '+13.500€ di fatturato in 7 giorni',
+            result: '510.766€ di fatturato',
             icon: 'trending',
             src: 'https://iframe.mediadelivery.net/embed/510109/16665a5f-c27b-4dc8-a206-bf3cf4686c8f?loop=false&muted=false&preload=true&responsive=true',
             aspectRatio: '16/9',
@@ -89,7 +89,7 @@ export default function TestimonialsSection() {
         {
             id: 3,
             title: 'Nicoletta - Scavolini Store Fiumicino',
-            result: '+13.500€ di fatturato in 7 giorni',
+            result: '510.766€ di fatturato',
             icon: 'trending',
             src: 'https://iframe.mediadelivery.net/embed/510109/48aef447-75a3-4a7e-b28d-367506aaf14e?loop=false&muted=false&preload=true&responsive=true',
             aspectRatio: '16/9',

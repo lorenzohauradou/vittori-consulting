@@ -6,7 +6,7 @@ const baseUrl = 'https://vittoriconsulting.it'
 export const metadata: Metadata = {
     title: "Testimonianza VC Arreda | VittoriConsulting",
     description:
-        "Scopri come VC Arreda ha ottenuto risultati straordinari con VittoriConsulting. +13.500€ di fatturato in 7 giorni.",
+        "Scopri come VC Arreda ha ottenuto risultati straordinari con VittoriConsulting. 510.766€ di fatturato in soli 6 mesi.",
     alternates: {
         canonical: `${baseUrl}/vc-arreda-testimonianza`,
     },
