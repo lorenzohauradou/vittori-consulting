@@ -6,13 +6,13 @@ const baseUrl = 'https://vittoriconsulting.it'
 export const metadata: Metadata = {
     title: "Testimonianza VC Arreda | VittoriConsulting",
     description:
-        "Scopri come VC Arreda ha ottenuto risultati straordinari con VittoriConsulting. 510.766€ di fatturato in soli 6 mesi.",
+        "Scopri come VC Arreda ha ottenuto risultati straordinari con VittoriConsulting. 510.766€ di fatturato in 6 mesi.",
     alternates: {
         canonical: `${baseUrl}/vc-arreda-testimonianza`,
     },
     openGraph: {
         title: 'Testimonianza VC Arreda | VittoriConsulting',
-        description: 'Scopri come VC Arreda ha ottenuto risultati straordinari con VittoriConsulting. +13.500€ di fatturato in 7 giorni.',
+        description: 'Scopri come VC Arreda ha ottenuto risultati straordinari con VittoriConsulting. 510.766€ di fatturato in 6 mesi.',
         url: `${baseUrl}/vc-arreda-testimonianza`,
         type: 'website',
         siteName: 'VittoriConsulting',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Testimonianza VC Arreda | VittoriConsulting',
-        description: '+13.500€ di fatturato in 7 giorni con VittoriConsulting.',
+        description: '+510.766€ di fatturato in 6 mesi. con VittoriConsulting.',
         images: ['https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp'],
     },
     robots: {
@@ -93,7 +93,7 @@ export default function VcArredaTestimonianza() {
                         >
                             <p className="text-white/60 text-xs uppercase tracking-widest mb-0.5">Risultato</p>
                             <p className="text-white text-xl sm:text-2xl font-bold">
-                                +13.500€ di fatturato in 7 giorni
+                                510.766€ di fatturato in 6 mesi
                             </p>
                         </div>
                     </div>
