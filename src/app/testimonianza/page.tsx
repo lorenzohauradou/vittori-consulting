@@ -50,12 +50,12 @@ export default function Testimonianza() {
         <main className="min-h-screen flex flex-col" style={{ backgroundColor: "#2e54a1" }}>
             <header className="px-8 pt-8 pb-6 sm:px-12 sm:pt-10 flex justify-center">
                 <Image
-                    src="https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp"
+                    src="/images/logo/reverse.png"
                     alt="VittoriConsulting"
-                    width={360}
-                    height={120}
-                    className="h-28 sm:h-32 w-auto object-contain"
-                    unoptimized
+                    width={280}
+                    height={90}
+                    className="h-16 sm:h-20 w-auto object-contain brightness-0 invert"
+                    priority
                 />
             </header>
 
@@ -69,9 +69,9 @@ export default function Testimonianza() {
                             <Image
                                 src="https://vittoriconsulting.b-cdn.net/logos/logo-circle.webp"
                                 alt="VittoriConsulting"
-                                width={48}
-                                height={48}
-                                className="h-10 w-auto object-contain rounded-md"
+                                width={80}
+                                height={80}
+                                className="h-20 w-20 object-contain rounded-full"
                                 unoptimized
                             />
                             <div>
