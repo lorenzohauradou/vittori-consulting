@@ -48,15 +48,16 @@ export const metadata: Metadata = {
 export default function Testimonianza() {
     return (
         <main className="min-h-screen flex flex-col" style={{ backgroundColor: "#2e54a1" }}>
-            <header className="px-8 pt-8 pb-6 sm:px-12 sm:pt-10 flex justify-center">
-                <Image
-                    src="/images/logo/reverse.png"
-                    alt="VittoriConsulting"
-                    width={280}
-                    height={90}
-                    className="h-16 sm:h-20 w-auto object-contain brightness-0 invert"
-                    priority
-                />
+            <header className="px-8 pt-10 pb-6 flex justify-center">
+                <div className="bg-white rounded-2xl px-6 py-3 shadow-xl">
+                    <Image
+                        src="https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp"
+                        alt="VittoriConsulting"
+                        width={180}
+                        height={44}
+                        priority
+                    />
+                </div>
             </header>
 
             <div className="flex-1 flex items-center justify-center px-4 pb-16 sm:px-8">
