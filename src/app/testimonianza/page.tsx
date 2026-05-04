@@ -63,9 +63,7 @@ export default function Testimonianza() {
             <div className="flex-1 flex items-center justify-center px-4 pb-16 sm:px-8">
                 <div className="w-full max-w-4xl">
 
-                    {/* Client + result header */}
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
-                        {/* VittoriConsulting logo + name */}
                         <div className="flex items-center gap-3">
                             <Image
                                 src="https://vittoriconsulting.b-cdn.net/logos/logo-circle.webp"
@@ -83,7 +81,6 @@ export default function Testimonianza() {
                             </div>
                         </div>
 
-                        {/* Result pill */}
                         <div
                             className="px-6 py-3 rounded-2xl text-center"
                             style={{
@@ -99,7 +96,6 @@ export default function Testimonianza() {
                         </div>
                     </div>
 
-                    {/* Video */}
                     <div
                         className="relative w-full rounded-2xl overflow-hidden"
                         style={{
