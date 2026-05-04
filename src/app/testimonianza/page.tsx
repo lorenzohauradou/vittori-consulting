@@ -51,7 +51,7 @@ export default function Testimonianza() {
             <header className="px-8 pt-10 pb-6 flex justify-center">
                 <div className="bg-white rounded-2xl px-6 py-3 shadow-xl">
                     <Image
-                        src="https://vittoriconsulting.b-cdn.net/logos/logo-extend.webp"
+                        src="/images/logo/logo_vv.png"
                         alt="VittoriConsulting"
                         width={180}
                         height={44}
