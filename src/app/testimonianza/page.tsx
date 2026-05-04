@@ -66,7 +66,7 @@ export default function Testimonianza() {
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
                         <div className="flex items-center gap-3">
                             <Image
-                                src="https://vittoriconsulting.b-cdn.net/logos/logo-circle.webp"
+                                src="https://vittoriconsulting.b-cdn.net/partners/scavolini-store-fiumicino.webp"
                                 alt="VittoriConsulting"
                                 width={80}
                                 height={80}
