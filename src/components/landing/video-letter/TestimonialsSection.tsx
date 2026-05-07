@@ -31,15 +31,6 @@ export default function TestimonialsSection() {
         },
         {
             id: 2,
-            title: 'Nicoletta - Scavolini Store Fiumicino',
-            result: '510.766€ di fatturato in 6 mesi',
-            icon: 'trending',
-            src: 'https://iframe.mediadelivery.net/embed/510109/16665a5f-c27b-4dc8-a206-bf3cf4686c8f?loop=false&muted=false&preload=true&responsive=true',
-            aspectRatio: '16/9',
-            description: 'Testimonianza di Nicoletta - Scavolini Store Fiumicino'
-        },
-        {
-            id: 3,
             title: 'St Peter Photo',
             result: '+6 servizi fotografici raggiunti in soli 30 giorni',
             icon: 'trending',
@@ -48,7 +39,7 @@ export default function TestimonialsSection() {
             description: 'Testimonianza di St Peter Photo'
         },
         {
-            id: 4,
+            id: 3,
             title: 'Dott.ssa Linda Rastrelli - Podologa',
             result: '+20 visite prese in 27 giorni',
             icon: 'trending',
@@ -57,7 +48,7 @@ export default function TestimonialsSection() {
             description: 'Testimonianza Dott.ssa Linda Rastrelli - Podologa'
         },
         {
-            id: 5,
+            id: 4,
             title: "Alberto's Pizza",
             result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
             icon: 'eye',
@@ -88,15 +79,6 @@ export default function TestimonialsSection() {
         },
         {
             id: 3,
-            title: 'Nicoletta - Scavolini Store Fiumicino',
-            result: '510.766€ di fatturato in 6 mesi',
-            icon: 'trending',
-            src: 'https://iframe.mediadelivery.net/embed/510109/48aef447-75a3-4a7e-b28d-367506aaf14e?loop=false&muted=false&preload=true&responsive=true',
-            aspectRatio: '16/9',
-            description: 'Testimonianza di Nicoletta - Scavolini Store Fiumicino'
-        },
-        {
-            id: 4,
             title: 'Dott.ssa Linda Rastrelli - Podologa',
             result: '+20 visite prese in 27 giorni',
             icon: 'trending',
@@ -105,7 +87,7 @@ export default function TestimonialsSection() {
             description: 'Testimonianza Dott.ssa Linda Rastrelli - Podologa'
         },
         {
-            id: 5,
+            id: 4,
             title: 'St Peter Photo',
             result: '+16 servizi fotografici raggiunti in soli 30 giorni',
             icon: 'trending',

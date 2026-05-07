@@ -48,16 +48,6 @@ export default function Testimonials() {
     const videoTestimonials = [
         {
             id: 1,
-            title: 'Nicoletta - Scavolini Store Fiumicino',
-            result: '510.766€ di fatturato in 6 mesi',
-            icon: 'trending',
-            src: 'https://iframe.mediadelivery.net/embed/510109/16665a5f-c27b-4dc8-a206-bf3cf4686c8f?loop=false&muted=false&preload=false&responsive=true',
-            isIframe: true,
-            aspectRatio: '16/9',
-            description: 'Testimonianza di Nicoletta - Scavolini Store Fiumicino che ha ottenuto risultati straordinari'
-        },
-        {
-            id: 2,
             title: 'St Peter Photo',
             result: '+16 servizi fotografici raggiunti in soli 30 giorni',
             icon: 'trending',
@@ -67,7 +57,7 @@ export default function Testimonials() {
             description: 'Testimonianza di St Peter Photo'
         },
         {
-            id: 3,
+            id: 2,
             title: 'Gelotti Gelateria',
             result: '+100 clienti che tramite video sono passati in gelateria',
             icon: 'trending',
@@ -77,7 +67,7 @@ export default function Testimonials() {
             description: 'Testimonianza Gelotti - +100 clienti grazie ai video'
         },
         {
-            id: 4,
+            id: 3,
             title: 'Dott.ssa Linda Rastrelli - Podologa',
             result: '+20 visite prese in 27 giorni',
             icon: 'trending',
@@ -87,7 +77,7 @@ export default function Testimonials() {
             description: 'Testimonianza Dott.ssa Linda Rastrelli - Podologa'
         },
         {
-            id: 5,
+            id: 4,
             title: "Alberto's Pizza - Testimonianza",
             result: '3 milioni di visualizzazioni negli ultimi 30 giorni',
             icon: 'eye',
