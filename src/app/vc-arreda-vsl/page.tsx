@@ -71,8 +71,31 @@ export default function VcArredaVsl() {
 
             <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pb-16 sm:px-8 sm:pb-20">
                 <div className="w-full max-w-5xl">
+                    <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+                        <h1 className="mb-5 text-[1.75rem] font-extrabold uppercase leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.25rem]">
+                            Sei il titolare di un{" "}
+                            <span
+                                className="block sm:inline"
+                                style={{
+                                    background: "linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.82) 100%)",
+                                    WebkitBackgroundClip: "text",
+                                    WebkitTextFillColor: "transparent",
+                                }}
+                            >
+                                negozio di arredamento?
+                            </span>
+                        </h1>
+
+                        <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg md:text-xl">
+                            Scopri come{" "}
+                            <span className="font-bold text-white">+100 showroom</span>{" "}
+                            in tutta Italia stanno aumentando il loro fatturato grazie al{" "}
+                            <span className="font-semibold text-white">metodo VC Arreda</span>
+                        </p>
+                    </div>
+
                     <div
-                        className="relative mb-12 sm:mb-14 rounded-[28px] p-[3px]"
+                        className="relative rounded-[28px] p-[3px]"
                         style={{
                             background: "linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.08) 100%)",
                             boxShadow: "0 32px 80px rgba(0,0,0,0.45)",
@@ -90,35 +113,6 @@ export default function VcArredaVsl() {
                                 allowFullScreen
                             />
                         </div>
-                    </div>
-
-                    <div className="mx-auto max-w-3xl text-center">
-                        <span className="mb-6 inline-flex items-center rounded-full border border-white/25 bg-white/10 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/90 backdrop-blur-sm sm:text-xs">
-                            Metodo VC Arreda
-                        </span>
-
-                        <h1 className="mb-6 text-[1.75rem] font-extrabold uppercase leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.25rem]">
-                            Sei il titolare di un{" "}
-                            <span
-                                className="block sm:inline"
-                                style={{
-                                    background: "linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.82) 100%)",
-                                    WebkitBackgroundClip: "text",
-                                    WebkitTextFillColor: "transparent",
-                                }}
-                            >
-                                negozio di arredamento?
-                            </span>
-                        </h1>
-
-                        <div className="mx-auto mb-8 h-px w-16 bg-white/30" />
-
-                        <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg md:text-xl">
-                            Scopri come{" "}
-                            <span className="font-bold text-white">+100 showroom</span>{" "}
-                            in tutta Italia stanno aumentando il loro fatturato grazie al{" "}
-                            <span className="font-semibold text-white">metodo VC Arreda</span>
-                        </p>
                     </div>
                 </div>
             </div>
