@@ -49,7 +49,7 @@ export default function VcArredaVsl() {
     return (
         <main
             className="relative min-h-screen flex flex-col overflow-hidden"
-            style={{ backgroundColor: "#b7131b" }}
+            style={{ backgroundColor: "#6B1C23" }}
         >
             <div className="pointer-events-none absolute inset-0">
                 <div className="absolute -top-40 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-white/[0.07] blur-3xl" />
