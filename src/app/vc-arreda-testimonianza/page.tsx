@@ -50,7 +50,7 @@ export default function VcArredaTestimonianza() {
         <main className="min-h-screen flex flex-col" style={{ backgroundColor: "#6B1C23" }}>
             <header className="px-8 pt-8 pb-6 sm:px-12 sm:pt-10 flex justify-center">
                 <Image
-                    src="https://vittoriconsulting.b-cdn.net/partners/vc-arreda-logo.jpg"
+                    src="https://vittoriconsulting.b-cdn.net/logos/vc-arreda.jpg"
                     alt="VC Arreda"
                     width={360}
                     height={120}

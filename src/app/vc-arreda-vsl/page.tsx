@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         locale: 'it_IT',
         images: [
             {
-                url: 'https://vittoriconsulting.b-cdn.net/partners/vc-arreda-logo.jpg',
+                url: 'https://vittoriconsulting.b-cdn.net/logos/vc-arreda.jpg',
                 width: 1200,
                 height: 630,
                 alt: 'VC Arreda',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'VC Arreda | Sei il titolare di un negozio di arredamento?',
         description: '+100 showroom in tutta Italia stanno aumentando il fatturato con il metodo VC Arreda.',
-        images: ['https://vittoriconsulting.b-cdn.net/partners/vc-arreda-logo.jpg'],
+        images: ['https://vittoriconsulting.b-cdn.net/logos/vc-arreda.jpg'],
     },
     robots: {
         index: true,
@@ -59,7 +59,7 @@ export default function VcArredaVsl() {
 
             <header className="relative z-10 flex justify-center px-6 pt-10 pb-8 sm:pt-12">
                 <Image
-                    src="https://vittoriconsulting.b-cdn.net/partners/vc-arreda-logo.jpg"
+                    src="https://vittoriconsulting.b-cdn.net/logos/vc-arreda.jpg"
                     alt="VC Arreda"
                     width={420}
                     height={140}
