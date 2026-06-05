@@ -51,19 +51,13 @@ export default function VcArredaVsl() {
             className="relative min-h-screen flex flex-col overflow-hidden"
             style={{ backgroundColor: "#6B1C23" }}
         >
-            <div className="pointer-events-none absolute inset-0">
-                <div className="absolute -top-40 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-white/[0.07] blur-3xl" />
-                <div className="absolute bottom-0 left-0 h-72 w-72 -translate-x-1/3 translate-y-1/3 rounded-full bg-black/10 blur-3xl" />
-                <div className="absolute bottom-0 right-0 h-72 w-72 translate-x-1/3 translate-y-1/3 rounded-full bg-black/10 blur-3xl" />
-            </div>
-
             <header className="relative z-10 flex justify-center px-6 pt-10 pb-8 sm:pt-12">
                 <Image
                     src="https://vittoriconsulting.b-cdn.net/logos/vc-arreda.jpg"
                     alt="VC Arreda"
-                    width={420}
-                    height={140}
-                    className="h-24 sm:h-32 md:h-36 w-auto object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.25)]"
+                    width={300}
+                    height={200}
+                    className="w-72 h-72 object-contain object-center"
                     priority
                     unoptimized
                 />

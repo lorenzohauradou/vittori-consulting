@@ -48,13 +48,14 @@ export const metadata: Metadata = {
 export default function VcArredaTestimonianza() {
     return (
         <main className="min-h-screen flex flex-col" style={{ backgroundColor: "#6B1C23" }}>
-            <header className="px-8 pt-8 pb-6 sm:px-12 sm:pt-10 flex justify-center">
+            <header className="relative z-10 flex justify-center px-6 pt-10 pb-8 sm:pt-12">
                 <Image
                     src="https://vittoriconsulting.b-cdn.net/logos/vc-arreda.jpg"
                     alt="VC Arreda"
-                    width={360}
-                    height={120}
-                    className="h-28 sm:h-32 w-auto object-contain"
+                    width={300}
+                    height={200}
+                    className="w-72 h-72 object-contain object-center"
+                    priority
                     unoptimized
                 />
             </header>
