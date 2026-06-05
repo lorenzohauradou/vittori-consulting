@@ -20,6 +20,7 @@ function teamPhotoStyle(memberName: string): React.CSSProperties | undefined {
     if (memberName === 'Gioele') return { objectPosition: 'center 70%', transform: 'scale(1.25)' }
     if (memberName === 'Lorenzo') return { objectPosition: 'center 70%' }
     if (memberName === 'Edoardo') return { objectPosition: 'center 35%' }
+    if (memberName === 'Patrizia') return { objectPosition: 'center 15%' }
     if (memberName === 'Veronica') {
         return {
             objectPosition: 'center 2%',
@@ -106,7 +107,15 @@ export default function About() {
             quote: 'Il mio mestiere è creare contenuti che raccontano la tua storia',
             photo: 'https://vittoriconsulting.b-cdn.net/team/no-bg-veronica.jpeg',
             position: 'center',
-            delay: 1.2
+            delay: 1.4
+        },
+        {
+            name: 'Patrizia',
+            role: 'Setter',
+            quote: 'Trasformo la curiosità di oggi nel cliente di domani',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/patrizia.jpg',
+            position: 'center',
+            delay: 1.6
         }
     ]
 
