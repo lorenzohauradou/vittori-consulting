@@ -113,7 +113,7 @@ export default function About() {
             name: 'Patrizia',
             role: 'Setter',
             quote: 'Trasformo la curiosità di oggi nel cliente di domani',
-            photo: 'https://vittoriconsulting.b-cdn.net/team/patrizia.jpg',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/patrizia1.jpg',
             position: 'center',
             delay: 1.6
         }
