@@ -94,6 +94,15 @@ export default function TestimonialsSection() {
             src: 'https://iframe.mediadelivery.net/embed/510109/7a315d76-854f-4b1d-8b5c-430722150141?loop=false&muted=false&preload=true&responsive=true',
             aspectRatio: '16/9',
             description: 'Testimonianza di St Peter Photo'
+        },
+        {
+            id: 5,
+            title: 'Case in Rete - Testimonianza',
+            result: '828.000€ di incarichi immobiliari acquisiti in soli 6 mesi',
+            icon: 'trending',
+            src: 'https://iframe.mediadelivery.net/embed/510109/fbbbb722-f639-42eb-8d21-9cf8b3359bbd?loop=false&muted=false&preload=false&responsive=true',
+            aspectRatio: '16/9',
+            description: 'Testimonianza Case in Rete - 828.000€ di incarichi immobiliari acquisiti in soli 6 mesi'
         }
     ]
 
