@@ -116,6 +116,14 @@ export default function About() {
             photo: 'https://vittoriconsulting.b-cdn.net/team/patrizia1.jpg',
             position: 'center',
             delay: 1.6
+        },
+        {
+            name: 'Sonia',
+            role: 'Setter',
+            quote: 'Il mio obiettivo è semplice: rendere la tua curiosità il primo passo verso una collaborazione di valore',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/sonia.jpg',
+            position: 'center',
+            delay: 1.8
         }
     ]
 
