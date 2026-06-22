@@ -227,7 +227,7 @@ export default function Testimonials() {
                     className="text-left mb-16"
                 >
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 lg:mb-8 drop-shadow-lg">
-                        No, non ce la cantiamo<br />e ce la suoniamo<br className='lg:hidden' />da soli
+                        No, non ce la cantiamo<br />e ce la suoniamo<br className='lg:hidden' /> da soli
                     </h2>
                     <div className="relative inline-block mb-6 lg:mb-8">
                         <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-100 mb-4 drop-shadow-lg">
