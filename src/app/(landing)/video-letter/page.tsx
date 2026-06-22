@@ -76,6 +76,7 @@ export default function VideoLetter() {
             />
             <StickyContact />
             <HeroVideo />
+            <Partners />
             <Calculator />
             <Partners />
             <ProblemsSection />
