@@ -44,7 +44,7 @@ function TypewriterText() {
 
     return (
         <span className="inline-flex items-baseline">
-            <span className="bg-gradient-to-r from-[#2e54a1] via-[#4a7dd4] to-[#2e54a1] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#2e54a1] via-[#4a7dd4] to-[#2e54a1] bg-clip-text text-transparent">
                 un prodotto {currentText}
             </span>
             <motion.span
@@ -68,8 +68,8 @@ export default function MvpHero() {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 bg-[#09090b]">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:48px_48px]" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-[#2e54a1]/20 via-[#2e54a1]/5 to-transparent blur-3xl" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-size-[48px_48px]" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-linear-to-b from-[#2e54a1]/20 via-[#2e54a1]/5 to-transparent blur-3xl" />
             </div>
 
             <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-16 sm:pb-20">
@@ -101,10 +101,10 @@ export default function MvpHero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2"
                     >
-                        Trasformiamo la tua visione in un Micro-SaaS funzionante in settimane, non mesi.
+                        Dall&apos;idea iniziale al tuo prodotto digitale pronto al lancio in poche settimane.
                         <span className="hidden sm:inline"><br /></span>
                         <span className="sm:hidden"> </span>
-                        Design moderno, codice scalabile, lancia il tuo prodotto digitale!
+                        Sviluppiamo software moderno, intuitivo e pronto per accogliere i tuoi primi clienti
                     </motion.p>
 
                     <motion.div
@@ -172,7 +172,7 @@ export default function MvpHero() {
                 </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#09090b] to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-[#09090b] to-transparent" />
         </section>
     )
 }
