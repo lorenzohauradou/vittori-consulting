@@ -21,6 +21,14 @@ export default function TestimonialsSection() {
 
     const desktopVideoOrder = [
         {
+            id: 0,
+            title: 'Aran Cucine',
+            icon: 'trending',
+            src: 'https://iframe.mediadelivery.net/embed/510109/02656b32-9bcf-4ce0-8969-b0f5071b1c14?loop=false&muted=false&preload=true&responsive=true',
+            aspectRatio: '16/9',
+            description: 'Testimonianza Flavio - Titolare 2 store'
+        },
+        {
             id: 1,
             title: 'Gelotti Gelateria',
             result: '+100 clienti che tramite video sono passati in gelateria',
@@ -70,6 +78,14 @@ export default function TestimonialsSection() {
         },
         {
             id: 2,
+            title: 'Aran Cucine',
+            icon: 'trending',
+            src: 'https://iframe.mediadelivery.net/embed/510109/02656b32-9bcf-4ce0-8969-b0f5071b1c14?loop=false&muted=false&preload=true&responsive=true',
+            aspectRatio: '16/9',
+            description: 'Testimonianza Flavio - Titolare 2 store'
+        },
+        {
+            id: 3,
             title: 'Gelotti Gelateria',
             result: '+100 clienti che tramite video sono passati in gelateria',
             icon: 'trending',
@@ -78,7 +94,7 @@ export default function TestimonialsSection() {
             description: 'Testimonianza Gelotti - +100 clienti grazie ai video'
         },
         {
-            id: 3,
+            id: 4,
             title: 'Dott.ssa Linda Rastrelli - Podologa',
             result: '+20 visite prese in 27 giorni',
             icon: 'trending',
@@ -87,7 +103,7 @@ export default function TestimonialsSection() {
             description: 'Testimonianza Dott.ssa Linda Rastrelli - Podologa'
         },
         {
-            id: 4,
+            id: 5,
             title: 'St Peter Photo',
             result: '+16 servizi fotografici raggiunti in soli 30 giorni',
             icon: 'trending',
@@ -96,7 +112,7 @@ export default function TestimonialsSection() {
             description: 'Testimonianza di St Peter Photo'
         },
         {
-            id: 5,
+            id: 6,
             title: 'Case in Rete - Testimonianza',
             result: '828.000€ di incarichi immobiliari acquisiti in soli 6 mesi',
             icon: 'trending',
