@@ -120,9 +120,7 @@ export default function VcArredaTestimonianza() {
             <div className="flex-1 flex items-center justify-center px-4 pb-16 sm:px-8">
                 <div className="w-full max-w-4xl">
 
-                    {/* Client + result header */}
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
-                        {/* Scavolini logo + name */}
                         <div className="flex items-center gap-3 bg-white rounded-md p-2">
                             <Image
                                 src="https://vittoriconsulting.b-cdn.net/partners/aran_logo.png"
@@ -140,7 +138,6 @@ export default function VcArredaTestimonianza() {
                             </div>
                         </div>
 
-                        {/* Result pill */}
                         <div
                             className="px-6 py-3 rounded-2xl text-center"
                             style={{
@@ -156,7 +153,6 @@ export default function VcArredaTestimonianza() {
                         </div>
                     </div>
 
-                    {/* Video */}
                     <div
                         className="relative w-full rounded-2xl overflow-hidden"
                         style={{
