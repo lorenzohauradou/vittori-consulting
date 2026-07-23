@@ -302,9 +302,13 @@ export default function Footer() {
             <div className="border-t border-gray-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <div className="text-gray-400 text-sm text-center md:text-left">
-                            <p>© 2025 VittoriConsulting. Tutti i diritti riservati.</p>
-                            <p className="text-xs mt-1">P.IVA: 02463360566</p>
+                        <div className="text-gray-400 text-sm text-center md:text-left space-y-1">
+                            <p>© 2025 Vittori Consulting S.r.l.s. Tutti i diritti riservati.</p>
+                            <p className="text-xs mt-1 leading-relaxed">
+                                Sede Legale: Via Francesco di Guglielmo 13, 01038 Soriano nel Cimino (VT)<br />
+                                C.F. / P.IVA: 02517040560 | REA: VT-215286<br />
+                                Capitale Sociale: € 2.200,00 i.v. | PEC: vittoriconsulting@legalmail.it
+                            </p>
                         </div>
                         <div className="flex gap-6 text-sm">
                             <Link href="#privacy" className="text-gray-400 hover:text-white transition-colors duration-300">
@@ -317,6 +321,7 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
+
         </footer>
     )
 }
