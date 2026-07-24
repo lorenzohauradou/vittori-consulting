@@ -155,7 +155,7 @@ export default function Hero() {
                                 transition={{ duration: 0.6, delay: 0.3 }}
                                 className="text-xl sm:text-2xl font-semibold text-white/95 mb-6 leading-relaxed"
                             >
-                                Con l&apos;unico metodo che ha già trasformato il business di <span className="font-bold">+189 imprenditori</span> e PMI romani.
+                                Con l&apos;unico metodo che ha già trasformato il business di <span className="font-bold">+189 imprenditori</span> e PMI romani!
                             </motion.h2>
 
                             <motion.p
@@ -164,7 +164,7 @@ export default function Hero() {
                                 transition={{ duration: 0.6, delay: 0.5 }}
                                 className="text-lg text-white/90 mb-8 max-w-lg leading-relaxed"
                             >
-                                Siamo VittoriConsulting. Niente chiacchiere. Passa dall&apos;essere &apos;un&apos;opzione&apos; a essere &apos;LA scelta&apos; con il Metodo Vittori 360.
+                                Siamo VittoriConsulting. Niente chiacchiere. Passa dall&apos;essere &apos;un&apos;opzione&apos; a essere &apos;LA SCELTA&apos; con il Metodo Vittori 360°
                             </motion.p>
 
                             <motion.div
