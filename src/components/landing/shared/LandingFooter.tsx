@@ -124,8 +124,8 @@ export default function LandingFooter() {
                             <p>© 2025 Vittori Consulting S.r.l.s. Tutti i diritti riservati.</p>
                             <p className="text-xs mt-1 leading-relaxed">
                                 Sede Legale: Via Francesco di Guglielmo 13, 01038 Soriano nel Cimino (VT)<br />
-                                C.F. / P.IVA: 02517040560 | REA: VT-215286<br />
-                                Capitale Sociale: € 2.200,00 i.v. | PEC: vittoriconsulting@legalmail.it
+                                P.IVA: 02517040560 | REA: VT-215286<br />
+                                PEC: vittoriconsulting@legalmail.it
                             </p>
                         </div>
                         <div className="flex flex-wrap justify-center gap-6 text-sm">
