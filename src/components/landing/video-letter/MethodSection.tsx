@@ -68,12 +68,12 @@ export default function MethodSection() {
     ]
 
     return (
-        <section className="relative py-24 lg:py-32 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] overflow-hidden">
+        <section className="relative py-24 lg:py-32 bg-linear-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] overflow-hidden">
             <div className="absolute inset-0">
                 <div className="absolute top-20 right-20 w-32 h-32 bg-blue-100/20 rounded-full opacity-60 animate-pulse"></div>
                 <div className="absolute bottom-20 left-20 w-24 h-24 bg-blue-200/25 rounded-full opacity-50 animate-pulse delay-1000"></div>
-                <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-blue-100/15 to-transparent rounded-full blur-3xl"></div>
-                <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-l from-blue-200/20 to-transparent rounded-full blur-2xl"></div>
+                <div className="absolute top-1/4 left-0 w-96 h-96 bg-linear-to-r from-blue-100/15 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-linear-to-l from-blue-200/20 to-transparent rounded-full blur-2xl"></div>
                 <div className="absolute top-1/3 right-1/4 w-8 h-8 bg-blue-300/40 rounded-full opacity-70 animate-bounce delay-500"></div>
                 <div className="absolute bottom-1/3 left-1/3 w-6 h-6 bg-blue-400/30 rounded-full opacity-60 animate-bounce delay-1500"></div>
                 <div className="absolute top-1/2 right-1/3 w-4 h-4 bg-blue-200/50 rounded-full opacity-50 animate-bounce delay-2000"></div>
@@ -95,7 +95,7 @@ export default function MethodSection() {
                             key={index}
                             className="group relative bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:shadow-2xl hover:scale-105"
                         >
-                            <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-white to-blue-100 rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                            <div className="absolute -top-4 -left-4 w-12 h-12 bg-linear-to-br from-white to-blue-100 rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
                                 <span className="text-[#2e54a1] font-bold text-lg">{pillar.number}</span>
                             </div>
 
@@ -117,7 +117,7 @@ export default function MethodSection() {
                                 {pillar.description}
                             </p>
 
-                            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-white to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity rounded-b-2xl"></div>
+                            <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-white to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity rounded-b-2xl"></div>
                         </div>
                     ))}
                 </div>
