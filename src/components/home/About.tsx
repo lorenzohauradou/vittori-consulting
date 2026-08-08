@@ -21,6 +21,7 @@ function teamPhotoStyle(memberName: string): React.CSSProperties | undefined {
     if (memberName === 'Lorenzo') return { objectPosition: 'center 70%' }
     if (memberName === 'Edoardo') return { objectPosition: 'center 35%' }
     if (memberName === 'Patrizia') return { objectPosition: 'center 15%' }
+    if (memberName === 'Fancesco') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
     if (memberName === 'Veronica') {
         return {
             objectPosition: 'center 2%',
@@ -71,8 +72,8 @@ export default function About() {
         },
         {
             name: 'Nicole',
-            role: 'Project Manager',
-            quote: 'Il Direttore d\'Orchestra del Tuo Marketing',
+            role: 'Social Media Manager',
+            quote: 'Il mio obiettivo è semplice: aumentare il valore del tuo business',
             photo: 'https://vittoriconsulting.b-cdn.net/team/nicole.jpg',
             position: 'bottom-left',
             delay: 0.6
@@ -124,7 +125,15 @@ export default function About() {
             photo: 'https://vittoriconsulting.b-cdn.net/team/sonia.jpg',
             position: 'center',
             delay: 1.8
-        }
+        },
+        {
+            name: 'Fancesco',
+            role: 'Project Manager',
+            quote: 'Il Direttore d\'Orchestra del Tuo Marketing',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/francesco.jpg',
+            position: 'bottom-right',
+            delay: 2.0
+        },
     ]
 
     return (
@@ -282,7 +291,7 @@ function TeamCard({ member, index, isMobile }: {
         const CardContent = (
             <div className="w-full h-96 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
                 <div className="relative w-36 h-36 mb-6 flex items-center justify-center">
-                    <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[5px]">
+                    <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-1.25">
                         <div className="w-full h-full rounded-full overflow-hidden bg-white">
                             <Image
                                 src={member.photo}
@@ -348,7 +357,7 @@ function TeamCard({ member, index, isMobile }: {
     const CardContent = (
         <div className="w-full h-80 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300 border border-white/30">
             <div className="relative w-32 h-32 mb-4 flex items-center justify-center">
-                <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[4px]">
+                <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-1">
                     <div className="w-full h-full rounded-full overflow-hidden bg-white">
                         <Image
                             src={member.photo}
@@ -377,7 +386,7 @@ function TeamCard({ member, index, isMobile }: {
     )
 
     return (
-        <div className="shrink-0 w-[280px]">
+        <div className="shrink-0 w-70">
             {member.name === 'Lorenzo' ? (
                 <a
                     href="https://lollo.me"
