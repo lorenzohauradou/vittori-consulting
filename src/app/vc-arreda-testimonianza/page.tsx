@@ -60,6 +60,7 @@ export default function VcArredaTestimonianza() {
                 />
             </header>
 
+            {/* Testimonianza 1 - Scavolini Store Fiumicino */}
             <div className="flex-1 flex items-center justify-center px-4 pb-16 sm:px-8">
                 <div className="w-full max-w-4xl">
 
@@ -117,6 +118,8 @@ export default function VcArredaTestimonianza() {
                     </div>
                 </div>
             </div>
+
+            {/* Testimonianza 2 - Aran Cucine */}
             <div className="flex-1 flex items-center justify-center px-4 pb-16 sm:px-8">
                 <div className="w-full max-w-4xl">
 
@@ -162,6 +165,39 @@ export default function VcArredaTestimonianza() {
                     >
                         <iframe
                             src="https://iframe.mediadelivery.net/embed/510109/02656b32-9bcf-4ce0-8969-b0f5071b1c14?loop=false&muted=false&preload=true&responsive=true"
+                            loading="lazy"
+                            className="absolute inset-0 w-full h-full border-0"
+                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                            allowFullScreen
+                        />
+                    </div>
+                </div>
+            </div>
+
+            {/* Testimonianza 3 - Eros Megalli (Verticale / Fondo Pagina / Senza Logo & Risultato) */}
+            <div className="flex-1 flex items-center justify-center px-4 pb-16 sm:px-8">
+                <div className="w-full max-w-xs sm:max-w-sm flex flex-col items-center">
+
+                    {/* Intestazione semplice solo testo */}
+                    <div className="text-center mb-6">
+                        <p className="text-white font-semibold text-lg leading-tight">
+                            Eros Megalli
+                        </p>
+                        <p className="text-white/80 text-sm">
+                            Centro Scavolini Randazzo Sicilia
+                        </p>
+                    </div>
+
+                    {/* Video con Aspect Ratio Verticale (9:16) */}
+                    <div
+                        className="relative w-full rounded-2xl overflow-hidden"
+                        style={{
+                            aspectRatio: "9/16",
+                            boxShadow: "0 24px 60px rgba(0,0,0,0.35)",
+                        }}
+                    >
+                        <iframe
+                            src="https://iframe.mediadelivery.net/embed/510109/c2206d3e-6975-4c45-a13b-caeee6c6faec?loop=false&muted=false&preload=false&responsive=true"
                             loading="lazy"
                             className="absolute inset-0 w-full h-full border-0"
                             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
