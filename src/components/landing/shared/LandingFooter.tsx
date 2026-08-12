@@ -50,9 +50,9 @@ export default function LandingFooter() {
                                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                                 </svg>
                                 <div>
-                                    <p className="text-sm text-gray-400 mb-1">Sede</p>
+                                    <p className="text-sm text-gray-400 mb-1">Sede Operativa</p>
                                     <a href="https://maps.google.com/?q=Via+Crescenzo+del+Monte+29,+Roma+00153" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-white hover:text-[#2e54a1] transition-colors">
-                                        Via Crescenzo del Monte 29<br />Roma 00153
+                                        Via Crescenzo del Monte 29<br />Roma (RM), 00153
                                     </a>
                                 </div>
                             </div>
@@ -123,6 +123,7 @@ export default function LandingFooter() {
                         <div className="text-gray-400 text-sm text-center md:text-left space-y-1">
                             <p>© 2025 Vittori Consulting S.r.l.s. Tutti i diritti riservati.</p>
                             <p className="text-xs mt-1 leading-relaxed">
+                                Sede Operativa: Via Crescenzo del Monte 29, 00153 Roma (RM)<br />
                                 Sede Legale: Via Francesco di Guglielmo 13, 01038 Soriano nel Cimino (VT)<br />
                                 P.IVA: 02517040560 | REA: VT-215286<br />
                                 PEC: vittoriconsulting@legalmail.it
@@ -142,7 +143,6 @@ export default function LandingFooter() {
                     </div>
                 </div>
             </div>
-        </footer >
+        </footer>
     )
 }
-

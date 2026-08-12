@@ -179,7 +179,6 @@ export default function Footer() {
                         </div>
                     </div>
 
-
                     <div>
                         <div>
                             <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">
@@ -305,6 +304,7 @@ export default function Footer() {
                         <div className="text-gray-400 text-sm text-center md:text-left space-y-1">
                             <p>© 2025 Vittori Consulting S.r.l.s. Tutti i diritti riservati.</p>
                             <p className="text-xs mt-1 leading-relaxed">
+                                Sede Operativa: Via Crescenzo del Monte 29, 00153 Roma (RM)<br />
                                 Sede Legale: Via Francesco di Guglielmo 13, 01038 Soriano nel Cimino (VT)<br />
                                 P.IVA: 02517040560 | REA: VT-215286<br />
                                 PEC: vittoriconsulting@legalmail.it
@@ -321,7 +321,6 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-
         </footer>
     )
 }
