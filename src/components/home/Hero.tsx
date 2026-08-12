@@ -146,7 +146,7 @@ export default function Hero() {
                                 <br />
                                 {" "}del
                                 <br />
-                                <span className="text-blue-100">Mercato di Roma</span>
+                                <span className="text-blue-100">Mercato Italiano</span>
                             </h1>
 
                             <motion.h2
@@ -155,7 +155,7 @@ export default function Hero() {
                                 transition={{ duration: 0.6, delay: 0.3 }}
                                 className="text-xl sm:text-2xl font-semibold text-white/95 mb-6 leading-relaxed"
                             >
-                                Con l&apos;unico metodo che ha già trasformato il business di <span className="font-bold">+189 imprenditori</span> e PMI romani!
+                                Con l&apos;unico metodo che ha già trasformato il business di <span className="font-bold">+189 imprenditori</span> e PMI italiani!
                             </motion.h2>
 
                             <motion.p
