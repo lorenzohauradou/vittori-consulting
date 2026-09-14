@@ -21,6 +21,17 @@ const testimonials: Testimonial[] = [
         aspect: "16/9",
     },
     {
+        id: "06ad4b6e-53c9-4e37-b2c9-217dff0a3e60",
+        name: "Mobil Turi - Perignano",
+        company: "Gruppo Petrassi",
+        logo: {
+            src: "https://vittoriconsulting.b-cdn.net/partners/mobilturi-perignano.png",
+            alt: "Gruppo Petrassi",
+            onWhite: true,
+        },
+        aspect: "9/16",
+    },
+    {
         id: "02656b32-9bcf-4ce0-8969-b0f5071b1c14",
         name: "Flavio",
         company: "Aran Cucine",
@@ -32,17 +43,6 @@ const testimonials: Testimonial[] = [
         },
         aspect: "16/9",
         preload: true,
-    },
-    {
-        id: "06ad4b6e-53c9-4e37-b2c9-217dff0a3e60",
-        name: "Mobil Turi - Perignano",
-        company: "Gruppo Petrassi",
-        logo: {
-            src: "https://vittoriconsulting.b-cdn.net/partners/mobilturi-perignano.png",
-            alt: "Gruppo Petrassi",
-            onWhite: true,
-        },
-        aspect: "16/9",
     },
     {
         id: "c2206d3e-6975-4c45-a13b-caeee6c6faec",
