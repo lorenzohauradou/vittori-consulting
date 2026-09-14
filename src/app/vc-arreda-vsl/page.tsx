@@ -45,37 +45,37 @@ export const metadata: Metadata = {
     },
 }
 
+// Stessa palette "showroom" della pagina delle testimonianze: bordeaux, avorio, ottone.
+const BRASS_EDGE =
+    "linear-gradient(150deg, #E6CC9B 0%, #C4A06A 30%, #9C7840 55%, #E6CC9B 78%, #C4A06A 100%)"
+
 export default function VcArredaVsl() {
     return (
         <main
             className="relative min-h-screen flex flex-col overflow-hidden"
             style={{ backgroundColor: "#6B1C23" }}
         >
-            <header className="relative z-10 flex justify-center px-6 pt-10 pb-8 sm:pt-12">
+            <header className="relative z-10 flex flex-col items-center px-6 pt-8 sm:pt-10">
                 <Image
-                    src="https://vittoriconsulting.b-cdn.net/logos/vc-arreda.jpg"
+                    src="/images/logo/vc-arreda-logo-nobg.png"
                     alt="VC Arreda"
-                    width={300}
-                    height={200}
-                    className="w-72 h-72 object-contain object-center"
+                    width={1340}
+                    height={385}
+                    className="h-auto w-[260px] sm:w-[340px] lg:w-[400px]"
                     priority
-                    unoptimized
+                />
+                <div
+                    className="mt-5 h-px w-20 sm:w-28"
+                    style={{ background: "linear-gradient(90deg, transparent, #C4A06A, transparent)" }}
                 />
             </header>
 
-            <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pb-16 sm:px-8 sm:pb-20">
+            <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pb-12 pt-8 sm:px-8 sm:pb-16">
                 <div className="w-full max-w-5xl">
-                    <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+                    <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
                         <h1 className="mb-5 text-[1.75rem] font-extrabold uppercase leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.25rem]">
                             Sei il titolare di un{" "}
-                            <span
-                                className="block sm:inline"
-                                style={{
-                                    background: "linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.82) 100%)",
-                                    WebkitBackgroundClip: "text",
-                                    WebkitTextFillColor: "transparent",
-                                }}
-                            >
+                            <span className="block sm:inline" style={{ color: "#E6CC9B" }}>
                                 negozio di arredamento?
                             </span>
                         </h1>
@@ -89,23 +89,22 @@ export default function VcArredaVsl() {
                     </div>
 
                     <div
-                        className="relative rounded-[28px] p-[3px]"
-                        style={{
-                            background: "linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.08) 100%)",
-                            boxShadow: "0 32px 80px rgba(0,0,0,0.45)",
-                        }}
+                        className="relative rounded-sm p-[2px]"
+                        style={{ background: BRASS_EDGE, boxShadow: "0 32px 80px rgba(45,10,14,0.45)" }}
                     >
-                        <div
-                            className="relative w-full overflow-hidden rounded-[25px]"
-                            style={{ aspectRatio: "16/9" }}
-                        >
-                            <iframe
-                                src="https://iframe.mediadelivery.net/embed/510109/50aba36c-f135-49ea-b66e-ac343b6396f4?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
-                                loading="lazy"
-                                className="absolute inset-0 h-full w-full border-0"
-                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
-                                allowFullScreen
-                            />
+                        <div className="rounded-[2px] p-2 sm:p-2.5" style={{ backgroundColor: "#F7F1E7" }}>
+                            <div
+                                className="relative w-full overflow-hidden rounded-[2px]"
+                                style={{ aspectRatio: "16/9", backgroundColor: "#3C0E13" }}
+                            >
+                                <iframe
+                                    src="https://iframe.mediadelivery.net/embed/510109/50aba36c-f135-49ea-b66e-ac343b6396f4?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
+                                    loading="lazy"
+                                    className="absolute inset-0 h-full w-full border-0"
+                                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
+                                    allowFullScreen
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
