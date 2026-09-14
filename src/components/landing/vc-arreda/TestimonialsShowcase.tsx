@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, ArrowUpRight, BadgeCheck, Play } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowUpRight, Play } from 'lucide-react'
 
 export type Testimonial = {
     id: string
@@ -152,7 +152,7 @@ export default function TestimonialsShowcase({ testimonials, libraryId, logoSrc,
                 >
                     Titolari di showroom di arredamento che hanno scelto il{' '}
                     <span className="font-semibold text-white">metodo VC Arreda</span> e raccontano, senza filtri,
-                    come sono cambiati i loro numeri.
+                    la loro esperienza con noi
                 </motion.p>
 
                 <motion.div
@@ -519,44 +519,23 @@ function InfoPanel({
 
             <div className="h-px w-full" style={{ backgroundColor: 'rgba(156,120,64,0.28)' }} />
 
-            <div className={fill ? 'flex flex-1 flex-col justify-center' : ''}>
-                {item.result ? (
-                    <div>
-                        <p
-                            className="text-[10px] font-semibold uppercase tracking-[0.26em]"
-                            style={{ color: '#9C7840' }}
-                        >
-                            Risultato
-                        </p>
-                        <p
-                            className="mt-3 text-[1.5rem] font-bold leading-[1.2] tracking-tight sm:text-[1.75rem]"
-                            style={{ color: C.burgundy }}
-                        >
-                            {item.result}
-                        </p>
-                    </div>
-                ) : (
-                    <div>
-                        <p
-                            className="text-[10px] font-semibold uppercase tracking-[0.26em]"
-                            style={{ color: '#9C7840' }}
-                        >
-                            Testimonianza video
-                        </p>
-                        <p className="mt-3 text-base leading-relaxed" style={{ color: 'rgba(60,14,19,0.7)' }}>
-                            L&apos;esperienza di collaborazione raccontata in prima persona.
-                        </p>
-                    </div>
-                )}
-            </div>
+            {item.result && (
+                <div className={fill ? 'flex flex-1 flex-col justify-center' : ''}>
+                    <p
+                        className="text-[10px] font-semibold uppercase tracking-[0.26em]"
+                        style={{ color: '#9C7840' }}
+                    >
+                        Risultato
+                    </p>
+                    <p
+                        className="mt-3 text-[1.5rem] font-bold leading-[1.2] tracking-tight sm:text-[1.75rem]"
+                        style={{ color: C.burgundy }}
+                    >
+                        {item.result}
+                    </p>
+                </div>
+            )}
 
-            <div
-                className="flex items-center gap-2 pt-2 text-xs"
-                style={{ color: 'rgba(60,14,19,0.5)' }}
-            >
-                <BadgeCheck className="h-4 w-4" style={{ color: '#9C7840' }} />
-                <span>Testimonianza verificata · Partner VC Arreda</span>
-            </div>
         </Panel>
     )
 }
