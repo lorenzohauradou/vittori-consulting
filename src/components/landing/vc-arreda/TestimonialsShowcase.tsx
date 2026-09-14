@@ -282,7 +282,7 @@ export default function TestimonialsShowcase({ testimonials, libraryId, logoSrc,
                         Il prossimo risultato può essere il tuo
                     </h2>
                     <p className="mx-auto mt-4 max-w-xl text-base" style={{ color: 'rgba(60,14,19,0.68)' }}>
-                        Scopri come funziona il metodo VC Arreda e cosa può fare per il tuo showroom.
+                        Scopri come funziona il metodo VC Arreda e quali risultati concreti puoi ottenere per il tuo showroom
                     </p>
                     <Link
                         href="/vc-arreda-vsl"
