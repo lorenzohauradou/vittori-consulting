@@ -44,7 +44,7 @@ export default function ProblemsSection() {
     ]
 
     return (
-        <section className="relative py-20 lg:py-32 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] overflow-hidden">
+        <section className="relative py-20 lg:py-32 bg-linear-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] overflow-hidden">
             <div className="absolute inset-0">
                 <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
@@ -90,7 +90,7 @@ export default function ProblemsSection() {
                         className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
                     >
                         Il 90% degli Imprenditori romani<br />
-                        <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">
                             Commette questi Errori
                         </span>
                     </motion.h2>
@@ -117,7 +117,7 @@ export default function ProblemsSection() {
                                 transition={{ duration: 0.7, delay: index * 0.15 }}
                                 className="flex items-start gap-6 lg:gap-8 group"
                             >
-                                <div className="flex-shrink-0">
+                                <div className="shrink-0">
                                     <motion.div
                                         whileHover={{ scale: 1.1, rotate: 5 }}
                                         className="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-white/10 backdrop-blur-sm border-2 border-white/20 flex items-center justify-center group-hover:border-white/40 transition-all duration-300"
@@ -148,9 +148,9 @@ export default function ProblemsSection() {
                 >
                     <div className="bg-white/10 backdrop-blur-md rounded-3xl sm:rounded-[2.5rem] p-8 sm:p-12 lg:p-16 border-2 border-white/20 shadow-2xl">
                         <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-relaxed text-center">
-                            <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">E adesso?</span>
+                            <span className="bg-linear-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">E adesso?</span>
                             {' '}Adesso sei qui, paralizzato dalla paura di buttare altri soldi, mentre guardi i tuoi competitor{' '}
-                            <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">fatturare milioni</span>
+                            <span className="bg-linear-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">fatturare milioni</span>
                             {' '}con strategie che sembrano copiate dal tuo stesso settore
                         </p>
                     </div>
@@ -183,7 +183,7 @@ export default function ProblemsSection() {
                                 whileHover={{ scale: 1.03, y: -5 }}
                                 className="flex items-center gap-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-2xl p-6 transition-all"
                             >
-                                <span className="text-4xl flex-shrink-0">{pain.icon}</span>
+                                <span className="text-4xl shrink-0">{pain.icon}</span>
                                 <span className="text-lg sm:text-xl font-semibold text-white">{pain.text}</span>
                             </motion.div>
                         ))}

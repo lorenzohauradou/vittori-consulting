@@ -262,8 +262,8 @@ export default function TestimonialsSection() {
                                 className="flex items-center gap-3"
                             >
                                 <div className="relative w-14 h-14 flex items-center justify-center shrink-0">
-                                    <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
-                                        <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                    <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-0.75">
+                                        <div className="w-full h-full rounded-full bg-white p-0.5">
                                             <div className="w-full h-full rounded-full overflow-hidden">
                                                 <Image
                                                     src={currentTestimonial.photo}
@@ -385,8 +385,8 @@ export default function TestimonialsSection() {
                                 >
                                     <div className="flex items-center gap-3 mb-4">
                                         <div className="relative w-12 h-12 flex items-center justify-center">
-                                            <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-[3px]">
-                                                <div className="w-full h-full rounded-full bg-white p-[2px]">
+                                            <div className="absolute inset-0 rounded-full bg-linear-to-tr from-[#2e54a1] via-[#4f75c7] to-[#2e54a1] p-0.75">
+                                                <div className="w-full h-full rounded-full bg-white p-0.5">
                                                     <div className="w-full h-full rounded-full overflow-hidden">
                                                         <Image
                                                             src={testimonial.photo}
@@ -490,7 +490,7 @@ export default function TestimonialsSection() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.4 }}
                             className={`relative w-full bg-linear-to-br from-gray-200 to-gray-300 rounded-2xl overflow-hidden shadow-2xl ${currentVideo.aspectRatio === '9/16'
-                                ? 'max-w-[400px] sm:max-w-[450px] lg:max-w-[500px] aspect-9/16 mx-auto'
+                                ? 'max-w-100 sm:max-w-112.5 lg:max-w-125 aspect-9/16 mx-auto'
                                 : 'max-w-full aspect-video'
                                 }`}
                         >

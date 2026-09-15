@@ -9,12 +9,12 @@ export default function CTASection() {
     const CALENDLY_URL = 'https://calendly.com/valerio-vittori/30min?hide_gdpr_banner=1'
 
     return (
-        <section className="relative py-20 bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] overflow-hidden">
+        <section className="relative py-20 bg-linear-to-br from-[#2e54a1] via-[#3d63b8] to-[#1e3a70] overflow-hidden">
             <div className="absolute inset-0">
                 <div className="absolute top-20 right-20 w-32 h-32 bg-blue-100/20 rounded-full opacity-60 animate-pulse"></div>
                 <div className="absolute bottom-20 left-20 w-24 h-24 bg-blue-200/25 rounded-full opacity-50 animate-pulse delay-1000"></div>
-                <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-blue-100/15 to-transparent rounded-full blur-3xl"></div>
-                <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-l from-blue-200/20 to-transparent rounded-full blur-2xl"></div>
+                <div className="absolute top-1/4 left-0 w-96 h-96 bg-linear-to-r from-blue-100/15 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-linear-to-l from-blue-200/20 to-transparent rounded-full blur-2xl"></div>
                 <div className="absolute top-1/3 right-1/4 w-8 h-8 bg-blue-300/40 rounded-full opacity-70 animate-bounce delay-500"></div>
                 <div className="absolute bottom-1/3 left-1/3 w-6 h-6 bg-blue-400/30 rounded-full opacity-60 animate-bounce delay-1500"></div>
             </div>
@@ -36,7 +36,7 @@ export default function CTASection() {
                 <div className="max-w-5xl mx-auto space-y-8">
                     <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 sm:p-12 shadow-2xl border-2 border-white/30">
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                            <div className="flex-shrink-0 w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                            <div className="shrink-0 w-16 h-16 bg-white rounded-full flex items-center justify-center">
                                 <svg className="w-8 h-8 text-[#2e54a1]" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                 </svg>

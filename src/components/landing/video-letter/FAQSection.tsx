@@ -85,7 +85,7 @@ export default function FAQSection() {
                             >
                                 <div className="flex items-start gap-4 flex-1">
                                     <div className={`
-                                        flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors
+                                        shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors
                                         ${openIndex === index
                                             ? 'bg-[#2e54a1] text-white'
                                             : 'bg-[#2e54a1]/10 text-[#2e54a1]'
@@ -102,7 +102,7 @@ export default function FAQSection() {
                                 </div>
 
                                 <div className={`
-                                    flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all
+                                    shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all
                                     ${openIndex === index
                                         ? 'bg-[#2e54a1] text-white rotate-180'
                                         : 'bg-gray-100 text-gray-600'

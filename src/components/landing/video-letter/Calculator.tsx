@@ -199,7 +199,7 @@ export default function Calculator() {
     }
 
     return (
-        <section id="calculator-section" className="relative py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+        <section id="calculator-section" className="relative py-20 bg-linear-to-br from-gray-50 to-white overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-100/30 rounded-full blur-3xl"></div>
 
@@ -322,7 +322,7 @@ export default function Calculator() {
 
                 {isLoading && !screenshot && (
                     <div className="max-w-2xl mx-auto">
-                        <div className="bg-gradient-to-br from-[#2e54a1] to-[#4f75c7] rounded-3xl shadow-2xl p-10 text-white min-h-[400px] flex items-center justify-center">
+                        <div className="bg-linear-to-br from-[#2e54a1] to-[#4f75c7] rounded-3xl shadow-2xl p-10 text-white min-h-100 flex items-center justify-center">
                             <div className="text-center">
                                 <Loader2 className="w-16 h-16 mx-auto mb-6 animate-spin" />
                                 <h4 className="text-2xl font-bold mb-4">
@@ -348,7 +348,7 @@ export default function Calculator() {
                     >
                         <div className="bg-white rounded-3xl shadow-2xl p-6 border border-gray-100">
                             <div className="mb-6 text-center">
-                                <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#2e54a1] to-[#4f75c7] rounded-full px-6 py-3 mb-4 shadow-lg">
+                                <div className="inline-flex items-center gap-3 bg-linear-to-r from-[#2e54a1] to-[#4f75c7] rounded-full px-6 py-3 mb-4 shadow-lg">
                                     <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
                                     <span className="text-white font-bold">Analisi AI in corso...</span>
                                 </div>
@@ -377,7 +377,7 @@ export default function Calculator() {
                                         style={{ display: 'block' }}
                                     />
                                 </motion.div>
-                                <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/60 pointer-events-none"></div>
+                                <div className="absolute inset-0 bg-linear-to-b from-white/20 via-transparent to-white/60 pointer-events-none"></div>
                             </div>
 
                             <div className="flex items-center justify-center gap-3 bg-blue-50 rounded-xl p-4">
@@ -393,21 +393,21 @@ export default function Calculator() {
                 {aiResults && (
                     <div className="max-w-6xl mx-auto">
                         <div className="grid lg:grid-cols-3 gap-6 mb-8">
-                            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center border-2 border-blue-200 hover:scale-105 transition-transform">
+                            <div className="bg-linear-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center border-2 border-blue-200 hover:scale-105 transition-transform">
                                 <DollarSign className="w-8 h-8 mx-auto mb-3 text-[#2e54a1]" />
                                 <p className="text-sm text-gray-600 mb-2 font-medium">Ticket Medio</p>
                                 <p className="text-2xl font-bold text-gray-900">
                                     {formatCurrency(aiResults.avgTicket)}
                                 </p>
                             </div>
-                            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center border-2 border-blue-200 hover:scale-105 transition-transform">
+                            <div className="bg-linear-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center border-2 border-blue-200 hover:scale-105 transition-transform">
                                 <TrendingUp className="w-8 h-8 mx-auto mb-3 text-[#2e54a1]" />
                                 <p className="text-sm text-gray-600 mb-2 font-medium">Proiezione a 6 Mesi</p>
                                 <p className="text-2xl font-bold text-gray-900">
                                     +{formatCurrency(aiResults.projections[6]?.revenue || 0)}
                                 </p>
                             </div>
-                            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center border-2 border-[#2e54a1] hover:scale-105 transition-transform">
+                            <div className="bg-linear-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center border-2 border-[#2e54a1] hover:scale-105 transition-transform">
                                 <Users className="w-8 h-8 mx-auto mb-3 text-[#2e54a1]" />
                                 <p className="text-sm text-gray-600 mb-2 font-medium">Proiezione a 12 Mesi</p>
                                 <p className="text-2xl font-bold text-gray-900">
@@ -421,7 +421,7 @@ export default function Calculator() {
                                 La tua Proiezione di Crescita
                             </h3>
 
-                            <div className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border-2 border-blue-100">
+                            <div className="mb-8 p-6 bg-linear-to-r from-blue-50 to-purple-50 rounded-2xl border-2 border-blue-100">
                                 <p className="text-base text-gray-800 leading-relaxed text-center">
                                     {aiResults.summary}
                                 </p>
@@ -462,8 +462,8 @@ export default function Calculator() {
                             <h4 className="text-2xl font-bold text-gray-900 mb-6 text-center">Insight Personalizzati</h4>
                             <div className="space-y-4">
                                 {aiResults.insights.map((insight, index) => (
-                                    <div key={index} className="flex items-start gap-4 p-4 bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl border border-gray-200 hover:border-[#2e54a1] transition-colors">
-                                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#2e54a1] to-[#4f75c7] flex items-center justify-center flex-shrink-0">
+                                    <div key={index} className="flex items-start gap-4 p-4 bg-linear-to-r from-gray-50 to-blue-50 rounded-xl border border-gray-200 hover:border-[#2e54a1] transition-colors">
+                                        <div className="w-8 h-8 rounded-full bg-linear-to-br from-[#2e54a1] to-[#4f75c7] flex items-center justify-center shrink-0">
                                             <span className="text-white text-sm font-bold">{index + 1}</span>
                                         </div>
                                         <p className="text-base text-gray-700 leading-relaxed pt-0.5">{insight}</p>

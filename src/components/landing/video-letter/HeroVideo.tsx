@@ -42,8 +42,8 @@ export default function HeroVideo() {
     }, [displayText, isDeleting, currentWordIndex])
 
     return (
-        <section className="relative min-h-screen bg-gradient-to-br from-[#2e54a1] via-[#3d63b8] to-[#4f75c7] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-white/10"></div>
+        <section className="relative min-h-screen bg-linear-to-br from-[#2e54a1] via-[#3d63b8] to-[#4f75c7] overflow-hidden">
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/5 to-white/10"></div>
             <div className="absolute top-20 right-20 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-20 left-20 w-80 h-80 bg-indigo-400/10 rounded-full blur-3xl"></div>
 
@@ -86,19 +86,19 @@ export default function HeroVideo() {
                         >
                             Marketing a{' '}
                             <span className="relative inline-block">
-                                <span className="bg-gradient-to-r from-blue-100 via-white to-blue-100 bg-clip-text text-transparent">
+                                <span className="bg-linear-to-r from-blue-100 via-white to-blue-100 bg-clip-text text-transparent">
                                     360°
                                 </span>
                                 <motion.div
                                     initial={{ scaleX: 0 }}
                                     animate={{ scaleX: 1 }}
                                     transition={{ duration: 0.8, delay: 1 }}
-                                    className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-white to-blue-200 rounded-full origin-left"
+                                    className="absolute -bottom-2 left-0 right-0 h-1 bg-linear-to-r from-blue-200 via-white to-blue-200 rounded-full origin-left"
                                 />
                             </span>
                             per imprenditori che vogliono{' '}
-                            <span className="relative inline-block min-w-[250px] sm:min-w-[300px]">
-                                <span className="bg-gradient-to-r from-blue-200 via-blue-100 to-blue-200 bg-clip-text text-transparent font-black">
+                            <span className="relative inline-block min-w-62.5 sm:min-w-75">
+                                <span className="bg-linear-to-r from-blue-200 via-blue-100 to-blue-200 bg-clip-text text-transparent font-black">
                                     {displayText}
                                     {(isDeleting || displayText !== words[currentWordIndex]) && (
                                         <span className="animate-pulse text-blue-200">|</span>
@@ -125,13 +125,13 @@ export default function HeroVideo() {
                         transition={{ duration: 0.6, delay: 0.9 }}
                         className="flex items-center justify-center gap-3 mb-12"
                     >
-                        <div className="h-px w-16 bg-gradient-to-r from-transparent to-white/30"></div>
+                        <div className="h-px w-16 bg-linear-to-r from-transparent to-white/30"></div>
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-blue-200 animate-pulse"></div>
                             <div className="w-2 h-2 rounded-full bg-blue-200 animate-pulse delay-75"></div>
                             <div className="w-2 h-2 rounded-full bg-blue-200 animate-pulse delay-150"></div>
                         </div>
-                        <div className="h-px w-16 bg-gradient-to-l from-transparent to-white/30"></div>
+                        <div className="h-px w-16 bg-linear-to-l from-transparent to-white/30"></div>
                     </motion.div>
 
                     <div className="w-full max-w-7xl mb-12">

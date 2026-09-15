@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
@@ -87,7 +87,6 @@ export default function TestimonialsShowcase({ testimonials, libraryId, logoSrc,
     }, [paginate, total])
 
     const active = testimonials[index]
-    const topResult = useMemo(() => testimonials.find((item) => item.result)?.result, [testimonials])
 
     const slideVariants = {
         enter: (dir: number) => ({
@@ -111,7 +110,7 @@ export default function TestimonialsShowcase({ testimonials, libraryId, logoSrc,
                     alt="VC Arreda"
                     width={1340}
                     height={385}
-                    className="h-auto w-[280px] sm:w-[380px] lg:w-[440px]"
+                    className="h-auto w-70 sm:w-95 lg:w-110"
                     priority
                 />
                 <div
@@ -205,7 +204,7 @@ export default function TestimonialsShowcase({ testimonials, libraryId, logoSrc,
                             <div
                                 className={
                                     active.aspect === '9/16'
-                                        ? 'order-2 mx-auto w-full max-w-[320px] sm:max-w-[360px] lg:order-1 lg:col-span-5 lg:mx-0 lg:ml-auto'
+                                        ? 'order-2 mx-auto w-full max-w-[320px] sm:max-w-90 lg:order-1 lg:col-span-5 lg:mx-0 lg:ml-auto'
                                         : 'order-2 lg:order-1 lg:col-span-8'
                                 }
                             >
@@ -319,32 +318,7 @@ function Panel({
     )
 }
 
-function Stat({
-    value,
-    label,
-    divided,
-}: {
-    value: string
-    label: string
-    divided?: boolean
-}) {
-    return (
-        <div
-            className="px-3 py-5 text-center sm:px-6 sm:py-6"
-            style={divided ? { borderLeft: '1px solid rgba(156,120,64,0.22)' } : undefined}
-        >
-            <p className="text-xl font-bold sm:text-[1.7rem]" style={{ color: C.burgundyDeep }}>
-                {value}
-            </p>
-            <p
-                className="mt-1.5 text-[9px] font-semibold uppercase leading-snug tracking-[0.14em] sm:text-[10px]"
-                style={{ color: 'rgba(60,14,19,0.55)' }}
-            >
-                {label}
-            </p>
-        </div>
-    )
-}
+
 
 function NavButton({
     children,
@@ -379,7 +353,7 @@ function VideoFrame({ aspect, src, title }: { aspect: string; src: string; title
 
     return (
         <div
-            className="rounded-sm p-[2px]"
+            className="rounded-sm p-0.5"
             style={{ background: BRASS_EDGE, boxShadow: '0 30px 70px rgba(45,10,14,0.45)' }}
         >
             <div className="rounded-[2px] p-2 sm:p-2.5" style={{ backgroundColor: C.ivory }}>
@@ -393,7 +367,7 @@ function VideoFrame({ aspect, src, title }: { aspect: string; src: string; title
                                 className="flex h-16 w-16 items-center justify-center rounded-full"
                                 style={{ border: `1px solid ${C.brass}`, color: C.brassLight }}
                             >
-                                <Play className="h-6 w-6 translate-x-[1px]" fill="currentColor" />
+                                <Play className="h-6 w-6 translate-x-px" fill="currentColor" />
                             </div>
                         </div>
                     )}
@@ -418,7 +392,7 @@ function LogoBadge({ item, size = 'lg' }: { item: Testimonial; size?: 'lg' | 'sm
     if (!item.logo) {
         return (
             <div
-                className={`flex shrink-0 items-center justify-center rounded-sm font-semibold ${big ? 'h-[76px] w-[76px] text-xl' : 'h-14 w-14 text-sm'
+                className={`flex shrink-0 items-center justify-center rounded-sm font-semibold ${big ? 'h-19 w-19 text-xl' : 'h-14 w-14 text-sm'
                     }`}
                 style={{
                     backgroundColor: '#FFFFFF',
@@ -433,7 +407,7 @@ function LogoBadge({ item, size = 'lg' }: { item: Testimonial; size?: 'lg' | 'sm
 
     return (
         <div
-            className={`flex shrink-0 items-center justify-center rounded-sm bg-white ${big ? 'h-[76px] min-w-[132px] px-5' : 'h-14 min-w-[92px] px-3'
+            className={`flex shrink-0 items-center justify-center rounded-sm bg-white ${big ? 'h-19 min-w-33 px-5' : 'h-14 min-w-23 px-3'
                 }`}
             style={{ border: '1px solid rgba(156,120,64,0.35)' }}
         >
@@ -477,7 +451,7 @@ function InfoPanel({
                         )}
                         {item.company && (
                             <p
-                                className="mt-1 text-sm font-medium uppercase tracking-[0.1em]"
+                                className="mt-1 text-sm font-medium uppercase tracking-widest"
                                 style={{ color: 'rgba(60,14,19,0.55)' }}
                             >
                                 {item.company}
@@ -535,7 +509,7 @@ function ThumbnailRail({
                             type="button"
                             onClick={() => onSelect(i)}
                             aria-current={isActive}
-                            className="group relative w-[268px] overflow-hidden rounded-sm p-4 text-left transition-all duration-300 hover:-translate-y-0.5 sm:w-auto"
+                            className="group relative w-67 overflow-hidden rounded-sm p-4 text-left transition-all duration-300 hover:-translate-y-0.5 sm:w-auto"
                             style={{
                                 backgroundColor: isActive ? C.ivory : C.ivoryDim,
                                 border: `1px solid ${isActive ? 'rgba(156,120,64,0.65)' : 'rgba(156,120,64,0.22)'}`,
@@ -547,7 +521,7 @@ function ThumbnailRail({
                         >
                             {isActive && (
                                 <span
-                                    className="absolute inset-x-0 top-0 h-[3px]"
+                                    className="absolute inset-x-0 top-0 h-0.75"
                                     style={{ background: BRASS_EDGE }}
                                 />
                             )}
