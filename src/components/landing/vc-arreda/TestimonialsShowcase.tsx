@@ -155,31 +155,6 @@ export default function TestimonialsShowcase({ testimonials, libraryId, logoSrc,
                     la loro esperienza con noi
                 </motion.p>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 22 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.65, delay: 0.24, ease: 'easeOut' }}
-                    className="mx-auto mt-10 max-w-3xl"
-                >
-                    <Panel className="grid grid-cols-3">
-                        <Stat
-                            value="+100"
-                            label="Showroom seguiti"
-                        />
-                        <Stat
-                            value={String(total)}
-                            label={total === 1 ? 'Testimonianza video' : 'Testimonianze video'}
-                            divided
-                        />
-                        {topResult && (
-                            <Stat
-                                value={topResult.split(' ')[0]}
-                                label="Miglior risultato"
-                                divided
-                            />
-                        )}
-                    </Panel>
-                </motion.div>
             </section>
 
             {/* Slider */}
