@@ -22,6 +22,7 @@ function teamPhotoStyle(memberName: string): React.CSSProperties | undefined {
     if (memberName === 'Edoardo') return { objectPosition: 'center 35%' }
     if (memberName === 'Patrizia') return { objectPosition: 'center 15%' }
     if (memberName === 'Fancesco') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
+    if (memberName === 'Cristina') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
     if (memberName === 'Veronica') {
         return {
             objectPosition: 'center 2%',
@@ -133,6 +134,14 @@ export default function About() {
             photo: 'https://vittoriconsulting.b-cdn.net/team/francesco.jpg',
             position: 'bottom-right',
             delay: 2.0
+        },
+        {
+            name: 'Cristina',
+            role: 'Setter',
+            quote: 'Il punto di contatto tra il tuo business e il cliente soddisfatto',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/cristina.jpg',
+            position: 'center',
+            delay: 2.2
         },
     ]
 
