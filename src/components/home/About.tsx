@@ -23,6 +23,7 @@ function teamPhotoStyle(memberName: string): React.CSSProperties | undefined {
     if (memberName === 'Patrizia') return { objectPosition: 'center 15%' }
     if (memberName === 'Fancesco') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
     if (memberName === 'Cristina') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
+    if (memberName === 'Camilla') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
     if (memberName === 'Veronica') {
         return {
             objectPosition: 'center 2%',
@@ -64,7 +65,7 @@ export default function About() {
             delay: 0.2
         },
         {
-            name: 'Camilla',
+            name: 'Camilla ',
             role: 'Social Media Manager',
             quote: 'La creatività è un\'arma e lei sa come usarla',
             photo: 'https://vittoriconsulting.b-cdn.net/team/camilla.jpg',
@@ -142,6 +143,14 @@ export default function About() {
             photo: 'https://vittoriconsulting.b-cdn.net/team/cristina.jpg',
             position: 'center',
             delay: 2.2
+        },
+        {
+            name: 'Camilla',
+            role: 'Social Media Manager',
+            quote: 'Spiego il tuo brand giocando con le emozioni',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/camilla1.jpg',
+            position: 'center',
+            delay: 2.4
         },
     ]
 
