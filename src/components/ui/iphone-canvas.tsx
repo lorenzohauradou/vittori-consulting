@@ -138,7 +138,7 @@ export default function IPhoneCanvas({
                 viewport={{ once: true, margin: "-50px" }}
                 className="relative"
             >
-                <div className="relative w-80 h-[600px] bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
+                <div className="relative w-80 h-150 bg-linear-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
                     <div className="relative w-full h-full bg-black rounded-[2.5rem] overflow-hidden">
                         <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full z-20"></div>
 
@@ -147,7 +147,7 @@ export default function IPhoneCanvas({
                             whileInView={{ opacity: 1 }}
                             transition={{ duration: 0.4, delay: 0.1 }}
                             viewport={{ once: true, margin: "-50px" }}
-                            className="relative w-full h-full bg-gradient-to-br from-blue-50 to-white rounded-[2.2rem] overflow-hidden"
+                            className="relative w-full h-full bg-linear-to-br from-blue-50 to-white rounded-[2.2rem] overflow-hidden"
                         >
                             <div className="absolute top-0 left-0 right-0 h-12 bg-transparent z-10 flex items-center justify-between px-8 pt-4">
                                 <span className="text-black text-sm font-semibold">9:41</span>
@@ -252,7 +252,7 @@ export default function IPhoneCanvas({
                                             )}
                                         </>
                                     ) : (
-                                        <div className="w-full h-full bg-gradient-to-br from-[#2e54a1] to-blue-600 flex flex-col items-center justify-center">
+                                        <div className="w-full h-full bg-linear-to-br from-[#2e54a1] to-blue-600 flex flex-col items-center justify-center">
                                             {showVideo && (
                                                 <motion.div
                                                     animate={{
@@ -326,7 +326,7 @@ export default function IPhoneCanvas({
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.9 }}
                     viewport={{ once: true, margin: "-50px" }}
-                    className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg"
+                    className="absolute -top-4 -right-4 w-16 h-16 bg-linear-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg"
                 >
                     <motion.img
                         src="/images/icons/rocket.png"
@@ -349,7 +349,7 @@ export default function IPhoneCanvas({
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 1 }}
                     viewport={{ once: true, margin: "-50px" }}
-                    className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg"
+                    className="absolute -bottom-4 -left-4 w-12 h-12 bg-linear-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg"
                 >
                     <motion.svg
                         animate={{

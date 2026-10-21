@@ -317,6 +317,9 @@ export default function Footer() {
                             <Link href="#terms" className="text-gray-400 hover:text-white transition-colors duration-300">
                                 Termini di Servizio
                             </Link>
+                            <Link href="/area-riservata" className="text-gray-400 hover:text-white transition-colors duration-300">
+                                Area Riservata
+                            </Link>
                         </div>
                     </div>
                 </div>

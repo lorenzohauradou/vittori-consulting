@@ -21,7 +21,7 @@ function teamPhotoStyle(memberName: string): React.CSSProperties | undefined {
     if (memberName === 'Lorenzo') return { objectPosition: 'center 70%' }
     if (memberName === 'Edoardo') return { objectPosition: 'center 35%' }
     if (memberName === 'Patrizia') return { objectPosition: 'center 15%' }
-    if (memberName === 'Fancesco') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
+    if (memberName === 'Francesco') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
     if (memberName === 'Cristina') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
     if (memberName === 'Camilla') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
     if (memberName === 'Veronica') {
@@ -129,7 +129,7 @@ export default function About() {
             delay: 1.8
         },
         {
-            name: 'Fancesco',
+            name: 'Francesco',
             role: 'Project Manager',
             quote: 'Il Direttore d\'Orchestra del Tuo Marketing',
             photo: 'https://vittoriconsulting.b-cdn.net/team/francesco.jpg',

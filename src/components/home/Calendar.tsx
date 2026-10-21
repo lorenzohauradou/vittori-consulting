@@ -16,7 +16,7 @@ export default function Calendar() {
 
                 <div className="absolute top-1/4 right-0 w-96 h-96 bg-linear-to-l from-[#2e54a1]/8 via-blue-100/15 to-transparent rounded-full blur-3xl"></div>
                 <div className="absolute bottom-1/3 left-0 w-80 h-80 bg-linear-to-r from-blue-200/20 via-[#2e54a1]/5 to-transparent rounded-full blur-2xl"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-linear-to-br from-blue-100/10 via-[#2e54a1]/3 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-150 h-100 bg-linear-to-br from-blue-100/10 via-[#2e54a1]/3 to-transparent rounded-full blur-3xl"></div>
 
                 <div className="absolute inset-0 opacity-[0.03]">
                     <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-linear-to-br from-[#2e54a1] to-blue-600 rounded-full animate-pulse"></div>
