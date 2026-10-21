@@ -25,12 +25,3 @@ export function describeDueDate(dueDate: string, today: string) {
 export function formatMeetingDate(value: string) {
     return meetingDate.format(new Date(value))
 }
-
-export function initials(fullName: string) {
-    return fullName
-        .split(' ')
-        .filter(Boolean)
-        .slice(0, 2)
-        .map((part) => part[0]!.toUpperCase())
-        .join('')
-}

@@ -17,7 +17,8 @@
 
 insert into public.team_members (email, full_name, role, fathom_aliases) values
   (lower('valerio.vittorii@gmail.com'), 'Valerio Vittori', 'admin',  '{}'),
-  (lower('lorenzooradu@gmail.com'), 'Lorenzo',         'admin',  '{}');
+  (lower('lorenzooradu@gmail.com'), 'Lorenzo',         'admin',  '{}'),
+  (lower('francescovc26@gmail.com'), 'Francesco', 'admin',  '{}');
 
   -- (lower('camilla.zamagni@gmail.com'), 'Camilla',         'member', '{}'),
   -- (lower('camilla.zamagni@gmail.com'), 'Camilla',         'member', '{}'),
