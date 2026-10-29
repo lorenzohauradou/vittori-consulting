@@ -24,6 +24,7 @@ function teamPhotoStyle(memberName: string): React.CSSProperties | undefined {
     if (memberName === 'Francesco') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
     if (memberName === 'Cristina') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
     if (memberName === 'Camilla') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
+    if (memberName === 'Alessia') return { objectPosition: 'center 20%' }
     if (memberName === 'Veronica') {
         return {
             objectPosition: 'center 2%',
@@ -151,6 +152,14 @@ export default function About() {
             photo: 'https://vittoriconsulting.b-cdn.net/team/camilla1.jpg',
             position: 'center',
             delay: 2.4
+        },
+        {
+            name: 'Alessia',
+            role: 'Setter',
+            quote: 'La mia missione è quella di aiutarti a vendere di più',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/alessia.jpg',
+            position: 'center',
+            delay: 2.6
         },
     ]
 
