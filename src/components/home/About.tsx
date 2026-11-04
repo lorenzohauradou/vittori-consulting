@@ -25,6 +25,7 @@ function teamPhotoStyle(memberName: string): React.CSSProperties | undefined {
     if (memberName === 'Cristina') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
     if (memberName === 'Camilla') return { objectPosition: 'center 70%', transform: 'scale(1.10)' }
     if (memberName === 'Alessia') return { objectPosition: 'center 20%' }
+    if (memberName === 'Lara') return { objectPosition: 'center 20%' }
     if (memberName === 'Veronica') {
         return {
             objectPosition: 'center 2%',
@@ -160,6 +161,14 @@ export default function About() {
             photo: 'https://vittoriconsulting.b-cdn.net/team/alessia.jpg',
             position: 'center',
             delay: 2.6
+        },
+        {
+            name: 'Lara',
+            role: 'Social Media Manager',
+            quote: 'Le strategie social che lasciano il segno. Meno rumore, più risultati.',
+            photo: 'https://vittoriconsulting.b-cdn.net/team/lara.jpeg',
+            position: 'center',
+            delay: 2.8
         },
     ]
 
