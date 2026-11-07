@@ -32,6 +32,19 @@ const testimonials: Testimonial[] = [
         aspect: "9/16",
     },
     {
+        id: "b624847f-4ca1-4dc7-8ec1-8a9898927192",
+        name: "Antonio",
+        company: "Centro Legno Arreda",
+        result: "Da zero a 8 appuntamenti a settimana",
+        logo: {
+            src: "https://vittoriconsulting.b-cdn.net/partners/centrolegno.jpg",
+            alt: "Centro Legno Arreda",
+            onWhite: true,
+        },
+        aspect: "16/9",
+        preload: true,
+    },
+    {
         id: "02656b32-9bcf-4ce0-8969-b0f5071b1c14",
         name: "Flavio",
         company: "Aran Cucine",
